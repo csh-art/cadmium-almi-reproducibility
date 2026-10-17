@@ -1,0 +1,211 @@
+"variable","label","level","group","unweighted_n","weighted_population","weighted_percent"
+"sex","Sex","Female","Overall",3846,62866831.0612008,49.6544968462942
+"sex","Sex","Female","Q1",620,12367558.5818626,35.2244819553377
+"sex","Sex","Female","Q2",769,13797126.1314575,45.9751387374314
+"sex","Sex","Female","Q3",1230,19097893.3728536,62.8137922430265
+"sex","Sex","Female","Q4",1227,17604252.9750272,56.6346471570685
+"sex","Sex","Male","Overall",3782,63741704.0243635,50.3455031537058
+"sex","Sex","Male","Q1",1114,22743131.1865316,64.7755180446623
+"sex","Sex","Male","Q2",881,16212845.5844611,54.0248612625686
+"sex","Sex","Male","Q3",786,11306087.4900815,37.1862077569735
+"sex","Sex","Male","Q4",1001,13479639.7632893,43.3653528429315
+"race","Race/ethnicity","Non-Hispanic White","Overall",2644,77546983.8006414,61.2494124098614
+"race","Race/ethnicity","Non-Hispanic White","Q1",732,23688425.9626553,67.4678456017663
+"race","Race/ethnicity","Non-Hispanic White","Q2",545,18039944.17907,60.1131662163508
+"race","Race/ethnicity","Non-Hispanic White","Q3",549,16862404.5763504,55.4611734968791
+"race","Race/ethnicity","Non-Hispanic White","Q4",818,18956209.0825657,60.9840255277898
+"race","Race/ethnicity","Non-Hispanic Black","Overall",1621,14166466.3030658,11.1891874378705
+"race","Race/ethnicity","Non-Hispanic Black","Q1",292,2761877.48051078,7.86620114480622
+"race","Race/ethnicity","Non-Hispanic Black","Q2",347,3132620.56298705,10.4385988518789
+"race","Race/ethnicity","Non-Hispanic Black","Q3",453,3842413.51076485,12.6378632064233
+"race","Race/ethnicity","Non-Hispanic Black","Q4",529,4429554.74880311,14.2503218181
+"race","Race/ethnicity","Mexican American","Overall",1097,13216645.1398775,10.4389843314635
+"race","Race/ethnicity","Mexican American","Q1",297,3806846.54785796,10.8424145836201
+"race","Race/ethnicity","Mexican American","Q2",298,3790764.91764365,12.6316844065297
+"race","Race/ethnicity","Mexican American","Q3",319,3605092.73798643,11.8573049833133
+"race","Race/ethnicity","Mexican American","Q4",183,2013940.9363895,6.47904994829351
+"race","Race/ethnicity","Other Hispanic","Overall",789,9607236.61547047,7.58814293916103
+"race","Race/ethnicity","Other Hispanic","Q1",232,3156132.14339428,8.98909182420951
+"race","Race/ethnicity","Other Hispanic","Q2",200,2488993.41304556,8.29388790035177
+"race","Race/ethnicity","Other Hispanic","Q3",206,2259658.64152556,7.4321144053878
+"race","Race/ethnicity","Other Hispanic","Q4",151,1702452.41750508,5.47696014729358
+"race","Race/ethnicity","Non-Hispanic Asian","Overall",1157,7607994.3771812,6.00906911373675
+"race","Race/ethnicity","Non-Hispanic Asian","Q1",111,744777.327682659,2.12122670501646
+"race","Race/ethnicity","Non-Hispanic Asian","Q2",189,1368215.16086646,4.55920176739355
+"race","Race/ethnicity","Non-Hispanic Asian","Q3",410,2737814.67451551,9.00479015184858
+"race","Race/ethnicity","Non-Hispanic Asian","Q4",447,2757187.21411656,8.87014775571477
+"race","Race/ethnicity","Other or multiracial","Overall",320,4463208.84932794,3.52520376790681
+"race","Race/ethnicity","Other or multiracial","Q1",70,952630.306293148,2.71322014058147
+"race","Race/ethnicity","Other or multiracial","Q2",71,1189433.48230586,3.96346085749537
+"race","Race/ethnicity","Other or multiracial","Q3",79,1096596.72179243,3.60675375614798
+"race","Race/ethnicity","Other or multiracial","Q4",100,1224548.3389365,3.93949480280835
+"survey_cycle","NHANES survey cycle","2011-2012","Overall",2604,31175037.498005,24.6231721083704
+"survey_cycle","NHANES survey cycle","2011-2012","Q1",511,7469634.00204025,21.2745293564818
+"survey_cycle","NHANES survey cycle","2011-2012","Q2",533,6779712.98580525,22.5915340740191
+"survey_cycle","NHANES survey cycle","2011-2012","Q3",732,8279453.2451045,27.2314776227142
+"survey_cycle","NHANES survey cycle","2011-2012","Q4",828,8646237.265055,27.8158123174739
+"survey_cycle","NHANES survey cycle","2013-2014","Overall",1523,35319702.4434808,27.8967783803921
+"survey_cycle","NHANES survey cycle","2013-2014","Q1",386,10429314.6093536,29.7041005977099
+"survey_cycle","NHANES survey cycle","2013-2014","Q2",361,8682497.67958758,28.9320421951015
+"survey_cycle","NHANES survey cycle","2013-2014","Q3",342,7462616.99711629,24.5448680906578
+"survey_cycle","NHANES survey cycle","2013-2014","Q4",434,8745273.15742331,28.1344207144403
+"survey_cycle","NHANES survey cycle","2015-2016","Overall",1337,32331819.2537852,25.5368401758498
+"survey_cycle","NHANES survey cycle","2015-2016","Q1",323,9332053.2942345,26.5789517545594
+"survey_cycle","NHANES survey cycle","2015-2016","Q2",298,7806344.00113475,26.0125003616512
+"survey_cycle","NHANES survey cycle","2015-2016","Q3",367,7948172.31865325,26.1418804152146
+"survey_cycle","NHANES survey cycle","2015-2016","Q4",349,7245249.63976275,23.3086946373087
+"survey_cycle","NHANES survey cycle","2017-2018","Overall",2164,27781975.8902933,21.9432093353878
+"survey_cycle","NHANES survey cycle","2017-2018","Q1",514,7879687.86276577,22.442418291249
+"survey_cycle","NHANES survey cycle","2017-2018","Q2",458,6741417.049391,22.4639233692282
+"survey_cycle","NHANES survey cycle","2017-2018","Q3",575,6713738.30206114,22.0817738714134
+"survey_cycle","NHANES survey cycle","2017-2018","Q4",617,6447132.67607539,20.7410723307771
+"education","Education","College graduate or above","Overall",2105,41480601.6663875,32.7628794048949
+"education","Education","College graduate or above","Q1",516,12624407.9228889,35.9560236673366
+"education","Education","College graduate or above","Q2",532,11785357.3132357,39.2714709123976
+"education","Education","College graduate or above","Q3",648,11543301.8510419,37.9664159870398
+"education","Education","College graduate or above","Q4",409,5527534.5792209,17.7826330368436
+"education","Education","Some college or associate degree","Overall",2485,41244892.1606655,32.5767075124844
+"education","Education","Some college or associate degree","Q1",588,11541739.1573362,32.8724363818275
+"education","Education","Some college or associate degree","Q2",539,9396460.88818779,31.3111287712527
+"education","Education","Some college or associate degree","Q3",625,9546420.3254419,31.398586811636
+"education","Education","Some college or associate degree","Q4",733,10760271.7896997,34.6168733764666
+"education","Education","High school or GED","Overall",1675,27831244.3570442,21.9821233522964
+"education","Education","High school or GED","Q1",363,7493533.24103381,21.3425976261489
+"education","Education","High school or GED","Q2",328,5972246.1059951,19.9008721585271
+"education","Education","High school or GED","Q3",401,5731757.36325819,18.8519963523778
+"education","Education","High school or GED","Q4",583,8633707.64675714,27.7755032789524
+"education","Education","Less than high school","Overall",1362,16047064.3850369,12.6745518176891
+"education","Education","Less than high school","Q1",267,3451009.44713525,9.82894232468704
+"education","Education","Less than high school","Q2",251,2855907.40849998,9.51652815782255
+"education","Education","Less than high school","Q3",342,3582501.32319314,11.7830008489464
+"education","Education","Less than high school","Q4",502,6157646.20620854,19.8097653278096
+"education","Education","Missing","Overall",1,4732.51643019218,0.00373791263518993
+"education","Education","Missing","Q1",0,0,0
+"education","Education","Missing","Q2",0,0,0
+"education","Education","Missing","Q3",0,0,0
+"education","Education","Missing","Q4",1,4732.51643019218,0.0152249799278149
+"marital","Marital status","Married or living with partner","Overall",4508,77972234.8752304,61.5852910884209
+"marital","Marital status","Married or living with partner","Q1",1008,21459417.7389781,61.1193282744771
+"marital","Marital status","Married or living with partner","Q2",1005,19167732.8548374,63.8712126631896
+"marital","Marital status","Married or living with partner","Q3",1258,19745937.0314779,64.9452356929671
+"marital","Marital status","Married or living with partner","Q4",1237,17599147.249937,56.6182215274567
+"marital","Marital status","Never married","Overall",2038,32087590.9887314,25.3439398592252
+"marital","Marital status","Never married","Q1",581,11296114.8146718,32.1728649855246
+"marital","Marital status","Never married","Q2",449,7376443.50441802,24.5799748638391
+"marital","Marital status","Never married","Q3",478,6605193.5088953,21.7247653807977
+"marital","Marital status","Never married","Q4",530,6809839.16074627,21.907935463797
+"marital","Marital status","Widowed, divorced, or separated","Overall",1081,16543976.7051724,13.0670311397187
+"marital","Marital status","Widowed, divorced, or separated","Q1",145,2355157.21474424,6.70780673999831
+"marital","Marital status","Widowed, divorced, or separated","Q2",196,3465795.35666315,11.5488124729712
+"marital","Marital status","Widowed, divorced, or separated","Q3",280,4052850.32256202,13.3299989262352
+"marital","Marital status","Widowed, divorced, or separated","Q4",460,6670173.81120296,21.4586180288184
+"marital","Marital status","Missing","Overall",1,4732.51643019218,0.00373791263518993
+"marital","Marital status","Missing","Q1",0,0,0
+"marital","Marital status","Missing","Q2",0,0,0
+"marital","Marital status","Missing","Q3",0,0,0
+"marital","Marital status","Missing","Q4",1,4732.51643019218,0.0152249799278149
+"smoking_status","Smoking status","Never","Overall",4649,74859871.5765695,59.1270339918062
+"smoking_status","Smoking status","Never","Q1",1430,28484146.4579043,81.126707124806
+"smoking_status","Smoking status","Never","Q2",1261,22070537.7391328,73.5440137966728
+"smoking_status","Smoking status","Never","Q3",1336,17764114.6621814,58.4269367299768
+"smoking_status","Smoking status","Never","Q4",622,6541072.71735103,21.0432868637717
+"smoking_status","Smoking status","Former","Overall",1288,25136842.7070966,19.8539874820514
+"smoking_status","Smoking status","Former","Q1",273,6061876.55344188,17.2650454702791
+"smoking_status","Smoking status","Former","Q2",320,6592870.41304296,21.9689324450307
+"smoking_status","Smoking status","Former","Q3",432,8412020.16778987,27.6674959299319
+"smoking_status","Smoking status","Former","Q4",263,4070075.57282186,13.0938412607658
+"smoking_status","Smoking status","Current","Overall",1687,26590052.655417,21.0017852567735
+"smoking_status","Smoking status","Current","Q1",31,564666.757047925,1.60824740491491
+"smoking_status","Smoking status","Current","Q2",69,1346563.56374286,4.48705375829655
+"smoking_status","Smoking status","Current","Q3",247,4220534.23948841,13.8815185370465
+"smoking_status","Smoking status","Current","Q4",1340,20458288.0951378,65.8163643381748
+"smoking_status","Smoking status","Missing","Overall",4,21768.14648125,0.0171932693688768
+"smoking_status","Smoking status","Missing","Q1",0,0,0
+"smoking_status","Smoking status","Missing","Q2",0,0,0
+"smoking_status","Smoking status","Missing","Q3",1,7311.7934755,0.0240488030447804
+"smoking_status","Smoking status","Missing","Q4",3,14456.35300575,0.0465075372877283
+"alcohol_status","Alcohol consumption","None or rare","Overall",3315,47946511.1703997,37.8698885805736
+"alcohol_status","Alcohol consumption","None or rare","Q1",742,12514729.1830409,35.6436437608992
+"alcohol_status","Alcohol consumption","None or rare","Q2",712,11069641.3040376,36.8865436089892
+"alcohol_status","Alcohol consumption","None or rare","Q3",928,12370517.1051098,40.6871625162429
+"alcohol_status","Alcohol consumption","None or rare","Q4",933,11991623.5782113,38.5782555588011
+"alcohol_status","Alcohol consumption","Less than weekly","Overall",1598,27107976.5050613,21.410860244723
+"alcohol_status","Alcohol consumption","Less than weekly","Q1",376,7379348.87007539,21.0173850720475
+"alcohol_status","Alcohol consumption","Less than weekly","Q2",392,7402913.79731749,24.6681798550002
+"alcohol_status","Alcohol consumption","Less than weekly","Q3",423,6388775.59292512,21.0129575522577
+"alcohol_status","Alcohol consumption","Less than weekly","Q4",407,5936938.24474333,19.0997256834084
+"alcohol_status","Alcohol consumption","Weekly or more","Overall",2257,45147351.4495832,35.6590109972221
+"alcohol_status","Alcohol consumption","Weekly or more","Q1",526,13556890.467206,38.6118602529125
+"alcohol_status","Alcohol consumption","Weekly or more","Q2",462,10279723.3763492,34.2543587633454
+"alcohol_status","Alcohol consumption","Weekly or more","Q3",549,10151412.3538864,33.3884315993035
+"alcohol_status","Alcohol consumption","Weekly or more","Q4",720,11159325.2521415,35.9006683818133
+"alcohol_status","Alcohol consumption","Missing","Overall",458,6406695.96052017,5.06024017748125
+"alcohol_status","Alcohol consumption","Missing","Q1",90,1659721.24807187,4.72711091414079
+"alcohol_status","Alcohol consumption","Missing","Q2",84,1257693.23821423,4.1909177726652
+"alcohol_status","Alcohol consumption","Missing","Q3",116,1493275.81101381,4.91144833219595
+"alcohol_status","Alcohol consumption","Missing","Q4",168,1996005.66322026,6.42135037597728
+"physical_activity","Physical activity","Meets guideline","Overall",5207,89273369.4870029,70.5113359274478
+"physical_activity","Physical activity","Meets guideline","Q1",1276,26044109.5560336,74.1771515394094
+"physical_activity","Physical activity","Meets guideline","Q2",1146,21298720.979553,70.9721461291989
+"physical_activity","Physical activity","Meets guideline","Q3",1329,20652307.570186,67.9263273559115
+"physical_activity","Physical activity","Meets guideline","Q4",1456,21278231.3812302,68.4542041126045
+"physical_activity","Physical activity","Below guideline","Overall",2381,36720056.1993641,29.0028284227031
+"physical_activity","Physical activity","Below guideline","Q1",452,8957357.9533322,25.5117686733555
+"physical_activity","Physical activity","Below guideline","Q2",500,8600194.73985983,28.6577902214347
+"physical_activity","Physical activity","Below guideline","Q3",675,9630165.72152385,31.6740290192189
+"physical_activity","Physical activity","Below guideline","Q4",754,9532337.78464822,30.6664865462552
+"physical_activity","Physical activity","Missing","Overall",40,615109.399197398,0.485835649849116
+"physical_activity","Physical activity","Missing","Q1",6,109222.259028315,0.311079787235151
+"physical_activity","Physical activity","Missing","Q2",4,111055.99650575,0.370063649366391
+"physical_activity","Physical activity","Missing","Q3",12,121507.57122529,0.399643624869587
+"physical_activity","Physical activity","Missing","Q4",18,273323.572438044,0.879309341140286
+"hypertension","Hypertension","No","Overall",5815,98292373.7417247,77.6348716737753
+"hypertension","Hypertension","No","Q1",1369,27868945.6372177,79.3745318621016
+"hypertension","Hypertension","No","Q2",1297,24399448.6052001,81.3044705145708
+"hypertension","Hypertension","No","Q3",1531,23671125.1745638,77.8553482232345
+"hypertension","Hypertension","No","Q4",1618,22352854.3247432,71.9113738839707
+"hypertension","Hypertension","Yes","Overall",1806,28262008.6947854,22.322356605489
+"hypertension","Hypertension","Yes","Q1",362,7207375.91980098,20.5275828169257
+"hypertension","Hypertension","Yes","Q2",353,5610523.11071851,18.6955294854292
+"hypertension","Hypertension","Yes","Q3",484,6724369.76844441,22.1167412213508
+"hypertension","Hypertension","Yes","Q4",607,8719739.89582146,28.0522776514179
+"hypertension","Hypertension","Missing","Overall",7,54152.6490543421,0.0427717207356871
+"hypertension","Hypertension","Missing","Q1",3,34368.2113755165,0.0978853209726857
+"hypertension","Hypertension","Missing","Q2",0,0,0
+"hypertension","Hypertension","Missing","Q3",1,8485.919927,0.0279105554146201
+"hypertension","Hypertension","Missing","Q4",3,11298.5177518255,0.0363484646113776
+"diabetes","Diabetes","No","Overall",6921,117199347.916325,92.5682836762306
+"diabetes","Diabetes","No","Q1",1568,32569421.5098125,92.7621237994897
+"diabetes","Diabetes","No","Q2",1490,27586341.985478,91.9239186448316
+"diabetes","Diabetes","No","Q3",1820,28072606.1978047,92.3320085101993
+"diabetes","Diabetes","No","Q4",2043,28970978.2232299,93.2025421240694
+"diabetes","Diabetes","Borderline","Overall",140,2396933.9032393,1.89318508552319
+"diabetes","Diabetes","Borderline","Q1",35,630001.10379671,1.79432847361439
+"diabetes","Diabetes","Borderline","Q2",31,781517.039969148,2.60419119140521
+"diabetes","Diabetes","Borderline","Q3",38,509308.574520958,1.67513779467558
+"diabetes","Diabetes","Borderline","Q4",36,476107.184952483,1.53168455753161
+"diabetes","Diabetes","Yes","Overall",561,6951463.78636917,5.49051750869027
+"diabetes","Diabetes","Yes","Q1",131,1911267.1547849,5.44354772689591
+"diabetes","Diabetes","Yes","Q2",129,1642112.69047145,5.47189016376315
+"diabetes","Diabetes","Yes","Q3",156,1802564.86621721,5.92871332982147
+"diabetes","Diabetes","Yes","Q4",145,1595519.07489561,5.13294486095318
+"diabetes","Diabetes","Missing","Overall",6,60789.4796307651,0.0480137295559754
+"diabetes","Diabetes","Missing","Q1",0,0,0
+"diabetes","Diabetes","Missing","Q2",0,0,0
+"diabetes","Diabetes","Missing","Q3",2,19501.2243923481,0.0641403653036818
+"diabetes","Diabetes","Missing","Q4",4,41288.255238417,0.132828457445813
+"hyperlipidemia","Hyperlipidemia","No","Overall",5691,94296419.9657883,74.4787228618206
+"hyperlipidemia","Hyperlipidemia","No","Q1",1299,26053217.1922398,74.2030913209012
+"hyperlipidemia","Hyperlipidemia","No","Q2",1213,22938445.0172474,76.436076762711
+"hyperlipidemia","Hyperlipidemia","No","Q3",1485,22176306.7024134,72.9388260122477
+"hyperlipidemia","Hyperlipidemia","No","Q4",1694,23128451.0538878,74.4065463376722
+"hyperlipidemia","Hyperlipidemia","Yes","Overall",1903,31847208.5140384,25.1540770869163
+"hyperlipidemia","Hyperlipidemia","Yes","Q1",428,8954804.8274889,25.5044970251476
+"hyperlipidemia","Hyperlipidemia","Yes","Q2",433,7004388.63103298,23.3402040406374
+"hyperlipidemia","Hyperlipidemia","Yes","Q3",520,8063571.88671979,26.5214345551372
+"hyperlipidemia","Hyperlipidemia","Yes","Q4",522,7824443.16879671,25.1720183011431
+"hyperlipidemia","Hyperlipidemia","Missing","Overall",34,464906.605737645,0.367200051263094
+"hyperlipidemia","Hyperlipidemia","Missing","Q1",7,102667.748665436,0.292411653951201
+"hyperlipidemia","Hyperlipidemia","Missing","Q2",4,67138.0676382066,0.223719196651537
+"hyperlipidemia","Hyperlipidemia","Missing","Q3",11,164102.273802012,0.539739432615106
+"hyperlipidemia","Hyperlipidemia","Missing","Q4",12,130998.51563199,0.421435361184704

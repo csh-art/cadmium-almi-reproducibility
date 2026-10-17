@@ -1,0 +1,7 @@
+component	analysis	status	note
+Figure 4A	cytoHubba consensus	COMPLETE	Source data + final plain plotting code archived.
+Figure 4B	GSE111016 hub-gene effect-size forest	COMPLETE	Sample-level log2(CPM+1) source + final plain plotting code archived.
+Figure 4C	GSE111016 hub-gene heatmap	COMPLETE	Uses same sample-level source; final plain plotting code archived.
+Figure 4D final label	seven-pathway cross-cohort concordance	COMPLETE_WITH_PORTABLE_SCRIPT	28-row locked source + original plotting code + portable repository-relative script archived.
+Figure 4E final label	four-cohort hub-gene forest	COMPLETE_RECONSTRUCTED_CODE	44-row historical source archived; lost/incomplete original plotting code is replaced by a clearly labeled reconstruction using the retained Wald statistics to recover SE/95% CI.
+Figure 4 composite	final A-E composition	ORIGINAL_CODE_ARCHIVED	Aspect-ratio-preserving final assembly code archived; A/B, C/D, full-width E layout confirmed.

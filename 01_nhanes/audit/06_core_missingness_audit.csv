@@ -1,0 +1,21 @@
+"population","variable","total_n","missing_n","missing_percent"
+"All DEMO participants aged 20-59","RIDAGEYR",14934,0,0
+"All DEMO participants aged 20-59","RIAGENDR",14934,0,0
+"All DEMO participants aged 20-59","SDMVSTRA",14934,0,0
+"All DEMO participants aged 20-59","SDMVPSU",14934,0,0
+"All DEMO participants aged 20-59","weight_2yr_raw",14934,4003,26.8046069371903
+"All DEMO participants aged 20-59","LBXBCD",14934,4838,32.3958751841436
+"All DEMO participants aged 20-59","LBDBCDLC",14934,4838,32.3958751841436
+"All DEMO participants aged 20-59","LBXBPB",14934,4838,32.3958751841436
+"All DEMO participants aged 20-59","DXAEXSTS",14934,587,3.93062809695996
+"All DEMO participants aged 20-59","DXALATV",14934,2658,17.7983125753315
+"All DEMO participants aged 20-59","DXARATV",14934,2658,17.7983125753315
+"All DEMO participants aged 20-59","DXALLTV",14934,2658,17.7983125753315
+"All DEMO participants aged 20-59","DXARLTV",14934,2658,17.7983125753315
+"All DEMO participants aged 20-59","DXDLALE",14934,3122,20.9053167269318
+"All DEMO participants aged 20-59","DXDRALE",14934,3207,21.4744877460828
+"All DEMO participants aged 20-59","DXDLLLE",14934,3342,22.3784652470872
+"All DEMO participants aged 20-59","DXDRLLE",14934,3386,22.6730949511183
+"All DEMO participants aged 20-59","BMXHT",14934,711,4.76094817195661
+"All DEMO participants aged 20-59","ALM_kg_strict",14934,4073,27.2733360117852
+"All DEMO participants aged 20-59","ALMI_strict",14934,4104,27.4809160305344

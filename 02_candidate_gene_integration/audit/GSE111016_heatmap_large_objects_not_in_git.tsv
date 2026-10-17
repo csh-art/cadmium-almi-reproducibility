@@ -1,0 +1,3 @@
+file	size_MB	reason
+GSE111016_DESeq2_unfiltered_dds.rds	69.067	Regenerable from archived raw counts + phenotype; omitted to keep GitHub repository lean
+GSE111016_VST_object.rds	9.925	Regenerable from archived raw counts + phenotype; compact VST matrices are archived instead

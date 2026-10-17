@@ -1,0 +1,43 @@
+NHANES MODEL FINALIZATION SUMMARY
+============================================================
+Generated at: 2026-07-21 22:06:05
+FINAL_STATUS = PASS
+ERROR count = 0
+WARNING count = 0
+Survey base N = 10453
+Strict analysis N = 7628
+
+Overall model sample sizes:
+          model   cycle strict_core_n complete_case_n excluded_for_missing_n retention_percent
+       M1_Crude Overall          7628            7628                      0         100.00000
+ M2_Demographic Overall          7628            7628                      0         100.00000
+     M3_Primary Overall          7628            6575                   1053          86.19560
+    M4_Clinical Overall          7628            6536                   1092          85.68432
+        S1_eGFR Overall          7628            6423                   1205          84.20294
+    S2_Cotinine Overall          7628            6460                   1168          84.68799
+        S3_Lead Overall          7628            6536                   1092          85.68432
+        S4_Full Overall          7628            6420                   1208          84.16361
+
+Survey base design summary:
+ survey_base_n strata_n psu_n design_degrees_of_freedom strata_with_less_than_2_psu_n minimum_psu_per_stratum maximum_psu_per_stratum
+         10453       59   121                        62                             0                       2                       3
+
+Model domain design summary:
+          model total_strata_n strata_with_zero_domain_n strata_with_single_domain_psu_n minimum_domain_psu_n maximum_domain_psu_n
+       M1_Crude             59                         0                               0                    2                    3
+ M2_Demographic             59                         0                               0                    2                    3
+     M3_Primary             59                         0                               0                    2                    3
+    M4_Clinical             59                         0                               0                    2                    3
+        S1_eGFR             59                         0                               0                    2                    3
+    S2_Cotinine             59                         0                               0                    2                    3
+        S3_Lead             59                         0                               0                    2                    3
+        S4_Full             59                         0                               0                    2                    3
+
+Finalization issues:
+No issues detected.
+
+Safety confirmation:
+No XPT file was read or modified.
+No file was written into backup.
+No file was written into figure.
+No file was written into table.

@@ -1,0 +1,28 @@
+M11 / Figure 6 final source/provenance-chain audit
+==================================================
+
+Checks passed: 17 / 17
+
+Strict cis-eQTL candidate rows: 342
+Exact combined-ALM matches: 327
+Initially missing variants: 15
+Position-recovered variants: 6
+Final harmonized candidates: 333
+EUR-reference-present variants: 309
+EUR-reference-absent variants: 24
+
+Final retained instruments:
+- ATF4: rs882565; F=311.651105
+- CASP3: rs4647601; F=72.198380
+- CASP9: rs933704; F=106.352133
+- MAP1LC3B: rs7865; F=43.464419
+
+LD sensitivity retained the same four instruments at r2=0.001 and r2=0.01: YES
+ATF4 female-male heterogeneity p=0.291184
+Steiger: 4/4 support expression -> ALM.
+
+Interpretation:
+The frozen source/provenance evidence chain for M11/Figure 6 is closed.
+This does not mean that large public GTEx/GWAS/1000G files are redistributed.
+Historical final plotting code remains archived; reconstructed validation code is clearly labeled.
+Single-instrument MR does not support multi-instrument heterogeneity/leave-one-out/pleiotropy tests.

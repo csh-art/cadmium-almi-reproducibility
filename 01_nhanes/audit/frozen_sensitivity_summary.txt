@@ -1,0 +1,52 @@
+NHANES FROZEN SENSITIVITY ANALYSIS SUMMARY
+============================================================
+Generated at: 2026-07-21 23:47:54
+FINAL_STATUS = PASS
+ERROR count = 0
+WARNING count = 0
+Survey base N = 10453
+Strict analysis N = 7628
+Strict design df = 62
+Survey-weighted blood cadmium P99 = 2.830000 μg/L
+
+Frozen sensitivity effect results:
+   panel                                          analysis base_model analysis_n           estimate_95ci p_value_formatted
+ Panel A                    Additional adjustment for eGFR    Model 4       6423 -0.144 (-0.186, -0.103)            <0.001
+ Panel A          Additional adjustment for serum cotinine    Model 4       6460 -0.148 (-0.192, -0.105)            <0.001
+ Panel A              Additional adjustment for blood lead    Model 4       6536 -0.114 (-0.156, -0.072)            <0.001
+ Panel A Additional adjustment for eGFR, cotinine and lead    Model 4       6420 -0.118 (-0.164, -0.073)            <0.001
+ Panel B              Model 1 in the common Model 4 sample    Model 1       6536 -0.256 (-0.300, -0.212)            <0.001
+ Panel B              Model 2 in the common Model 4 sample    Model 2       6536 -0.149 (-0.185, -0.112)            <0.001
+ Panel B              Model 3 in the common Model 4 sample    Model 3       6536 -0.161 (-0.203, -0.119)            <0.001
+ Panel B              Model 4 in the common Model 4 sample    Model 4       6536 -0.143 (-0.184, -0.103)            <0.001
+ Panel B                         Excluding current smokers    Model 3       5104 -0.186 (-0.246, -0.126)            <0.001
+ Panel B                       Restricted to never smokers    Model 3       3976 -0.164 (-0.235, -0.094)            <0.001
+ Panel B         Excluding the highest 1% of blood cadmium    Model 3       6496 -0.163 (-0.208, -0.118)            <0.001
+ Panel C                                             Women    Model 3       3284 -0.196 (-0.254, -0.139)            <0.001
+ Panel C                                               Men    Model 3       3291 -0.100 (-0.170, -0.030)             0.007
+ Panel C                        Excluding NHANES 2011-2012    Model 3       4277 -0.166 (-0.215, -0.117)            <0.001
+ Panel C                        Excluding NHANES 2013-2014    Model 3       5262 -0.159 (-0.208, -0.110)            <0.001
+ Panel C                        Excluding NHANES 2015-2016    Model 3       5448 -0.165 (-0.212, -0.119)            <0.001
+ Panel C                        Excluding NHANES 2017-2018    Model 3       4738 -0.149 (-0.200, -0.097)            <0.001
+
+Sex interaction result:
+   panel        analysis_id                        analysis base_model analysis_n design_df interaction_p interaction_p_formatted
+ Panel C C1_sex_interaction Blood cadmium × sex interaction    Model 3       6575        62      0.731949                   0.732
+
+Restriction audit:
+                                    analysis unweighted_n reference_n retention_percent
+                      Strict analysis sample         7628        7628         100.00000
+                      Primary Model 3 sample         6575        7628          86.19560
+                       Model 4 common sample         6536        7628          85.68432
+           Model 3 excluding current smokers         5104        6575          77.62738
+         Model 3 restricted to never smokers         3976        6575          60.47148
+ Model 3 excluding the highest 1% of cadmium         6496        6575          98.79848
+
+Analysis issues:
+No issues detected.
+
+Safety confirmation:
+No source XPT or previous RDS file was modified.
+No file was written into backup.
+No file was written into the formal table folder.
+No file was written into the figure folder.

@@ -1,0 +1,313 @@
+# ============================================================
+# FINAL TABLE 2 DOCX COMPLETED
+#
+# 本TXT可单独使用source()运行并重新生成对应DOCX。
+# 不依赖原始主控代码文件。
+# ============================================================
+
+rm(list = ls())
+invisible(gc())
+
+options(
+    stringsAsFactors = FALSE,
+    width = 300,
+    scipen = 999,
+    warn = 1
+)
+
+setup_packages <- function () 
+{
+    user_library <- "D:/RStudio/Rpackages"
+    if (dir.exists(user_library)) {
+        .libPaths(unique(c(user_library, .libPaths())))
+    }
+    required_packages <- c("officer", "flextable")
+    installed_package_names <- rownames(installed.packages())
+    missing_packages <- setdiff(required_packages, installed_package_names)
+    if (length(missing_packages) > 0L) {
+        install.packages(missing_packages, dependencies = TRUE, type = "binary", repos = "https://cloud.r-project.org")
+    }
+    suppressPackageStartupMessages({
+        library(officer)
+        library(flextable)
+    })
+    invisible(TRUE)
+}
+
+get_project_paths <- function () 
+{
+    project_root <- paste0("E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/", "03_results/M00_NHANES_NEW")
+    analysis_root <- file.path(project_root, "02_analysis_files")
+    output_root <- file.path(project_root, "03_outputs_figures_tables")
+    formal_table_dir <- file.path(output_root, "table")
+    figure_dir <- file.path(output_root, "figure")
+    backup_dir <- file.path(project_root, "backup")
+    export_root <- file.path(analysis_root, "08_final_table_export")
+    analysis_code_dir <- file.path(export_root, "01_individual_table_code")
+    manifest_dir <- file.path(export_root, "02_manifests")
+    log_dir <- file.path(export_root, "03_logs")
+    legacy_dir <- file.path(export_root, "04_legacy_table_folder")
+    list(project_root = project_root, analysis_root = analysis_root, output_root = output_root, formal_table_dir = formal_table_dir, figure_dir = figure_dir, backup_dir = backup_dir, export_root = export_root, analysis_code_dir = analysis_code_dir, manifest_dir = manifest_dir, log_dir = log_dir, legacy_dir = legacy_dir)
+}
+
+get_allowed_final_names <- function () 
+{
+    c("Table1_weighted_blood_cadmium_quartiles.docx", "Code_Table1_weighted_blood_cadmium_quartiles.txt", "Table2_primary_blood_cadmium_ALMI_association.docx", "Code_Table2_primary_blood_cadmium_ALMI_association.txt", "Supplementary_Table_S1_sensitivity_analyses.docx", "Code_Supplementary_Table_S1_sensitivity_analyses.txt")
+}
+
+validate_project <- function (paths) 
+{
+    project_root <- getElement(paths, "project_root")
+    analysis_root <- getElement(paths, "analysis_root")
+    output_root <- getElement(paths, "output_root")
+    formal_table_dir <- getElement(paths, "formal_table_dir")
+    figure_dir <- getElement(paths, "figure_dir")
+    backup_dir <- getElement(paths, "backup_dir")
+    analysis_code_dir <- getElement(paths, "analysis_code_dir")
+    manifest_dir <- getElement(paths, "manifest_dir")
+    log_dir <- getElement(paths, "log_dir")
+    legacy_dir <- getElement(paths, "legacy_dir")
+    required_directories <- c(project_root, analysis_root, output_root, formal_table_dir, figure_dir, backup_dir)
+    missing_directories <- required_directories[!dir.exists(required_directories)]
+    if (length(missing_directories) > 0L) {
+        stop(paste0("以下必要文件夹不存在：\n", paste(missing_directories, collapse = "\n")), call. = FALSE)
+    }
+    backup_items <- list.files(backup_dir, all.files = TRUE, no.. = TRUE, full.names = TRUE)
+    if (length(backup_items) > 0L) {
+        stop(paste0("backup文件夹不是空的：\n", paste(backup_items, collapse = "\n")), call. = FALSE)
+    }
+    dir.create(analysis_code_dir, recursive = TRUE, showWarnings = FALSE)
+    dir.create(manifest_dir, recursive = TRUE, showWarnings = FALSE)
+    dir.create(log_dir, recursive = TRUE, showWarnings = FALSE)
+    dir.create(legacy_dir, recursive = TRUE, showWarnings = FALSE)
+    invisible(TRUE)
+}
+
+move_file_safely <- function (source_path, destination_directory, timestamp) 
+{
+    if (!file.exists(source_path)) {
+        return(NA_character_)
+    }
+    dir.create(destination_directory, recursive = TRUE, showWarnings = FALSE)
+    source_name <- basename(source_path)
+    destination_path <- file.path(destination_directory, source_name)
+    if (file.exists(destination_path)) {
+        source_extension <- tools::file_ext(source_name)
+        source_stem <- tools::file_path_sans_ext(source_name)
+        if (nzchar(source_extension)) {
+            destination_path <- file.path(destination_directory, paste0(source_stem, "_", timestamp, ".", source_extension))
+        }
+        else {
+            destination_path <- file.path(destination_directory, paste0(source_stem, "_", timestamp))
+        }
+    }
+    source_md5 <- unname(tools::md5sum(source_path))
+    rename_success <- file.rename(source_path, destination_path)
+    if (!rename_success) {
+        copy_success <- file.copy(source_path, destination_path, overwrite = FALSE, copy.mode = TRUE, copy.date = TRUE)
+        if (!copy_success) {
+            stop(paste0("无法归档文件：", source_path), call. = FALSE)
+        }
+        destination_md5 <- unname(tools::md5sum(destination_path))
+        if (!identical(source_md5, destination_md5)) {
+            stop(paste0("归档后MD5不一致：", source_path), call. = FALSE)
+        }
+        unlink(source_path, force = TRUE)
+    }
+    destination_path
+}
+
+archive_nonfinal_outputs <- function (paths, timestamp) 
+{
+    formal_table_dir <- getElement(paths, "formal_table_dir")
+    legacy_dir <- getElement(paths, "legacy_dir")
+    allowed_final_names <- get_allowed_final_names()
+    current_items <- list.files(formal_table_dir, all.files = TRUE, no.. = TRUE, full.names = TRUE)
+    relocation_manifest <- data.frame(original_path = character(), archived_path = character(), original_md5 = character(), archived_md5 = character(), stringsAsFactors = FALSE)
+    if (length(current_items) == 0L) {
+        return(relocation_manifest)
+    }
+    current_info <- file.info(current_items)
+    directory_items <- current_items[current_info$isdir %in% TRUE]
+    if (length(directory_items) > 0L) {
+        stop(paste0("正式table文件夹中存在子文件夹，请人工检查：\n", paste(directory_items, collapse = "\n")), call. = FALSE)
+    }
+    nonfinal_items <- current_items[!basename(current_items) %in% allowed_final_names]
+    if (length(nonfinal_items) == 0L) {
+        return(relocation_manifest)
+    }
+    for (source_path in nonfinal_items) {
+        source_md5 <- unname(tools::md5sum(source_path))
+        archived_path <- move_file_safely(source_path = source_path, destination_directory = legacy_dir, timestamp = timestamp)
+        archived_md5 <- unname(tools::md5sum(archived_path))
+        new_row <- data.frame(original_path = source_path, archived_path = archived_path, original_md5 = source_md5, archived_md5 = archived_md5, stringsAsFactors = FALSE)
+        relocation_manifest <- rbind(relocation_manifest, new_row)
+    }
+    rownames(relocation_manifest) <- NULL
+    relocation_manifest
+}
+
+add_text_paragraph <- function (document, text, font_size = 8, bold = FALSE, italic = FALSE, align = "left", padding_bottom = 1, keep_with_next = FALSE) 
+{
+    text_properties <- officer::fp_text(font.family = "Arial", font.size = font_size, bold = bold, italic = italic)
+    paragraph_properties <- officer::fp_par(text.align = align, padding.bottom = padding_bottom, line_spacing = 1, keep_with_next = keep_with_next)
+    formatted_paragraph <- officer::fpar(officer::ftext(text, text_properties), fp_p = paragraph_properties)
+    officer::body_add_fpar(document, value = formatted_paragraph)
+}
+
+make_landscape_document <- function () 
+{
+    document <- officer::read_docx()
+    page_margins <- officer::page_mar(top = 0.42, bottom = 0.42, left = 0.42, right = 0.42, header = 0.18, footer = 0.18, gutter = 0)
+    section_properties <- officer::prop_section(page_size = officer::page_size(orient = "landscape"), page_margins = page_margins, type = "continuous")
+    officer::body_set_default_section(document, value = section_properties)
+}
+
+style_table <- function (table_object, widths, body_font_size = 8, left_columns = integer()) 
+{
+    table_object <- flextable::theme_booktabs(table_object)
+    table_object <- flextable::font(table_object, fontname = "Arial", part = "all")
+    table_object <- flextable::fontsize(table_object, size = body_font_size, part = "body")
+    table_object <- flextable::fontsize(table_object, size = body_font_size, part = "header")
+    table_object <- flextable::bold(table_object, bold = TRUE, part = "header")
+    table_object <- flextable::align(table_object, align = "center", part = "header")
+    table_object <- flextable::align(table_object, align = "center", part = "body")
+    if (length(left_columns) > 0L) {
+        table_object <- flextable::align(table_object, j = left_columns, align = "left", part = "body")
+    }
+    table_object <- flextable::valign(table_object, valign = "center", part = "all")
+    table_object <- flextable::padding(table_object, padding.top = 2, padding.bottom = 2, padding.left = 2, padding.right = 2, part = "all")
+    table_object <- flextable::width(table_object, j = seq_along(widths), width = widths)
+    table_object <- flextable::set_table_properties(table_object, layout = "fixed", align = "center", opts_word = list(split = TRUE, repeat_headers = TRUE))
+    table_object
+}
+
+save_docx_safely <- function (document, output_path, table_label) 
+{
+    save_result <- tryCatch({
+        print(document, target = output_path)
+        TRUE
+    }, error = function(e) {
+        stop(paste0(table_label, "写入失败。\n", "请确认对应DOCX没有在Word中打开。\n", "原始错误：", conditionMessage(e)), call. = FALSE)
+    })
+    if (!isTRUE(save_result) || !file.exists(output_path) || file.info(output_path)$size <= 0) {
+        stop(paste0(table_label, "没有成功生成。"), call. = FALSE)
+    }
+    output_path
+}
+
+validate_bundle_status <- function (bundle, bundle_name) 
+{
+    if (!"final_status" %in% names(bundle)) {
+        stop(paste0(bundle_name, "中不存在final_status。"), call. = FALSE)
+    }
+    if (!identical(bundle$final_status, "PASS")) {
+        stop(paste0(bundle_name, "没有达到PASS：", bundle$final_status), call. = FALSE)
+    }
+    invisible(TRUE)
+}
+
+check_formal_table_policy <- function (paths, require_all = FALSE) 
+{
+    formal_table_dir <- getElement(paths, "formal_table_dir")
+    allowed_final_names <- get_allowed_final_names()
+    current_items <- list.files(formal_table_dir, all.files = TRUE, no.. = TRUE, full.names = TRUE)
+    if (length(current_items) == 0L) {
+        stop("正式table文件夹为空。", call. = FALSE)
+    }
+    unexpected_items <- current_items[!basename(current_items) %in% allowed_final_names]
+    if (length(unexpected_items) > 0L) {
+        stop(paste0("正式table文件夹存在非规定文件：\n", paste(unexpected_items, collapse = "\n")), call. = FALSE)
+    }
+    file_extensions <- tolower(tools::file_ext(current_items))
+    if (any(!file_extensions %in% c("docx", "txt"))) {
+        stop("正式table文件夹存在DOCX和TXT以外的文件。", call. = FALSE)
+    }
+    txt_names <- basename(current_items[file_extensions == "txt"])
+    if (length(txt_names) > 0L && any(!grepl("^Code_", txt_names))) {
+        stop("正式table文件夹中的TXT必须以Code_开头。", call. = FALSE)
+    }
+    if (isTRUE(require_all)) {
+        expected_paths <- file.path(formal_table_dir, allowed_final_names)
+        missing_expected <- expected_paths[!file.exists(expected_paths)]
+        if (length(missing_expected) > 0L) {
+            stop(paste0("以下最终文件没有生成：\n", paste(missing_expected, collapse = "\n")), call. = FALSE)
+        }
+        if (length(current_items) != 6L) {
+            stop(paste0("正式table文件夹最终文件数不是6：", length(current_items)), call. = FALSE)
+        }
+    }
+    TRUE
+}
+
+generate_table2_docx <- function (paths) 
+{
+    analysis_root <- getElement(paths, "analysis_root")
+    formal_table_dir <- getElement(paths, "formal_table_dir")
+    primary_bundle_input <- file.path(analysis_root, "06_primary_regression", "02_objects", "primary_regression_bundle.rds")
+    if (!file.exists(primary_bundle_input)) {
+        stop(paste0("Primary regression bundle不存在：", primary_bundle_input), call. = FALSE)
+    }
+    primary_bundle <- readRDS(primary_bundle_input)
+    validate_bundle_status(primary_bundle, "Primary regression bundle")
+    primary_continuous <- getElement(primary_bundle, "formal_primary_continuous")
+    quartile_results <- getElement(primary_bundle, "formal_quartile_results")
+    quartile_median_scores <- getElement(primary_bundle, "quartile_median_scores")
+    strict_design_df <- getElement(primary_bundle, "strict_design_df")
+    if (!is.data.frame(primary_continuous) || !is.data.frame(quartile_results)) {
+        stop("Table 2源数据无效。", call. = FALSE)
+    }
+    panel_a <- data.frame(Model = primary_continuous$Model, N = format(primary_continuous$N, big.mark = ",", scientific = FALSE, trim = TRUE), Difference_95CI = primary_continuous$Estimate_95CI, P_value = primary_continuous$P_value_formatted, stringsAsFactors = FALSE)
+    panel_b <- data.frame(Model = quartile_results$Model, N = format(quartile_results$N, big.mark = ",", scientific = FALSE, trim = TRUE), Q2_vs_Q1 = quartile_results$Q2_vs_Q1_Estimate_95CI, Q3_vs_Q1 = quartile_results$Q3_vs_Q1_Estimate_95CI, Q4_vs_Q1 = quartile_results$Q4_vs_Q1_Estimate_95CI, Overall_P = quartile_results$Overall_quartile_P, Trend_P = quartile_results$Trend_P, stringsAsFactors = FALSE)
+    panel_a_table <- flextable::flextable(panel_a)
+    panel_a_table <- flextable::set_header_labels(panel_a_table, values = c(Model = "Model", N = "N", Difference_95CI = paste("Difference in ALMI, kg/m2 per doubling", "of blood cadmium (95% CI)"), P_value = "P value"))
+    panel_a_table <- style_table(table_object = panel_a_table, widths = c(1.05, 0.85, 4.1, 1), body_font_size = 8.6, left_columns = 1L)
+    primary_row_a <- which(panel_a$Model == "Model 3")
+    if (length(primary_row_a) > 0L) {
+        panel_a_table <- flextable::bold(panel_a_table, i = primary_row_a, bold = TRUE, part = "body")
+        panel_a_table <- flextable::bg(panel_a_table, i = primary_row_a, bg = "#F2F2F2", part = "body")
+    }
+    panel_b_table <- flextable::flextable(panel_b)
+    panel_b_table <- flextable::set_header_labels(panel_b_table, values = c(Model = "Model", N = "N", Q2_vs_Q1 = "Q2 vs Q1\nDifference (95% CI)", Q3_vs_Q1 = "Q3 vs Q1\nDifference (95% CI)", Q4_vs_Q1 = "Q4 vs Q1\nDifference (95% CI)", Overall_P = "Overall P", Trend_P = "P for trend"))
+    panel_b_table <- style_table(table_object = panel_b_table, widths = c(0.8, 0.65, 1.95, 1.95, 1.95, 0.9, 0.9), body_font_size = 7.8, left_columns = 1L)
+    primary_row_b <- which(panel_b$Model == "Model 3")
+    if (length(primary_row_b) > 0L) {
+        panel_b_table <- flextable::bold(panel_b_table, i = primary_row_b, bold = TRUE, part = "body")
+        panel_b_table <- flextable::bg(panel_b_table, i = primary_row_b, bg = "#F2F2F2", part = "body")
+    }
+    median_scores <- quartile_median_scores$weighted_median_cadmium[match(c("Q1", "Q2", "Q3", "Q4"), quartile_median_scores$quartile)]
+    notes <- c(paste("The continuous exposure was log2-transformed;", "the coefficient represents the difference in ALMI, in kg/m2,", "associated with a doubling of blood cadmium."), paste("Model 3 was prespecified as the primary model;", "Model 4 was considered a clinical extension."), paste("Model 1 was unadjusted."), paste("Model 2 adjusted for age, sex, race/ethnicity,", "and NHANES survey cycle."), paste("Model 3 additionally adjusted for education, marital status,", "family income-to-poverty ratio, smoking status,", 
+        "alcohol consumption, and physical activity."), paste("Model 4 additionally adjusted for hypertension, diabetes,", "and hypercholesterolemia."), paste("Quartile models used Q1 as the reference group."), paste("Survey-weighted blood cadmium quartile cutpoints were", "0.16, 0.25, and 0.47 micrograms/L."), paste0("P for trend assigned participants the survey-weighted median", "cadmium concentration of their quartile: ", paste(formatC(median_scores, format = "f", digits = 2), collapse = ", "), 
+        " micrograms/L."), paste("Models used model-specific complete-case samples;", "common-sample analyses are reported in", "Supplementary Table S1."), paste("The survey design used cross-cycle unique stratum and", "primary sampling unit identifiers and the appropriate", "cycle-specific 2-year weight divided by four."), paste0("Survey design degrees of freedom: ", strict_design_df, "."), paste("ALMI, appendicular lean mass index;", "CI, confidence interval;", "PIR, family income-to-poverty ratio."))
+    document <- make_landscape_document()
+    document <- add_text_paragraph(document = document, text = paste("Table 2. Survey-weighted associations of blood cadmium", "with appendicular lean mass index"), font_size = 10, bold = TRUE, align = "center", padding_bottom = 5, keep_with_next = TRUE)
+    document <- add_text_paragraph(document = document, text = "Panel A. Blood cadmium modeled continuously", font_size = 8.5, bold = TRUE, padding_bottom = 2, keep_with_next = TRUE)
+    document <- flextable::body_add_flextable(document, value = panel_a_table, align = "center")
+    document <- add_text_paragraph(document = document, text = paste("Panel B. Blood cadmium modeled as", "survey-weighted quartiles"), font_size = 8.5, bold = TRUE, padding_bottom = 2, keep_with_next = TRUE)
+    document <- flextable::body_add_flextable(document, value = panel_b_table, align = "center")
+    document <- add_text_paragraph(document = document, text = "Notes:", font_size = 7.5, bold = TRUE, padding_bottom = 1, keep_with_next = TRUE)
+    for (note_text in notes) {
+        document <- add_text_paragraph(document = document, text = note_text, font_size = 7.2, padding_bottom = 1)
+    }
+    output_docx <- file.path(formal_table_dir, "Table2_primary_blood_cadmium_ALMI_association.docx")
+    save_docx_safely(document = document, output_path = output_docx, table_label = "Table 2")
+    output_docx
+}
+
+setup_packages()
+paths <- get_project_paths()
+validate_project(paths)
+timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
+archive_nonfinal_outputs(paths, timestamp)
+output_docx <- generate_table2_docx(paths)
+check_formal_table_policy(paths, require_all = FALSE)
+
+cat("\n")
+cat("============================================================\n")
+cat("FINAL TABLE 2 DOCX COMPLETED\n")
+cat("============================================================\n")
+cat("FINAL_STATUS = PASS\n")
+cat("Output DOCX:\n", output_docx, "\n", sep = "")
+cat("Formal table folder policy check = PASS\n")
+cat("Backup remains empty = TRUE\n")
+cat("============================================================\n")

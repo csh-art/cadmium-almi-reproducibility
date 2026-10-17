@@ -1,0 +1,302 @@
+############################################################
+## Figure 4B
+## GSE111016 robust hub gene effect-size forest plot (plain, no title/subtitle)
+## Automatically exported reproducible R code
+############################################################
+
+make_figure4b <- function () 
+{
+    graphics.off()
+    required_packages <- c("ggplot2", "dplyr")
+    for (pkg in required_packages) {
+        if (!requireNamespace(pkg, quietly = TRUE)) {
+            install.packages(pkg, repos = "https://cloud.r-project.org", dependencies = TRUE)
+        }
+    }
+    suppressPackageStartupMessages({
+        library(ggplot2)
+        library(dplyr)
+    })
+    project_root <- "E:/1Data/Cd_Sarcopenia_NHANES"
+    output_dir <- file.path(project_root, "new_workspace", "03_results", "M04_HubGenes_cytoHubba_GSE111016_GSE111010", "03_outputs_figures_tables", "figure")
+    dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+    if (!dir.exists(output_dir)) {
+        stop(paste0("\n无法创建或访问输出目录：\n", output_dir), call. = FALSE)
+    }
+    write_test_file <- file.path(output_dir, paste0(".__figure4b_write_test_", Sys.getpid(), ".tmp"))
+    write_test_ok <- tryCatch({
+        writeLines("write test", con = write_test_file, useBytes = TRUE)
+        file.exists(write_test_file)
+    }, error = function(e) {
+        FALSE
+    })
+    if (file.exists(write_test_file)) {
+        unlink(write_test_file)
+    }
+    if (!isTRUE(write_test_ok)) {
+        stop(paste0("\n指定输出目录不可写：\n", output_dir), call. = FALSE)
+    }
+    hub_presence_filename <- "Figure_03A_cytoHubba_algorithm_presence_table.csv"
+    final_output_dir <- "E:/1Data/Cd_Sarcopenia_NHANES/reconstruction_2026_10_14/figure/M04_HubGenes_cytoHubba_GSE111016_GSE111010"
+    dir.create(final_output_dir, recursive = TRUE, showWarnings = FALSE)
+    if (!dir.exists(final_output_dir)) {
+        stop(paste0("\n无法创建最终输出目录：\n", final_output_dir), call. = FALSE)
+    }
+    expression_rds_filename <- paste0("Figure_02D_GSE111016_candidate_genes_", "expression_difference_lollipop_plot_df_logCPM.rds")
+    expression_csv_filename <- paste0("Figure_02D_GSE111016_candidate_genes_", "expression_difference_lollipop_plot_df_logCPM.csv")
+    first_existing_file <- function(file_paths) {
+        existing_files <- file_paths[file.exists(file_paths)]
+        if (length(existing_files) == 0) {
+            return(NA_character_)
+        }
+        normalizePath(existing_files[1], winslash = "/", mustWork = TRUE)
+    }
+    search_exact_file <- function(root_directory, target_filename) {
+        if (!dir.exists(root_directory)) {
+            return(NA_character_)
+        }
+        escaped_filename <- gsub("([][{}()+*^$|\\\\?.])", "\\\\\\1", target_filename)
+        matched_files <- list.files(path = root_directory, pattern = paste0("^", escaped_filename, "$"), recursive = TRUE, full.names = TRUE, ignore.case = TRUE)
+        if (length(matched_files) == 0) {
+            return(NA_character_)
+        }
+        normalizePath(matched_files[1], winslash = "/", mustWork = TRUE)
+    }
+    hub_presence_candidates <- c(file.path(output_dir, hub_presence_filename), file.path(project_root, "99_final_confirmed", "04_figure_source_data", "Figure_03", hub_presence_filename), file.path(project_root, "99_final_confirmed", "04_figure_source_data", "Figure_04", hub_presence_filename), file.path(getwd(), hub_presence_filename))
+    hub_presence_file <- first_existing_file(hub_presence_candidates)
+    if (is.na(hub_presence_file)) {
+        hub_presence_file <- search_exact_file(root_directory = project_root, target_filename = hub_presence_filename)
+    }
+    if (!is.na(hub_presence_file)) {
+        hub_presence_raw <- read.csv(hub_presence_file, stringsAsFactors = FALSE, check.names = FALSE)
+        hub_input_description <- hub_presence_file
+    }
+    else if (exists("hub_presence_df", envir = .GlobalEnv, inherits = FALSE)) {
+        hub_presence_raw <- get("hub_presence_df", envir = .GlobalEnv, inherits = FALSE)
+        hub_input_description <- "当前 R 全局环境对象：hub_presence_df"
+    }
+    else {
+        stop(paste0("\n没有找到 cytoHubba presence 数据。\n\n", "需要的文件名称：\n", hub_presence_filename, "\n\n项目搜索目录：\n", project_root), call. = FALSE)
+    }
+    required_hub_columns <- c("Gene", "Degree", "MCC", "EPC")
+    missing_hub_columns <- setdiff(required_hub_columns, names(hub_presence_raw))
+    if (length(missing_hub_columns) > 0) {
+        stop(paste0("\nHub presence 数据缺少必要列：\n", paste0("  - ", missing_hub_columns, collapse = "\n"), "\n\n当前列名：\n", paste(names(hub_presence_raw), collapse = ", ")), call. = FALSE)
+    }
+    convert_to_binary <- function(x, column_name) {
+        if (is.logical(x)) {
+            result <- as.integer(x)
+        }
+        else {
+            x_text <- toupper(trimws(as.character(x)))
+            result <- rep(NA_integer_, length(x_text))
+            result[x_text %in% c("1", "TRUE", "T", "YES", "Y", "SELECTED", "PRESENT", "INCLUDED")] <- 1L
+            result[x_text %in% c("0", "FALSE", "F", "NO", "N", "NOT SELECTED", "ABSENT", "NOT INCLUDED")] <- 0L
+            numeric_values <- suppressWarnings(as.numeric(x_text))
+            numeric_positions <- is.na(result) & !is.na(numeric_values)
+            result[numeric_positions] <- as.integer(numeric_values[numeric_positions] > 0)
+        }
+        if (any(is.na(result))) {
+            invalid_values <- unique(as.character(x[is.na(result)]))
+            stop(paste0("\n列 ", column_name, " 中存在无法识别的值：\n", paste0("  - ", invalid_values, collapse = "\n")), call. = FALSE)
+        }
+        result
+    }
+    hub_presence_df_clean <- hub_presence_raw %>% transmute(Gene = trimws(as.character(Gene)), Degree = convert_to_binary(Degree, "Degree"), MCC = convert_to_binary(MCC, "MCC"), EPC = convert_to_binary(EPC, "EPC")) %>% filter(!is.na(Gene), Gene != "") %>% group_by(Gene) %>% summarise(Degree = max(Degree, na.rm = TRUE), MCC = max(MCC, na.rm = TRUE), EPC = max(EPC, na.rm = TRUE), .groups = "drop") %>% mutate(n_algorithms = Degree + MCC + EPC, Hub_class = case_when(n_algorithms == 3 ~ "Strict hub genes", 
+        n_algorithms == 2 ~ "Robust hub genes", TRUE ~ "Algorithm-specific genes"))
+    robust_hub_table <- hub_presence_df_clean %>% filter(n_algorithms >= 2)
+    robust_hub_genes <- robust_hub_table$Gene
+    if (length(robust_hub_genes) == 0) {
+        stop("\n没有检测到 n_algorithms >= 2 的 robust hub genes。", call. = FALSE)
+    }
+    expression_candidates <- c(file.path(output_dir, expression_rds_filename), file.path(output_dir, expression_csv_filename), file.path(project_root, "99_final_confirmed", "04_figure_source_data", "Figure_02", expression_rds_filename), file.path(project_root, "99_final_confirmed", "04_figure_source_data", "Figure_02", expression_csv_filename), file.path(getwd(), expression_rds_filename), file.path(getwd(), expression_csv_filename))
+    expression_input_file <- first_existing_file(expression_candidates)
+    if (is.na(expression_input_file)) {
+        expression_input_file <- search_exact_file(root_directory = project_root, target_filename = expression_rds_filename)
+    }
+    if (is.na(expression_input_file)) {
+        expression_input_file <- search_exact_file(root_directory = project_root, target_filename = expression_csv_filename)
+    }
+    if (!is.na(expression_input_file)) {
+        expression_extension <- tolower(tools::file_ext(expression_input_file))
+        if (expression_extension == "rds") {
+            expression_raw <- readRDS(expression_input_file)
+        }
+        else {
+            expression_raw <- read.csv(expression_input_file, stringsAsFactors = FALSE, check.names = FALSE)
+        }
+        expression_input_description <- expression_input_file
+    }
+    else if (exists("plot_df", envir = .GlobalEnv, inherits = FALSE)) {
+        expression_raw <- get("plot_df", envir = .GlobalEnv, inherits = FALSE)
+        expression_input_description <- "当前 R 全局环境对象：plot_df"
+    }
+    else {
+        stop(paste0("\n没有找到 GSE111016 样本级表达数据。\n\n", "需要以下文件之一：\n", expression_rds_filename, "\n", expression_csv_filename), call. = FALSE)
+    }
+    find_column_name <- function(data_object, candidate_names, description) {
+        current_names <- names(data_object)
+        current_names_lower <- tolower(current_names)
+        candidate_names_lower <- tolower(candidate_names)
+        match_positions <- match(candidate_names_lower, current_names_lower, nomatch = 0)
+        match_positions <- match_positions[match_positions > 0]
+        if (length(match_positions) == 0) {
+            stop(paste0("\n表达数据中没有找到", description, "列。\n\n", "允许的列名：\n", paste(candidate_names, collapse = ", "), "\n\n当前数据列名：\n", paste(current_names, collapse = ", ")), call. = FALSE)
+        }
+        current_names[match_positions[1]]
+    }
+    gene_column <- find_column_name(data_object = expression_raw, candidate_names = c("Gene", "gene", "SYMBOL", "Symbol", "gene_symbol"), description = "基因名称")
+    group_column <- find_column_name(data_object = expression_raw, candidate_names = c("Group", "group", "Condition", "condition", "Phenotype", "phenotype", "Status", "status"), description = "分组")
+    expression_column <- find_column_name(data_object = expression_raw, candidate_names = c("expression", "Expression", "logCPM", "logcpm", "log2CPM", "log2cpm", "value", "Value"), description = "表达值")
+    expression_df <- data.frame(Gene = trimws(as.character(expression_raw[[gene_column]])), Group_raw = trimws(as.character(expression_raw[[group_column]])), expression = suppressWarnings(as.numeric(expression_raw[[expression_column]])), stringsAsFactors = FALSE)
+    group_text <- tolower(trimws(expression_df$Group_raw))
+    expression_df$Group <- case_when(grepl("non[-_ ]?sarc|control|healthy|^no$", group_text) ~ "Control", grepl("sarcopenia|sarcopenic|case|^yes$", group_text) ~ "Sarcopenia", TRUE ~ NA_character_)
+    unrecognized_groups <- unique(expression_df$Group_raw[is.na(expression_df$Group)])
+    if (length(unrecognized_groups) > 0) {
+        stop(paste0("\n以下分组名称无法识别：\n", paste0("  - ", unrecognized_groups, collapse = "\n"), "\n\n需要能够识别为 Control 或 Sarcopenia。"), call. = FALSE)
+    }
+    expression_df <- expression_df %>% filter(!is.na(Gene), Gene != "", is.finite(expression)) %>% mutate(Group = factor(Group, levels = c("Control", "Sarcopenia")))
+    hub_expression_df <- expression_df %>% filter(Gene %in% robust_hub_genes)
+    missing_expression_genes <- setdiff(robust_hub_genes, unique(hub_expression_df$Gene))
+    if (length(missing_expression_genes) > 0) {
+        stop(paste0("\n以下 robust hub genes 在表达数据中缺失：\n", paste0("  - ", missing_expression_genes, collapse = "\n")), call. = FALSE)
+    }
+    group_count_df <- hub_expression_df %>% group_by(Gene, Group) %>% summarise(n = sum(is.finite(expression)), .groups = "drop")
+    insufficient_genes <- group_count_df %>% filter(n < 2)
+    if (nrow(insufficient_genes) > 0) {
+        stop(paste0("\n以下基因某一组有效样本少于 2 个：\n", paste0(insufficient_genes$Gene, " / ", insufficient_genes$Group, " / n = ", insufficient_genes$n, collapse = "\n")), call. = FALSE)
+    }
+    calculate_welch_statistics <- function(sarcopenia_values, control_values) {
+        sarcopenia_values <- sarcopenia_values[is.finite(sarcopenia_values)]
+        control_values <- control_values[is.finite(control_values)]
+        n_sarcopenia <- length(sarcopenia_values)
+        n_control <- length(control_values)
+        mean_sarcopenia <- mean(sarcopenia_values)
+        mean_control <- mean(control_values)
+        effect <- mean_sarcopenia - mean_control
+        variance_sarcopenia <- var(sarcopenia_values)
+        variance_control <- var(control_values)
+        variance_component_sarcopenia <- variance_sarcopenia/n_sarcopenia
+        variance_component_control <- variance_control/n_control
+        standard_error <- sqrt(variance_component_sarcopenia + variance_component_control)
+        if (!is.finite(standard_error) || standard_error == 0) {
+            ci_lower <- effect
+            ci_upper <- effect
+            p_value <- ifelse(effect == 0, 1, 0)
+        }
+        else {
+            degrees_of_freedom_numerator <- (variance_component_sarcopenia + variance_component_control)^2
+            degrees_of_freedom_denominator <- (variance_component_sarcopenia^2/(n_sarcopenia - 1)) + (variance_component_control^2/(n_control - 1))
+            degrees_of_freedom <- degrees_of_freedom_numerator/degrees_of_freedom_denominator
+            critical_value <- qt(0.975, df = degrees_of_freedom)
+            ci_lower <- effect - critical_value * standard_error
+            ci_upper <- effect + critical_value * standard_error
+            test_statistic <- effect/standard_error
+            p_value <- 2 * pt(-abs(test_statistic), df = degrees_of_freedom)
+        }
+        data.frame(n_Control = n_control, n_Sarcopenia = n_sarcopenia, mean_Control = mean_control, mean_Sarcopenia = mean_sarcopenia, effect = effect, ci_lower = ci_lower, ci_upper = ci_upper, p_value = p_value, stringsAsFactors = FALSE)
+    }
+    gene_statistics_list <- lapply(robust_hub_genes, function(current_gene) {
+        current_gene_data <- hub_expression_df[hub_expression_df$Gene == current_gene, , drop = FALSE]
+        current_statistics <- calculate_welch_statistics(sarcopenia_values = current_gene_data$expression[current_gene_data$Group == "Sarcopenia"], control_values = current_gene_data$expression[current_gene_data$Group == "Control"])
+        current_statistics$Gene <- current_gene
+        current_statistics
+    })
+    hub_stats_df <- bind_rows(gene_statistics_list) %>% left_join(robust_hub_table %>% dplyr::select(Gene, Degree, MCC, EPC, n_algorithms, Hub_class), by = "Gene") %>% mutate(p_adj_BH = p.adjust(p_value, method = "BH"), Direction = case_when(effect > 0 ~ "Higher in sarcopenia", effect < 0 ~ "Lower in sarcopenia", TRUE ~ "No difference"))
+    invalid_statistics <- hub_stats_df %>% filter(!is.finite(effect) | !is.finite(ci_lower) | !is.finite(ci_upper) | !is.finite(p_value) | !is.finite(p_adj_BH))
+    if (nrow(invalid_statistics) > 0) {
+        stop(paste0("\n以下基因的统计结果无效：\n", paste0("  - ", invalid_statistics$Gene, collapse = "\n")), call. = FALSE)
+    }
+    format_p_value <- function(x) {
+        ifelse(x < 0.001, "<0.001", sprintf("%.3f", x))
+    }
+    hub_stats_df <- hub_stats_df %>% arrange(desc(effect)) %>% mutate(row_order = row_number(), y_position = n() - row_order + 1, effect_ci_label = sprintf("%.2f [%.2f, %.2f]", effect, ci_lower, ci_upper), p_adj_label = format_p_value(p_adj_BH))
+    number_of_genes <- nrow(hub_stats_df)
+    maximum_absolute_ci <- max(abs(c(hub_stats_df$ci_lower, hub_stats_df$ci_upper)), na.rm = TRUE)
+    forest_limit <- max(0.4, ceiling(maximum_absolute_ci * 1.12 * 10)/10)
+    forest_ticks <- pretty(c(-forest_limit, forest_limit), n = 5)
+    forest_ticks <- forest_ticks[forest_ticks >= -forest_limit & forest_ticks <= forest_limit]
+    gene_x <- 0.08
+    forest_xmin <- 1.3
+    forest_xmax <- 4.55
+    effect_text_x <- 5.48
+    p_value_x <- 6.95
+    plot_xmin <- 0
+    plot_xmax <- 7.65
+    map_effect_to_x <- function(effect_value) {
+        forest_xmin + (effect_value + forest_limit)/(2 * forest_limit) * (forest_xmax - forest_xmin)
+    }
+    hub_stats_df <- hub_stats_df %>% mutate(effect_x = map_effect_to_x(effect), ci_lower_x = map_effect_to_x(ci_lower), ci_upper_x = map_effect_to_x(ci_upper))
+    forest_tick_df <- data.frame(tick_value = forest_ticks, tick_x = map_effect_to_x(forest_ticks), tick_label = format(forest_ticks, trim = TRUE, scientific = FALSE), stringsAsFactors = FALSE)
+    zero_x <- map_effect_to_x(0)
+    stripe_df <- hub_stats_df %>% filter(row_order%%2 == 0) %>% transmute(xmin = plot_xmin, xmax = plot_xmax, ymin = y_position - 0.5, ymax = y_position + 0.5)
+    positive_count <- sum(hub_stats_df$effect > 0)
+    negative_count <- sum(hub_stats_df$effect < 0)
+    if (positive_count > 0 && negative_count > 0) {
+        direction_separator_y <- number_of_genes - positive_count + 0.5
+    }
+    else {
+        direction_separator_y <- NA_real_
+    }
+    direction_colors <- c(`Higher in sarcopenia` = "#C43B35", `Lower in sarcopenia` = "#286BB5", `No difference` = "#7A858D")
+    header_y <- number_of_genes + 0.82
+    header_line_y <- number_of_genes + 0.4
+    axis_y <- 0.18
+    tick_label_y <- -0.14
+    axis_title_y <- -0.68
+    legend_y <- -1.17
+    plot_ymin <- -1.48
+    plot_ymax <- number_of_genes + 1.18
+    p_fig4b <- ggplot() + geom_rect(data = stripe_df, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), fill = "#F6F8FA", color = NA) + geom_hline(yintercept = seq(0.5, number_of_genes + 0.5, by = 1), color = "#E4E9ED", linewidth = 0.3) + {
+        if (is.finite(direction_separator_y)) {
+            geom_hline(yintercept = direction_separator_y, color = "#939DA5", linewidth = 0.78)
+        }
+        else {
+            NULL
+        }
+    } + annotate(geom = "segment", x = plot_xmin, xend = plot_xmax, y = header_line_y, yend = header_line_y, color = "#4D5860", linewidth = 0.72) + annotate(geom = "segment", x = 1.05, xend = 1.05, y = 0.5, yend = number_of_genes + 0.98, color = "#D3D9DE", linewidth = 0.48) + annotate(geom = "segment", x = 4.88, xend = 4.88, y = 0.5, yend = number_of_genes + 0.98, color = "#D3D9DE", linewidth = 0.48) + annotate(geom = "segment", x = 6.2, xend = 6.2, y = 0.5, yend = number_of_genes + 0.98, color = "#D3D9DE", 
+        linewidth = 0.48) + annotate(geom = "segment", x = zero_x, xend = zero_x, y = 0.5, yend = number_of_genes + 0.5, color = "#6A747C", linewidth = 0.65, linetype = "dashed") + geom_text(data = hub_stats_df, aes(x = gene_x, y = y_position, label = Gene), hjust = 0, vjust = 0.5, color = "#20272D", fontface = "bold.italic", size = 3.7) + geom_segment(data = hub_stats_df, aes(x = ci_lower_x, xend = ci_upper_x, y = y_position, yend = y_position, color = Direction), linewidth = 1.05, lineend = "round") + 
+        geom_segment(data = hub_stats_df, aes(x = ci_lower_x, xend = ci_lower_x, y = y_position - 0.1, yend = y_position + 0.1, color = Direction), linewidth = 0.78) + geom_segment(data = hub_stats_df, aes(x = ci_upper_x, xend = ci_upper_x, y = y_position - 0.1, yend = y_position + 0.1, color = Direction), linewidth = 0.78) + geom_point(data = hub_stats_df, aes(x = effect_x, y = y_position, fill = Direction, color = Direction), shape = 21, size = 4.1, stroke = 0.72) + geom_text(data = hub_stats_df, 
+        aes(x = effect_text_x, y = y_position, label = effect_ci_label), hjust = 0.5, vjust = 0.5, color = "#29333B", size = 3.38) + geom_text(data = hub_stats_df, aes(x = p_value_x, y = y_position, label = p_adj_label), hjust = 0.5, vjust = 0.5, color = "#29333B", fontface = "bold", size = 3.45) + annotate(geom = "text", x = gene_x, y = header_y, label = "Gene", hjust = 0, color = "#1E252B", fontface = "bold", size = 3.95) + annotate(geom = "text", x = mean(c(forest_xmin, forest_xmax)), y = header_y, 
+        label = "Mean difference (95% CI)", color = "#1E252B", fontface = "bold", size = 3.95) + annotate(geom = "text", x = effect_text_x, y = header_y, label = "Effect [95% CI]", color = "#1E252B", fontface = "bold", size = 3.9) + annotate(geom = "text", x = p_value_x, y = header_y, label = "bold('BH-adjusted')~italic(p)", parse = TRUE, color = "#1E252B", size = 3.9) + annotate(geom = "segment", x = forest_xmin, xend = forest_xmax, y = axis_y, yend = axis_y, color = "#48525A", linewidth = 0.66) + 
+        geom_segment(data = forest_tick_df, aes(x = tick_x, xend = tick_x, y = axis_y, yend = axis_y - 0.09), color = "#48525A", linewidth = 0.58) + geom_text(data = forest_tick_df, aes(x = tick_x, y = tick_label_y, label = tick_label), color = "#3F4951", size = 3.05) + annotate(geom = "text", x = mean(c(forest_xmin, forest_xmax)), y = axis_title_y, label = paste0("Mean difference in log2(CPM + 1)\n", "(Sarcopenia − Control)"), color = "#303A42", fontface = "bold", size = 3.35, lineheight = 0.92) + 
+        annotate(geom = "point", x = 2.1, y = legend_y, shape = 21, size = 3.3, stroke = 0.7, fill = direction_colors["Higher in sarcopenia"], color = direction_colors["Higher in sarcopenia"]) + annotate(geom = "text", x = 2.28, y = legend_y, label = "Higher in sarcopenia", hjust = 0, color = "#58636B", size = 2.9) + annotate(geom = "point", x = 4.02, y = legend_y, shape = 21, size = 3.3, stroke = 0.7, fill = direction_colors["Lower in sarcopenia"], color = direction_colors["Lower in sarcopenia"]) + 
+        annotate(geom = "text", x = 4.2, y = legend_y, label = "Lower in sarcopenia", hjust = 0, color = "#58636B", size = 2.9) + scale_color_manual(values = direction_colors, drop = FALSE) + scale_fill_manual(values = direction_colors, drop = FALSE) + scale_x_continuous(expand = expansion(mult = c(0, 0))) + scale_y_continuous(expand = expansion(mult = c(0, 0))) + coord_cartesian(xlim = c(plot_xmin, plot_xmax), ylim = c(plot_ymin, plot_ymax), clip = "off") + guides(color = "none", fill = "none") + 
+        theme_void(base_size = 12, base_family = "sans") + theme(plot.margin = margin(t = 12, r = 14, b = 8, l = 14))
+    print(p_fig4b)
+    output_png <- file.path(final_output_dir, "Figure_04B_GSE111016_hub_gene_effect_size_forest_plain.png")
+    output_pdf <- file.path(final_output_dir, "Figure_04B_GSE111016_hub_gene_effect_size_forest_plain.pdf")
+    output_txt <- file.path(final_output_dir, "Figure_04B_GSE111016_hub_gene_effect_size_forest_plain_code.txt")
+    old_output_files <- c(output_png, output_pdf, output_txt)
+    old_output_files <- old_output_files[file.exists(old_output_files)]
+    if (length(old_output_files) > 0) {
+        unlink(old_output_files, force = TRUE)
+    }
+    plot_width <- 9.2
+    plot_height <- 6.6
+    ggsave(filename = output_png, plot = p_fig4b, width = plot_width, height = plot_height, units = "in", dpi = 600, bg = "white", limitsize = FALSE)
+    if (capabilities("cairo")) {
+        ggsave(filename = output_pdf, plot = p_fig4b, device = grDevices::cairo_pdf, width = plot_width, height = plot_height, units = "in", bg = "white", limitsize = FALSE)
+    }
+    else {
+        ggsave(filename = output_pdf, plot = p_fig4b, device = "pdf", width = plot_width, height = plot_height, units = "in", bg = "white", limitsize = FALSE)
+    }
+    function_code <- deparse(make_figure4b, width.cutoff = 500L)
+    function_code[1] <- paste0("make_figure4b <- ", function_code[1])
+    complete_code <- c("############################################################", "## Figure 4B", "## GSE111016 robust hub gene effect-size forest plot (plain, no title/subtitle)", "## Automatically exported reproducible R code", "############################################################", "", function_code, "", "figure4b_result <- make_figure4b()", "")
+    writeLines(complete_code, con = output_txt, useBytes = TRUE)
+    required_outputs <- c(output_png, output_pdf, output_txt)
+    output_exists <- file.exists(required_outputs)
+    output_sizes <- file.info(required_outputs)$size
+    failed_positions <- !output_exists | is.na(output_sizes) | output_sizes <= 0
+    if (any(failed_positions)) {
+        failed_files <- required_outputs[failed_positions]
+        stop(paste0("\n以下输出文件没有成功生成：\n", paste0("  - ", failed_files, collapse = "\n")), call. = FALSE)
+    }
+    cat("\n", "============================================================\n", "Figure 4B 无标题版本已成功生成\n", "============================================================\n", "\n", "Hub presence 输入：\n", hub_input_description, "\n\n", "表达数据输入：\n", expression_input_description, "\n\n", "输出文件夹：\n", normalizePath(output_dir, winslash = "/", mustWork = TRUE), "\n\n", "PNG：\n", normalizePath(output_png, winslash = "/", mustWork = TRUE), "\n\n", "完整代码 TXT：\n", 
+        normalizePath(output_txt, winslash = "/", mustWork = TRUE), "\n", "============================================================\n", sep = "")
+    invisible(list(plot = p_fig4b, statistics = hub_stats_df, hub_input = hub_input_description, expression_input = expression_input_description, output_directory = final_output_dir, png = output_png, pdf = output_pdf, code_txt = output_txt))
+}
+
+figure4b_result <- make_figure4b()
+

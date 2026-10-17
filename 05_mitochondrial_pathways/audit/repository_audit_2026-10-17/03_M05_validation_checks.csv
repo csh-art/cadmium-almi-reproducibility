@@ -1,0 +1,14 @@
+"Check","Pass"
+"group_df has 40 samples",TRUE
+"Control n = 20",TRUE
+"Sarcopenia n = 20",TRUE
+"ssGSEA has 40 sample columns",TRUE
+"ssGSEA contains four locked mitochondrial pathways",TRUE
+"hub_genes length = 11",TRUE
+"strict_hub_genes length = 2",TRUE
+"strict hubs are ATF4 and CASP9",TRUE
+"Figure 5C has 44 gene-pathway correlations",TRUE
+"target GSEA statistics contain four pathways",TRUE
+"pathways_nohub object exists",TRUE
+"ssgsea_scores_nohub object exists",TRUE
+"No hub gene remains in pathways_nohub",TRUE

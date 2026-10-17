@@ -1,0 +1,41 @@
+"group","stage_number","stage","remaining_n","excluded_from_previous_n"
+"2011-2012",1,"Initial DEMO sample",9756,0
+"2011-2012",2,"Age 20-59 years",3769,5987
+"2011-2012",3,"PBCD component available",3632,137
+"2011-2012",4,"Valid blood cadmium",3440,192
+"2011-2012",5,"DXX component available",3440,0
+"2011-2012",6,"Strict valid limb DXA",2611,829
+"2011-2012",7,"Valid height and ALMI",2604,7
+"2011-2012",8,"Valid survey weight/design",2604,0
+"2013-2014",1,"Initial DEMO sample",10175,0
+"2013-2014",2,"Age 20-59 years",3928,6247
+"2013-2014",3,"PBCD component available",1917,2011
+"2013-2014",4,"Valid blood cadmium",1846,71
+"2013-2014",5,"DXX component available",1846,0
+"2013-2014",6,"Strict valid limb DXA",1527,319
+"2013-2014",7,"Valid height and ALMI",1523,4
+"2013-2014",8,"Valid survey weight/design",1523,0
+"2015-2016",1,"Initial DEMO sample",9971,0
+"2015-2016",2,"Age 20-59 years",3818,6153
+"2015-2016",3,"PBCD component available",1826,1992
+"2015-2016",4,"Valid blood cadmium",1726,100
+"2015-2016",5,"DXX component available",1726,0
+"2015-2016",6,"Strict valid limb DXA",1340,386
+"2015-2016",7,"Valid height and ALMI",1337,3
+"2015-2016",8,"Valid survey weight/design",1337,0
+"2017-2018",1,"Initial DEMO sample",9254,0
+"2017-2018",2,"Age 20-59 years",3419,5835
+"2017-2018",3,"PBCD component available",3247,172
+"2017-2018",4,"Valid blood cadmium",3084,163
+"2017-2018",5,"DXX component available",3084,0
+"2017-2018",6,"Strict valid limb DXA",2173,911
+"2017-2018",7,"Valid height and ALMI",2164,9
+"2017-2018",8,"Valid survey weight/design",2164,0
+"Overall",1,"Initial DEMO sample",39156,0
+"Overall",2,"Age 20-59 years",14934,24222
+"Overall",3,"PBCD component available",10622,4312
+"Overall",4,"Valid blood cadmium",10096,526
+"Overall",5,"DXX component available",10096,0
+"Overall",6,"Strict valid limb DXA",7651,2445
+"Overall",7,"Valid height and ALMI",7628,23
+"Overall",8,"Valid survey weight/design",7628,0

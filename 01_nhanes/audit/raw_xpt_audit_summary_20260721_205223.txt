@@ -1,0 +1,31 @@
+NHANES 2011–2018 RAW XPT AUDIT SUMMARY
+============================================================
+
+Generated at: 2026-07-21 20:52:32
+FINAL_STATUS = PASS
+
+Expected files: 52
+Files found: 52
+Files readable: 52
+Files passed: 52
+Files requiring review: 0
+Missing files: 0
+Read-error files: 0
+ERROR count: 0
+WARNING count: 0
+
+Preliminary sample availability:
+     cycle n_demo n_pbcd n_dxx n_bmx n_demo_pbcd_overlap n_demo_pbcd_dxx_overlap n_demo_pbcd_dxx_bmx_overlap
+ 2011-2012   9756   8956  5692  9338                8956                    5692                        5692
+ 2013-2014  10175   5932  6033  9813                5932                    3447                        3447
+ 2015-2016   9971   5815  5780  9544                5815                    3315                        3315
+ 2017-2018   9254   8366  5114  8704                8366                    5114                        5114
+
+Audit issues:
+No audit issues detected.
+
+Safety confirmation:
+Source XPT files were not modified.
+No file was written into backup.
+No file was written into figure.
+No file was written into table.

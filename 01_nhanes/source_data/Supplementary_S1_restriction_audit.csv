@@ -1,0 +1,7 @@
+"analysis","unweighted_n","reference_n","retention_percent"
+"Strict analysis sample",7628,7628,100
+"Primary Model 3 sample",6575,7628,86.1955951756686
+"Model 4 common sample",6536,7628,85.6843209229156
+"Model 3 excluding current smokers",5104,6575,77.6273764258555
+"Model 3 restricted to never smokers",3976,6575,60.4714828897338
+"Model 3 excluding the highest 1% of cadmium",6496,6575,98.7984790874525

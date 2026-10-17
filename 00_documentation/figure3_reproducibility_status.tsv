@@ -1,0 +1,10 @@
+component	status	key_count_or_result	remaining_requirement
+Figure3A candidate screening	complete/frozen-source validator available	138 CTD; 3342 nominal DEGs; 23 final genes	None for public audit; fresh end-to-end local rerun recommended for maintenance
+Figure3A SLC11A2 boundary audit	complete	abs(log2FC)=0.0998186723	
+Figure3B GO/KEGG	complete source tables archived	Complete BP/CC/MF/KEGG tables + displayed top-10 table	Historical database/access-date metadata were not retained; limitation disclosed
+Figure3C STRING PPI	source data archived	23-gene query; 22-node degree table; 102 unique interaction rows; VEGFA absent from retained node table	Historical STRING release/access date and exact web-query settings were not retained; limitation disclosed
+Figure3D lollipop	regenerable	23 genes; raw counts + phenotype archived	Existing panel-specific statistics folder optional, not required
+Figure3E volcano	regenerable	3342 nominal DEGs	None for public audit; historical plotting snapshot archived
+Figure3F heatmap	compact source data complete	23 genes x 40 samples; VST and row-Z matrices archived	None for public audit; compact source matrices archived
+Figure3G boxplots	compact source data complete	23 genes x 40 samples	None for public audit; compact source matrices archived
+Figure3 combined	code+final PDF archived	A-G	Historical absolute-path plotting snapshot archived; not advertised as portable

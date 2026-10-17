@@ -1,0 +1,8 @@
+component	analysis	status	note
+Figure 5A	GO-BP GSEA dot plot	VALIDATED_FROZEN_OBJECT_AND_FINAL_CODE	Stored clusterProfiler gseaResult archived; audit exported 5,880 GSEA rows and final Figure 5A code is archived.
+Figure 5B	Mitochondrial ssGSEA	VALIDATED_FROZEN_CORE_AND_FINAL_CODE	Audit confirmed 40 samples (20 control, 20 sarcopenia), four locked mitochondrial pathways, ssGSEA scores and statistics in the frozen core.
+Figure 5C	Hub-pathway correlations after hub removal	VALIDATED_HUB_REMOVAL_AND_44_CORRELATIONS	Audit confirmed pathways_nohub and ssgsea_scores_nohub exist, all 11 hubs were removed from pathway sets, and 44 gene-pathway correlations are present.
+Figure 5D	Mitochondrial GSEA curves	VALIDATED_FROZEN_CORE_AND_FINAL_CODE	Audit confirmed four target GSEA statistics plus running-ES, hit-position and rank-vector objects in the frozen core.
+Figure 5 composite	A-D combined	FINAL_COMPOSITE_CODE_ARCHIVED	Original compact big-label composite code archived.
+Upstream B/C/D core construction	Canonical input -> frozen core	RECOVERED_FROM_WORKSPACE	Historical 2-byte code capture remains provenance-only; original run_figure5_abcd_final and run_ssgsea functions were recovered from the historical workspace. Fresh end-to-end rerun is recommended for future maintenance, not claimed in this release.
+Human-readable source-data exports	Audit source_data folder	ARCHIVED_AND_AUDITED	Audit-generated CSV exports are archived under 05_mitochondrial_pathways/source_data; they include Figure 5A-D key numerical sources, hub-removed pathway membership/scores, and the full 5,880-row GO-BP GSEA result.

@@ -1,0 +1,5 @@
+hm_variant_id	hm_rsid	hm_chrom	hm_pos	hm_other_allele	hm_effect_allele	hm_beta	hm_odds_ratio	hm_ci_lower	hm_ci_upper	hm_effect_allele_frequency	hm_code	variant_id	p_value	chromosome	base_pair_location	effect_allele	other_allele	effect_allele_frequency	beta	standard_error	odds_ratio	ci_lower	ci_upper
+1_15522201_C_T	rs933704	1	15522201	C	T	-0.00460983	NA	NA	NA	0.526645	11	rs933704	8.4E-02	1	15522201	C	T	0.473355	0.00460983	0.00252025	NA	NA	NA
+4_184648878_C_A	rs4647601	4	184648878	C	A	-0.000112283	NA	NA	NA	0.481348	11	rs4647601	7.4E-01	4	184648878	C	A	0.518652	0.000112283	0.00260357	NA	NA	NA
+16_87403202_G_C	rs7865	16	87403202	G	C	0.00551237	NA	NA	NA	0.12774700000000005	6	rs7865	2.1E-01	16	87403202	G	C	0.872253	-0.00551237	0.0043854	NA	NA	NA
+22_39525379_T_C	rs882565	22	39525379	T	C	-0.00771622	NA	NA	NA	0.30702799999999997	11	rs882565	6.5E-03	22	39525379	T	C	0.692972	0.00771622	0.00278631	NA	NA	NA

@@ -1,0 +1,62 @@
+options(stringsAsFactors = FALSE, warn = 1, scipen = 999)
+
+required_packages <- c('dplyr','ggplot2')
+missing_packages <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)]
+if (length(missing_packages) > 0) install.packages(missing_packages, repos='https://cloud.r-project.org', dependencies=TRUE)
+suppressPackageStartupMessages({library(dplyr); library(ggplot2); library(grid)})
+
+root_dir <- paste0('E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/','03_results/M11_MR')
+output_root <- file.path(root_dir,'03_outputs_figures_tables')
+figureNEW_dir <- file.path(output_root,'figureNEW')
+dir.create(figureNEW_dir, recursive=TRUE, showWarnings=FALSE)
+
+get_result_data <- function(object_name, candidate_file_names) {
+  if (exists(object_name, envir=.GlobalEnv, inherits=FALSE)) return(get(object_name, envir=.GlobalEnv, inherits=FALSE))
+  all_files <- list.files(output_root, recursive=TRUE, full.names=TRUE)
+  matched_files <- all_files[basename(all_files) %in% candidate_file_names]
+  if (length(matched_files)==0) stop(paste0('找不到结果文件：', paste(candidate_file_names, collapse=', ')))
+  read.delim(matched_files[1], header=TRUE, stringsAsFactors=FALSE, check.names=FALSE)
+}
+
+save_png_600 <- function(plot_object, filename, width, height) {
+  if (requireNamespace('ragg', quietly=TRUE)) {
+    ggplot2::ggsave(filename=filename, plot=plot_object, device=ragg::agg_png, width=width, height=height, units='in', dpi=600, bg='white', limitsize=FALSE)
+  } else {
+    ggplot2::ggsave(filename=filename, plot=plot_object, device='png', width=width, height=height, units='in', dpi=600, bg='white', limitsize=FALSE)
+  }
+}
+
+make_MR_panel_B <- function () 
+{
+    instrument_data_raw <- get_result_data(object_name = "final_instruments", candidate_file_names = c("Table_MR_instrument_characteristics_and_results.tsv", "Table_MR_final_manuscript_summary.tsv"))
+    instrument_required <- c("gene_name", "rsid", "F_stat")
+    instrument_missing <- setdiff(instrument_required, names(instrument_data_raw))
+    if (length(instrument_missing) > 0) {
+        stop(paste0("工具变量数据缺少字段：", paste(instrument_missing, collapse = ", ")), call. = FALSE)
+    }
+    gene_order <- c("ATF4", "CASP9", "CASP3", "MAP1LC3B")
+    instrument_strength_data <- instrument_data_raw %>% transmute(gene_name = as.character(gene_name), rsid = as.character(rsid), F_stat = as.numeric(F_stat)) %>% distinct() %>% filter(gene_name %in% gene_order) %>% mutate(gene_order_number = match(gene_name, gene_order)) %>% arrange(gene_order_number) %>% mutate(instrument_label = paste0(gene_name, " (", rsid, ")"), instrument_label = factor(instrument_label, levels = rev(instrument_label)))
+    if (nrow(instrument_strength_data) != 4) {
+        warning(paste0("Figure B绘图数据共有 ", nrow(instrument_strength_data), " 行，正常应为4行。"))
+    }
+    maximum_f <- max(instrument_strength_data$F_stat, na.rm = TRUE)
+    axis_max <- max(400, ceiling(maximum_f * 1.28/50) * 50)
+    axis_breaks <- seq(from = 0, to = axis_max, by = 50)
+    p_B <- ggplot(instrument_strength_data, aes(x = instrument_label, y = F_stat)) + geom_col(fill = "#4F81BD", width = 0.6) + geom_hline(yintercept = 10, color = "#D62728", linetype = "dashed", linewidth = 0.75) + geom_text(aes(label = sprintf("%.2f", F_stat)), hjust = -0.16, size = 3.6, color = "black") + coord_flip(clip = "off") + scale_y_continuous(limits = c(0, axis_max), breaks = axis_breaks, expand = expansion(mult = c(0, 0))) + labs(title = NULL, x = NULL, y = "F statistic") + theme_bw(base_size = 11) + 
+        theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_line(color = "grey88", linewidth = 0.45), panel.border = element_rect(color = "black", fill = NA, linewidth = 0.75), axis.title.x = element_text(size = 11.5, margin = margin(t = 8)), axis.text.x = element_text(size = 9.5, color = "grey25"), axis.text.y = element_text(size = 9.5, color = "black", margin = margin(r = 7)), plot.margin = margin(t = 10, r = 25, b = 10, l = 18))
+    png_file <- file.path(figureNEW_dir, "Figure_MR_B_instrument_strength_plain.png")
+    pdf_file <- file.path(figureNEW_dir, "Figure_MR_B_instrument_strength_plain.pdf")
+    txt_file <- file.path(figureNEW_dir, "Figure_MR_B_instrument_strength_plain_code.txt")
+    save_png_600(plot_object = p_B, filename = png_file, width = 7.2, height = 5.1)
+    ggplot2::ggsave(filename = pdf_file, plot = p_B, device = grDevices::cairo_pdf, width = 7.2, height = 5.1, units = "in", bg = "white")
+    function_code <- deparse(make_MR_panel_B, width.cutoff = 500L)
+    function_code[1] <- paste0("make_MR_panel_B <- ", function_code[1])
+    standalone_code <- c("options(stringsAsFactors = FALSE, warn = 1, scipen = 999)", "", "required_packages <- c('dplyr','ggplot2')", "missing_packages <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)]", "if (length(missing_packages) > 0) install.packages(missing_packages, repos='https://cloud.r-project.org', dependencies=TRUE)", "suppressPackageStartupMessages({library(dplyr); library(ggplot2); library(grid)})", "", "root_dir <- paste0('E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/','03_results/M11_MR')", 
+        "output_root <- file.path(root_dir,'03_outputs_figures_tables')", "figureNEW_dir <- file.path(output_root,'figureNEW')", "dir.create(figureNEW_dir, recursive=TRUE, showWarnings=FALSE)", "", "get_result_data <- function(object_name, candidate_file_names) {", "  if (exists(object_name, envir=.GlobalEnv, inherits=FALSE)) return(get(object_name, envir=.GlobalEnv, inherits=FALSE))", "  all_files <- list.files(output_root, recursive=TRUE, full.names=TRUE)", "  matched_files <- all_files[basename(all_files) %in% candidate_file_names]", 
+        "  if (length(matched_files)==0) stop(paste0('找不到结果文件：', paste(candidate_file_names, collapse=', ')))", "  read.delim(matched_files[1], header=TRUE, stringsAsFactors=FALSE, check.names=FALSE)", "}", "", "save_png_600 <- function(plot_object, filename, width, height) {", "  if (requireNamespace('ragg', quietly=TRUE)) {", "    ggplot2::ggsave(filename=filename, plot=plot_object, device=ragg::agg_png, width=width, height=height, units='in', dpi=600, bg='white', limitsize=FALSE)", 
+        "  } else {", "    ggplot2::ggsave(filename=filename, plot=plot_object, device='png', width=width, height=height, units='in', dpi=600, bg='white', limitsize=FALSE)", "  }", "}", "", function_code, "", "figure_B_result <- make_MR_panel_B()")
+    writeLines(standalone_code, con = txt_file, useBytes = TRUE)
+    list(plot = p_B, png = png_file, pdf = pdf_file, txt = txt_file)
+}
+
+figure_B_result <- make_MR_panel_B()

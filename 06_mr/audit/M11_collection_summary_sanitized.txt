@@ -1,0 +1,21 @@
+============================================================
+M11 / FIGURE 6 REPOSITORY PACKET COLLECTION
+============================================================
+Generated: 2026-10-17 20:43:05
+Project: <LOCAL_M11_PROJECT_ROOT>
+
+Requested target files: 25
+Targets found/copied: 25
+Targets not found: 0
+Small code candidates inventoried: 50
+Private backup/provenance files copied: 6
+
+IMPORTANT:
+- No raw ALM GWAS .gz file was copied.
+- No full GTEx archive/parquet was copied.
+- No 1000 Genomes bed/bim/fam reference was copied.
+- Existing project files were not modified.
+
+NEXT:
+Compress the whole 00_repository_audit_M11 folder as ZIP and upload it to ChatGPT.
+============================================================

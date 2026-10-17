@@ -1,0 +1,28 @@
+"Object","Class","Length","Nrow","Ncol","Size_MB"
+"expr","matrix | array",576960,14424,40,5.2965
+"group_df","data.frame",4,40,4,0.0076
+"hub_genes","character",11,NA,NA,0.0008
+"dataset","character",1,NA,NA,0.0001
+"expression_definition","character",1,NA,NA,0.0002
+"sample_id_field","character",1,NA,NA,0.0001
+"phenotype_field","character",1,NA,NA,0.0001
+"phenotype_coding","character",2,NA,NA,0.0005
+"low_expression_rule","character",1,NA,NA,0.0001
+"normalization_method","character",1,NA,NA,0.0001
+"log_cpm_method","character",1,NA,NA,0.0002
+"identifier_type","character",1,NA,NA,0.0001
+"duplicate_symbol_rule","character",1,NA,NA,0.0002
+"raw_count_file","character",1,NA,NA,0.0003
+"raw_count_file_md5","character",1,NA,NA,0.0001
+"phenotype_file","character",1,NA,NA,0.0003
+"phenotype_file_md5","character",1,NA,NA,0.0001
+"number_raw_gene_rows","integer",1,NA,NA,0.0001
+"number_filtered_gene_rows","integer",1,NA,NA,0.0001
+"number_symbol_rows","integer",1,NA,NA,0.0001
+"normalization_table","data.frame",6,40,6,0.0082
+"hub_direction_qc","data.frame",7,11,7,0.0029
+"confirmed_direction_matches","integer",1,NA,NA,0.0001
+"reconstruction_status","character",1,NA,NA,0.0002
+"future_figure_directory","character",1,NA,NA,0.0002
+"created_at","POSIXct | POSIXt",1,NA,NA,0.0003
+"backup_modified","logical",1,NA,NA,0.0001

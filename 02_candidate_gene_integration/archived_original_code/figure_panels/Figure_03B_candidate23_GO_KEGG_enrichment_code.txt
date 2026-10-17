@@ -1,0 +1,111 @@
+# Figure 3B GO/KEGG enrichment plot
+# Internal title removed; all other plot parameters retained
+
+rm(list = ls())
+graphics.off()
+
+regenerate_panel_B_without_title <- function () 
+{
+    required_packages <- c("ggplot2", "dplyr", "grid", "scales")
+    missing_packages <- required_packages[!vapply(required_packages, requireNamespace, quietly = TRUE, FUN.VALUE = logical(1))]
+    if (length(missing_packages) > 0) {
+        stop("以下R包尚未安装：\n", paste(missing_packages, collapse = ", "))
+    }
+    project_dir <- paste0("E:/1Data/Cd_Sarcopenia_NHANES/", "new_workspace/03_results/", "M03_CandidateGenes_GO_PPI_GSE111016")
+    analysis_dir <- file.path(project_dir, "02_analysis_files", "Figure2B_GO_KEGG")
+    figure_dir <- file.path(project_dir, "03_outputs_figures_tables", "figure")
+    dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
+    input_file_1 <- file.path(analysis_dir, "GO_KEGG_top10_each_category_final.csv")
+    input_file_2 <- file.path(analysis_dir, "GO_KEGG_top10_each_category_for_review.csv")
+    if (file.exists(input_file_1)) {
+        input_file <- input_file_1
+    }
+    else if (file.exists(input_file_2)) {
+        input_file <- input_file_2
+    }
+    else {
+        stop("找不到GO/KEGG富集输入文件：\n", input_file_1, "\n", input_file_2)
+    }
+    plot_df <- read.csv(input_file, stringsAsFactors = FALSE, check.names = FALSE)
+    required_columns <- c("Category", "Description", "GeneRatio", "p.adjust", "pvalue")
+    missing_columns <- setdiff(required_columns, names(plot_df))
+    if (length(missing_columns) > 0) {
+        stop("富集数据缺少以下列：\n", paste(missing_columns, collapse = ", "))
+    }
+    plot_df$Category <- gsub("GO_", "GO ", plot_df$Category)
+    plot_df$Category <- gsub("GO BP", "BP", plot_df$Category)
+    plot_df$Category <- gsub("GO CC", "CC", plot_df$Category)
+    plot_df$Category <- gsub("GO MF", "MF", plot_df$Category)
+    plot_df$Category <- factor(plot_df$Category, levels = c("BP", "CC", "MF", "KEGG"))
+    plot_df$Category_num <- as.numeric(plot_df$Category)
+    parse_ratio <- function(x) {
+        vapply(x, function(z) {
+            z <- as.character(z)
+            parts <- strsplit(z, "/", fixed = TRUE)[[1]]
+            if (length(parts) == 2L) {
+                numerator <- suppressWarnings(as.numeric(parts[1]))
+                denominator <- suppressWarnings(as.numeric(parts[2]))
+                if (is.finite(numerator) && is.finite(denominator) && denominator != 0) {
+                  return(numerator/denominator)
+                }
+            }
+            NA_real_
+        }, FUN.VALUE = numeric(1))
+    }
+    plot_df$GeneRatio_numeric <- parse_ratio(plot_df$GeneRatio)
+    plot_df <- dplyr::filter(plot_df, !is.na(Category), !is.na(GeneRatio_numeric), !is.na(p.adjust), is.finite(GeneRatio_numeric), is.finite(p.adjust))
+    if (nrow(plot_df) == 0L) {
+        stop("清理后没有可用于绘图的富集条目。")
+    }
+    positive_adjusted_p <- plot_df$p.adjust[plot_df$p.adjust > 0]
+    if (length(positive_adjusted_p) == 0L) {
+        stop("p.adjust中不存在正数。")
+    }
+    minimum_nonzero <- min(positive_adjusted_p, na.rm = TRUE)
+    plot_df$p.adjust[plot_df$p.adjust == 0] <- minimum_nonzero/10
+    plot_df$log10_padj <- -log10(plot_df$p.adjust)
+    plot_df <- dplyr::arrange(plot_df, Category, p.adjust, pvalue)
+    plot_df$Term_label <- paste0("-", plot_df$Description)
+    number_of_terms <- nrow(plot_df)
+    y_gap <- 1.18
+    plot_df$y_pos <- rev(seq_len(number_of_terms)) * y_gap
+    category_df <- dplyr::summarise(dplyr::group_by(plot_df, Category), ymin = min(y_pos) - y_gap/2, ymax = max(y_pos) + y_gap/2, ymid = mean(range(y_pos)), .groups = "drop")
+    export_width <- 12.2
+    export_height <- 12
+    category_colors <- c(BP = "#B9D8C2", CC = "#E89A72", MF = "#AFCBE3", KEGG = "#D8C4E8")
+    panel_xmin <- 0.5
+    panel_xmax <- 4.5
+    term_x <- 4.58
+    plot_xmin <- 0.12
+    plot_xmax <- 7.85
+    plot_ymin <- min(plot_df$y_pos) - y_gap * 0.75
+    plot_ymax <- max(plot_df$y_pos) + y_gap * 2.3
+    top_strip_height_y <- 0.88
+    top_ymin <- max(plot_df$y_pos) + y_gap * 0.6
+    top_ymax <- top_ymin + top_strip_height_y
+    top_ytext <- (top_ymin + top_ymax)/2
+    x_span <- plot_xmax - plot_xmin
+    y_span <- plot_ymax - plot_ymin
+    left_strip_width_x <- top_strip_height_y/y_span * (export_height/export_width) * x_span
+    left_strip_width_x <- max(min(left_strip_width_x, 0.2), 0.13)
+    left_xmax <- 0.43
+    left_xmin <- left_xmax - left_strip_width_x
+    left_xtext <- (left_xmin + left_xmax)/2
+    horizontal_grid <- data.frame(y = plot_df$y_pos)
+    vertical_grid <- data.frame(x = 1:4)
+    top_df <- data.frame(Category = factor(c("BP", "CC", "MF", "KEGG"), levels = c("BP", "CC", "MF", "KEGG")), Category_num = 1:4)
+    panel_B_plot <- ggplot2::ggplot() + ggplot2::annotate("rect", xmin = panel_xmin, xmax = panel_xmax, ymin = min(plot_df$y_pos) - y_gap/2, ymax = max(plot_df$y_pos) + y_gap/2, fill = "white", colour = "black", linewidth = 0.55) + ggplot2::geom_segment(data = horizontal_grid, ggplot2::aes(x = panel_xmin, xend = panel_xmax, y = y, yend = y), colour = "#E6E6E6", linewidth = 0.3) + ggplot2::geom_segment(data = vertical_grid, ggplot2::aes(x = x, xend = x, y = min(plot_df$y_pos) - y_gap/2, yend = max(plot_df$y_pos) + 
+        y_gap/2), colour = "#E6E6E6", linewidth = 0.3) + ggplot2::geom_rect(data = top_df, ggplot2::aes(xmin = Category_num - 0.5, xmax = Category_num + 0.5, ymin = top_ymin, ymax = top_ymax, fill = Category), colour = NA) + ggplot2::geom_text(data = top_df, ggplot2::aes(x = Category_num, y = top_ytext, label = Category), fontface = "bold", size = 4.2) + ggplot2::geom_rect(data = category_df, ggplot2::aes(xmin = left_xmin, xmax = left_xmax, ymin = ymin, ymax = ymax, fill = Category), colour = NA) + 
+        ggplot2::geom_text(data = category_df, ggplot2::aes(x = left_xtext, y = ymid, label = Category), angle = 90, fontface = "bold", size = 3.7) + ggplot2::geom_point(data = plot_df, ggplot2::aes(x = Category_num, y = y_pos, size = GeneRatio_numeric, color = log10_padj), alpha = 0.95) + ggplot2::geom_text(data = plot_df, ggplot2::aes(x = term_x, y = y_pos, label = Term_label), hjust = 0, size = 3.35, colour = "black") + ggplot2::scale_fill_manual(values = category_colors) + ggplot2::scale_color_gradientn(colours = c("#FDBB84", 
+        "#FC8D59", "#EF6548", "#D94701", "#A63603"), breaks = pretty(plot_df$log10_padj, n = 4), name = expression(-log[10](p.adjust))) + ggplot2::scale_size_continuous(name = "GeneRatio", breaks = c(0.05, 0.1, 0.2, 0.3, 0.4), range = c(1.6, 5.3)) + ggplot2::coord_cartesian(xlim = c(plot_xmin, plot_xmax), ylim = c(plot_ymin, plot_ymax), clip = "off") + ggplot2::guides(fill = "none", color = ggplot2::guide_colorbar(order = 1, barheight = grid::unit(2.6, "cm"), barwidth = grid::unit(0.55, "cm")), size = ggplot2::guide_legend(order = 2, 
+        override.aes = list(alpha = 1))) + ggplot2::labs(title = NULL, x = NULL, y = NULL) + ggplot2::theme_void(base_size = 13) + ggplot2::theme(plot.title = ggplot2::element_blank(), legend.position = c(0.85, 0.78), legend.justification = c(0, 1), legend.box = "vertical", legend.spacing.y = grid::unit(0.12, "cm"), legend.box.spacing = grid::unit(0.1, "cm"), legend.background = ggplot2::element_rect(fill = scales::alpha("white", 0.9), colour = "grey60", linewidth = 0.35), legend.title = ggplot2::element_text(face = "bold", 
+        size = 9.5), legend.text = ggplot2::element_text(size = 8.8), plot.margin = ggplot2::margin(t = 0, r = 10, b = 8, l = 8))
+    pdf_file <- file.path(figure_dir, "Figure_03B_candidate23_GO_KEGG_enrichment.pdf")
+    png_file <- file.path(figure_dir, "Figure_03B_candidate23_GO_KEGG_enrichment_600dpi.png")
+    code_file <- file.path(figure_dir, "Figure_03B_candidate23_GO_KEGG_enrichment_code.txt")
+    ggplot2::ggsave(filename = pdf_file, plot = panel_B_plot, width = export_width, height = export_height, units = "in", bg = "white")
+    ggplot2::ggsave(filename = png_file, plot = panel_B_plot, width = export_width, height = export_height, units = "in", dpi = 600, bg = "white")
+    list(plot = panel_B_plot, input_file = input_file, pdf_file = pdf_file, png_file = png_file, code_file = code_file)
+}
+
+panel_B_result <- regenerate_panel_B_without_title()

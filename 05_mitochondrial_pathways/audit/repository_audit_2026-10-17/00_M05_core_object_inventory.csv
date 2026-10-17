@@ -1,0 +1,26 @@
+"Object","Class","Length","Nrow","Ncol","Size_MB"
+"expr","matrix | array",576960,14424,40,5.2965
+"group_df","data.frame",4,40,4,0.0076
+"rank_vec","numeric",25581,NA,NA,1.8011
+"gsea_result","data.frame",13,5880,13,2.7873
+"pathway_entrez","list",4,NA,NA,0.0301
+"pathway_symbols_raw","list",4,NA,NA,0.0302
+"pathways","list",4,NA,NA,0.0283
+"pathway_size_table","data.frame",5,4,5,0.0022
+"hub_genes","character",11,NA,NA,0.0008
+"strict_hub_genes","character",2,NA,NA,0.0002
+"robust_hub_genes","character",9,NA,NA,0.0007
+"figure5a_display","data.frame",18,18,18,0.0196
+"ssgsea_scores","matrix | array",160,4,40,0.0048
+"figure5b_statistics","data.frame",10,4,10,0.0027
+"pathways_nohub","list",4,NA,NA,0.028
+"ssgsea_scores_nohub","matrix | array",160,4,40,0.0048
+"figure5c_correlations","data.frame",11,44,11,0.0094
+"target_gsea_statistics","data.frame",7,4,7,0.0025
+"figure5d_es","data.frame",4,102324,4,2.3441
+"figure5d_hits","data.frame",6,463,6,0.0328
+"figure5d_qc","data.frame",6,4,6,0.0018
+"source_bc_input_path","character",1,NA,NA,0.0003
+"source_bc_input_md5","character",1,NA,NA,0.0001
+"source_gsea_input_path","character",1,NA,NA,0.0003
+"source_gsea_input_md5","character",1,NA,NA,0.0001

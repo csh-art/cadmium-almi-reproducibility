@@ -1,0 +1,5 @@
+"stage_number","model","remaining_n","excluded_from_previous_n","retention_from_core_percent"
+1,"M1_Crude",7628,0,100
+2,"M2_Demographic",7628,0,100
+3,"M3_Primary",6575,1053,86.1955951756686
+4,"M4_Clinical",6536,39,85.6843209229156

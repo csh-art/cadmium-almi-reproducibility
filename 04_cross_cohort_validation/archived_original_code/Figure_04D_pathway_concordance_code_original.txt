@@ -1,0 +1,849 @@
+# ============================================================
+# Cross-cohort concordance of prespecified biological pathways
+# Standalone plotting code
+#
+# This script:
+#   1. Reads the completed Figure 4E source-data table.
+#   2. Generates a titled 600-dpi PNG.
+#   3. Generates an untitled 600-dpi PNG.
+#
+# No figure number or panel letter is added.
+# ============================================================
+
+options(stringsAsFactors = FALSE)
+graphics.off()
+
+# ------------------------------------------------------------
+# 1. Paths
+# ------------------------------------------------------------
+
+project_dir <- paste0(
+    "E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/",
+    "03_results/",
+    "M04_HubGenes_cytoHubba_GSE111016_GSE111010"
+)
+
+output_dir <- file.path(
+    project_dir,
+    "03_outputs_figures_tables",
+    "figure"
+)
+
+preferred_source_files <- c(
+    file.path(
+        project_dir,
+        "03_outputs_figures_tables",
+        "table",
+        "Figure4E_pathway_replication",
+        "Figure4E_pathway_replication_source_data.csv"
+    ),
+    file.path(
+        project_dir,
+        "02_analysis_files",
+        "EV_integrate",
+        "08_Figure4E_pathway_GSEA_and_plot",
+        "Figure4E_pathway_replication_source_data.csv"
+    ),
+    file.path(
+        project_dir,
+        "02_analysis_files",
+        "EV_integrate",
+        "08_Figure4E_pathway_GSEA_and_plot",
+        "07A_Figure4E_integrated_source_data.csv"
+    )
+)
+
+dir.create(
+    output_dir,
+    recursive = TRUE,
+    showWarnings = FALSE
+)
+
+if (!dir.exists(output_dir)) {
+    stop(
+        paste0(
+            "无法创建输出目录：\n",
+            output_dir
+        ),
+        call. = FALSE
+    )
+}
+
+if (grepl(
+    "(^|[/\\\\])backup([/\\\\]|$)",
+    output_dir,
+    ignore.case = TRUE,
+    perl = TRUE
+)) {
+    stop(
+        "输出目录错误地指向backup。",
+        call. = FALSE
+    )
+}
+
+# ------------------------------------------------------------
+# 2. Packages
+# ------------------------------------------------------------
+
+required_packages <- c(
+    "ggplot2",
+    "scales"
+)
+
+package_available <- vapply(
+    required_packages,
+    requireNamespace,
+    logical(1),
+    quietly = TRUE
+)
+
+if (!all(package_available)) {
+    stop(
+        paste0(
+            "缺少必要R包：\n",
+            paste(
+                required_packages[!package_available],
+                collapse = "\n"
+            )
+        ),
+        call. = FALSE
+    )
+}
+
+# ------------------------------------------------------------
+# 3. Locate the source-data table
+# ------------------------------------------------------------
+
+existing_preferred_files <- preferred_source_files[
+    file.exists(preferred_source_files)
+]
+
+if (length(existing_preferred_files) > 0) {
+    source_data_file <- existing_preferred_files[1]
+} else {
+    recursive_candidates <- list.files(
+        project_dir,
+        pattern = "Figure4E.*(source|integrated).*\\.csv$",
+        recursive = TRUE,
+        full.names = TRUE,
+        ignore.case = TRUE
+    )
+
+    recursive_candidates <- recursive_candidates[
+        !grepl(
+            "(^|[/\\\\])backup([/\\\\]|$)",
+            recursive_candidates,
+            ignore.case = TRUE,
+            perl = TRUE
+        )
+    ]
+
+    recursive_candidates <- recursive_candidates[
+        file.exists(recursive_candidates)
+    ]
+
+    if (length(recursive_candidates) == 0) {
+        stop(
+            paste0(
+                "找不到Figure 4E作图源数据。\n\n",
+                "已优先检查：\n",
+                paste(
+                    preferred_source_files,
+                    collapse = "\n"
+                )
+            ),
+            call. = FALSE
+        )
+    }
+
+    candidate_md5 <- unname(
+        as.character(
+            tools::md5sum(
+                recursive_candidates
+            )
+        )
+    )
+
+    if (length(unique(candidate_md5)) > 1) {
+        stop(
+            paste0(
+                "找到多个内容不同的候选源数据，脚本不会自动猜测：\n",
+                paste(
+                    recursive_candidates,
+                    candidate_md5,
+                    sep = " | MD5: ",
+                    collapse = "\n"
+                )
+            ),
+            call. = FALSE
+        )
+    }
+
+    source_data_file <- recursive_candidates[
+        order(
+            nchar(recursive_candidates),
+            recursive_candidates
+        )
+    ][1]
+}
+
+# ------------------------------------------------------------
+# 4. Read and validate source data
+# ------------------------------------------------------------
+
+plot_data <- utils::read.csv(
+    source_data_file,
+    check.names = FALSE,
+    stringsAsFactors = FALSE,
+    fileEncoding = "UTF-8"
+)
+
+required_columns <- c(
+    "Pathway_label",
+    "Dataset",
+    "NES",
+    "P_value",
+    "P_adj_target7"
+)
+
+missing_columns <- setdiff(
+    required_columns,
+    names(plot_data)
+)
+
+if (length(missing_columns) > 0) {
+    stop(
+        paste0(
+            "源数据缺少必要字段：\n",
+            paste(
+                missing_columns,
+                collapse = "\n"
+            ),
+            "\n\n当前字段：\n",
+            paste(
+                names(plot_data),
+                collapse = " | "
+            )
+        ),
+        call. = FALSE
+    )
+}
+
+plot_data$Pathway_label <- trimws(
+    as.character(
+        plot_data$Pathway_label
+    )
+)
+
+plot_data$Dataset <- trimws(
+    as.character(
+        plot_data$Dataset
+    )
+)
+
+plot_data$NES <- suppressWarnings(
+    as.numeric(
+        as.character(
+            plot_data$NES
+        )
+    )
+)
+
+plot_data$P_value <- suppressWarnings(
+    as.numeric(
+        as.character(
+            plot_data$P_value
+        )
+    )
+)
+
+plot_data$P_adj_target7 <- suppressWarnings(
+    as.numeric(
+        as.character(
+            plot_data$P_adj_target7
+        )
+    )
+)
+
+as_logical_safe <- function(x) {
+    if (is.logical(x)) {
+        return(x)
+    }
+
+    if (is.numeric(x)) {
+        return(
+            ifelse(
+                is.na(x),
+                NA,
+                x != 0
+            )
+        )
+    }
+
+    normalized <- tolower(
+        trimws(
+            as.character(x)
+        )
+    )
+
+    output <- rep(
+        NA,
+        length(normalized)
+    )
+
+    output[
+        normalized %in%
+            c(
+                "true",
+                "t",
+                "1",
+                "yes",
+                "y"
+            )
+    ] <- TRUE
+
+    output[
+        normalized %in%
+            c(
+                "false",
+                "f",
+                "0",
+                "no",
+                "n"
+            )
+    ] <- FALSE
+
+    output
+}
+
+if ("Available" %in% names(plot_data)) {
+    plot_data$Available <- as_logical_safe(
+        plot_data$Available
+    )
+} else {
+    plot_data$Available <- is.finite(
+        plot_data$NES
+    )
+}
+
+pathway_order <- c(
+    "Oxidative phosphorylation",
+    "Respiratory electron transport",
+    "Mitochondrial ATP synthesis",
+    "Mitochondrial translation",
+    "Apoptosis",
+    "Autophagy",
+    "Integrated stress response"
+)
+
+dataset_order <- c(
+    "GSE111016",
+    "GSE111010",
+    "GSE111006",
+    "GSE167186"
+)
+
+plot_data <- plot_data[
+    plot_data$Pathway_label %in%
+        pathway_order &
+        plot_data$Dataset %in%
+            dataset_order,
+    ,
+    drop = FALSE
+]
+
+row_key <- paste(
+    plot_data$Pathway_label,
+    plot_data$Dataset,
+    sep = "::"
+)
+
+if (
+    nrow(plot_data) != 28 ||
+        anyDuplicated(row_key) > 0 ||
+        !setequal(
+            unique(plot_data$Pathway_label),
+            pathway_order
+        ) ||
+        !setequal(
+            unique(plot_data$Dataset),
+            dataset_order
+        )
+) {
+    stop(
+        paste0(
+            "源数据必须为7个通路×4个队列=28行，",
+            "且每个Pathway-Dataset组合唯一。\n",
+            "Observed rows: ",
+            nrow(plot_data),
+            "\nDuplicated combinations: ",
+            anyDuplicated(row_key)
+        ),
+        call. = FALSE
+    )
+}
+
+# ------------------------------------------------------------
+# 5. Recalculate discovery direction and symbols
+# ------------------------------------------------------------
+
+discovery_direction <- plot_data[
+    plot_data$Dataset == "GSE111016",
+    c(
+        "Pathway_label",
+        "NES"
+    ),
+    drop = FALSE
+]
+
+names(discovery_direction)[2] <- "Discovery_NES"
+
+direction_index <- match(
+    plot_data$Pathway_label,
+    discovery_direction$Pathway_label
+)
+
+plot_data$Discovery_NES <- discovery_direction$Discovery_NES[
+    direction_index
+]
+
+plot_data$Same_direction <- NA
+
+validation_comparable <- (
+    plot_data$Dataset != "GSE111016" &
+        plot_data$Available &
+        is.finite(plot_data$NES) &
+        is.finite(plot_data$Discovery_NES) &
+        plot_data$NES != 0 &
+        plot_data$Discovery_NES != 0
+)
+
+plot_data$Same_direction[
+    validation_comparable
+] <- (
+    sign(
+        plot_data$NES[
+            validation_comparable
+        ]
+    ) ==
+        sign(
+            plot_data$Discovery_NES[
+                validation_comparable
+            ]
+        )
+)
+
+plot_data$Significance_symbol <- ""
+
+discovery_significant <- (
+    plot_data$Dataset == "GSE111016" &
+        plot_data$Available &
+        is.finite(plot_data$P_adj_target7) &
+        plot_data$P_adj_target7 < 0.05
+)
+
+validation_strong <- (
+    plot_data$Dataset != "GSE111016" &
+        plot_data$Available &
+        plot_data$Same_direction %in% TRUE &
+        is.finite(plot_data$P_adj_target7) &
+        plot_data$P_adj_target7 < 0.05
+)
+
+validation_nominal <- (
+    plot_data$Dataset != "GSE111016" &
+        plot_data$Available &
+        plot_data$Same_direction %in% TRUE &
+        !validation_strong &
+        is.finite(plot_data$P_value) &
+        plot_data$P_value < 0.05
+)
+
+plot_data$Significance_symbol[
+    discovery_significant
+] <- "\u2020"
+
+plot_data$Significance_symbol[
+    validation_strong
+] <- "**"
+
+plot_data$Significance_symbol[
+    validation_nominal
+] <- "*"
+
+plot_data$Tile_label <- ifelse(
+    !plot_data$Available |
+        !is.finite(plot_data$NES),
+    "NA",
+    paste0(
+        sprintf(
+            "%+.2f",
+            plot_data$NES
+        ),
+        plot_data$Significance_symbol
+    )
+)
+
+# ------------------------------------------------------------
+# 6. Plot order and colors
+# ------------------------------------------------------------
+
+dataset_axis_labels <- c(
+    GSE111016 = "GSE111016\nDiscovery",
+    GSE111010 = "GSE111010\nValidation",
+    GSE111006 = "GSE111006\nSensitivity\u00B9",
+    GSE167186 = "GSE167186\nSensitivity\u00B2"
+)
+
+plot_data$Dataset_factor <- factor(
+    plot_data$Dataset,
+    levels = dataset_order
+)
+
+plot_data$Pathway_factor <- factor(
+    plot_data$Pathway_label,
+    levels = rev(
+        pathway_order
+    )
+)
+
+plot_data <- plot_data[
+    order(
+        match(
+            plot_data$Pathway_label,
+            pathway_order
+        ),
+        match(
+            plot_data$Dataset,
+            dataset_order
+        )
+    ),
+    ,
+    drop = FALSE
+]
+
+rownames(plot_data) <- NULL
+
+available_data <- plot_data[
+    plot_data$Available &
+        is.finite(plot_data$NES),
+    ,
+    drop = FALSE
+]
+
+unavailable_data <- plot_data[
+    !plot_data$Available |
+        !is.finite(plot_data$NES),
+    ,
+    drop = FALSE
+]
+
+maximum_absolute_nes <- max(
+    abs(
+        available_data$NES
+    ),
+    na.rm = TRUE
+)
+
+if (
+    !is.finite(maximum_absolute_nes) ||
+        maximum_absolute_nes <= 0
+) {
+    maximum_absolute_nes <- 2
+}
+
+maximum_absolute_nes <- ceiling(
+    maximum_absolute_nes * 2
+) / 2
+
+nes_palette <- scales::col_numeric(
+    palette = c(
+        "#2166AC",
+        "#F7F7F7",
+        "#B2182B"
+    ),
+    domain = c(
+        -maximum_absolute_nes,
+        maximum_absolute_nes
+    ),
+    na.color = "#E6E6E6"
+)
+
+fill_hex <- nes_palette(
+    plot_data$NES
+)
+
+rgb_matrix <- grDevices::col2rgb(
+    fill_hex
+) / 255
+
+linear_rgb <- ifelse(
+    rgb_matrix <= 0.04045,
+    rgb_matrix / 12.92,
+    (
+        (rgb_matrix + 0.055) / 1.055
+    )^2.4
+)
+
+relative_luminance <- (
+    0.2126 * linear_rgb[1, ] +
+        0.7152 * linear_rgb[2, ] +
+        0.0722 * linear_rgb[3, ]
+)
+
+plot_data$Text_color <- ifelse(
+    !plot_data$Available,
+    "#303030",
+    ifelse(
+        relative_luminance < 0.48,
+        "white",
+        "#202020"
+    )
+)
+
+# ------------------------------------------------------------
+# 7. Build plots
+# ------------------------------------------------------------
+
+base_plot <- ggplot2::ggplot(
+    plot_data,
+    ggplot2::aes(
+        x = Dataset_factor,
+        y = Pathway_factor
+    )
+) +
+    ggplot2::geom_tile(
+        data = available_data,
+        mapping = ggplot2::aes(
+            fill = NES
+        ),
+        width = 0.965,
+        height = 0.925,
+        color = "white",
+        linewidth = 1.25
+    ) +
+    ggplot2::geom_tile(
+        data = unavailable_data,
+        fill = "#E6E6E6",
+        width = 0.965,
+        height = 0.925,
+        color = "white",
+        linewidth = 1.25
+    ) +
+    ggplot2::geom_vline(
+        xintercept = 1.5,
+        linetype = "dashed",
+        linewidth = 0.55,
+        color = "#666666"
+    ) +
+    ggplot2::geom_text(
+        mapping = ggplot2::aes(
+            label = Tile_label,
+            color = Text_color
+        ),
+        size = 4.55,
+        fontface = "bold",
+        family = "sans",
+        lineheight = 0.95
+    ) +
+    ggplot2::scale_color_identity() +
+    ggplot2::scale_fill_gradient2(
+        low = "#2166AC",
+        mid = "#F7F7F7",
+        high = "#B2182B",
+        midpoint = 0,
+        limits = c(
+            -maximum_absolute_nes,
+            maximum_absolute_nes
+        ),
+        breaks = scales::pretty_breaks(
+            n = 7
+        ),
+        oob = scales::squish,
+        name = "Normalized\nenrichment score"
+    ) +
+    ggplot2::scale_x_discrete(
+        labels = dataset_axis_labels,
+        expand = ggplot2::expansion(
+            add = 0.025
+        )
+    ) +
+    ggplot2::scale_y_discrete(
+        expand = ggplot2::expansion(
+            add = 0.025
+        )
+    ) +
+    ggplot2::coord_fixed(
+        ratio = 0.72,
+        clip = "off"
+    ) +
+    ggplot2::labs(
+        x = NULL,
+        y = NULL
+    ) +
+    ggplot2::theme_minimal(
+        base_size = 11.5,
+        base_family = "sans"
+    ) +
+    ggplot2::theme(
+        panel.grid = ggplot2::element_blank(),
+        panel.border = ggplot2::element_rect(
+            fill = NA,
+            color = "#4D4D4D",
+            linewidth = 0.7
+        ),
+        axis.text.y = ggplot2::element_text(
+            size = 11.4,
+            face = "bold",
+            color = "#202020",
+            margin = ggplot2::margin(
+                r = 8
+            )
+        ),
+        axis.text.x = ggplot2::element_text(
+            size = 10,
+            color = "#202020",
+            lineheight = 0.95,
+            margin = ggplot2::margin(
+                t = 8
+            )
+        ),
+        axis.ticks = ggplot2::element_blank(),
+        legend.position = "right",
+        legend.title = ggplot2::element_text(
+            size = 10,
+            face = "bold",
+            lineheight = 0.95
+        ),
+        legend.text = ggplot2::element_text(
+            size = 9
+        ),
+        legend.key.height = grid::unit(
+            0.46,
+            "in"
+        ),
+        plot.margin = ggplot2::margin(
+            t = 12,
+            r = 16,
+            b = 14,
+            l = 12
+        )
+    )
+
+titled_plot <- base_plot +
+    ggplot2::labs(
+        title = "Cross-cohort concordance of prespecified biological pathways",
+        subtitle = paste0(
+            "Separate GSEA analyses using locked MSigDB v7.5.1.Hs ",
+            "gene sets and full Wald-statistic ranks"
+        )
+    ) +
+    ggplot2::theme(
+        plot.title = ggplot2::element_text(
+            size = 16.2,
+            face = "bold",
+            color = "#151515",
+            hjust = 0,
+            margin = ggplot2::margin(
+                b = 4
+            )
+        ),
+        plot.subtitle = ggplot2::element_text(
+            size = 10.5,
+            color = "#4A4A4A",
+            hjust = 0,
+            margin = ggplot2::margin(
+                b = 11
+            )
+        )
+    )
+
+untitled_plot <- base_plot +
+    ggplot2::theme(
+        plot.margin = ggplot2::margin(
+            t = 8,
+            r = 16,
+            b = 12,
+            l = 12
+        )
+    )
+
+# ------------------------------------------------------------
+# 8. Output files
+# ------------------------------------------------------------
+
+titled_png_file <- file.path(
+    output_dir,
+    "Figure_04D_pathway_concordance_titled.png"
+)
+
+untitled_png_file <- file.path(
+    output_dir,
+    "Figure_04D_pathway_concordance_plain.png"
+)
+
+save_png <- function(
+    plot_object,
+    output_file,
+    width_in,
+    height_in,
+    dpi = 600
+) {
+    if (requireNamespace("ragg", quietly = TRUE)) {
+        ggplot2::ggsave(
+            filename = output_file,
+            plot = plot_object,
+            device = ragg::agg_png,
+            width = width_in,
+            height = height_in,
+            units = "in",
+            dpi = dpi,
+            bg = "white",
+            limitsize = FALSE
+        )
+    } else {
+        ggplot2::ggsave(
+            filename = output_file,
+            plot = plot_object,
+            device = "png",
+            width = width_in,
+            height = height_in,
+            units = "in",
+            dpi = dpi,
+            bg = "white",
+            limitsize = FALSE
+        )
+    }
+}
+
+save_png(
+    plot_object = titled_plot,
+    output_file = titled_png_file,
+    width_in = 10.6,
+    height_in = 8.15,
+    dpi = 600
+)
+
+save_png(
+    plot_object = untitled_plot,
+    output_file = untitled_png_file,
+    width_in = 9.25,
+    height_in = 7.15,
+    dpi = 600
+)
+
+cat("\n============================================================\n")
+cat("PATHWAY CONCORDANCE HEATMAP COMPLETED\n")
+cat("============================================================\n")
+
+cat("\nSource data:\n")
+cat(source_data_file, "\n")
+
+cat("\nTitled PNG:\n")
+cat(titled_png_file, "\n")
+
+cat("\nUntitled PNG:\n")
+cat(untitled_png_file, "\n")
+
+cat("\nNo figure number or panel letter was added.\n")
+cat("============================================================\n")

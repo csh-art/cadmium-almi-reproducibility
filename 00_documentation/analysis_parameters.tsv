@@ -1,0 +1,10 @@
+module	parameter	locked_value
+NHANES	Age	20-59 years
+NHANES	Continuous exposure	log2 whole-blood cadmium
+NHANES	8-year weight	applicable 2-year weight / 4
+NHANES RCS	Knots	weighted 5th;35th;65th;95th percentiles
+NHANES RCS	Reference	weighted median
+Sensitivity	High exposure exclusion	above weighted 99th percentile = 2.830 ug/L
+CTD	Interaction threshold	interaction_count > 10
+Candidate prioritization	Transcriptomic threshold	nominal p < 0.05 and |log2FC| > 0.1
+MR	Instrument threshold	cis-eQTL p < 5e-8; F > 10

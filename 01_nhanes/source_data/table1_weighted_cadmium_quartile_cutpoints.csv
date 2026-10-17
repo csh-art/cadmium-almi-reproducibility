@@ -1,0 +1,4 @@
+"quantile","probability","weighted_cutpoint_ug_L"
+"25th percentile",0.25,0.16
+"50th percentile",0.5,0.25
+"75th percentile",0.75,0.47

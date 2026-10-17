@@ -1,0 +1,235 @@
+############################################################
+## Figure 4C
+## Robust hub gene expression heatmap (plain, no title)
+############################################################
+
+make_figure4c <- function () 
+{
+    graphics.off()
+    cran_packages <- c("dplyr", "tidyr", "circlize")
+    for (pkg in cran_packages) {
+        if (!requireNamespace(pkg, quietly = TRUE)) {
+            install.packages(pkg, repos = "https://cloud.r-project.org", dependencies = TRUE)
+        }
+    }
+    if (!requireNamespace("ComplexHeatmap", quietly = TRUE)) {
+        if (!requireNamespace("BiocManager", quietly = TRUE)) {
+            install.packages("BiocManager", repos = "https://cloud.r-project.org")
+        }
+        BiocManager::install("ComplexHeatmap", ask = FALSE, update = FALSE)
+    }
+    suppressPackageStartupMessages({
+        library(dplyr)
+        library(tidyr)
+        library(circlize)
+        library(ComplexHeatmap)
+        library(grid)
+    })
+    project_root <- "E:/1Data/Cd_Sarcopenia_NHANES"
+    output_dir <- file.path(project_root, "new_workspace", "03_results", "M04_HubGenes_cytoHubba_GSE111016_GSE111010", "03_outputs_figures_tables", "figure")
+    dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+    if (!dir.exists(output_dir)) {
+        stop(paste0("\n无法创建或访问输出文件夹：\n", output_dir), call. = FALSE)
+    }
+    first_existing_file <- function(paths) {
+        existing_files <- paths[file.exists(paths)]
+        if (length(existing_files) == 0) {
+            return(NA_character_)
+        }
+        normalizePath(existing_files[1], winslash = "/", mustWork = TRUE)
+    }
+    convert_to_binary <- function(x, column_name) {
+        if (is.logical(x)) {
+            result <- as.integer(x)
+        }
+        else {
+            x_text <- toupper(trimws(as.character(x)))
+            result <- rep(NA_integer_, length(x_text))
+            result[x_text %in% c("1", "TRUE", "T", "YES", "Y", "SELECTED", "PRESENT", "INCLUDED")] <- 1L
+            result[x_text %in% c("0", "FALSE", "F", "NO", "N", "NOT SELECTED", "ABSENT", "NOT INCLUDED")] <- 0L
+            numeric_values <- suppressWarnings(as.numeric(x_text))
+            numeric_positions <- is.na(result) & !is.na(numeric_values)
+            result[numeric_positions] <- as.integer(numeric_values[numeric_positions] > 0)
+        }
+        if (any(is.na(result))) {
+            invalid_values <- unique(as.character(x[is.na(result)]))
+            stop(paste0("\n列 ", column_name, " 中存在无法识别的值：\n", paste(invalid_values, collapse = ", ")), call. = FALSE)
+        }
+        result
+    }
+    hub_presence_filename <- "Figure_03A_cytoHubba_algorithm_presence_table.csv"
+    hub_candidates <- c(file.path(output_dir, hub_presence_filename), file.path(project_root, "99_final_confirmed", "04_figure_source_data", "Figure_03", hub_presence_filename), file.path(project_root, "99_final_confirmed", "04_figure_source_data", "Figure_04", hub_presence_filename), file.path(getwd(), hub_presence_filename))
+    hub_presence_file <- first_existing_file(hub_candidates)
+    if (is.na(hub_presence_file)) {
+        searched_hub_files <- list.files(path = project_root, pattern = "Figure_03A_cytoHubba_algorithm_presence_table\\.csv$", recursive = TRUE, full.names = TRUE, ignore.case = TRUE)
+        if (length(searched_hub_files) > 0) {
+            hub_presence_file <- normalizePath(searched_hub_files[1], winslash = "/", mustWork = TRUE)
+        }
+    }
+    if (!is.na(hub_presence_file)) {
+        hub_presence_raw <- read.csv(hub_presence_file, stringsAsFactors = FALSE, check.names = FALSE)
+        hub_input_description <- hub_presence_file
+    }
+    else if (exists("hub_presence_df", envir = .GlobalEnv, inherits = FALSE)) {
+        hub_presence_raw <- get("hub_presence_df", envir = .GlobalEnv, inherits = FALSE)
+        hub_input_description <- "Global environment object: hub_presence_df"
+    }
+    else {
+        stop(paste0("\n没有找到 cytoHubba presence 数据：\n", hub_presence_filename), call. = FALSE)
+    }
+    required_hub_columns <- c("Gene", "Degree", "MCC", "EPC")
+    missing_hub_columns <- setdiff(required_hub_columns, names(hub_presence_raw))
+    if (length(missing_hub_columns) > 0) {
+        stop(paste0("\nHub presence 数据缺少必要列：\n", paste(missing_hub_columns, collapse = ", "), "\n\n当前列名：\n", paste(names(hub_presence_raw), collapse = ", ")), call. = FALSE)
+    }
+    hub_presence_df_clean <- hub_presence_raw %>% transmute(Gene = trimws(as.character(Gene)), Degree = convert_to_binary(Degree, "Degree"), MCC = convert_to_binary(MCC, "MCC"), EPC = convert_to_binary(EPC, "EPC")) %>% filter(!is.na(Gene), Gene != "") %>% group_by(Gene) %>% summarise(Degree = max(Degree, na.rm = TRUE), MCC = max(MCC, na.rm = TRUE), EPC = max(EPC, na.rm = TRUE), .groups = "drop") %>% mutate(n_algorithms = Degree + MCC + EPC, Hub_class = case_when(n_algorithms == 3 ~ "Strict hub genes", 
+        n_algorithms == 2 ~ "Robust hub genes", TRUE ~ "Other"))
+    robust_hub_df <- hub_presence_df_clean %>% filter(n_algorithms >= 2) %>% arrange(desc(n_algorithms), desc(Degree), desc(MCC), desc(EPC), Gene)
+    robust_hub_genes <- robust_hub_df$Gene
+    if (length(robust_hub_genes) == 0) {
+        stop("\n没有找到 n_algorithms >= 2 的 robust hub genes。", call. = FALSE)
+    }
+    expression_rds_filename <- paste0("Figure_02D_GSE111016_candidate_genes_", "expression_difference_lollipop_plot_df_logCPM.rds")
+    expression_csv_filename <- paste0("Figure_02D_GSE111016_candidate_genes_", "expression_difference_lollipop_plot_df_logCPM.csv")
+    expression_candidates <- c(file.path(output_dir, expression_rds_filename), file.path(output_dir, expression_csv_filename), file.path(project_root, "99_final_confirmed", "04_figure_source_data", "Figure_02", expression_rds_filename), file.path(project_root, "99_final_confirmed", "04_figure_source_data", "Figure_02", expression_csv_filename), file.path(getwd(), expression_rds_filename), file.path(getwd(), expression_csv_filename))
+    expression_input_file <- first_existing_file(expression_candidates)
+    if (is.na(expression_input_file)) {
+        searched_expression_files <- list.files(path = project_root, pattern = paste0("Figure_02D_GSE111016_candidate_genes_", "expression_difference_lollipop_plot_df_logCPM", "\\.(rds|csv)$"), recursive = TRUE, full.names = TRUE, ignore.case = TRUE)
+        if (length(searched_expression_files) > 0) {
+            searched_rds_files <- searched_expression_files[tolower(tools::file_ext(searched_expression_files)) == "rds"]
+            if (length(searched_rds_files) > 0) {
+                expression_input_file <- normalizePath(searched_rds_files[1], winslash = "/", mustWork = TRUE)
+            }
+            else {
+                expression_input_file <- normalizePath(searched_expression_files[1], winslash = "/", mustWork = TRUE)
+            }
+        }
+    }
+    if (!is.na(expression_input_file)) {
+        if (tolower(tools::file_ext(expression_input_file)) == "rds") {
+            plot_df <- readRDS(expression_input_file)
+        }
+        else {
+            plot_df <- read.csv(expression_input_file, stringsAsFactors = FALSE, check.names = FALSE)
+        }
+        expression_input_description <- expression_input_file
+    }
+    else if (exists("plot_df", envir = .GlobalEnv, inherits = FALSE)) {
+        plot_df <- get("plot_df", envir = .GlobalEnv, inherits = FALSE)
+        expression_input_description <- "Global environment object: plot_df"
+    }
+    else {
+        stop(paste0("\n没有找到 GSE111016 样本级表达数据。\n", expression_rds_filename, "\n或：\n", expression_csv_filename), call. = FALSE)
+    }
+    required_expression_columns <- c("Gene", "Group", "expression")
+    missing_expression_columns <- setdiff(required_expression_columns, names(plot_df))
+    if (length(missing_expression_columns) > 0) {
+        stop(paste0("\n表达数据缺少必要列：\n", paste(missing_expression_columns, collapse = ", "), "\n\n当前列名：\n", paste(names(plot_df), collapse = ", ")), call. = FALSE)
+    }
+    candidate_sample_columns <- c("Sample", "sample", "sample_col", "SampleID", "sample_id", "title", "geo_accession", "GSM", "gsm")
+    matched_sample_columns <- candidate_sample_columns[candidate_sample_columns %in% names(plot_df)]
+    if (length(matched_sample_columns) == 0) {
+        stop(paste0("\n没有自动识别到样本列。\n\n", "当前表达数据列名：\n", paste(names(plot_df), collapse = ", ")), call. = FALSE)
+    }
+    sample_column <- matched_sample_columns[1]
+    group_text <- tolower(trimws(as.character(plot_df$Group)))
+    standardized_group <- case_when(group_text %in% c("control", "no", "healthy", "non-sarcopenia", "nonsarcopenia") ~ "Control", group_text %in% c("sarcopenia", "yes", "case", "sarcopenic") ~ "Sarcopenia", TRUE ~ as.character(plot_df$Group))
+    plot_df$Gene <- trimws(as.character(plot_df$Gene))
+    plot_df$Group <- factor(standardized_group, levels = c("Control", "Sarcopenia"))
+    plot_df$expression <- suppressWarnings(as.numeric(plot_df$expression))
+    hub_expr_df <- plot_df %>% filter(Gene %in% robust_hub_genes) %>% transmute(Gene = Gene, Sample = as.character(.data[[sample_column]]), Group = Group, expression = expression) %>% filter(!is.na(Gene), Gene != "", !is.na(Sample), Sample != "", !is.na(Group), is.finite(expression))
+    missing_genes <- setdiff(robust_hub_genes, unique(hub_expr_df$Gene))
+    if (length(missing_genes) > 0) {
+        stop(paste0("\n以下 robust hub genes 在表达数据中缺失：\n", paste(missing_genes, collapse = ", ")), call. = FALSE)
+    }
+    hub_expr_df <- hub_expr_df %>% group_by(Gene, Sample, Group) %>% summarise(expression = mean(expression, na.rm = TRUE), .groups = "drop")
+    expression_wide <- hub_expr_df %>% dplyr::select(Gene, Sample, expression) %>% pivot_wider(id_cols = Gene, names_from = Sample, values_from = expression)
+    expression_matrix <- as.data.frame(expression_wide)
+    rownames(expression_matrix) <- expression_matrix$Gene
+    expression_matrix$Gene <- NULL
+    expression_matrix <- as.matrix(expression_matrix)
+    mode(expression_matrix) <- "numeric"
+    if (anyDuplicated(rownames(expression_matrix)) > 0) {
+        stop("\n表达矩阵仍存在重复基因行名。", call. = FALSE)
+    }
+    sample_info <- hub_expr_df %>% dplyr::select(Sample, Group) %>% distinct() %>% arrange(Group, Sample)
+    sample_info <- as.data.frame(sample_info)
+    rownames(sample_info) <- sample_info$Sample
+    row_order <- intersect(robust_hub_genes, rownames(expression_matrix))
+    cluster_within_group <- function(matrix_object, samples) {
+        samples <- intersect(samples, colnames(matrix_object))
+        if (length(samples) <= 2) {
+            return(samples)
+        }
+        sub_matrix <- matrix_object[, samples, drop = FALSE]
+        hierarchical_cluster <- hclust(dist(t(sub_matrix)), method = "complete")
+        samples[hierarchical_cluster$order]
+    }
+    control_samples <- sample_info %>% filter(Group == "Control") %>% pull(Sample)
+    sarcopenia_samples <- sample_info %>% filter(Group == "Sarcopenia") %>% pull(Sample)
+    control_order <- cluster_within_group(expression_matrix, control_samples)
+    sarcopenia_order <- cluster_within_group(expression_matrix, sarcopenia_samples)
+    column_order <- c(control_order, sarcopenia_order)
+    expression_matrix <- expression_matrix[row_order, column_order, drop = FALSE]
+    sample_info <- sample_info[column_order, , drop = FALSE]
+    scale_rows <- function(matrix_object) {
+        scaled_matrix <- t(scale(t(matrix_object)))
+        scaled_matrix[is.na(scaled_matrix)] <- 0
+        scaled_matrix
+    }
+    expression_matrix_z <- scale_rows(expression_matrix)
+    expression_matrix_z[expression_matrix_z > 2] <- 2
+    expression_matrix_z[expression_matrix_z < -2] <- -2
+    row_annotation_df <- robust_hub_df %>% filter(Gene %in% row_order) %>% mutate(Gene = factor(Gene, levels = row_order)) %>% arrange(Gene) %>% dplyr::select(Gene, Hub_class) %>% as.data.frame()
+    rownames(row_annotation_df) <- as.character(row_annotation_df$Gene)
+    row_annotation_df$Gene <- NULL
+    row_annotation_df <- row_annotation_df[row_order, , drop = FALSE]
+    group_colors <- c(Control = "#4DBBD5", Sarcopenia = "#E64B35")
+    hub_class_colors <- c(`Strict hub genes` = "#D95F02", `Robust hub genes` = "#1B9E77")
+    color_function <- circlize::colorRamp2(c(-2, 0, 2), c("#3B4CC0", "#FFFFFF", "#B40426"))
+    group_vector <- factor(as.character(sample_info$Group), levels = c("Control", "Sarcopenia"))
+    names(group_vector) <- rownames(sample_info)
+    hub_class_vector <- factor(as.character(row_annotation_df$Hub_class), levels = c("Strict hub genes", "Robust hub genes"))
+    names(hub_class_vector) <- rownames(row_annotation_df)
+    top_annotation <- ComplexHeatmap::HeatmapAnnotation(Group = group_vector, col = list(Group = group_colors), show_annotation_name = FALSE, show_legend = FALSE, simple_anno_size = grid::unit(4.5, "mm"))
+    left_annotation <- ComplexHeatmap::rowAnnotation(Hub_class = hub_class_vector, col = list(Hub_class = hub_class_colors), show_annotation_name = FALSE, show_legend = FALSE, simple_anno_size = grid::unit(4.5, "mm"), width = grid::unit(4.5, "mm"))
+    column_split <- factor(as.character(sample_info$Group), levels = c("Control", "Sarcopenia"))
+    heatmap_object <- left_annotation + ComplexHeatmap::Heatmap(expression_matrix_z, name = "Z-score", col = color_function, cluster_rows = FALSE, cluster_columns = FALSE, row_names_side = "right", row_names_gp = grid::gpar(fontsize = 10.5), show_column_names = FALSE, rect_gp = grid::gpar(col = NA), border = FALSE, top_annotation = top_annotation, column_split = column_split, column_gap = grid::unit(2.5, "mm"), row_title = NULL, column_title = NULL, show_heatmap_legend = FALSE)
+    group_legend <- ComplexHeatmap::Legend(title = "Group", labels = c("Control", "Sarcopenia"), type = "grid", legend_gp = grid::gpar(fill = unname(group_colors[c("Control", "Sarcopenia")])), grid_width = grid::unit(4, "mm"), grid_height = grid::unit(4, "mm"), direction = "horizontal", nrow = 1, title_position = "leftcenter", title_gp = grid::gpar(fontsize = 10, fontface = "bold"), labels_gp = grid::gpar(fontsize = 9.5), gap = grid::unit(2, "mm"))
+    hub_class_legend <- ComplexHeatmap::Legend(title = "Hub class", labels = c("Strict hub genes", "Robust hub genes"), type = "grid", legend_gp = grid::gpar(fill = unname(hub_class_colors[c("Strict hub genes", "Robust hub genes")])), grid_width = grid::unit(4, "mm"), grid_height = grid::unit(4, "mm"), direction = "horizontal", nrow = 1, title_position = "leftcenter", title_gp = grid::gpar(fontsize = 10, fontface = "bold"), labels_gp = grid::gpar(fontsize = 9.5), gap = grid::unit(2, "mm"))
+    z_score_legend <- ComplexHeatmap::Legend(title = "Z-score", col_fun = color_function, at = c(-2, -1, 0, 1, 2), labels = c("-2", "-1", "0", "1", "2"), direction = "horizontal", title_position = "leftcenter", legend_width = grid::unit(3.2, "cm"), title_gp = grid::gpar(fontsize = 10, fontface = "bold"), labels_gp = grid::gpar(fontsize = 9))
+    packed_legends <- ComplexHeatmap::packLegend(group_legend, hub_class_legend, z_score_legend, direction = "horizontal", gap = grid::unit(7, "mm"))
+    draw_figure4c <- function() {
+        grid::grid.newpage()
+        grid::pushViewport(grid::viewport(name = "Figure4C_main_layout", layout = grid::grid.layout(nrow = 2, ncol = 1, heights = grid::unit.c(grid::unit(1, "null"), grid::unit(0.62, "in")))))
+        grid::pushViewport(grid::viewport(layout.pos.row = 1, layout.pos.col = 1))
+        ComplexHeatmap::draw(heatmap_object, newpage = FALSE, padding = grid::unit(c(1.5, 4, 1.5, 4), "mm"))
+        grid::upViewport(0)
+        grid::seekViewport("Figure4C_main_layout")
+        grid::pushViewport(grid::viewport(layout.pos.row = 2, layout.pos.col = 1))
+        ComplexHeatmap::draw(packed_legends, x = grid::unit(0.5, "npc"), y = grid::unit(0.52, "npc"), just = c("center", "center"))
+        grid::upViewport(0)
+    }
+    draw_figure4c()
+    output_png <- file.path(output_dir, "Figure_04C_GSE111016_robust_hub_gene_expression_heatmap_plain.png")
+    output_txt <- file.path(output_dir, "Figure_04C_GSE111016_robust_hub_gene_expression_heatmap_plain_code.txt")
+    grDevices::png(filename = output_png, width = 9.2, height = 6.6, units = "in", res = 600, bg = "white")
+    draw_figure4c()
+    grDevices::dev.off()
+    function_code <- deparse(make_figure4c, width.cutoff = 500L)
+    function_code[1] <- paste0("make_figure4c <- ", function_code[1])
+    complete_code <- c("############################################################", "## Figure 4C", "## Robust hub gene expression heatmap (plain, no title)", "############################################################", "", function_code, "", "figure4c_result <- make_figure4c()", "")
+    writeLines(complete_code, con = output_txt, useBytes = TRUE)
+    output_files <- c(output_png, output_txt)
+    output_sizes <- file.info(output_files)$size
+    failed_outputs <- !file.exists(output_files) | is.na(output_sizes) | output_sizes <= 0
+    if (any(failed_outputs)) {
+        stop(paste0("\nFigure 4C 以下文件未成功生成：\n", paste(output_files[failed_outputs], collapse = "\n")), call. = FALSE)
+    }
+    cat("\n", "============================================================\n", "Figure 4C 无标题版本已成功生成\n", "============================================================\n", "Hub input:\n", hub_input_description, "\n\nExpression input:\n", expression_input_description, "\n\nPNG:\n", normalizePath(output_png, winslash = "/", mustWork = TRUE), "\n\nCode TXT:\n", normalizePath(output_txt, winslash = "/", mustWork = TRUE), "\n", "============================================================\n", 
+        sep = "")
+    invisible(list(png = output_png, code_txt = output_txt))
+}
+
+figure4c_result <- make_figure4c()
+

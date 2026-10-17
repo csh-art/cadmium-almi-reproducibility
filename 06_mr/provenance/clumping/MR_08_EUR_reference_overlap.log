@@ -1,0 +1,30 @@
+PLINK v1.9.0-b.7.11 64-bit (19 Aug 2025)
+Options in effect:
+  --bfile E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\reference_panel\1kg_v3_EUR\EUR
+  --extract E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\MR_08_candidate_rsids.txt
+  --out E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\MR_08_EUR_reference_overlap
+  --write-snplist
+
+Hostname: CSH
+Working directory: E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\01_raw_data
+Start time: Sat Jul 11 20:07:20 2026
+
+Random number seed: 1783771640
+32620 MB RAM detected; reserving 16310 MB for main workspace.
+8550156 variants loaded from .bim file.
+503 people (0 males, 0 females, 503 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to
+E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\MR_08_EUR_reference_overlap.nosex
+.
+--extract: 309 variants remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 503 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is exactly 1.
+309 variants and 503 people pass filters and QC.
+Note: No phenotypes present.
+List of variant IDs written to
+E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\MR_08_EUR_reference_overlap.snplist
+.
+
+End time: Sat Jul 11 20:07:22 2026

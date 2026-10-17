@@ -1,0 +1,7 @@
+check	value	notes
+candidate_variants_before_EUR_overlap	333	333 expected from archived clumping input
+EUR_reference_variants_used	309	309 variants
+EUR_reference_missing_rsids	24	24 variants
+primary_clumps_r2_0.001	4	rs882565;rs933704;rs4647601;rs7865
+sensitivity_clumps_r2_0.01	4	rs882565;rs933704;rs4647601;rs7865
+retained_instruments_identical_across_r2	True	expected TRUE

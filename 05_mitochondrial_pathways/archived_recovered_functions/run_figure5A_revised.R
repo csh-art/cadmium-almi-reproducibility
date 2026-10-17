@@ -1,0 +1,818 @@
+run_figure5A_revised <- function() {
+    
+    options(stringsAsFactors = FALSE)
+    
+    ############################################################
+    ## 0. Paths
+    ############################################################
+    
+    project_root <- "E:/1Data/Cd_Sarcopenia_NHANES"
+    
+    m05_root <- file.path(
+        project_root,
+        "new_workspace",
+        "03_results",
+        "M05_PathwayValidation_GSEA_ssGSEA_Correlation"
+    )
+    
+    analysis_dir <- file.path(
+        m05_root,
+        "02_analysis_files"
+    )
+    
+    canonical_input_dir <- file.path(
+        analysis_dir,
+        "canonical_inputs"
+    )
+    
+    figure_dir <- file.path(
+        m05_root,
+        "03_outputs_figures_tables",
+        "figure_re"
+    )
+    
+    dir.create(
+        figure_dir,
+        recursive = TRUE,
+        showWarnings = FALSE
+    )
+    
+    titled_png_path <- file.path(
+        figure_dir,
+        "Figure5A_GSEA_mechanism_dotplot_with_title_600dpi.png"
+    )
+    
+    no_title_png_path <- file.path(
+        figure_dir,
+        "Figure5A_GSEA_mechanism_dotplot_no_title_600dpi.png"
+    )
+    
+    code_txt_path <- file.path(
+        figure_dir,
+        "Figure5A_GSEA_mechanism_dotplot_REVISED_code.txt"
+    )
+    
+    ############################################################
+    ## 1. Required packages
+    ############################################################
+    
+    required_packages <- c(
+        "ggplot2",
+        "stringr"
+    )
+    
+    missing_packages <- required_packages[
+        !vapply(
+            required_packages,
+            requireNamespace,
+            logical(1),
+            quietly = TRUE
+        )
+    ]
+    
+    if (length(missing_packages) > 0L) {
+        stop(
+            "Required package(s) not installed: ",
+            paste(
+                missing_packages,
+                collapse = ", "
+            ),
+            call. = FALSE
+        )
+    }
+    
+    ############################################################
+    ## 2. Locate the frozen GSEA object
+    ############################################################
+    
+    gsea_path_candidates <- c(
+        file.path(
+            canonical_input_dir,
+            "M05A_GO_BP_GSEA_clusterProfiler_object_v2.rds"
+        ),
+        
+        file.path(
+            analysis_dir,
+            "M05A_GO_BP_GSEA_clusterProfiler_object_v2.rds"
+        ),
+        
+        file.path(
+            analysis_dir,
+            "legacy_source_materials",
+            "M05A_GO_BP_GSEA_clusterProfiler_object_v2.rds"
+        ),
+        
+        file.path(
+            canonical_input_dir,
+            "M05A_offline_GO_BP_GSEA_clusterProfiler_object_v1.rds"
+        ),
+        
+        file.path(
+            analysis_dir,
+            "M05A_offline_GO_BP_GSEA_clusterProfiler_object_v1.rds"
+        )
+    )
+    
+    gsea_path_candidates <- unique(
+        gsea_path_candidates
+    )
+    
+    existing_gsea_paths <- gsea_path_candidates[
+        file.exists(
+            gsea_path_candidates
+        )
+    ]
+    
+    if (length(existing_gsea_paths) == 0L) {
+        stop(
+            paste0(
+                "No frozen GSEA object was found. Checked:\n",
+                paste(
+                    gsea_path_candidates,
+                    collapse = "\n"
+                )
+            ),
+            call. = FALSE
+        )
+    }
+    
+    gsea_path <- existing_gsea_paths[1]
+    
+    cat("\nFrozen GSEA object:\n")
+    cat(gsea_path, "\n")
+    
+    ############################################################
+    ## 3. Read the stored GSEA result
+    ############################################################
+    
+    gsea_object <- readRDS(
+        gsea_path
+    )
+    
+    if (!methods::is(gsea_object, "gseaResult")) {
+        stop(
+            paste0(
+                "The selected RDS is not a gseaResult object. Class: ",
+                paste(
+                    class(gsea_object),
+                    collapse = ", "
+                )
+            ),
+            call. = FALSE
+        )
+    }
+    
+    if (
+        !"result" %in%
+        methods::slotNames(
+            gsea_object
+        )
+    ) {
+        stop(
+            "The GSEA object does not contain a result slot.",
+            call. = FALSE
+        )
+    }
+    
+    gsea_result <- as.data.frame(
+        methods::slot(
+            gsea_object,
+            "result"
+        ),
+        stringsAsFactors = FALSE
+    )
+    
+    required_columns <- c(
+        "ID",
+        "Description",
+        "NES",
+        "p.adjust"
+    )
+    
+    missing_columns <- setdiff(
+        required_columns,
+        colnames(gsea_result)
+    )
+    
+    if (length(missing_columns) > 0L) {
+        stop(
+            "Stored GSEA result lacks column(s): ",
+            paste(
+                missing_columns,
+                collapse = ", "
+            ),
+            call. = FALSE
+        )
+    }
+    
+    ############################################################
+    ## 4. Deterministic mechanism categories
+    ############################################################
+    
+    assign_mechanism <- function(description) {
+        
+        description_lower <- tolower(
+            as.character(description)
+        )
+        
+        if (
+            grepl(
+                paste0(
+                    "mitochond|respiratory chain|electron transport|",
+                    "oxidative phosphorylation|aerobic respiration|",
+                    "cellular respiration|atp synthesis"
+                ),
+                description_lower
+            )
+        ) {
+            return("Mitochondrial respiration")
+        }
+        
+        if (grepl("apopt", description_lower)) {
+            return("Apoptosis")
+        }
+        
+        if (grepl("autophag", description_lower)) {
+            return("Autophagy")
+        }
+        
+        if (
+            grepl(
+                "endoplasmic reticulum|unfolded protein|er stress",
+                description_lower
+            )
+        ) {
+            return("ER stress")
+        }
+        
+        if (
+            grepl(
+                paste0(
+                    "inflamm|cytokine|interleukin|",
+                    "tumor necrosis factor|nf-kappa"
+                ),
+                description_lower
+            )
+        ) {
+            return("Inflammation")
+        }
+        
+        if (
+            grepl(
+                "ubiquitin|proteasome|protein catabolic",
+                description_lower
+            )
+        ) {
+            return("Protein degradation")
+        }
+        
+        if (
+            grepl(
+                "muscle|myoblast|myotube|atrophy",
+                description_lower
+            )
+        ) {
+            return("Muscle remodeling")
+        }
+        
+        if (
+            grepl(
+                "oxidative|reactive oxygen",
+                description_lower
+            )
+        ) {
+            return("Oxidative stress")
+        }
+        
+        NA_character_
+    }
+    
+    mechanism_order <- c(
+        "Apoptosis",
+        "Autophagy",
+        "ER stress",
+        "Inflammation",
+        "Mitochondrial respiration",
+        "Muscle remodeling",
+        "Oxidative stress",
+        "Protein degradation"
+    )
+    
+    gsea_result$ID <- as.character(
+        gsea_result$ID
+    )
+    
+    gsea_result$Description <- as.character(
+        gsea_result$Description
+    )
+    
+    gsea_result$NES <- as.numeric(
+        gsea_result$NES
+    )
+    
+    gsea_result$p.adjust <- as.numeric(
+        gsea_result$p.adjust
+    )
+    
+    gsea_result$Mechanism <- vapply(
+        gsea_result$Description,
+        assign_mechanism,
+        character(1)
+    )
+    
+    mechanism_df <- gsea_result[
+        !is.na(
+            gsea_result$Mechanism
+        ) &
+            is.finite(
+                gsea_result$NES
+            ) &
+            is.finite(
+                gsea_result$p.adjust
+            ),
+        ,
+        drop = FALSE
+    ]
+    
+    mechanism_df$Mechanism <- factor(
+        mechanism_df$Mechanism,
+        levels = mechanism_order
+    )
+    
+    mechanism_df$FDR <- mechanism_df$p.adjust
+    
+    mechanism_df$neg_log10_FDR <- -log10(
+        pmax(
+            mechanism_df$FDR,
+            .Machine$double.xmin
+        )
+    )
+    
+    mechanism_df$Direction <- ifelse(
+        mechanism_df$NES >= 0,
+        "Enriched in sarcopenia",
+        "Enriched in control"
+    )
+    
+    ############################################################
+    ## 5. Preserve the established representative-term rule
+    ############################################################
+    
+    mechanism_df$rank_in_mechanism <- NA_integer_
+    
+    available_mechanisms <- unique(
+        as.character(
+            mechanism_df$Mechanism
+        )
+    )
+    
+    available_mechanisms <- available_mechanisms[
+        !is.na(available_mechanisms)
+    ]
+    
+    for (mechanism_name in available_mechanisms) {
+        
+        mechanism_rows <- which(
+            as.character(
+                mechanism_df$Mechanism
+            ) ==
+                mechanism_name
+        )
+        
+        mechanism_rank_order <- order(
+            mechanism_df$p.adjust[
+                mechanism_rows
+            ],
+            -abs(
+                mechanism_df$NES[
+                    mechanism_rows
+                ]
+            )
+        )
+        
+        mechanism_df$rank_in_mechanism[
+            mechanism_rows[
+                mechanism_rank_order
+            ]
+        ] <- seq_along(
+            mechanism_rows
+        )
+    }
+    
+    keep_rows <- (
+        (
+            as.character(
+                mechanism_df$Mechanism
+            ) ==
+                "Mitochondrial respiration" &
+                mechanism_df$rank_in_mechanism <= 8L
+        ) |
+            (
+                as.character(
+                    mechanism_df$Mechanism
+                ) !=
+                    "Mitochondrial respiration" &
+                    mechanism_df$rank_in_mechanism <= 3L
+            )
+    )
+    
+    figure5a_display <- mechanism_df[
+        keep_rows,
+        ,
+        drop = FALSE
+    ]
+    
+    figure5a_display <- figure5a_display[
+        order(
+            figure5a_display$p.adjust,
+            -abs(
+                figure5a_display$NES
+            )
+        ),
+        ,
+        drop = FALSE
+    ]
+    
+    figure5a_display <- head(
+        figure5a_display,
+        18L
+    )
+    
+    figure5a_display <- figure5a_display[
+        order(
+            figure5a_display$NES
+        ),
+        ,
+        drop = FALSE
+    ]
+    
+    ############################################################
+    ## 6. Publication-ready pathway labels
+    ############################################################
+    
+    format_pathway_label <- function(description) {
+        
+        clean_label <- stringr::str_replace_all(
+            as.character(description),
+            "_",
+            " "
+        )
+        
+        clean_label <- stringr::str_squish(
+            clean_label
+        )
+        
+        clean_label <- stringr::str_to_sentence(
+            clean_label
+        )
+        
+        clean_label <- stringr::str_replace_all(
+            clean_label,
+            stringr::regex(
+                "\\batp\\b",
+                ignore_case = TRUE
+            ),
+            "ATP"
+        )
+        
+        clean_label <- stringr::str_replace_all(
+            clean_label,
+            stringr::regex(
+                "\\ber\\b",
+                ignore_case = TRUE
+            ),
+            "ER"
+        )
+        
+        clean_label <- stringr::str_replace_all(
+            clean_label,
+            stringr::regex(
+                "\\bnf-kappa\\b",
+                ignore_case = TRUE
+            ),
+            "NF-kappa"
+        )
+        
+        clean_label
+    }
+    
+    figure5a_display$CleanDescription <- vapply(
+        figure5a_display$Description,
+        format_pathway_label,
+        character(1)
+    )
+    
+    figure5a_display$CleanDescription <- factor(
+        figure5a_display$CleanDescription,
+        levels = figure5a_display$CleanDescription
+    )
+    
+    ############################################################
+    ## 7. Colors and shared plot construction
+    ############################################################
+    
+    mechanism_colors <- c(
+        "Apoptosis" = "#E67E22",
+        "Autophagy" = "#2CA25F",
+        "ER stress" = "#756BB1",
+        "Inflammation" = "#B2182B",
+        "Mitochondrial respiration" = "#2C7FB8",
+        "Muscle remodeling" = "#D95FBB",
+        "Oxidative stress" = "#8C510A",
+        "Protein degradation" = "#636363"
+    )
+    
+    mechanism_breaks <- mechanism_order[
+        mechanism_order %in%
+            as.character(
+                unique(
+                    figure5a_display$Mechanism
+                )
+            )
+    ]
+    
+    build_plot <- function(show_title) {
+        
+        title_text <- if (show_title) {
+            paste0(
+                "Pathway-level GSEA of sarcopenia-related ",
+                "transcriptomic alterations"
+            )
+        } else {
+            NULL
+        }
+        
+        subtitle_text <- if (show_title) {
+            paste0(
+                "Negative NES indicates enrichment in controls and ",
+                "relative suppression in sarcopenia"
+            )
+        } else {
+            NULL
+        }
+        
+        top_margin <- if (show_title) {
+            8
+        } else {
+            2
+        }
+        
+        ggplot2::ggplot(
+            figure5a_display,
+            ggplot2::aes(
+                x = NES,
+                y = CleanDescription,
+                size = neg_log10_FDR,
+                color = Mechanism
+            )
+        ) +
+            ggplot2::geom_vline(
+                xintercept = 0,
+                linewidth = 0.45,
+                color = "grey40"
+            ) +
+            ggplot2::geom_point(
+                alpha = 0.94
+            ) +
+            ggplot2::scale_color_manual(
+                values = mechanism_colors,
+                breaks = mechanism_breaks,
+                drop = TRUE
+            ) +
+            ggplot2::scale_size_continuous(
+                name = expression(
+                    -log[10](FDR)
+                ),
+                range = c(
+                    2.8,
+                    7.2
+                )
+            ) +
+            ggplot2::guides(
+                size = ggplot2::guide_legend(
+                    order = 1,
+                    title.position = "top"
+                ),
+                color = ggplot2::guide_legend(
+                    order = 2,
+                    title.position = "top",
+                    override.aes = list(
+                        size = 3.2,
+                        alpha = 1
+                    )
+                )
+            ) +
+            ggplot2::labs(
+                title = title_text,
+                subtitle = subtitle_text,
+                x = "Normalized enrichment score (NES)",
+                y = NULL,
+                color = "Mechanism"
+            ) +
+            ggplot2::theme_bw(
+                base_size = 12
+            ) +
+            ggplot2::theme(
+                plot.title = ggplot2::element_text(
+                    face = "bold",
+                    size = 14,
+                    hjust = 0,
+                    margin = ggplot2::margin(
+                        b = 5
+                    )
+                ),
+                plot.subtitle = ggplot2::element_text(
+                    size = 10.3,
+                    color = "grey35",
+                    hjust = 0,
+                    margin = ggplot2::margin(
+                        b = 7
+                    )
+                ),
+                axis.text.y = ggplot2::element_text(
+                    size = 8.9,
+                    color = "black"
+                ),
+                axis.text.x = ggplot2::element_text(
+                    size = 10.2,
+                    color = "black"
+                ),
+                axis.title.x = ggplot2::element_text(
+                    size = 11.3,
+                    face = "bold",
+                    margin = ggplot2::margin(
+                        t = 7
+                    )
+                ),
+                legend.position = "right",
+                legend.title = ggplot2::element_text(
+                    face = "bold",
+                    size = 10.2
+                ),
+                legend.text = ggplot2::element_text(
+                    size = 8.8
+                ),
+                legend.spacing.y = grid::unit(
+                    0.16,
+                    "cm"
+                ),
+                legend.box.spacing = grid::unit(
+                    0.18,
+                    "cm"
+                ),
+                legend.margin = ggplot2::margin(
+                    2,
+                    2,
+                    2,
+                    2
+                ),
+                panel.grid.major.y = ggplot2::element_line(
+                    color = "grey90",
+                    linewidth = 0.25
+                ),
+                panel.grid.major.x = ggplot2::element_line(
+                    color = "grey92",
+                    linewidth = 0.25
+                ),
+                panel.grid.minor = ggplot2::element_blank(),
+                plot.margin = ggplot2::margin(
+                    top_margin,
+                    8,
+                    8,
+                    8
+                )
+            )
+    }
+    
+    p_with_title <- build_plot(
+        show_title = TRUE
+    )
+    
+    p_no_title <- build_plot(
+        show_title = FALSE
+    )
+    
+    ############################################################
+    ## 8. Save the two PNG files
+    ############################################################
+    
+    ggplot2::ggsave(
+        filename = titled_png_path,
+        plot = p_with_title,
+        width = 10.5,
+        height = 6.8,
+        units = "in",
+        dpi = 600,
+        bg = "white",
+        limitsize = FALSE
+    )
+    
+    ggplot2::ggsave(
+        filename = no_title_png_path,
+        plot = p_no_title,
+        width = 10.5,
+        height = 6.1,
+        units = "in",
+        dpi = 600,
+        bg = "white",
+        limitsize = FALSE
+    )
+    
+    ############################################################
+    ## 9. Export this complete reproducible code as TXT
+    ############################################################
+    
+    function_code <- deparse(
+        run_figure5A_revised,
+        control = "all",
+        width.cutoff = 500L
+    )
+    
+    function_code[1] <- paste0(
+        "run_figure5A_revised <- ",
+        function_code[1]
+    )
+    
+    complete_code <- c(
+        "############################################################",
+        "## Figure 5A — mechanism-focused GO-BP GSEA dot plot",
+        "## FINAL REVISED — automatically exported complete code",
+        "############################################################",
+        "",
+        function_code,
+        "",
+        "figure5A_result <- run_figure5A_revised()",
+        ""
+    )
+    
+    writeLines(
+        complete_code,
+        con = code_txt_path,
+        useBytes = TRUE
+    )
+    
+    ############################################################
+    ## 10. Validate exactly three outputs
+    ############################################################
+    
+    output_paths <- c(
+        titled_png_path,
+        no_title_png_path,
+        code_txt_path
+    )
+    
+    output_exists <- file.exists(
+        output_paths
+    )
+    
+    output_sizes <- file.info(
+        output_paths
+    )$size
+    
+    failed_outputs <- output_paths[
+        !output_exists |
+            is.na(output_sizes) |
+            output_sizes <= 0
+    ]
+    
+    if (length(failed_outputs) > 0L) {
+        stop(
+            paste0(
+                "One or more requested outputs failed:\n",
+                paste(
+                    failed_outputs,
+                    collapse = "\n"
+                )
+            ),
+            call. = FALSE
+        )
+    }
+    
+    cat("\n============================================================\n")
+    cat("FIGURE 5A REVISED OUTPUTS CREATED SUCCESSFULLY\n")
+    cat("============================================================\n")
+    
+    cat("\nWith-title PNG:\n")
+    cat(titled_png_path, "\n")
+    
+    cat("\nTitle-free PNG:\n")
+    cat(no_title_png_path, "\n")
+    
+    cat("\nComplete code TXT:\n")
+    cat(code_txt_path, "\n")
+    
+    cat("\nExactly three output files were created.\n")
+    cat("No files were written to backup.\n")
+    cat("============================================================\n")
+    
+    invisible(
+        list(
+            with_title_plot = p_with_title,
+            no_title_plot = p_no_title,
+            with_title_png = titled_png_path,
+            no_title_png = no_title_png_path,
+            code_txt = code_txt_path,
+            source_gsea_object = gsea_path
+        )
+    )
+}

@@ -1,0 +1,40 @@
+============================================================
+M05 FIGURE 5 REPOSITORY AUDIT
+============================================================
+Generated: 2026-10-17 20:12:28
+Core file: E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/02_analysis_files/canonical_core/M05_Figure5_CANONICAL_CORE_FINAL.RData
+B/C canonical input: E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/02_analysis_files/canonical_inputs/M05_BC_GSE111016_log2CPM_group_canonical_input.rds
+GO-BP GSEA object: E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/02_analysis_files/canonical_inputs/M05A_GO_BP_GSEA_clusterProfiler_object_v2.rds
+
+Frozen core objects: 25
+Missing required core objects: none
+GSEA full-result export: PASS: 5880 rows exported
+Workspace function recovery: PASS: recovered 7 relevant function(s)
+Historical canonical reconstruction-code file size: 2 bytes
+
+Validation checks:
+PASS | group_df has 40 samples
+PASS | Control n = 20
+PASS | Sarcopenia n = 20
+PASS | ssGSEA has 40 sample columns
+PASS | ssGSEA contains four locked mitochondrial pathways
+PASS | hub_genes length = 11
+PASS | strict_hub_genes length = 2
+PASS | strict hubs are ATF4 and CASP9
+PASS | Figure 5C has 44 gene-pathway correlations
+PASS | target GSEA statistics contain four pathways
+PASS | pathways_nohub object exists
+PASS | ssgsea_scores_nohub object exists
+PASS | No hub gene remains in pathways_nohub
+
+Export folder: E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/02_analysis_files/00_repository_audit
+
+Please upload these files/folders to ChatGPT after the run:
+- 00_M05_core_object_inventory.csv
+- 01_M05_BC_input_inventory.csv
+- 02_M05_recovered_function_manifest.csv
+- 03_M05_validation_checks.csv
+- 04_M05_validation_report.txt
+- recovered_functions/ (especially run_ssgsea.R if present)
+- source_data/ (ZIP the folder; these are small CSV exports)
+============================================================

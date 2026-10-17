@@ -1,0 +1,2 @@
+"EnsemblID_raw","EnsemblID","baseMean","log2FoldChange","lfcSE","stat","pvalue","padj","SYMBOL","abs_log2FC","in_CTD_138","passes_nominal_P005","passes_abs_log2FC_gt_0.1","included_in_final_23","exclusion_reason"
+"ENSG00000110911","ENSG00000110911",1043.17045160577,-0.099818672284292,0.0496547882045954,-2.01025270459323,0.0444044497867641,0.428218850777435,"SLC11A2",0.099818672284292,TRUE,TRUE,FALSE,FALSE,"Excluded by the original minimal effect-size rule: |log2FoldChange| <= 0.1"

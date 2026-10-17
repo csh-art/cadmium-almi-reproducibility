@@ -1,0 +1,301 @@
+# ============================================================
+# FIGURE 2A RCS COMPLETED
+# 此TXT可单独source()运行
+# ============================================================
+
+rm(list = ls())
+invisible(gc())
+
+options(
+    stringsAsFactors = FALSE,
+    width = 300,
+    scipen = 999,
+    warn = 1,
+    survey.lonely.psu = "adjust"
+)
+
+setup_packages <- function () 
+{
+    user_library <- "D:/RStudio/Rpackages"
+    if (dir.exists(user_library)) {
+        .libPaths(unique(c(user_library, .libPaths())))
+    }
+    required_packages <- c("survey", "ggplot2", "scales")
+    installed_package_names <- rownames(installed.packages())
+    missing_packages <- setdiff(required_packages, installed_package_names)
+    if (length(missing_packages) > 0L) {
+        install.packages(missing_packages, dependencies = TRUE, type = "binary", repos = "https://cloud.r-project.org")
+    }
+    suppressPackageStartupMessages({
+        library(survey)
+        library(ggplot2)
+        library(scales)
+    })
+    options(survey.lonely.psu = "adjust")
+    invisible(TRUE)
+}
+
+get_project_paths <- function () 
+{
+    project_root <- paste0("E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/", "03_results/M00_NHANES_NEW")
+    analysis_root <- file.path(project_root, "02_analysis_files")
+    figure_dir <- file.path(project_root, "03_outputs_figures_tables", "figure")
+    table_dir <- file.path(project_root, "03_outputs_figures_tables", "table")
+    backup_dir <- file.path(project_root, "backup")
+    survey_data_path <- file.path(analysis_root, "06_primary_regression", "02_objects", "survey_base_with_quartile_trend_score.rds")
+    primary_bundle_path <- file.path(analysis_root, "06_primary_regression", "02_objects", "primary_regression_bundle.rds")
+    sensitivity_bundle_path <- file.path(analysis_root, "07_frozen_sensitivity_analyses", "02_objects", "frozen_sensitivity_analysis_bundle.rds")
+    list(project_root = project_root, analysis_root = analysis_root, figure_dir = figure_dir, table_dir = table_dir, backup_dir = backup_dir, survey_data_path = survey_data_path, primary_bundle_path = primary_bundle_path, sensitivity_bundle_path = sensitivity_bundle_path)
+}
+
+validate_common_paths <- function (paths) 
+{
+    project_root <- getElement(paths, "project_root")
+    analysis_root <- getElement(paths, "analysis_root")
+    figure_dir <- getElement(paths, "figure_dir")
+    table_dir <- getElement(paths, "table_dir")
+    backup_dir <- getElement(paths, "backup_dir")
+    required_directories <- c(project_root, analysis_root, table_dir, backup_dir)
+    missing_directories <- required_directories[!dir.exists(required_directories)]
+    if (length(missing_directories) > 0L) {
+        stop(paste0("以下必要文件夹不存在：\n", paste(missing_directories, collapse = "\n")), call. = FALSE)
+    }
+    dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
+    if (!dir.exists(figure_dir)) {
+        stop(paste0("无法创建figure目录：", figure_dir), call. = FALSE)
+    }
+    backup_items <- list.files(backup_dir, all.files = TRUE, no.. = TRUE, full.names = TRUE)
+    if (length(backup_items) > 0L) {
+        stop(paste0("backup文件夹不是空的：\n", paste(backup_items, collapse = "\n")), call. = FALSE)
+    }
+    invisible(TRUE)
+}
+
+validate_bundle_status <- function (bundle_object, bundle_name) 
+{
+    if (!"final_status" %in% names(bundle_object)) {
+        stop(paste0(bundle_name, "中不存在final_status。"), call. = FALSE)
+    }
+    if (!identical(bundle_object$final_status, "PASS")) {
+        stop(paste0(bundle_name, "没有达到PASS：", bundle_object$final_status), call. = FALSE)
+    }
+    invisible(TRUE)
+}
+
+which_true <- function (condition) 
+{
+    condition <- as.logical(condition)
+    which(!is.na(condition) & condition)
+}
+
+extract_svyquantile_values <- function (quantile_object, expected_length) 
+{
+    coefficient_object <- tryCatch(stats::coef(quantile_object), error = function(e) {
+        NULL
+    })
+    if (is.null(coefficient_object)) {
+        stop(paste0("无法提取svyquantile结果。对象类别：", paste(class(quantile_object), collapse = "; ")), call. = FALSE)
+    }
+    if (is.list(coefficient_object)) {
+        coefficient_object <- unlist(coefficient_object, recursive = TRUE, use.names = FALSE)
+    }
+    coefficient_values <- suppressWarnings(as.numeric(coefficient_object))
+    coefficient_values <- coefficient_values[!is.na(coefficient_values) & is.finite(coefficient_values)]
+    if (length(coefficient_values) < expected_length) {
+        stop(paste0("svyquantile仅提取到", length(coefficient_values), "个数值，预期至少", expected_length, "个。"), call. = FALSE)
+    }
+    coefficient_values[seq_len(expected_length)]
+}
+
+extract_test_p_value <- function (test_object) 
+{
+    if (is.null(test_object)) {
+        return(NA_real_)
+    }
+    object_names <- names(test_object)
+    if ("p" %in% object_names) {
+        return(as.numeric(getElement(test_object, "p"))[1])
+    }
+    if ("p.value" %in% object_names) {
+        return(as.numeric(getElement(test_object, "p.value"))[1])
+    }
+    NA_real_
+}
+
+format_p_text <- function (p_value) 
+{
+    if (length(p_value) != 1L || is.na(p_value) || !is.finite(p_value)) {
+        return("NA")
+    }
+    if (p_value < 0.001) {
+        return("< 0.001")
+    }
+    paste0("= ", formatC(p_value, format = "f", digits = 3))
+}
+
+save_plot_outputs <- function (plot_object, png_path, pdf_path, width_in, height_in) 
+{
+    ggplot2::ggsave(filename = png_path, plot = plot_object, width = width_in, height = height_in, dpi = 600, bg = "white")
+    ggplot2::ggsave(filename = pdf_path, plot = plot_object, width = width_in, height = height_in, bg = "white")
+    if (!file.exists(png_path) || file.info(png_path)$size <= 0) {
+        stop(paste0("PNG没有成功生成：", png_path), call. = FALSE)
+    }
+    if (!file.exists(pdf_path) || file.info(pdf_path)$size <= 0) {
+        stop(paste0("PDF没有成功生成：", pdf_path), call. = FALSE)
+    }
+    invisible(TRUE)
+}
+
+rcs_basis <- function (x, knots, prefix = "rcs_cd") 
+{
+    knots <- sort(as.numeric(knots))
+    knot_count <- length(knots)
+    if (knot_count < 4L) {
+        stop("Restricted cubic spline至少需要4个knots。", call. = FALSE)
+    }
+    truncated_power <- function(z) {
+        ifelse(z > 0, z^3, 0)
+    }
+    output_data <- data.frame(rcs_cd1 = x)
+    for (knot_index in seq_len(knot_count - 2L)) {
+        current_knot <- knots[knot_index]
+        penultimate_knot <- knots[knot_count - 1L]
+        last_knot <- knots[knot_count]
+        spline_term <- (truncated_power(x - current_knot) - truncated_power(x - penultimate_knot) * (last_knot - current_knot)/(last_knot - penultimate_knot) + truncated_power(x - last_knot) * (penultimate_knot - current_knot)/(last_knot - penultimate_knot))
+        spline_term <- spline_term/((last_knot - knots[1])^2)
+        new_column_name <- paste0(prefix, knot_index + 1L)
+        output_data[, new_column_name] <- spline_term
+    }
+    output_data
+}
+
+generate_figure2a <- function (paths) 
+{
+    survey_data_path <- getElement(paths, "survey_data_path")
+    figure_dir <- getElement(paths, "figure_dir")
+    if (!file.exists(survey_data_path)) {
+        stop(paste0("最终survey数据不存在：", survey_data_path), call. = FALSE)
+    }
+    survey_base_data <- readRDS(survey_data_path)
+    if (!is.data.frame(survey_base_data)) {
+        stop("最终survey数据不是data.frame。", call. = FALSE)
+    }
+    required_variables <- c("SEQN", "ALMI_strict", "LBXBCD", "weight_8yr", "survey_psu_id", "survey_strata_id", "eligible_M3_Primary", "age", "sex", "race", "survey_cycle", "education", "marital", "pir_continuous", "smoking_status", "alcohol_status", "physical_activity")
+    missing_variables <- setdiff(required_variables, names(survey_base_data))
+    if (length(missing_variables) > 0L) {
+        stop(paste0("最终survey数据缺少变量：\n", paste(missing_variables, collapse = ", "), "\n\n实际变量名为：\n", paste(names(survey_base_data), collapse = ", ")), call. = FALSE)
+    }
+    if (nrow(survey_base_data) != 10453L) {
+        stop(paste0("Survey base N不是10453：", nrow(survey_base_data)), call. = FALSE)
+    }
+    factor_variables <- c("sex", "race", "survey_cycle", "education", "marital", "smoking_status", "alcohol_status", "physical_activity")
+    for (variable_name in factor_variables) {
+        original_values <- getElement(survey_base_data, variable_name)
+        survey_base_data[, variable_name] <- factor(as.character(original_values))
+    }
+    initial_design <- survey::svydesign(ids = ~survey_psu_id, strata = ~survey_strata_id, weights = ~weight_8yr, nest = TRUE, data = survey_base_data)
+    m3_eligible_values <- getElement(initial_design$variables, "eligible_M3_Primary")
+    m3_index <- which(m3_eligible_values %in% TRUE)
+    initial_m3_design <- initial_design[m3_index, ]
+    m3_n <- nrow(initial_m3_design$variables)
+    if (m3_n != 6575L) {
+        stop(paste0("Model 3分析样本量不是6575：", m3_n), call. = FALSE)
+    }
+    knot_quantile_object <- survey::svyquantile(~LBXBCD, design = initial_m3_design, quantiles = c(0.05, 0.35, 0.65, 0.95), ci = FALSE, na.rm = TRUE)
+    cd_knots <- extract_svyquantile_values(knot_quantile_object, expected_length = 4L)
+    reference_quantile_object <- survey::svyquantile(~LBXBCD, design = initial_m3_design, quantiles = 0.5, ci = FALSE, na.rm = TRUE)
+    cd_reference <- extract_svyquantile_values(reference_quantile_object, expected_length = 1L)[1]
+    range_quantile_object <- survey::svyquantile(~LBXBCD, design = initial_m3_design, quantiles = c(0.01, 0.99), ci = FALSE, na.rm = TRUE)
+    plot_range <- extract_svyquantile_values(range_quantile_object, expected_length = 2L)
+    plot_x_min <- plot_range[1]
+    plot_x_max <- plot_range[2]
+    if (anyNA(cd_knots) || any(diff(cd_knots) <= 0)) {
+        stop(paste0("RCS knots无效：", paste(cd_knots, collapse = ", ")), call. = FALSE)
+    }
+    full_basis <- rcs_basis(x = survey_base_data$LBXBCD, knots = cd_knots, prefix = "rcs_cd")
+    basis_names <- names(full_basis)
+    for (basis_name in basis_names) {
+        survey_base_data[, basis_name] <- getElement(full_basis, basis_name)
+    }
+    base_design <- survey::svydesign(ids = ~survey_psu_id, strata = ~survey_strata_id, weights = ~weight_8yr, nest = TRUE, data = survey_base_data)
+    m3_eligible_values <- getElement(base_design$variables, "eligible_M3_Primary")
+    m3_index <- which(m3_eligible_values %in% TRUE)
+    design_rcs <- base_design[m3_index, ]
+    if (nrow(design_rcs$variables) != 6575L) {
+        stop("加入RCS基函数后Model 3样本量发生变化。", call. = FALSE)
+    }
+    rcs_linear_term <- "rcs_cd1"
+    rcs_nonlinear_terms <- setdiff(basis_names, rcs_linear_term)
+    model_covariates <- c("age", "sex", "race", "survey_cycle", "education", "marital", "pir_continuous", "smoking_status", "alcohol_status", "physical_activity")
+    rcs_formula <- stats::as.formula(paste("ALMI_strict ~", paste(c(basis_names, model_covariates), collapse = " + ")))
+    fit_rcs <- survey::svyglm(formula = rcs_formula, design = design_rcs, family = stats::gaussian())
+    coefficient_values <- stats::coef(fit_rcs)
+    if (anyNA(coefficient_values)) {
+        stop(paste0("RCS模型存在NA系数：", paste(names(coefficient_values[is.na(coefficient_values)]), collapse = ", ")), call. = FALSE)
+    }
+    overall_test <- tryCatch(survey::regTermTest(fit_rcs, stats::as.formula(paste("~", paste(basis_names, collapse = " + ")))), error = function(e) {
+        NULL
+    })
+    nonlinear_test <- tryCatch(survey::regTermTest(fit_rcs, stats::as.formula(paste("~", paste(rcs_nonlinear_terms, collapse = " + ")))), error = function(e) {
+        NULL
+    })
+    p_overall <- extract_test_p_value(overall_test)
+    p_nonlinear <- extract_test_p_value(nonlinear_test)
+    coefficient_vector <- stats::coef(fit_rcs)
+    covariance_matrix <- stats::vcov(fit_rcs)
+    coefficient_names <- names(coefficient_vector)
+    prediction_base_data <- design_rcs$variables
+    get_weighted_model_matrix_mean <- function(x_value) {
+        newdata <- prediction_base_data
+        basis_at_x <- rcs_basis(x = rep(x_value, nrow(newdata)), knots = cd_knots, prefix = "rcs_cd")
+        for (basis_name in basis_names) {
+            newdata[, basis_name] <- getElement(basis_at_x, basis_name)
+        }
+        model_matrix <- stats::model.matrix(stats::delete.response(stats::terms(fit_rcs)), data = newdata)
+        missing_matrix_columns <- setdiff(coefficient_names, colnames(model_matrix))
+        if (length(missing_matrix_columns) > 0L) {
+            stop(paste0("预测模型矩阵缺少系数列：", paste(missing_matrix_columns, collapse = ", ")), call. = FALSE)
+        }
+        model_matrix <- model_matrix[, coefficient_names, drop = FALSE]
+        normalized_weights <- (newdata$weight_8yr/sum(newdata$weight_8yr, na.rm = TRUE))
+        as.numeric(colSums(model_matrix * normalized_weights))
+    }
+    reference_matrix_mean <- get_weighted_model_matrix_mean(cd_reference)
+    x_grid <- seq(from = plot_x_min, to = plot_x_max, length.out = 250L)
+    prediction_rows <- vector(mode = "list", length = length(x_grid))
+    for (grid_index in seq_along(x_grid)) {
+        current_x <- x_grid[grid_index]
+        current_matrix_mean <- get_weighted_model_matrix_mean(current_x)
+        contrast_vector <- (current_matrix_mean - reference_matrix_mean)
+        estimate_value <- as.numeric(sum(contrast_vector * coefficient_vector))
+        standard_error <- as.numeric(sqrt(t(contrast_vector) %*% covariance_matrix %*% contrast_vector))
+        prediction_rows[grid_index] <- list(data.frame(LBXBCD = current_x, estimate = estimate_value, standard_error = standard_error, lower_95ci = (estimate_value - 1.96 * standard_error), upper_95ci = (estimate_value + 1.96 * standard_error), stringsAsFactors = FALSE))
+    }
+    prediction_data <- do.call(rbind, prediction_rows)
+    rownames(prediction_data) <- NULL
+    annotation_text <- paste0("Reference = survey-weighted median Cd ", formatC(cd_reference, format = "f", digits = 2), " μg/L; P overall ", format_p_text(p_overall), "; P for nonlinearity ", format_p_text(p_nonlinear))
+    line_color <- "#D84A4A"
+    ribbon_color <- "#F4A6A6"
+    figure2a <- ggplot2::ggplot(prediction_data, ggplot2::aes(x = LBXBCD, y = estimate)) + ggplot2::geom_ribbon(ggplot2::aes(ymin = lower_95ci, ymax = upper_95ci), fill = ribbon_color, alpha = 0.35) + ggplot2::geom_line(linewidth = 1.15, color = line_color) + ggplot2::geom_hline(yintercept = 0, linetype = "dashed", linewidth = 0.55, color = "grey25") + ggplot2::geom_vline(xintercept = cd_reference, linetype = "dashed", linewidth = 0.55, color = "grey35") + ggplot2::scale_x_continuous(limits = c(0, 
+        plot_x_max), breaks = scales::pretty_breaks(n = 5), expand = ggplot2::expansion(mult = c(0.01, 0.02))) + ggplot2::scale_y_continuous(breaks = scales::pretty_breaks(n = 5), expand = ggplot2::expansion(mult = c(0.08, 0.1))) + ggplot2::labs(title = annotation_text, x = "Blood cadmium (μg/L)", y = "Adjusted difference in ALMI (kg/m²)") + ggplot2::theme_classic(base_family = "serif") + ggplot2::theme(plot.title.position = "plot", plot.title = ggplot2::element_text(size = 11, hjust = 0, face = "plain", 
+        color = "black", margin = ggplot2::margin(b = 8)), axis.title.x = ggplot2::element_text(size = 13, margin = ggplot2::margin(t = 8)), axis.title.y = ggplot2::element_text(size = 13, margin = ggplot2::margin(r = 8)), axis.text = ggplot2::element_text(size = 11, color = "black"), axis.line = ggplot2::element_line(linewidth = 0.65, color = "black"), axis.ticks = ggplot2::element_line(linewidth = 0.55, color = "black"), plot.margin = ggplot2::margin(12, 14, 10, 10))
+    png_path <- file.path(figure_dir, "Figure2A_RCS_blood_cadmium_ALMI.png")
+    pdf_path <- file.path(figure_dir, "Figure2A_RCS_blood_cadmium_ALMI.pdf")
+    save_plot_outputs(plot_object = figure2a, png_path = png_path, pdf_path = pdf_path, width_in = 8, height_in = 5.2)
+    list(png = png_path, pdf = pdf_path, analysis_n = m3_n, survey_design_df = survey::degf(design_rcs), knots = cd_knots, reference = cd_reference, plot_x_min = plot_x_min, plot_x_max = plot_x_max, p_overall = p_overall, p_nonlinear = p_nonlinear)
+}
+
+setup_packages()
+paths <- get_project_paths()
+validate_common_paths(paths)
+output_object <- generate_figure2a(paths)
+
+cat("\n")
+cat("============================================================\n")
+cat("FIGURE 2A RCS COMPLETED\n")
+cat("============================================================\n")
+cat("FINAL_STATUS = PASS\n")
+cat("PNG:\n", getElement(output_object, "png"), "\n", sep = "")
+cat("PDF:\n", getElement(output_object, "pdf"), "\n", sep = "")
+cat("Backup remains empty = TRUE\n")
+cat("============================================================\n")

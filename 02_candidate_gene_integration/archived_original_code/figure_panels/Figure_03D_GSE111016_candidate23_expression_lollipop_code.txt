@@ -1,0 +1,139 @@
+# Figure 3D candidate-gene expression lollipop plot
+# Current project paths
+# Y-axis title removed; all other graphical settings retained
+
+rm(list = ls())
+graphics.off()
+
+run_figure3D_lollipop_without_y_title <- function () 
+{
+    required_packages <- c("dplyr", "tidyr", "ggplot2", "tibble", "stringr", "svglite", "AnnotationDbi", "org.Hs.eg.db", "grid")
+    missing_packages <- required_packages[!vapply(required_packages, requireNamespace, quietly = TRUE, FUN.VALUE = logical(1))]
+    if (length(missing_packages) > 0) {
+        stop("以下R包尚未安装：\n", paste(missing_packages, collapse = ", "))
+    }
+    project_dir <- paste0("E:/1Data/Cd_Sarcopenia_NHANES/", "new_workspace/03_results/", "M03_CandidateGenes_GO_PPI_GSE111016")
+    counts_file <- file.path(project_dir, "01_raw_data", "GSE111016", "GSE111016_allSamplesCounts_htseqcov1_sss_forGEO.csv.gz")
+    phenotype_file <- file.path(project_dir, "02_analysis_files", "00_legacy_reference_inputs", "GSE111016_metadata", "GSE111016_pheno_metadata.rds")
+    analysis_dir <- file.path(project_dir, "02_analysis_files", "Figure3D_expression_lollipop")
+    figure_dir <- file.path(project_dir, "03_outputs_figures_tables", "figure")
+    dir.create(analysis_dir, recursive = TRUE, showWarnings = FALSE)
+    dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
+    if (!file.exists(counts_file)) {
+        stop("找不到counts文件：\n", counts_file)
+    }
+    if (!file.exists(phenotype_file)) {
+        stop("找不到表型文件：\n", phenotype_file)
+    }
+    candidate_genes <- c("ABCG2", "ATF4", "CASP3", "CASP9", "CCL2", "CYCS", "CYP1A1", "DDIT3", "FOXO1", "FOXO3", "HIF1A", "HMGA2", "MAP1LC3B", "MFN2", "MMP9", "MTF1", "PHGDH", "PKM", "PPARGC1A", "SLC16A1", "SP1", "STAT3", "VEGFA")
+    phenotype_df <- as.data.frame(readRDS(phenotype_file), stringsAsFactors = FALSE)
+    names(phenotype_df) <- gsub("﻿", "", x = trimws(names(phenotype_df)))
+    required_phenotype_columns <- c("title", "geo_accession", "sarcopenia status:ch1")
+    missing_phenotype_columns <- setdiff(required_phenotype_columns, names(phenotype_df))
+    if (length(missing_phenotype_columns) > 0) {
+        stop("表型文件缺少以下列：\n", paste(missing_phenotype_columns, collapse = ", "))
+    }
+    group_df <- dplyr::select(dplyr::mutate(dplyr::filter(dplyr::mutate(phenotype_df, sample_col = stringr::str_extract(as.character(title), "Sample\\s*[0-9]+"), sample_col = gsub("\\s+", " ", sample_col), Group = dplyr::case_when(tolower(trimws(as.character(.data[["sarcopenia status:ch1"]]))) == "no" ~ "Control", tolower(trimws(as.character(.data[["sarcopenia status:ch1"]]))) == "yes" ~ "Sarcopenia", TRUE ~ NA_character_)), !is.na(sample_col), !is.na(Group)), Group = factor(Group, levels = c("Control", 
+        "Sarcopenia"))), title, geo_accession, sample_col, Group)
+    if (anyDuplicated(group_df$sample_col)) {
+        stop("表型数据中存在重复的Sample编号。")
+    }
+    counts_raw <- read.csv(gzfile(counts_file), header = TRUE, check.names = FALSE, stringsAsFactors = FALSE)
+    names(counts_raw) <- gsub("﻿", "", x = trimws(names(counts_raw)))
+    if (ncol(counts_raw) != 41L) {
+        stop("counts文件列数异常。\n", "当前列数：", ncol(counts_raw), "\n预期列数：41")
+    }
+    names(counts_raw)[1] <- "EnsemblID_raw"
+    sample_columns_all <- names(counts_raw)[-1]
+    counts_raw$EnsemblID <- sub("\\..*$", "", as.character(counts_raw$EnsemblID_raw))
+    matched_sample_columns <- sample_columns_all[sample_columns_all %in% group_df$sample_col]
+    if (length(matched_sample_columns) != 40L) {
+        stop("counts与表型数据没有完整匹配40个样本。\n", "当前匹配数：", length(matched_sample_columns))
+    }
+    group_df <- dplyr::arrange(dplyr::mutate(dplyr::filter(group_df, sample_col %in% matched_sample_columns), sample_order = match(sample_col, matched_sample_columns)), sample_order)
+    if (!identical(group_df$sample_col, matched_sample_columns)) {
+        stop("表型样本顺序与counts矩阵样本顺序不一致。")
+    }
+    group_counts <- table(group_df$Group)
+    if (as.integer(group_counts["Control"]) != 20L || as.integer(group_counts["Sarcopenia"]) != 20L) {
+        stop("分组数量不是20 vs 20。\n", paste(names(group_counts), as.integer(group_counts), collapse = "; "))
+    }
+    all_count_matrix <- as.matrix(counts_raw[, matched_sample_columns, drop = FALSE])
+    storage.mode(all_count_matrix) <- "numeric"
+    if (anyNA(all_count_matrix)) {
+        stop("计数矩阵包含NA或非数值。")
+    }
+    if (any(!is.finite(all_count_matrix))) {
+        stop("计数矩阵包含非有限值。")
+    }
+    if (any(all_count_matrix < 0)) {
+        stop("计数矩阵包含负值。")
+    }
+    gene_map <- AnnotationDbi::select(x = org.Hs.eg.db::org.Hs.eg.db, keys = unique(counts_raw$EnsemblID), keytype = "ENSEMBL", columns = "SYMBOL")
+    gene_map <- dplyr::rename(dplyr::distinct(dplyr::filter(gene_map, !is.na(SYMBOL), SYMBOL != ""), ENSEMBL, SYMBOL), EnsemblID = ENSEMBL)
+    candidate_gene_map <- dplyr::filter(gene_map, SYMBOL %in% candidate_genes)
+    found_candidate_genes <- sort(unique(candidate_gene_map$SYMBOL))
+    missing_candidate_genes <- setdiff(candidate_genes, found_candidate_genes)
+    if (length(missing_candidate_genes) > 0) {
+        stop("以下候选基因没有映射到表达矩阵：\n", paste(missing_candidate_genes, collapse = ", "))
+    }
+    counts_symbol <- dplyr::summarise(dplyr::group_by(dplyr::select(dplyr::filter(dplyr::left_join(dplyr::select(counts_raw, EnsemblID, dplyr::all_of(matched_sample_columns)), gene_map, by = "EnsemblID"), !is.na(SYMBOL), SYMBOL %in% candidate_genes), SYMBOL, dplyr::all_of(matched_sample_columns)), SYMBOL), dplyr::across(dplyr::all_of(matched_sample_columns), ~sum(as.numeric(.x), na.rm = TRUE)), .groups = "drop")
+    candidate_count_matrix <- as.matrix(tibble::column_to_rownames(counts_symbol, "SYMBOL"))
+    storage.mode(candidate_count_matrix) <- "numeric"
+    missing_matrix_genes <- setdiff(candidate_genes, rownames(candidate_count_matrix))
+    if (length(missing_matrix_genes) > 0) {
+        stop("聚合后缺少以下候选基因：\n", paste(missing_matrix_genes, collapse = ", "))
+    }
+    candidate_count_matrix <- candidate_count_matrix[candidate_genes, matched_sample_columns, drop = FALSE]
+    library_sizes <- colSums(all_count_matrix, na.rm = TRUE)
+    if (any(library_sizes <= 0)) {
+        stop("至少一个样本的总测序量为0。")
+    }
+    cpm_matrix <- t(t(candidate_count_matrix)/library_sizes[matched_sample_columns] * 1e+06)
+    logcpm_matrix <- log2(cpm_matrix + 1)
+    expression_long <- dplyr::mutate(dplyr::filter(dplyr::left_join(tidyr::pivot_longer(tibble::rownames_to_column(as.data.frame(logcpm_matrix, check.names = FALSE), "Gene"), cols = -Gene, names_to = "sample_col", values_to = "expression"), dplyr::select(group_df, sample_col, Group, geo_accession, title), by = "sample_col"), !is.na(Group)), Gene = factor(Gene, levels = candidate_genes), Group = factor(Group, levels = c("Control", "Sarcopenia")))
+    if (nrow(expression_long) != 23L * 40L) {
+        stop("长格式表达数据维度异常。\n", "当前行数：", nrow(expression_long), "\n预期行数：920")
+    }
+    statistics_df <- dplyr::mutate(dplyr::summarise(dplyr::group_by(expression_long, Gene), n_Control = sum(Group == "Control"), n_Sarcopenia = sum(Group == "Sarcopenia"), median_Control = median(expression[Group == "Control"], na.rm = TRUE), median_Sarcopenia = median(expression[Group == "Sarcopenia"], na.rm = TRUE), mean_Control = mean(expression[Group == "Control"], na.rm = TRUE), mean_Sarcopenia = mean(expression[Group == "Sarcopenia"], na.rm = TRUE), delta_median = median_Sarcopenia - median_Control, 
+        p_value = tryCatch(stats::wilcox.test(expression[Group == "Control"], expression[Group == "Sarcopenia"], exact = FALSE)$p.value, error = function(e) {
+            NA_real_
+        }), .groups = "drop"), p_adj_BH = stats::p.adjust(p_value, method = "BH"), sig_label = dplyr::case_when(is.na(p_value) ~ "", p_value < 1e-04 ~ "****", p_value < 0.001 ~ "***", p_value < 0.01 ~ "**", p_value < 0.05 ~ "*", TRUE ~ ""), direction = dplyr::case_when(delta_median > 0 ~ "Higher in Sarcopenia", delta_median < 0 ~ "Lower in Sarcopenia", TRUE ~ "No change"), Gene = factor(as.character(Gene), levels = candidate_genes), gene_x = as.numeric(Gene), neg_log10_p = -log10(pmax(p_value, .Machine$double.xmin)))
+    if (nrow(statistics_df) != 23L) {
+        stop("统计结果不是23行。")
+    }
+    plot_statistics <- dplyr::mutate(statistics_df, Gene = factor(as.character(Gene), levels = candidate_genes), label_y = dplyr::case_when(delta_median >= 0 ~ delta_median + 0.075, delta_median < 0 ~ delta_median - 0.075))
+    maximum_absolute_difference <- max(abs(plot_statistics$delta_median), na.rm = TRUE)
+    y_limit <- ceiling((maximum_absolute_difference + 0.25) * 10)/10
+    lollipop_plot <- ggplot2::ggplot(plot_statistics, ggplot2::aes(x = Gene, y = delta_median)) + ggplot2::geom_hline(yintercept = 0, linewidth = 0.65, linetype = "dashed", color = "grey45") + ggplot2::geom_segment(ggplot2::aes(x = Gene, xend = Gene, y = 0, yend = delta_median, color = direction), linewidth = 1.15, alpha = 0.9) + ggplot2::geom_point(ggplot2::aes(fill = direction, size = neg_log10_p), shape = 21, color = "black", stroke = 0.65, alpha = 0.96) + ggplot2::geom_text(data = dplyr::filter(plot_statistics, 
+        sig_label != ""), ggplot2::aes(x = Gene, y = label_y, label = sig_label), size = 4.6, fontface = "bold", color = "black") + ggplot2::scale_color_manual(values = c(`Higher in Sarcopenia` = "#F47C42", `Lower in Sarcopenia` = "#20B7A6", `No change` = "grey60")) + ggplot2::scale_fill_manual(values = c(`Higher in Sarcopenia` = "#F47C42", `Lower in Sarcopenia` = "#20B7A6", `No change` = "grey60")) + ggplot2::scale_size_continuous(range = c(3.2, 7.2), name = expression(-log[10](P))) + ggplot2::coord_cartesian(ylim = c(-y_limit, 
+        y_limit), clip = "off") + ggplot2::labs(x = NULL, y = NULL, fill = NULL, color = NULL) + ggplot2::theme_classic(base_size = 14) + ggplot2::theme(axis.title.y = ggplot2::element_blank(), axis.text.y = ggplot2::element_text(size = 13, color = "black"), axis.text.x = ggplot2::element_text(size = 12, color = "black", angle = 50, hjust = 1, vjust = 1, face = "bold"), axis.line = ggplot2::element_line(color = "black", linewidth = 0.85), axis.ticks = ggplot2::element_line(color = "black", linewidth = 0.75), 
+        axis.ticks.length = grid::unit(0.18, "cm"), legend.position = "top", legend.direction = "horizontal", legend.box = "horizontal", legend.text = ggplot2::element_text(size = 13, face = "bold", color = "black"), legend.title = ggplot2::element_text(size = 12, face = "bold"), legend.key = ggplot2::element_blank(), panel.grid = ggplot2::element_blank(), plot.margin = ggplot2::margin(t = 14, r = 20, b = 30, l = 5)) + ggplot2::guides(color = "none", fill = ggplot2::guide_legend(override.aes = list(size = 5)), 
+        size = ggplot2::guide_legend())
+    output_png <- file.path(figure_dir, "Figure_03D_GSE111016_candidate23_expression_lollipop_600dpi.png")
+    output_pdf <- file.path(figure_dir, "Figure_03D_GSE111016_candidate23_expression_lollipop.pdf")
+    output_svg <- file.path(figure_dir, "Figure_03D_GSE111016_candidate23_expression_lollipop.svg")
+    output_code <- file.path(figure_dir, "Figure_03D_GSE111016_candidate23_expression_lollipop_code.txt")
+    source_data_csv <- file.path(analysis_dir, "Figure_03D_candidate23_lollipop_source_data.csv")
+    statistics_csv <- file.path(analysis_dir, "Figure_03D_candidate23_lollipop_statistics.csv")
+    expression_csv <- file.path(analysis_dir, "Figure_03D_candidate23_log2CPM_expression.csv")
+    counts_csv <- file.path(analysis_dir, "Figure_03D_candidate23_symbol_counts.csv")
+    plot_object_rds <- file.path(analysis_dir, "Figure_03D_candidate23_lollipop_ggplot_object.rds")
+    ggplot2::ggsave(filename = output_png, plot = lollipop_plot, width = 12.5, height = 6.6, units = "in", dpi = 600, bg = "white")
+    if (capabilities("cairo")) {
+        ggplot2::ggsave(filename = output_pdf, plot = lollipop_plot, width = 12.5, height = 6.6, units = "in", device = grDevices::cairo_pdf, bg = "white")
+    }
+    else {
+        ggplot2::ggsave(filename = output_pdf, plot = lollipop_plot, width = 12.5, height = 6.6, units = "in", device = grDevices::pdf, bg = "white")
+    }
+    ggplot2::ggsave(filename = output_svg, plot = lollipop_plot, width = 12.5, height = 6.6, units = "in", device = svglite::svglite, bg = "white")
+    write.csv(plot_statistics, source_data_csv, row.names = FALSE, fileEncoding = "UTF-8")
+    write.csv(statistics_df, statistics_csv, row.names = FALSE, fileEncoding = "UTF-8")
+    write.csv(expression_long, expression_csv, row.names = FALSE, fileEncoding = "UTF-8")
+    write.csv(counts_symbol, counts_csv, row.names = FALSE, fileEncoding = "UTF-8")
+    saveRDS(lollipop_plot, plot_object_rds)
+    print(lollipop_plot)
+    list(plot = lollipop_plot, png_file = output_png, pdf_file = output_pdf, svg_file = output_svg, code_file = output_code, source_data_csv = source_data_csv, statistics_csv = statistics_csv, expression_csv = expression_csv, counts_csv = counts_csv, plot_object_rds = plot_object_rds, group_counts = group_counts, y_limit = y_limit)
+}
+
+figure3D_result <- run_figure3D_lollipop_without_y_title()

@@ -1,0 +1,5 @@
+"Pathway","GO_ID","N_stored_Entrez","N_mapped_symbols","N_detected_in_expression"
+"Oxidative phosphorylation","GO:0006119",139,139,127
+"Respiratory electron transport chain","GO:0022904",114,114,106
+"Mitochondrial ATP synthesis","GO:0042775",96,96,88
+"Mitochondrial translation","GO:0032543",130,130,128

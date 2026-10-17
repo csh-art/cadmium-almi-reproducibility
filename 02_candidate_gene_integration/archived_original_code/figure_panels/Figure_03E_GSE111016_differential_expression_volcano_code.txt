@@ -1,0 +1,186 @@
+# Figure 3E GSE111016 volcano plot
+# Standalone reproducible R code
+# Title and subtitle removed
+# Statistical results and candidate-label positions retained
+
+rm(list = ls())
+graphics.off()
+
+run_figure3E_volcano_compact <- function () 
+{
+    required_packages <- c("DESeq2", "AnnotationDbi", "org.Hs.eg.db", "ggplot2", "dplyr", "grid")
+    missing_packages <- required_packages[!vapply(required_packages, requireNamespace, quietly = TRUE, FUN.VALUE = logical(1))]
+    if (length(missing_packages) > 0) {
+        stop("以下R包尚未安装：\n", paste(missing_packages, collapse = ", "))
+    }
+    project_dir <- paste0("E:/1Data/Cd_Sarcopenia_NHANES/", "new_workspace/03_results/", "M03_CandidateGenes_GO_PPI_GSE111016")
+    counts_file <- file.path(project_dir, "01_raw_data", "GSE111016", "GSE111016_allSamplesCounts_htseqcov1_sss_forGEO.csv.gz")
+    phenotype_file <- file.path(project_dir, "02_analysis_files", "00_legacy_reference_inputs", "GSE111016_metadata", "GSE111016_pheno_metadata.rds")
+    figure_dir <- file.path(project_dir, "03_outputs_figures_tables", "figure")
+    dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
+    if (!file.exists(counts_file)) {
+        stop("找不到counts文件：\n", counts_file)
+    }
+    if (!file.exists(phenotype_file)) {
+        stop("找不到表型文件：\n", phenotype_file)
+    }
+    candidate_genes <- c("ABCG2", "ATF4", "CASP3", "CASP9", "CCL2", "CYCS", "CYP1A1", "DDIT3", "FOXO1", "FOXO3", "HIF1A", "HMGA2", "MAP1LC3B", "MFN2", "MMP9", "MTF1", "PHGDH", "PKM", "PPARGC1A", "SLC16A1", "SP1", "STAT3", "VEGFA")
+    counts_raw <- read.csv(gzfile(counts_file), stringsAsFactors = FALSE, check.names = FALSE)
+    if (ncol(counts_raw) != 41L) {
+        stop("counts文件列数异常。\n", "当前列数：", ncol(counts_raw), "\n预期列数：41")
+    }
+    gene_ids <- as.character(counts_raw[[1]])
+    count_matrix <- as.matrix(counts_raw[, -1, drop = FALSE])
+    storage.mode(count_matrix) <- "numeric"
+    if (anyNA(count_matrix)) {
+        stop("计数矩阵包含NA或非数值。")
+    }
+    if (any(!is.finite(count_matrix))) {
+        stop("计数矩阵包含非有限值。")
+    }
+    if (any(count_matrix < 0)) {
+        stop("计数矩阵包含负值。")
+    }
+    if (any(count_matrix%%1 != 0)) {
+        stop("计数矩阵包含非整数。")
+    }
+    if (anyDuplicated(gene_ids)) {
+        stop("发现重复的Ensembl基因ID。")
+    }
+    rownames(count_matrix) <- gene_ids
+    storage.mode(count_matrix) <- "integer"
+    phenotype_df <- as.data.frame(readRDS(phenotype_file), stringsAsFactors = FALSE)
+    if (nrow(phenotype_df) != ncol(count_matrix)) {
+        stop("表型样本数和counts样本数不一致。\n", "表型样本数：", nrow(phenotype_df), "\ncounts样本数：", ncol(count_matrix))
+    }
+    extract_sample_tag <- function(x) {
+        x <- as.character(x)
+        match_position <- regexpr("Sample\\s*[0-9]+", x, ignore.case = TRUE, perl = TRUE)
+        match_length <- attr(match_position, "match.length")
+        result <- rep(NA_character_, length(x))
+        valid <- !is.na(x) & !is.na(match_position) & !is.na(match_length) & match_position > 0 & match_length > 0
+        result[valid] <- substring(x[valid], first = match_position[valid], last = match_position[valid] + match_length[valid] - 1)
+        result <- gsub("\\s+", " ", result)
+        trimws(result)
+    }
+    count_sample_tags <- extract_sample_tag(colnames(count_matrix))
+    metadata_match_scores <- vapply(phenotype_df, function(column_values) {
+        metadata_tags <- extract_sample_tag(column_values)
+        sum(count_sample_tags %in% metadata_tags, na.rm = TRUE)
+    }, FUN.VALUE = numeric(1))
+    best_sample_column <- names(metadata_match_scores)[which.max(metadata_match_scores)]
+    best_match_count <- max(metadata_match_scores)
+    if (best_match_count != ncol(count_matrix)) {
+        stop("无法完整匹配40个样本。\n", "最佳匹配列：", best_sample_column, "\n匹配数量：", best_match_count)
+    }
+    phenotype_sample_tags <- extract_sample_tag(phenotype_df[[best_sample_column]])
+    phenotype_order <- match(count_sample_tags, phenotype_sample_tags)
+    if (anyNA(phenotype_order)) {
+        stop("部分counts样本无法在表型文件中找到。")
+    }
+    phenotype_df <- phenotype_df[phenotype_order, , drop = FALSE]
+    phenotype_df$sample_tag <- extract_sample_tag(phenotype_df[[best_sample_column]])
+    rownames(phenotype_df) <- colnames(count_matrix)
+    if (!identical(count_sample_tags, phenotype_df$sample_tag)) {
+        stop("counts和表型样本顺序不一致。")
+    }
+    sarcopenia_column <- "sarcopenia status:ch1"
+    if (!sarcopenia_column %in% names(phenotype_df)) {
+        stop("找不到肌少症分组列：\n", sarcopenia_column)
+    }
+    phenotype_df$sarcopenia <- factor(tolower(trimws(as.character(phenotype_df[[sarcopenia_column]]))), levels = c("no", "yes"))
+    if (anyNA(phenotype_df$sarcopenia)) {
+        stop("分组中存在no/yes以外的值。")
+    }
+    group_counts <- table(phenotype_df$sarcopenia)
+    if (as.integer(group_counts["no"]) != 20L || as.integer(group_counts["yes"]) != 20L) {
+        stop("分组数量不是20 vs 20。")
+    }
+    coldata <- data.frame(sarcopenia = phenotype_df$sarcopenia, row.names = rownames(phenotype_df))
+    if (!identical(colnames(count_matrix), rownames(coldata))) {
+        stop("counts列和表型行没有正确对应。")
+    }
+    dds <- DESeq2::DESeqDataSetFromMatrix(countData = count_matrix, colData = coldata, design = ~sarcopenia)
+    set.seed(1234)
+    dds <- DESeq2::DESeq(dds, quiet = TRUE)
+    result_object <- DESeq2::results(dds, contrast = c("sarcopenia", "yes", "no"), alpha = 0.05)
+    result_df <- as.data.frame(result_object)
+    result_df$gene_id <- rownames(result_df)
+    rownames(result_df) <- NULL
+    result_df$ensembl_id <- sub("\\..*$", "", as.character(result_df$gene_id))
+    symbol_map <- AnnotationDbi::mapIds(x = org.Hs.eg.db::org.Hs.eg.db, keys = unique(result_df$ensembl_id), keytype = "ENSEMBL", column = "SYMBOL", multiVals = "first")
+    result_df$gene_symbol <- unname(symbol_map[result_df$ensembl_id])
+    volcano_data <- result_df[!is.na(result_df$log2FoldChange) & !is.na(result_df$pvalue) & is.finite(result_df$log2FoldChange) & is.finite(result_df$pvalue), , drop = FALSE]
+    positive_pvalues <- volcano_data$pvalue[volcano_data$pvalue > 0]
+    if (length(positive_pvalues) == 0L) {
+        stop("不存在正P值。")
+    }
+    minimum_positive_pvalue <- min(positive_pvalues, na.rm = TRUE)
+    volcano_data$pvalue_plot <- volcano_data$pvalue
+    volcano_data$pvalue_plot[volcano_data$pvalue_plot == 0] <- minimum_positive_pvalue/10
+    volcano_data$minus_log10_p <- -log10(volcano_data$pvalue_plot)
+    volcano_data$status <- dplyr::case_when(volcano_data$pvalue < 0.05 & volcano_data$log2FoldChange > 0 ~ "Upregulated", volcano_data$pvalue < 0.05 & volcano_data$log2FoldChange < 0 ~ "Downregulated", TRUE ~ "Not significant")
+    volcano_data$status <- factor(volcano_data$status, levels = c("Downregulated", "Not significant", "Upregulated"))
+    valid_gene_count <- nrow(volcano_data)
+    significant_gene_count <- sum(volcano_data$pvalue < 0.05, na.rm = TRUE)
+    upregulated_count <- sum(volcano_data$status == "Upregulated", na.rm = TRUE)
+    downregulated_count <- sum(volcano_data$status == "Downregulated", na.rm = TRUE)
+    if (valid_gene_count != 53229L) {
+        stop("有效基因数没有复现53229。\n", "当前结果：", valid_gene_count)
+    }
+    if (significant_gene_count != 3342L) {
+        stop("P < 0.05基因数没有复现3342。\n", "当前结果：", significant_gene_count)
+    }
+    if (upregulated_count != 1771L) {
+        stop("上调基因数没有复现1771。\n", "当前结果：", upregulated_count)
+    }
+    if (downregulated_count != 1571L) {
+        stop("下调基因数没有复现1571。\n", "当前结果：", downregulated_count)
+    }
+    candidate_plot_df <- dplyr::ungroup(dplyr::slice_min(dplyr::group_by(dplyr::filter(volcano_data, !is.na(gene_symbol), gene_symbol %in% candidate_genes), gene_symbol), order_by = pvalue, n = 1, with_ties = FALSE))
+    missing_candidate_genes <- setdiff(candidate_genes, candidate_plot_df$gene_symbol)
+    if (length(missing_candidate_genes) > 0) {
+        stop("以下候选基因未找到：\n", paste(missing_candidate_genes, collapse = ", "))
+    }
+    candidate_plot_df$candidate_order <- match(candidate_plot_df$gene_symbol, candidate_genes)
+    candidate_plot_df <- candidate_plot_df[order(candidate_plot_df$candidate_order), , drop = FALSE]
+    if (nrow(candidate_plot_df) != 23L) {
+        stop("候选基因数量不是23。")
+    }
+    x_min_display <- -2.4
+    x_max_display <- 2.4
+    y_min_display <- 0
+    y_max_display <- 5.2
+    display_data <- dplyr::filter(volcano_data, log2FoldChange >= x_min_display, log2FoldChange <= x_max_display, minus_log10_p >= y_min_display, minus_log10_p <= y_max_display)
+    label_layout <- data.frame(gene_symbol = c("VEGFA", "SLC16A1", "CYCS", "DDIT3", "PPARGC1A", "CCL2", "MFN2", "HIF1A", "CASP3", "PKM", "ATF4", "SP1", "PHGDH", "CYP1A1", "FOXO1", "MMP9", "FOXO3", "HMGA2", "MTF1", "CASP9", "ABCG2", "MAP1LC3B", "STAT3"), label_x = c(-0.82, -0.88, -0.76, -0.63, -1.08, -1.04, -0.84, -0.62, -0.51, -0.7, -0.49, 0.36, 0.66, 1.7, 0.55, 1.94, 0.68, 1.34, 0.49, 0.43, 0.84, 0.47, 0.85), label_y = c(4.78, 4.05, 3.45, 2.97, 2.69, 2.4, 2.15, 1.93, 1.7, 1.45, 1.2, 2.72, 2.45, 
+        2.72, 2.23, 2.38, 2.03, 1.96, 1.79, 1.6, 1.45, 1.26, 1.08), hjust = c(rep(1, 11), rep(0, 12)), stringsAsFactors = FALSE)
+    candidate_label_df <- dplyr::left_join(candidate_plot_df, label_layout, by = "gene_symbol")
+    if (anyNA(candidate_label_df$label_x) || anyNA(candidate_label_df$label_y)) {
+        stop("存在缺少标签位置的候选基因。")
+    }
+    candidate_label_df$segment_xend <- ifelse(candidate_label_df$hjust == 1, candidate_label_df$label_x + 0.035, candidate_label_df$label_x - 0.035)
+    status_colors <- c(Downregulated = "#3572B8", `Not significant` = "#D6D6D6", Upregulated = "#D95852")
+    candidate_fill <- "#F2BE42"
+    volcano_plot <- ggplot2::ggplot() + ggplot2::geom_point(data = dplyr::filter(display_data, status == "Not significant"), ggplot2::aes(x = log2FoldChange, y = minus_log10_p, color = status), size = 0.68, alpha = 0.27) + ggplot2::geom_point(data = dplyr::filter(display_data, status != "Not significant"), ggplot2::aes(x = log2FoldChange, y = minus_log10_p, color = status), size = 0.88, alpha = 0.68) + ggplot2::geom_hline(yintercept = -log10(0.05), linetype = "dashed", linewidth = 0.48, color = "grey42") + 
+        ggplot2::geom_vline(xintercept = 0, linewidth = 0.38, color = "grey62") + ggplot2::geom_point(data = candidate_plot_df, ggplot2::aes(x = log2FoldChange, y = minus_log10_p), inherit.aes = FALSE, shape = 21, size = 3.35, stroke = 0.66, fill = candidate_fill, color = "black") + ggplot2::geom_segment(data = candidate_label_df, ggplot2::aes(x = log2FoldChange, y = minus_log10_p, xend = segment_xend, yend = label_y), inherit.aes = FALSE, linewidth = 0.3, color = "#747474", lineend = "round") + 
+        ggplot2::geom_text(data = candidate_label_df, ggplot2::aes(x = label_x, y = label_y, label = gene_symbol, hjust = hjust), inherit.aes = FALSE, size = 3.78, fontface = "italic", color = "white") + ggplot2::geom_text(data = candidate_label_df, ggplot2::aes(x = label_x, y = label_y, label = gene_symbol, hjust = hjust), inherit.aes = FALSE, size = 3.28, fontface = "italic", color = "black") + ggplot2::annotate(geom = "text", x = 2.31, y = -log10(0.05) + 0.09, label = "nominal P = 0.05", hjust = 1, 
+        vjust = 0, size = 3.15, color = "grey35") + ggplot2::scale_color_manual(values = status_colors, breaks = c("Downregulated", "Not significant", "Upregulated"), labels = c(paste0("Downregulated (n = ", downregulated_count, ")"), "Not significant", paste0("Upregulated (n = ", upregulated_count, ")")), drop = FALSE, name = NULL) + ggplot2::scale_x_continuous(limits = c(x_min_display, x_max_display), breaks = seq(-2, 2, by = 1), expand = ggplot2::expansion(mult = c(0.012, 0.012))) + ggplot2::scale_y_continuous(limits = c(y_min_display, 
+        y_max_display), breaks = 0:5, expand = ggplot2::expansion(mult = c(0.008, 0.018))) + ggplot2::coord_cartesian(clip = "off") + ggplot2::guides(color = ggplot2::guide_legend(override.aes = list(size = 3.2, alpha = 1), nrow = 1, byrow = TRUE)) + ggplot2::labs(title = NULL, subtitle = NULL, x = expression(Log[2] * "FC"), y = expression(-log[10] * "(nominal P)")) + ggplot2::theme_classic(base_size = 13) + ggplot2::theme(plot.background = ggplot2::element_rect(fill = "white", color = NA), panel.background = ggplot2::element_rect(fill = "white", 
+        color = NA), panel.grid.major.y = ggplot2::element_line(color = "#EFEFEF", linewidth = 0.3), panel.grid.major.x = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank(), plot.title = ggplot2::element_blank(), plot.subtitle = ggplot2::element_blank(), axis.title.x = ggplot2::element_text(face = "bold", size = 13.2, margin = ggplot2::margin(t = 6)), axis.title.y = ggplot2::element_text(face = "bold", size = 13.2, margin = ggplot2::margin(r = 6)), axis.text = ggplot2::element_text(color = "black", 
+        size = 11), axis.line = ggplot2::element_line(color = "black", linewidth = 0.58), axis.ticks = ggplot2::element_line(color = "black", linewidth = 0.44), legend.position = "top", legend.justification = "center", legend.direction = "horizontal", legend.text = ggplot2::element_text(size = 10.2), legend.spacing.x = grid::unit(0.12, "cm"), legend.key.width = grid::unit(0.45, "cm"), legend.margin = ggplot2::margin(t = 0, r = 0, b = 1, l = 0), legend.box.margin = ggplot2::margin(t = 0, r = 0, b = 0, 
+        l = 0), plot.margin = ggplot2::margin(t = 1, r = 8, b = 5, l = 7))
+    png_file <- file.path(figure_dir, "Figure_03E_GSE111016_differential_expression_volcano_600dpi.png")
+    pdf_file <- file.path(figure_dir, "Figure_03E_GSE111016_differential_expression_volcano.pdf")
+    code_file <- file.path(figure_dir, "Figure_03E_GSE111016_differential_expression_volcano_code.txt")
+    ggplot2::ggsave(filename = png_file, plot = volcano_plot, width = 9.2, height = 6.45, units = "in", dpi = 600, bg = "white")
+    if (capabilities("cairo")) {
+        ggplot2::ggsave(filename = pdf_file, plot = volcano_plot, width = 9.2, height = 6.45, units = "in", device = grDevices::cairo_pdf, bg = "white")
+    }
+    else {
+        ggplot2::ggsave(filename = pdf_file, plot = volcano_plot, width = 9.2, height = 6.45, units = "in", device = grDevices::pdf, bg = "white")
+    }
+    print(volcano_plot)
+    list(plot = volcano_plot, png_file = png_file, pdf_file = pdf_file, code_file = code_file, valid_gene_count = valid_gene_count, significant_gene_count = significant_gene_count, upregulated_count = upregulated_count, downregulated_count = downregulated_count)
+}
+
+figure3E_result <- run_figure3E_volcano_compact()

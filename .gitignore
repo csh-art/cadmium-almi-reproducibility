@@ -1,0 +1,29 @@
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+*.bak
+*.log
+
+# Explicitly retain small scientific provenance files that use ignored suffixes.
+!05_mitochondrial_pathways/02_analysis_files/canonical_core/M05_Figure5_CANONICAL_CORE_FINAL.RData
+!06_mr/provenance/clumping/MR_08_EUR_reference_overlap.log
+!06_mr/provenance/clumping/MR_09_PLINK_clump_r2_0.001.log
+!06_mr/provenance/clumping/MR_12_PLINK_clump_r2_0.01.log
+
+# Public raw data / large participant-level objects
+/data_raw/
+**/raw_data/
+**/*.XPT
+**/*.xpt
+**/participant_level/
+**/*participant*.csv
+**/*participant*.rds
+**/*analysis_dataset*.rds
+**/*survey_base*.rds
+**/*model_objects*.rds

@@ -1,0 +1,16 @@
+"variable","label","group","unweighted_nonmissing_n","weighted_mean","standard_error"
+"ALMI_strict","Appendicular lean mass index, kg/m²","Overall",7628,7.97548113990316,0.0355627859593634
+"ALMI_strict","Appendicular lean mass index, kg/m²","Q1",1734,8.43957671453778,0.0542031123427602
+"ALMI_strict","Appendicular lean mass index, kg/m²","Q2",1650,8.12398563184352,0.0567467602890527
+"ALMI_strict","Appendicular lean mass index, kg/m²","Q3",2016,7.67348307466146,0.0578442803236977
+"ALMI_strict","Appendicular lean mass index, kg/m²","Q4",2228,7.60328232787392,0.0498405107354579
+"age","Age, years","Overall",7628,39.332303665917,0.258966449209707
+"age","Age, years","Q1",1734,36.2991943881957,0.391966694450395
+"age","Age, years","Q2",1650,38.7926952903894,0.501757725284706
+"age","Age, years","Q3",2016,41.019716410766,0.470703276087061
+"age","Age, years","Q4",2228,41.628802588033,0.368933912274433
+"pir_continuous","Family income-to-poverty ratio","Overall",7012,2.94299199309997,0.0547834071528473
+"pir_continuous","Family income-to-poverty ratio","Q1",1595,3.13639623671346,0.0736408843568999
+"pir_continuous","Family income-to-poverty ratio","Q2",1517,3.1882078280114,0.0757363274812541
+"pir_continuous","Family income-to-poverty ratio","Q3",1848,3.06608354444797,0.0704745362267341
+"pir_continuous","Family income-to-poverty ratio","Q4",2052,2.3632056206939,0.0679013639957907

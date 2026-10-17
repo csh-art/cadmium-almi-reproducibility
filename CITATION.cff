@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the repository release and the associated manuscript."
+title: "Reproducibility repository for blood cadmium, appendicular lean mass, and skeletal-muscle molecular analyses"
+type: software
+version: "1.0.0-submission"
+date-released: "2026-10-17"
+authors:
+  - family-names: Chen
+    given-names: Shihe
+  - family-names: Bai
+    given-names: Qinglin
+  - family-names: Hua
+    given-names: Yufei
+  - family-names: Chen
+    given-names: Dong
+  - family-names: Jiang
+    given-names: Xin
+license: MIT
+keywords:
+  - cadmium
+  - appendicular lean mass
+  - skeletal muscle
+  - transcriptomics
+  - Mendelian randomization
+  - NHANES

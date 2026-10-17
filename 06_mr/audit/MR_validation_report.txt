@@ -1,0 +1,26 @@
+M11 / Figure 6 MR validation report
+
+Retained instruments:
+ATF4 rs882565 F=311.65
+CASP9 rs933704 F=106.35
+CASP3 rs4647601 F=72.20
+MAP1LC3B rs7865 F=43.46
+
+Combined ATF4 Wald ratio:
+beta=-0.016503
+95% CI=-0.028419 to -0.004586
+nominal p=0.006642
+Bonferroni p=0.026568
+BH p=0.026568
+
+Female-male heterogeneity recalculated from beta and SE:
+gene_name  z_female_minus_male  p_difference
+     ATF4            -1.055527      0.291184
+    CASP9            -0.736468      0.461446
+    CASP3             0.208774      0.834625
+ MAP1LC3B            -1.248582      0.211818
+
+Steiger direction: 4/4 support expression -> ALM.
+Clumping sensitivity: all four retained instruments are marked stable across r2 thresholds 0.001 and 0.01.
+
+Status: Final-result layer for Figure 6A-C and Supplementary Table S5 is internally consistent. Upstream exposure extraction, harmonization, PLINK clumping provenance, and environment/source retrieval metadata remain to be archived before the MR module is closed.

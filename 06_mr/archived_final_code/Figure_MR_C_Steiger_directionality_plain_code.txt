@@ -1,0 +1,64 @@
+options(stringsAsFactors = FALSE, warn = 1, scipen = 999)
+
+required_packages <- c('dplyr','ggplot2')
+missing_packages <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)]
+if (length(missing_packages) > 0) install.packages(missing_packages, repos='https://cloud.r-project.org', dependencies=TRUE)
+suppressPackageStartupMessages({library(dplyr); library(ggplot2); library(grid)})
+
+root_dir <- paste0('E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/','03_results/M11_MR')
+output_root <- file.path(root_dir,'03_outputs_figures_tables')
+figureNEW_dir <- file.path(output_root,'figureNEW')
+dir.create(figureNEW_dir, recursive=TRUE, showWarnings=FALSE)
+
+get_result_data <- function(object_name, candidate_file_names) {
+  if (exists(object_name, envir=.GlobalEnv, inherits=FALSE)) return(get(object_name, envir=.GlobalEnv, inherits=FALSE))
+  all_files <- list.files(output_root, recursive=TRUE, full.names=TRUE)
+  matched_files <- all_files[basename(all_files) %in% candidate_file_names]
+  if (length(matched_files)==0) stop(paste0('找不到结果文件：', paste(candidate_file_names, collapse=', ')))
+  read.delim(matched_files[1], header=TRUE, stringsAsFactors=FALSE, check.names=FALSE)
+}
+
+save_png_600 <- function(plot_object, filename, width, height) {
+  if (requireNamespace('ragg', quietly=TRUE)) {
+    ggplot2::ggsave(filename=filename, plot=plot_object, device=ragg::agg_png, width=width, height=height, units='in', dpi=600, bg='white', limitsize=FALSE)
+  } else {
+    ggplot2::ggsave(filename=filename, plot=plot_object, device='png', width=width, height=height, units='in', dpi=600, bg='white', limitsize=FALSE)
+  }
+}
+
+make_MR_panel_C <- function () 
+{
+    steiger_data_raw <- get_result_data(object_name = "steiger_results", candidate_file_names = c("Table_MR_Steiger_directionality.tsv"))
+    steiger_required <- c("gene_name", "rsid", "r2_exposure", "r2_outcome")
+    steiger_missing <- setdiff(steiger_required, names(steiger_data_raw))
+    if (length(steiger_missing) > 0) {
+        stop(paste0("Steiger结果缺少字段：", paste(steiger_missing, collapse = ", ")), call. = FALSE)
+    }
+    gene_order <- c("ATF4", "CASP9", "CASP3", "MAP1LC3B")
+    steiger_plot_data <- steiger_data_raw %>% transmute(gene_name = as.character(gene_name), rsid = as.character(rsid), r2_exposure = as.numeric(r2_exposure), r2_outcome = as.numeric(r2_outcome)) %>% distinct() %>% filter(gene_name %in% gene_order) %>% mutate(label_x = case_when(gene_name == "ATF4" ~ r2_exposure/1.5, gene_name == "CASP9" ~ r2_exposure/1.45, gene_name == "MAP1LC3B" ~ r2_exposure/1.35, gene_name == "CASP3" ~ r2_exposure * 1.55, TRUE ~ r2_exposure), label_y = case_when(gene_name == 
+        "ATF4" ~ r2_outcome * 1.75, gene_name == "CASP9" ~ r2_outcome/1.7, gene_name == "MAP1LC3B" ~ r2_outcome * 1.75, gene_name == "CASP3" ~ r2_outcome * 2.2, TRUE ~ r2_outcome), label_hjust = case_when(gene_name %in% c("ATF4", "CASP9", "MAP1LC3B") ~ 1, gene_name == "CASP3" ~ 0, TRUE ~ 0.5))
+    if (nrow(steiger_plot_data) != 4) {
+        warning(paste0("Figure C绘图数据共有 ", nrow(steiger_plot_data), " 行，正常应为4行。"))
+    }
+    log_exponents <- seq(from = -8, to = 0, by = 2)
+    log_breaks <- 10^log_exponents
+    log_labels <- parse(text = paste0("10^", log_exponents))
+    p_C <- ggplot(steiger_plot_data, aes(x = r2_exposure, y = r2_outcome)) + geom_abline(slope = 1, intercept = 0, color = "#D62728", linetype = "dashed", linewidth = 0.75) + geom_segment(aes(x = r2_exposure, y = r2_outcome, xend = label_x, yend = label_y), color = "grey45", linewidth = 0.32) + geom_point(color = "#4F81BD", size = 3.1) + geom_text(data = steiger_plot_data, aes(x = label_x, y = label_y, label = gene_name, hjust = label_hjust), inherit.aes = FALSE, size = 3.5, fontface = "italic", 
+        color = "black") + scale_x_log10(limits = c(0.00000001, 1), breaks = log_breaks, labels = log_labels, expand = expansion(mult = c(0.01, 0.02))) + scale_y_log10(limits = c(0.00000001, 1), breaks = log_breaks, labels = log_labels, expand = expansion(mult = c(0.01, 0.02))) + coord_equal(clip = "off") + labs(title = NULL, x = expression(R^2 ~ "for gene expression"), y = expression(R^2 ~ "for ALM")) + theme_bw(base_size = 11) + theme(panel.grid.minor = element_blank(), panel.grid.major = element_line(color = "grey88", 
+        linewidth = 0.45), panel.border = element_rect(color = "black", fill = NA, linewidth = 0.75), axis.title.x = element_text(size = 11, margin = margin(t = 8)), axis.title.y = element_text(size = 11, margin = margin(r = 7)), axis.text = element_text(size = 9, color = "grey25"), plot.margin = margin(t = 10, r = 22, b = 10, l = 14))
+    png_file <- file.path(figureNEW_dir, "Figure_MR_C_Steiger_directionality_plain.png")
+    pdf_file <- file.path(figureNEW_dir, "Figure_MR_C_Steiger_directionality_plain.pdf")
+    txt_file <- file.path(figureNEW_dir, "Figure_MR_C_Steiger_directionality_plain_code.txt")
+    save_png_600(plot_object = p_C, filename = png_file, width = 6.6, height = 5.1)
+    ggplot2::ggsave(filename = pdf_file, plot = p_C, device = grDevices::cairo_pdf, width = 6.6, height = 5.1, units = "in", bg = "white")
+    function_code <- deparse(make_MR_panel_C, width.cutoff = 500L)
+    function_code[1] <- paste0("make_MR_panel_C <- ", function_code[1])
+    standalone_code <- c("options(stringsAsFactors = FALSE, warn = 1, scipen = 999)", "", "required_packages <- c('dplyr','ggplot2')", "missing_packages <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)]", "if (length(missing_packages) > 0) install.packages(missing_packages, repos='https://cloud.r-project.org', dependencies=TRUE)", "suppressPackageStartupMessages({library(dplyr); library(ggplot2); library(grid)})", "", "root_dir <- paste0('E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/','03_results/M11_MR')", 
+        "output_root <- file.path(root_dir,'03_outputs_figures_tables')", "figureNEW_dir <- file.path(output_root,'figureNEW')", "dir.create(figureNEW_dir, recursive=TRUE, showWarnings=FALSE)", "", "get_result_data <- function(object_name, candidate_file_names) {", "  if (exists(object_name, envir=.GlobalEnv, inherits=FALSE)) return(get(object_name, envir=.GlobalEnv, inherits=FALSE))", "  all_files <- list.files(output_root, recursive=TRUE, full.names=TRUE)", "  matched_files <- all_files[basename(all_files) %in% candidate_file_names]", 
+        "  if (length(matched_files)==0) stop(paste0('找不到结果文件：', paste(candidate_file_names, collapse=', ')))", "  read.delim(matched_files[1], header=TRUE, stringsAsFactors=FALSE, check.names=FALSE)", "}", "", "save_png_600 <- function(plot_object, filename, width, height) {", "  if (requireNamespace('ragg', quietly=TRUE)) {", "    ggplot2::ggsave(filename=filename, plot=plot_object, device=ragg::agg_png, width=width, height=height, units='in', dpi=600, bg='white', limitsize=FALSE)", 
+        "  } else {", "    ggplot2::ggsave(filename=filename, plot=plot_object, device='png', width=width, height=height, units='in', dpi=600, bg='white', limitsize=FALSE)", "  }", "}", "", function_code, "", "figure_C_result <- make_MR_panel_C()")
+    writeLines(standalone_code, con = txt_file, useBytes = TRUE)
+    list(plot = p_C, png = png_file, pdf = pdf_file, txt = txt_file)
+}
+
+figure_C_result <- make_MR_panel_C()

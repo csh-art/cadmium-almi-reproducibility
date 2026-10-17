@@ -1,0 +1,12 @@
+derived_variable	source_variables	rule
+ALM_kg_strict	DXDLALE;DXDRALE;DXDLLLE;DXDRLLE	sum four limb lean mass (g) / 1000; DXAEXSTS=1; all four tissue invalidity codes=0
+ALMI_strict	ALM_kg_strict;BMXHT	ALM kg / (height m)^2
+smoking_status	SMQ020;SMQ040	never: SMQ020=2; former: SMQ020=1 & SMQ040=3; current: SMQ020=1 & SMQ040 in 1,2
+alcohol_status 2011-2016	ALQ101;ALQ120Q;ALQ120U	weekly+: per-week or >=5/month or >=52/year; less weekly: 1-4/month or 12-51/year; otherwise none/rare unless missing/invalid
+alcohol_status 2017-2018	ALQ111;ALQ121	ALQ121 1-5 weekly+; 6-7 less weekly; 8-10 or structurally missing after valid screen none/rare
+physical_activity	PAQ605-PAQ675	moderate-equivalent minutes/week; vigorous x2; guideline >=150 min/week
+hypertension	BPQ020	yes=1; no=2
+diabetes	DIQ010	yes=1; no=2; borderline=3
+hyperlipidemia	BPQ080;BPQ100D	yes if BPQ080=1 or BPQ100D=1; no if neither and BPQ080=2
+egfr_main	LBXSCR;age;sex	2017-2018 Scr calibrated as 1.051*LBXSCR-0.06945; 2021 race-free CKD-EPI
+weight_8yr	WTMEC2YR/WTSH2YR	cycle-specific applicable 2-year weight / 4

@@ -1,0 +1,18 @@
+check	expected_value
+NHANES analytic N	7628
+Model 3 N	6575
+Model 4 N	6536
+S1 eGFR N	6423
+S2 cotinine N	6460
+S3 lead N	6536
+S4 full N	6420
+Primary Model 3 beta	-0.159643851702317
+Primary Model 3 95% CI	-0.201833813056357 to -0.117453890348277
+Sex interaction p	0.731948979532676
+Weighted Cd quartile cutpoints	0.16;0.25;0.47
+Weighted Cd quartile median scores	0.11;0.20;0.33;0.87
+Weighted 99th percentile Cd	2.830
+Candidate genes	23
+Consensus hubs	11
+Strict hubs	ATF4;CASP9
+MR-eligible genes	ATF4;CASP9;CASP3;MAP1LC3B

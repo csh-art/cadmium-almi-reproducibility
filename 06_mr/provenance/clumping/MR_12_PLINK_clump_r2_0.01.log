@@ -1,0 +1,35 @@
+PLINK v1.9.0-b.7.11 64-bit (19 Aug 2025)
+Options in effect:
+  --bfile E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\reference_panel\1kg_v3_EUR\EUR
+  --clump E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\MR_09_PLINK_clump_input.tsv
+  --clump-field P
+  --clump-kb 10000
+  --clump-p1 5e-8
+  --clump-p2 1
+  --clump-r2 0.01
+  --clump-snp-field SNP
+  --out E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\MR_12_PLINK_clump_r2_0.01
+
+Hostname: CSH
+Working directory: E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\01_raw_data
+Start time: Sun Jul 12 13:11:42 2026
+
+Random number seed: 1783833102
+32620 MB RAM detected; reserving 16310 MB for main workspace.
+8550156 variants loaded from .bim file.
+503 people (0 males, 0 females, 503 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to
+E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\MR_12_PLINK_clump_r2_0.01.nosex
+.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 503 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is exactly 1.
+8550156 variants and 503 people pass filters and QC.
+Note: No phenotypes present.
+--clump: 4 clumps formed from 309 top variants.
+Results written to
+E:\1Data\Cd_Sarcopenia_NHANES\new_workspace\03_results\M11_MR\02_analysis_files\MR_12_PLINK_clump_r2_0.01.clumped
+.
+
+End time: Sun Jul 12 13:11:47 2026

@@ -1,0 +1,15 @@
+"file","found","source","copied"
+"MR_05_strict_candidate_instruments.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_05_strict_candidate_instruments.tsv",TRUE
+"MR_05b_strict_instruments_with_match_id.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_05b_strict_instruments_with_match_id.tsv",TRUE
+"MR_06_combined_ALM_exact_matches.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_06_combined_ALM_exact_matches.tsv",TRUE
+"MR_06b_combined_ALM_missing_variants.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_06b_combined_ALM_missing_variants.tsv",TRUE
+"MR_06c_combined_ALM_position_recovered.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_06c_combined_ALM_position_recovered.tsv",TRUE
+"MR_07_combined_ALM_harmonised_candidates.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_07_combined_ALM_harmonised_candidates.tsv",TRUE
+"MR_09_PLINK_clump_mapping.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_09_PLINK_clump_mapping.tsv",TRUE
+"MR_10_final_independent_instruments_combined_ALM.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_10_final_independent_instruments_combined_ALM.tsv",TRUE
+"MR_11_female_ALM_four_SNPs.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_11_female_ALM_four_SNPs.tsv",TRUE
+"MR_11_male_ALM_four_SNPs.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/02_analysis_files/MR_11_male_ALM_four_SNPs.tsv",TRUE
+"Table_MR_female_male_effect_difference_final.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/03_outputs_figures_tables/tables/Table_MR_female_male_effect_difference_final.tsv",TRUE
+"Table_MR_LD_clumping_sensitivity.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/03_outputs_figures_tables/tables/Table_MR_LD_clumping_sensitivity.tsv",TRUE
+"Table_MR_GWAS_Catalog_pleiotropy_screening_final.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/03_outputs_figures_tables/tables/Table_MR_GWAS_Catalog_pleiotropy_screening_final.tsv",TRUE
+"Table_MR_rs7865_allele_consistency_check.tsv",TRUE,"E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M11_MR/03_outputs_figures_tables/tables/Table_MR_rs7865_allele_consistency_check.tsv",TRUE

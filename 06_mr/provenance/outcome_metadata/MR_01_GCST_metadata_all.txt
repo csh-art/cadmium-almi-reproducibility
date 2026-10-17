@@ -1,0 +1,111 @@
+﻿==================================================
+FILE: 33097823-GCST90000025-EFO_0004980.h.tsv.gz-meta.yaml
+==================================================
+# Study meta-data
+gwas_id: GCST90000025
+author_notes: NA
+gwas_catalog_api: https://www.ebi.ac.uk/gwas/rest/api/studies/GCST90000025
+date_metadata_last_modified: 2025-01-14
+
+# Trait Information
+trait_description:
+  - Appendicular lean mass
+ontology_mapping:
+  - ''
+
+# Genotyping Information
+genome_assembly: GRCh38
+coordinate_system: 1-based
+genotyping_technology:
+  - Genome-wide genotyping array
+
+# Sample Information
+samples:
+  - sample_ancestry_category:
+      - European
+    sample_size: 450243
+
+# Summary Statistic information
+data_file_name: 33097823-GCST90000025-EFO_0004980.h.tsv.gz
+file_type: pre-GWAS-SSF
+data_file_md5sum: 360e6c1b40a196e3ecdfad734416a043
+
+# Harmonization status
+is_harmonised: true
+is_sorted: false
+harmonisation_reference: ftp://ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/
+
+==================================================
+FILE: 33097823-GCST90000026-EFO_0004980.h.tsv.gz-meta.yaml
+==================================================
+# Study meta-data
+gwas_id: GCST90000026
+author_notes: NA
+gwas_catalog_api: https://www.ebi.ac.uk/gwas/rest/api/studies/GCST90000026
+date_metadata_last_modified: 2025-01-14
+
+# Trait Information
+trait_description:
+  - Appendicular lean mass
+ontology_mapping:
+  - ''
+
+# Genotyping Information
+genome_assembly: GRCh38
+coordinate_system: 1-based
+genotyping_technology:
+  - Genome-wide genotyping array
+
+# Sample Information
+samples:
+  - sample_ancestry_category:
+      - European
+    sample_size: 205513
+
+# Summary Statistic information
+data_file_name: 33097823-GCST90000026-EFO_0004980.h.tsv.gz
+file_type: pre-GWAS-SSF
+data_file_md5sum: 0e7a517a9c059a6a404f13041a8bac45
+
+# Harmonization status
+is_harmonised: true
+is_sorted: false
+harmonisation_reference: ftp://ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/
+
+==================================================
+FILE: 33097823-GCST90000027-EFO_0004980.h.tsv.gz-meta.yaml
+==================================================
+# Study meta-data
+gwas_id: GCST90000027
+author_notes: NA
+gwas_catalog_api: https://www.ebi.ac.uk/gwas/rest/api/studies/GCST90000027
+date_metadata_last_modified: 2025-01-14
+
+# Trait Information
+trait_description:
+  - Appendicular lean mass
+ontology_mapping:
+  - ''
+
+# Genotyping Information
+genome_assembly: GRCh38
+coordinate_system: 1-based
+genotyping_technology:
+  - Genome-wide genotyping array
+
+# Sample Information
+samples:
+  - sample_ancestry_category:
+      - European
+    sample_size: 244730
+
+# Summary Statistic information
+data_file_name: 33097823-GCST90000027-EFO_0004980.h.tsv.gz
+file_type: pre-GWAS-SSF
+data_file_md5sum: 34d412a527d29e2b9c8eb3ad24b3e7a3
+
+# Harmonization status
+is_harmonised: true
+is_sorted: false
+harmonisation_reference: ftp://ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/dna/
+

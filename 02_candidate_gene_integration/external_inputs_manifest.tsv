@@ -1,0 +1,4 @@
+input_name	file_name	size_bytes	md5	status_in_repository	release_note
+CTD_interaction_counts	cadmium_human_gene_interaction_counts.csv	87836	8dbebf36e806752688c97ff4c2568337	missing	Archive this historical input if redistribution is appropriate; do not replace with a fresh CTD recount.
+GSE111016_counts	GSE111016_allSamplesCounts_htseqcov1_sss_forGEO.csv.gz	1999333	b988927f0f5d18c06204b524be6934ec	missing	Public GEO-derived input; provide acquisition instructions/checksum or archive if permitted.
+GSE111016_phenotype	GSE111016_pheno_metadata.rds	3087	b389a5bf62fe8c61a98c63eed9aad516	missing	Small derived phenotype input; archive or provide code to rebuild from GEO metadata.

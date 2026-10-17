@@ -1,0 +1,22 @@
+component	status	notes
+Final instrument source table	complete	4 retained instruments; F statistics archived
+Combined Wald-ratio source table	complete	4 genes; ATF4 Bonferroni-significant
+Sex-stratified MR source table	complete	8 rows; Female and Male for 4 genes
+Steiger source table	complete	4/4 expression-to-ALM supported
+Outcome GWAS metadata/hashes	complete	GCST90000025/26/27 metadata and exact local-file hashes archived
+GTEx target-gene eGene summary	complete	six prespecified genes represented; CYCS/PPARGC1A lack genome-wide-significant frozen top eGene signal
+Strict cis-eQTL candidate set	complete	342 candidate rows across four eligible genes
+Combined-ALM exact/position matching	complete	327 exact; 15 initially missing; 6 position-recovered; 333 harmonized
+EUR reference overlap	complete	333 harmonized -> 309 in EUR reference; 24 absent
+PLINK primary clumping	complete	r2=0.001, 10 Mb; 4 retained instruments
+PLINK r2=0.01 sensitivity	complete	same four retained instruments
+Sex-specific four-SNP extraction	complete	4 female + 4 male outcome rows archived
+Female-male heterogeneity	complete	recalculated; ATF4 p=0.291184
+rs7865 allele audit	complete	palindromic C/G but same alignment and frequency-resolvable
+GWAS Catalog contextual screen	complete	archived contextual screening; not a formal multi-instrument pleiotropy test
+Figure 6A-C original final plotting code	archived	hard-coded historical paths; portable release plotting rewrite not claimed as original
+Supplementary Table S5 code	archived	final table generator retained
+Frozen harmonization/QC chain	complete	MR_05 through MR_11 small intermediates archived and validated
+Reconstructed frozen-chain validator	complete	base-R; explicitly labeled reconstructed
+Environment metadata	complete	R 4.6.0; TwoSampleMR 0.7.9; arrow 24.0.0; Windows 11
+Full raw GTEx/GWAS/1000G redistribution	not_applicable	intentionally excluded; use source metadata/retrieval instructions

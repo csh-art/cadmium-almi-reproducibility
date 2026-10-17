@@ -1,0 +1,2 @@
+gene_name	rsid	gtex_variant_id	effect_allele_exposure	other_allele_exposure	beta_exposure	eaf_exposure	beta_outcome	eaf_outcome	match_type	alignment
+MAP1LC3B	rs7865	chr16_87403202_G_C_b38	C	G	-0.248114764690399	0.0931372568011284	0.0018	0.1275	exact	same

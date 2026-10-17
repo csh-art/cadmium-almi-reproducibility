@@ -1,0 +1,108 @@
+============================================================
+FIGURE 4D MULTICOHORT FOREST-PLOT REPORT
+============================================================
+
+INPUT FILE
+E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/02_analysis_files/EV_integrate/06_Figure4D_multicohort_hub_integration/03_all_cohort_hub_replication_audit_long.csv 
+
+INPUT MD5
+ba72618002caff0b8f2af105a2abd1e5 
+
+PLOT STATUS COUNTS
+
+Discovery reference      Same direction  Opposite direction 
+                 11                  21                   9 
+No effect direction         Unavailable 
+                  0                   3 
+
+OUTPUT INVENTORY
+             File_role
+ Publication panel PNG
+ Publication panel JPG
+        Standalone PNG
+        Standalone JPG
+     Plotting code TXT
+                                                                                                                                                                                                             File
+      E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_panel_600dpi.png
+      E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_panel_600dpi.jpg
+ E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_standalone_600dpi.png
+ E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_standalone_600dpi.jpg
+         E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_plot_code.txt
+ Exists Size_MB                              MD5
+   TRUE  0.3599 f594f1bc0aab856149849e53103e3f49
+   TRUE  3.8806 6881d6f048a1a3ae5ba74f5cdfbe6b61
+   TRUE  0.4749 91c08412f26c34900f080eee80182a77
+   TRUE  5.3167 4c8066f2bf5fac5f060dd8c2bfaddd91
+   TRUE  0.0002 d1d556b9a0f58bf4c3975518e07e4366
+
+CODE CAPTURE AUDIT
+                       Metric       Value
+ Current script path detected       FALSE
+          Current script path Unavailable
+              Code TXT exists        TRUE
+          Code TXT size bytes         198
+      Complete code copy pass       FALSE
+
+PLOT CHECKS
+                                              Check  Pass
+                                  Input file exists  TRUE
+                             Input contains 44 rows  TRUE
+                      Input contains 11 unique hubs  TRUE
+              Input contains four expected datasets  TRUE
+            Each gene-dataset combination is unique  TRUE
+             All four raster figures were generated  TRUE
+         All available estimates have finite log2FC  TRUE
+ All available estimates have a Wald standard error FALSE
+      Three unavailable GSE167186 rows are retained  TRUE
+   Targeted and nominal markers follow locked tiers  TRUE
+                     Plotting source data generated  TRUE
+                  Caption and methods TXT generated  TRUE
+     Plotting code TXT contains the complete script FALSE
+             No pooled meta-analysis was calculated  TRUE
+                        No raw datasets were merged  TRUE
+
+FINAL STATUS
+                          Metric
+      Figure 4D forest-plot pass
+                      Input file
+                       Input MD5
+                      Input rows
+                       Hub genes
+                        Datasets
+             Available estimates
+           Unavailable estimates
+      Estimates with 95% Wald CI
+                 Publication PNG
+                 Publication JPG
+                  Standalone PNG
+                  Standalone JPG
+                        Code TXT
+                      Raster DPI
+ Pooled meta-analysis calculated
+             Raw datasets merged
+                    Final status
+                                                                                                                                                                                                                 Value
+                                                                                                                                                                                                                 FALSE
+ E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/02_analysis_files/EV_integrate/06_Figure4D_multicohort_hub_integration/03_all_cohort_hub_replication_audit_long.csv
+                                                                                                                                                                                      ba72618002caff0b8f2af105a2abd1e5
+                                                                                                                                                                                                                    44
+                                                                                                                                                                                                                    11
+                                                                                                                                                                         GSE111016 | GSE111010 | GSE111006 | GSE167186
+                                                                                                                                                                                                                    41
+                                                                                                                                                                                                                     3
+                                                                                                                                                                                                                    22
+           E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_panel_600dpi.png
+           E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_panel_600dpi.jpg
+      E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_standalone_600dpi.png
+      E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_standalone_600dpi.jpg
+              E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M04_HubGenes_cytoHubba_GSE111016_GSE111010/03_outputs_figures_tables/figure/Figure4D_multicohort_forest/Figure4D_multicohort_forest_plot_code.txt
+                                                                                                                                                                                                                   600
+                                                                                                                                                                                                                 FALSE
+                                                                                                                                                                                                                 FALSE
+                                                                                                                                                                           HOLD: one or more forest-plot checks failed
+
+MANUSCRIPT CAPTION
+Figure 4D. Cross-cohort effect estimates for the 11 prespecified hub genes. Points represent cohort-specific unshrunk log2 fold-changes and horizontal lines represent 95% Wald confidence intervals. Black points denote the GSE111016 discovery reference; blue and red points denote validation effects in the same and opposite directions, respectively. Grey crosses denote genes unavailable in the primary cohort-specific model. Double asterisks indicate same-direction evidence at targeted Benjamini-Hochberg FDR < 0.05 across the 11 prespecified genes, whereas single asterisks indicate same-direction nominal P < 0.05 without targeted-FDR significance. GSE111006 was interpreted as a same-SuperSeries small-cohort sensitivity analysis rather than independent external replication, and GSE167186 as an independent heterogeneous-phenotype sensitivity-validation cohort rather than exact-definition replication. 
+
+METHODS TEXT
+For each cohort, the unshrunk DESeq2 log2 fold-change and its Wald standard error were retained from the locked cohort-specific analysis. Ninety-five percent confidence intervals were calculated as log2 fold-change +/- 1.96 times the Wald standard error. Validation direction was evaluated relative to the locked GSE111016 discovery effect. Targeted multiple-testing correction used the Benjamini-Hochberg method with a fixed family size of 11 prespecified hub genes. No raw expression matrices were merged and no pooled meta-analytic estimate was calculated in this panel. 

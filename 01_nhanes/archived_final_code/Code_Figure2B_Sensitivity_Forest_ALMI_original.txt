@@ -1,0 +1,251 @@
+# ============================================================
+# FIGURE 2B FOREST COMPLETED
+# 此TXT可单独source()运行
+# ============================================================
+
+rm(list = ls())
+invisible(gc())
+
+options(
+    stringsAsFactors = FALSE,
+    width = 300,
+    scipen = 999,
+    warn = 1,
+    survey.lonely.psu = "adjust"
+)
+
+setup_packages <- function () 
+{
+    user_library <- "D:/RStudio/Rpackages"
+    if (dir.exists(user_library)) {
+        .libPaths(unique(c(user_library, .libPaths())))
+    }
+    required_packages <- c("survey", "ggplot2", "scales")
+    installed_package_names <- rownames(installed.packages())
+    missing_packages <- setdiff(required_packages, installed_package_names)
+    if (length(missing_packages) > 0L) {
+        install.packages(missing_packages, dependencies = TRUE, type = "binary", repos = "https://cloud.r-project.org")
+    }
+    suppressPackageStartupMessages({
+        library(survey)
+        library(ggplot2)
+        library(scales)
+    })
+    options(survey.lonely.psu = "adjust")
+    invisible(TRUE)
+}
+
+get_project_paths <- function () 
+{
+    project_root <- paste0("E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/", "03_results/M00_NHANES_NEW")
+    analysis_root <- file.path(project_root, "02_analysis_files")
+    figure_dir <- file.path(project_root, "03_outputs_figures_tables", "figure")
+    table_dir <- file.path(project_root, "03_outputs_figures_tables", "table")
+    backup_dir <- file.path(project_root, "backup")
+    survey_data_path <- file.path(analysis_root, "06_primary_regression", "02_objects", "survey_base_with_quartile_trend_score.rds")
+    primary_bundle_path <- file.path(analysis_root, "06_primary_regression", "02_objects", "primary_regression_bundle.rds")
+    sensitivity_bundle_path <- file.path(analysis_root, "07_frozen_sensitivity_analyses", "02_objects", "frozen_sensitivity_analysis_bundle.rds")
+    list(project_root = project_root, analysis_root = analysis_root, figure_dir = figure_dir, table_dir = table_dir, backup_dir = backup_dir, survey_data_path = survey_data_path, primary_bundle_path = primary_bundle_path, sensitivity_bundle_path = sensitivity_bundle_path)
+}
+
+validate_common_paths <- function (paths) 
+{
+    project_root <- getElement(paths, "project_root")
+    analysis_root <- getElement(paths, "analysis_root")
+    figure_dir <- getElement(paths, "figure_dir")
+    table_dir <- getElement(paths, "table_dir")
+    backup_dir <- getElement(paths, "backup_dir")
+    required_directories <- c(project_root, analysis_root, table_dir, backup_dir)
+    missing_directories <- required_directories[!dir.exists(required_directories)]
+    if (length(missing_directories) > 0L) {
+        stop(paste0("以下必要文件夹不存在：\n", paste(missing_directories, collapse = "\n")), call. = FALSE)
+    }
+    dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
+    if (!dir.exists(figure_dir)) {
+        stop(paste0("无法创建figure目录：", figure_dir), call. = FALSE)
+    }
+    backup_items <- list.files(backup_dir, all.files = TRUE, no.. = TRUE, full.names = TRUE)
+    if (length(backup_items) > 0L) {
+        stop(paste0("backup文件夹不是空的：\n", paste(backup_items, collapse = "\n")), call. = FALSE)
+    }
+    invisible(TRUE)
+}
+
+validate_bundle_status <- function (bundle_object, bundle_name) 
+{
+    if (!"final_status" %in% names(bundle_object)) {
+        stop(paste0(bundle_name, "中不存在final_status。"), call. = FALSE)
+    }
+    if (!identical(bundle_object$final_status, "PASS")) {
+        stop(paste0(bundle_name, "没有达到PASS：", bundle_object$final_status), call. = FALSE)
+    }
+    invisible(TRUE)
+}
+
+which_true <- function (condition) 
+{
+    condition <- as.logical(condition)
+    which(!is.na(condition) & condition)
+}
+
+extract_svyquantile_values <- function (quantile_object, expected_length) 
+{
+    coefficient_object <- tryCatch(stats::coef(quantile_object), error = function(e) {
+        NULL
+    })
+    if (is.null(coefficient_object)) {
+        stop(paste0("无法提取svyquantile结果。对象类别：", paste(class(quantile_object), collapse = "; ")), call. = FALSE)
+    }
+    if (is.list(coefficient_object)) {
+        coefficient_object <- unlist(coefficient_object, recursive = TRUE, use.names = FALSE)
+    }
+    coefficient_values <- suppressWarnings(as.numeric(coefficient_object))
+    coefficient_values <- coefficient_values[!is.na(coefficient_values) & is.finite(coefficient_values)]
+    if (length(coefficient_values) < expected_length) {
+        stop(paste0("svyquantile仅提取到", length(coefficient_values), "个数值，预期至少", expected_length, "个。"), call. = FALSE)
+    }
+    coefficient_values[seq_len(expected_length)]
+}
+
+extract_test_p_value <- function (test_object) 
+{
+    if (is.null(test_object)) {
+        return(NA_real_)
+    }
+    object_names <- names(test_object)
+    if ("p" %in% object_names) {
+        return(as.numeric(getElement(test_object, "p"))[1])
+    }
+    if ("p.value" %in% object_names) {
+        return(as.numeric(getElement(test_object, "p.value"))[1])
+    }
+    NA_real_
+}
+
+format_p_text <- function (p_value) 
+{
+    if (length(p_value) != 1L || is.na(p_value) || !is.finite(p_value)) {
+        return("NA")
+    }
+    if (p_value < 0.001) {
+        return("< 0.001")
+    }
+    paste0("= ", formatC(p_value, format = "f", digits = 3))
+}
+
+save_plot_outputs <- function (plot_object, png_path, pdf_path, width_in, height_in) 
+{
+    ggplot2::ggsave(filename = png_path, plot = plot_object, width = width_in, height = height_in, dpi = 600, bg = "white")
+    ggplot2::ggsave(filename = pdf_path, plot = plot_object, width = width_in, height = height_in, bg = "white")
+    if (!file.exists(png_path) || file.info(png_path)$size <= 0) {
+        stop(paste0("PNG没有成功生成：", png_path), call. = FALSE)
+    }
+    if (!file.exists(pdf_path) || file.info(pdf_path)$size <= 0) {
+        stop(paste0("PDF没有成功生成：", pdf_path), call. = FALSE)
+    }
+    invisible(TRUE)
+}
+
+rcs_basis <- function (x, knots, prefix = "rcs_cd") 
+{
+    knots <- sort(as.numeric(knots))
+    knot_count <- length(knots)
+    if (knot_count < 4L) {
+        stop("Restricted cubic spline至少需要4个knots。", call. = FALSE)
+    }
+    truncated_power <- function(z) {
+        ifelse(z > 0, z^3, 0)
+    }
+    output_data <- data.frame(rcs_cd1 = x)
+    for (knot_index in seq_len(knot_count - 2L)) {
+        current_knot <- knots[knot_index]
+        penultimate_knot <- knots[knot_count - 1L]
+        last_knot <- knots[knot_count]
+        spline_term <- (truncated_power(x - current_knot) - truncated_power(x - penultimate_knot) * (last_knot - current_knot)/(last_knot - penultimate_knot) + truncated_power(x - last_knot) * (penultimate_knot - current_knot)/(last_knot - penultimate_knot))
+        spline_term <- spline_term/((last_knot - knots[1])^2)
+        new_column_name <- paste0(prefix, knot_index + 1L)
+        output_data[, new_column_name] <- spline_term
+    }
+    output_data
+}
+
+generate_figure2b <- function (paths) 
+{
+    primary_bundle_path <- getElement(paths, "primary_bundle_path")
+    sensitivity_bundle_path <- getElement(paths, "sensitivity_bundle_path")
+    figure_dir <- getElement(paths, "figure_dir")
+    required_files <- c(primary_bundle_path, sensitivity_bundle_path)
+    missing_files <- required_files[!file.exists(required_files)]
+    if (length(missing_files) > 0L) {
+        stop(paste0("以下森林图输入文件不存在：\n", paste(missing_files, collapse = "\n")), call. = FALSE)
+    }
+    primary_bundle <- readRDS(primary_bundle_path)
+    sensitivity_bundle <- readRDS(sensitivity_bundle_path)
+    validate_bundle_status(primary_bundle, "Primary regression bundle")
+    validate_bundle_status(sensitivity_bundle, "Frozen sensitivity bundle")
+    primary_results <- getElement(primary_bundle, "continuous_results")
+    sensitivity_results <- getElement(sensitivity_bundle, "effect_results")
+    interaction_results <- getElement(sensitivity_bundle, "interaction_results")
+    if (!is.data.frame(primary_results) || !is.data.frame(sensitivity_results) || !is.data.frame(interaction_results)) {
+        stop("森林图输入结果结构无效。", call. = FALSE)
+    }
+    get_primary_row <- function(model_name) {
+        selected_row <- primary_results[primary_results$model == model_name, , drop = FALSE]
+        if (nrow(selected_row) != 1L) {
+            stop(paste0("无法唯一定位主要模型：", model_name), call. = FALSE)
+        }
+        selected_row
+    }
+    get_sensitivity_row <- function(analysis_id) {
+        selected_row <- sensitivity_results[sensitivity_results$analysis_id == analysis_id, , drop = FALSE]
+        if (nrow(selected_row) != 1L) {
+            stop(paste0("无法唯一定位敏感性分析：", analysis_id), call. = FALSE)
+        }
+        selected_row
+    }
+    main_row <- get_primary_row("M3_Primary")
+    top_one_row <- get_sensitivity_row("B7_Exclude_top_1_percent")
+    exclude_current_row <- get_sensitivity_row("B5_Exclude_current_smokers")
+    never_smoker_row <- get_sensitivity_row("B6_Never_smokers")
+    men_row <- get_sensitivity_row("C3_Male")
+    women_row <- get_sensitivity_row("C2_Female")
+    forest_data <- data.frame(scenario = c("Primary model (Model 3)", "Excluding highest 1% of blood cadmium", "Excluding current smokers", "Never smokers only", "Men only", "Women only"), beta = c(main_row$estimate, top_one_row$estimate, exclude_current_row$estimate, never_smoker_row$estimate, men_row$estimate, women_row$estimate), ci_lower = c(main_row$lower_95ci, top_one_row$lower_95ci, exclude_current_row$lower_95ci, never_smoker_row$lower_95ci, men_row$lower_95ci, women_row$lower_95ci), ci_upper = c(main_row$upper_95ci, 
+        top_one_row$upper_95ci, exclude_current_row$upper_95ci, never_smoker_row$upper_95ci, men_row$upper_95ci, women_row$upper_95ci), stringsAsFactors = FALSE)
+    if (anyNA(forest_data[, c("beta", "ci_lower", "ci_upper")])) {
+        stop("森林图数据中存在缺失估计值。", call. = FALSE)
+    }
+    scenario_order <- c("Primary model (Model 3)", "Excluding highest 1% of blood cadmium", "Excluding current smokers", "Never smokers only", "Men only", "Women only")
+    forest_data$scenario <- factor(forest_data$scenario, levels = rev(scenario_order))
+    interaction_p <- interaction_results$interaction_p[interaction_results$analysis_id == "C1_sex_interaction"]
+    if (length(interaction_p) != 1L) {
+        stop("无法唯一提取性别交互作用P值。", call. = FALSE)
+    }
+    x_minimum <- min(forest_data$ci_lower, na.rm = TRUE)
+    x_maximum <- max(forest_data$ci_upper, na.rm = TRUE)
+    x_left_limit <- min(-0.26, floor((x_minimum - 0.01) * 100)/100)
+    x_right_limit <- max(0.01, ceiling((x_maximum + 0.01) * 100)/100)
+    subtitle_text <- paste0("Survey-weighted β and 95% CI per doubling of blood cadmium; ", "P for sex interaction = ", formatC(interaction_p, format = "f", digits = 3))
+    figure2b <- ggplot2::ggplot(forest_data, ggplot2::aes(x = beta, y = scenario)) + ggplot2::geom_vline(xintercept = 0, linetype = "dashed", linewidth = 0.6, color = "grey20") + ggplot2::geom_errorbarh(ggplot2::aes(xmin = ci_lower, xmax = ci_upper), height = 0.18, linewidth = 0.8, color = "black") + ggplot2::geom_point(shape = 21, size = 3.3, stroke = 0.8, color = "black", fill = "black") + ggplot2::scale_x_continuous(limits = c(x_left_limit, x_right_limit), breaks = scales::pretty_breaks(n = 6)) + 
+        ggplot2::labs(title = "Sensitivity analyses for blood cadmium and ALMI", subtitle = subtitle_text, x = "Difference in ALMI (kg/m²) per doubling of blood cadmium", y = NULL) + ggplot2::theme_classic(base_size = 13) + ggplot2::theme(plot.title = ggplot2::element_text(face = "bold", size = 17, color = "black", margin = ggplot2::margin(b = 5)), plot.subtitle = ggplot2::element_text(size = 12.5, color = "black", margin = ggplot2::margin(b = 12)), axis.title.x = ggplot2::element_text(size = 12.5, 
+        color = "black", margin = ggplot2::margin(t = 8)), axis.text.x = ggplot2::element_text(size = 11.5, color = "black"), axis.text.y = ggplot2::element_text(size = 12, color = "black"), axis.line.y = ggplot2::element_blank(), axis.ticks.y = ggplot2::element_blank(), axis.line.x = ggplot2::element_line(color = "black", linewidth = 0.5), axis.ticks.x = ggplot2::element_line(color = "black", linewidth = 0.4), panel.grid.major.x = ggplot2::element_line(color = "grey90", linewidth = 0.35), panel.grid.major.y = ggplot2::element_blank(), 
+        panel.grid.minor = ggplot2::element_blank(), plot.margin = ggplot2::margin(12, 18, 12, 12))
+    png_path <- file.path(figure_dir, "Figure2B_Sensitivity_Forest_ALMI.png")
+    pdf_path <- file.path(figure_dir, "Figure2B_Sensitivity_Forest_ALMI.pdf")
+    save_plot_outputs(plot_object = figure2b, png_path = png_path, pdf_path = pdf_path, width_in = 10.5, height_in = 6)
+    list(png = png_path, pdf = pdf_path, interaction_p = interaction_p, plotting_data = forest_data)
+}
+
+setup_packages()
+paths <- get_project_paths()
+validate_common_paths(paths)
+output_object <- generate_figure2b(paths)
+
+cat("\n")
+cat("============================================================\n")
+cat("FIGURE 2B FOREST COMPLETED\n")
+cat("============================================================\n")
+cat("FINAL_STATUS = PASS\n")
+cat("PNG:\n", getElement(output_object, "png"), "\n", sep = "")
+cat("PDF:\n", getElement(output_object, "pdf"), "\n", sep = "")
+cat("Backup remains empty = TRUE\n")
+cat("============================================================\n")

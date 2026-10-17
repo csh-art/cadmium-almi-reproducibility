@@ -1,0 +1,4 @@
+"variable","label","p_value_raw","p_value_formatted"
+"ALMI_strict","Appendicular lean mass index, kg/m²",0.0000000000000000451785922878518,"<0.001"
+"age","Age, years",0.000000000000118600895127517,"<0.001"
+"pir_continuous","Family income-to-poverty ratio",0.00000000000000168244462497717,"<0.001"

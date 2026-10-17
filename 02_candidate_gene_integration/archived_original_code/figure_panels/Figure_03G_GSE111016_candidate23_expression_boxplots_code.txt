@@ -1,0 +1,107 @@
+# Figure 3G candidate-gene expression boxplots
+# Standalone reproducible R code
+# Text readability improved
+# Data, statistics, colors and panel order retained
+
+rm(list = ls())
+graphics.off()
+
+run_figure3G_boxplots_refined <- function () 
+{
+    required_packages <- c("ggplot2", "dplyr", "grid")
+    missing_packages <- required_packages[!vapply(required_packages, requireNamespace, quietly = TRUE, FUN.VALUE = logical(1))]
+    if (length(missing_packages) > 0) {
+        stop("以下R包尚未安装：\n", paste(missing_packages, collapse = ", "))
+    }
+    project_dir <- paste0("E:/1Data/Cd_Sarcopenia_NHANES/", "new_workspace/03_results/", "M03_CandidateGenes_GO_PPI_GSE111016")
+    analysis_dir <- file.path(project_dir, "02_analysis_files", "GSE111016_heatmap")
+    figure_dir <- file.path(project_dir, "03_outputs_figures_tables", "figure")
+    vst_matrix_file <- file.path(analysis_dir, "GSE111016_candidate23_VST_matrix.rds")
+    annotation_file <- file.path(analysis_dir, "GSE111016_sample_annotation.csv")
+    mapping_file <- file.path(analysis_dir, "GSE111016_candidate23_Ensembl_mapping.csv")
+    required_files <- c(vst_matrix_file, annotation_file, mapping_file)
+    missing_files <- required_files[!file.exists(required_files)]
+    if (length(missing_files) > 0) {
+        stop("以下输入文件不存在：\n", paste(missing_files, collapse = "\n"))
+    }
+    candidate_vst_matrix <- readRDS(vst_matrix_file)
+    sample_annotation <- read.csv(annotation_file, stringsAsFactors = FALSE, check.names = FALSE)
+    candidate_statistics <- read.csv(mapping_file, stringsAsFactors = FALSE, check.names = FALSE)
+    if (!identical(dim(candidate_vst_matrix), c(23L, 40L))) {
+        stop("候选基因VST矩阵不是23 × 40。")
+    }
+    if (anyNA(candidate_vst_matrix) || !all(is.finite(candidate_vst_matrix))) {
+        stop("候选基因VST矩阵包含无效值。")
+    }
+    if (!identical(colnames(candidate_vst_matrix), sample_annotation$Sample)) {
+        stop("VST矩阵列和样本注释顺序不一致。")
+    }
+    sample_annotation$Sarcopenia <- factor(tolower(trimws(as.character(sample_annotation$Sarcopenia))), levels = c("no", "yes"), labels = c("No", "Yes"))
+    if (anyNA(sample_annotation$Sarcopenia)) {
+        stop("样本分组中存在no/yes以外的值。")
+    }
+    group_counts <- table(sample_annotation$Sarcopenia)
+    if (as.integer(group_counts["No"]) != 20L || as.integer(group_counts["Yes"]) != 20L) {
+        stop("样本分组数量不是20 vs 20。")
+    }
+    required_statistics_columns <- c("gene_symbol", "log2FoldChange", "pvalue")
+    missing_statistics_columns <- setdiff(required_statistics_columns, names(candidate_statistics))
+    if (length(missing_statistics_columns) > 0) {
+        stop("统计文件缺少以下列：\n", paste(missing_statistics_columns, collapse = ", "))
+    }
+    candidate_statistics <- candidate_statistics[candidate_statistics$gene_symbol %in% rownames(candidate_vst_matrix), , drop = FALSE]
+    candidate_statistics <- candidate_statistics[!duplicated(candidate_statistics$gene_symbol), , drop = FALSE]
+    if (nrow(candidate_statistics) != 23L) {
+        stop("统计表没有包含23个唯一候选基因。")
+    }
+    downregulated_statistics <- dplyr::arrange(dplyr::filter(candidate_statistics, log2FoldChange < 0), log2FoldChange)
+    upregulated_statistics <- dplyr::arrange(dplyr::filter(candidate_statistics, log2FoldChange > 0), dplyr::desc(log2FoldChange))
+    candidate_statistics <- dplyr::bind_rows(downregulated_statistics, upregulated_statistics)
+    if (nrow(downregulated_statistics) != 11L || nrow(upregulated_statistics) != 12L) {
+        stop("上下调基因数量不是11和12。")
+    }
+    gene_order <- candidate_statistics$gene_symbol
+    expression_long <- data.frame(gene_symbol = rep(rownames(candidate_vst_matrix), times = ncol(candidate_vst_matrix)), Sample = rep(colnames(candidate_vst_matrix), each = nrow(candidate_vst_matrix)), VST_expression = as.vector(candidate_vst_matrix), stringsAsFactors = FALSE)
+    expression_long$sample_order <- match(expression_long$Sample, sample_annotation$Sample)
+    if (anyNA(expression_long$sample_order)) {
+        stop("部分表达样本无法匹配样本注释。")
+    }
+    expression_long$Sarcopenia <- sample_annotation$Sarcopenia[expression_long$sample_order]
+    expression_long$gene_symbol <- factor(expression_long$gene_symbol, levels = gene_order)
+    expression_long$Sarcopenia <- factor(expression_long$Sarcopenia, levels = c("No", "Yes"))
+    format_nominal_p <- function(p) {
+        if (is.na(p)) {
+            return("NA")
+        }
+        if (p < 0.001) {
+            return(formatC(p, format = "e", digits = 2))
+        }
+        formatC(p, format = "f", digits = 3)
+    }
+    panel_ranges <- dplyr::summarise(dplyr::group_by(expression_long, gene_symbol), panel_min = min(VST_expression, na.rm = TRUE), panel_max = max(VST_expression, na.rm = TRUE), panel_range = panel_max - panel_min, .groups = "drop")
+    panel_statistics <- dplyr::left_join(dplyr::mutate(candidate_statistics, gene_symbol = factor(gene_symbol, levels = gene_order)), panel_ranges, by = "gene_symbol")
+    panel_statistics$panel_range[panel_statistics$panel_range <= 0 | is.na(panel_statistics$panel_range)] <- 1
+    panel_statistics$label_y <- panel_statistics$panel_max + 0.12 * panel_statistics$panel_range
+    panel_statistics$statistics_label <- paste0("log2FC = ", sprintf("%+.2f", panel_statistics$log2FoldChange), "\nP = ", vapply(panel_statistics$pvalue, format_nominal_p, FUN.VALUE = character(1)))
+    facet_label_expressions <- setNames(paste0("italic(", gene_order, ")"), gene_order)
+    group_colors <- c(No = "#4C78A8", Yes = "#DD765B")
+    boxplot_figure <- ggplot2::ggplot(expression_long, ggplot2::aes(x = Sarcopenia, y = VST_expression, fill = Sarcopenia)) + ggplot2::geom_boxplot(width = 0.58, linewidth = 0.4, color = "#303030", alpha = 0.78, outlier.shape = NA) + ggplot2::geom_jitter(ggplot2::aes(color = Sarcopenia), width = 0.12, height = 0, size = 0.95, alpha = 0.74, show.legend = FALSE) + ggplot2::geom_text(data = panel_statistics, ggplot2::aes(x = 1.5, y = label_y, label = statistics_label), inherit.aes = FALSE, size = 2.68, 
+        lineheight = 0.92, color = "#303030", hjust = 0.5, vjust = 0) + ggplot2::facet_wrap(facets = ggplot2::vars(gene_symbol), ncol = 5, scales = "free_y", labeller = ggplot2::as_labeller(facet_label_expressions, ggplot2::label_parsed)) + ggplot2::scale_fill_manual(values = group_colors, breaks = c("No", "Yes"), drop = FALSE) + ggplot2::scale_color_manual(values = group_colors, breaks = c("No", "Yes"), drop = FALSE) + ggplot2::scale_x_discrete(limits = c("No", "Yes"), drop = FALSE) + ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = c(0.07, 
+        0.28))) + ggplot2::labs(x = NULL, y = "VST expression") + ggplot2::guides(fill = "none", color = "none") + ggplot2::theme_classic(base_size = 10) + ggplot2::theme(plot.background = ggplot2::element_rect(fill = "white", color = NA), panel.background = ggplot2::element_rect(fill = "white", color = NA), panel.border = ggplot2::element_rect(fill = NA, color = "#5A5A5A", linewidth = 0.42), panel.grid = ggplot2::element_blank(), strip.background = ggplot2::element_rect(fill = "#F2F2F2", color = "#5A5A5A", 
+        linewidth = 0.42), strip.text = ggplot2::element_text(size = 9.8, color = "black", margin = ggplot2::margin(t = 3.2, r = 2, b = 3.2, l = 2)), axis.title.y = ggplot2::element_text(size = 12, face = "bold", color = "black", margin = ggplot2::margin(r = 6)), axis.text.x = ggplot2::element_text(size = 8.8, color = "black", margin = ggplot2::margin(t = 2.5)), axis.text.y = ggplot2::element_text(size = 7.9, color = "black"), axis.line = ggplot2::element_blank(), axis.ticks = ggplot2::element_line(color = "#454545", 
+        linewidth = 0.36), axis.ticks.length = grid::unit(1.4, "mm"), panel.spacing.x = grid::unit(3.7, "mm"), panel.spacing.y = grid::unit(4.5, "mm"), plot.margin = ggplot2::margin(t = 5, r = 5, b = 5, l = 6))
+    png_file <- file.path(figure_dir, "Figure_03G_GSE111016_candidate23_expression_boxplots_600dpi.png")
+    pdf_file <- file.path(figure_dir, "Figure_03G_GSE111016_candidate23_expression_boxplots.pdf")
+    code_file <- file.path(figure_dir, "Figure_03G_GSE111016_candidate23_expression_boxplots_code.txt")
+    ggplot2::ggsave(filename = png_file, plot = boxplot_figure, width = 11.2, height = 10.2, units = "in", dpi = 600, bg = "white")
+    if (capabilities("cairo")) {
+        ggplot2::ggsave(filename = pdf_file, plot = boxplot_figure, width = 11.2, height = 10.2, units = "in", device = grDevices::cairo_pdf, bg = "white")
+    }
+    else {
+        ggplot2::ggsave(filename = pdf_file, plot = boxplot_figure, width = 11.2, height = 10.2, units = "in", device = grDevices::pdf, bg = "white")
+    }
+    print(boxplot_figure)
+    list(plot = boxplot_figure, png_file = png_file, pdf_file = pdf_file, code_file = code_file, gene_count = length(gene_order), sample_count = ncol(candidate_vst_matrix), group_counts = group_counts)
+}
+
+figure3G_result <- run_figure3G_boxplots_refined()

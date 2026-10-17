@@ -1,0 +1,16 @@
+FROZEN SUPPLEMENTARY ANALYSIS PLAN
+============================================================
+
+Panel A presents additional covariate-adjustment models based on Model 4.
+Serum creatinine from the 2017-2018 cycle was calibrated before calculation of eGFR.
+Serum cotinine and blood lead were log2-transformed.
+
+Panel B includes a common-sample comparison in which Models 1-4 were fitted among the Model 4 complete-case sample.
+The smoking-restriction and extreme-value analyses were based on primary Model 3.
+In the never-smoker analysis, smoking status was omitted because it was constant by design.
+The extreme-value analysis excluded blood cadmium values above the survey-weighted 99th percentile: 2.830 μg/L.
+
+Panel C evaluates sex effect modification and leave-one-cycle-out stability using primary Model 3.
+Sex was omitted from sex-stratified models because it was constant within each stratum.
+
+All coefficients represent the difference in appendicular lean mass index, in kg/m², associated with a doubling of blood cadmium.

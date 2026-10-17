@@ -1,0 +1,89 @@
+M05 Figure 5 external paths and versions
+============================================================
+Created at: 2026-07-25 00:30:46.41551
+
+R version:
+R version 4.6.0 (2026-04-24 ucrt)
+
+Project dependencies:
+                                   Role
+                       M05 project root
+                Figure 5 canonical core
+           Figure 5 canonical B/C input
+               Stored GO-BP GSEA object
+ Figure output and saved-code directory
+                                                                                                                                                                                       Path
+                                                                                       E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation
+               E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/02_analysis_files/canonical_core/M05_Figure5_CANONICAL_CORE_FINAL.RData
+ E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/02_analysis_files/canonical_inputs/M05_BC_GSE111016_log2CPM_group_canonical_input.rds
+      E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/02_analysis_files/canonical_inputs/M05A_GO_BP_GSEA_clusterProfiler_object_v2.rds
+                                                   E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/03_outputs_figures_tables/figure_re
+ Exists Size_MB              Last_modified
+   TRUE   0.008 2026-07-19 11:04:21.006115
+   TRUE   2.760 2026-07-24 21:01:40.695274
+   TRUE   1.606 2026-07-24 20:36:40.673214
+   TRUE   3.578 2026-06-16 21:35:52.813999
+   TRUE   0.008 2026-07-24 21:34:42.484352
+
+Existing saved code files:
+E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/03_outputs_figures_tables/figure_re/Figure5_ABCD_combined_no_title_COMPACT_biglabels_code.txt
+E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/03_outputs_figures_tables/figure_re/Figure5A_GSEA_mechanism_dotplot_REVISED_code.txt
+E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/03_outputs_figures_tables/figure_re/Figure5B_mitochondrial_ssGSEA_REVISED_code.txt
+E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/03_outputs_figures_tables/figure_re/Figure5C_11gene_hub_pathway_correlation_REVISED_code.txt
+E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/03_outputs_figures_tables/figure_re/Figure5D_mitochondrial_GSEA_curves_REVISED_code.txt
+E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/03_results/M05_PathwayValidation_GSEA_ssGSEA_Correlation/03_outputs_figures_tables/figure_re/M05_BC_GSE111016_canonical_reconstruction_code.txt
+
+Package lock status:
+当前未安装renv，因此未生成renv.lock；包版本已完整记录在R_sessionInfo.txt中。
+
+PowerShell和其他软件版本将在第二步追加。
+
+PowerShell and external software information
+============================================================
+Recorded at: 2026-07-25 00:32:49
+
+PowerShell version:
+Name                           Value                                                                                   
+----                           -----                                                                                   
+PSVersion                      5.1.22621.4249                                                                          
+PSEdition                      Desktop                                                                                 
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}                                                                 
+BuildVersion                   10.0.22621.4249                                                                         
+CLRVersion                     4.0.30319.42000                                                                         
+WSManStackVersion              3.0                                                                                     
+PSRemotingProtocolVersion      2.3                                                                                     
+SerializationVersion           1.1.0.1
+
+Execution policies:
+Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser       Undefined
+ LocalMachine       Undefined
+
+Selected environment variables:
+PATH=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\dotnet\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;C:\Program Files (x86)\Common Files\Pulse Secure\TNC Client Plugin\;E:\;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;<USER_HOME>\AppData\Local\Python\pythoncore-3.14-64;<USER_HOME>\AppData\Local\Python\pythoncore-3.14-64\Scripts;D:\vina\openbabel_3.1.1\OpenBabel-3.1.1;<USER_HOME>\AppData\Local\Microsoft\WindowsApps;E:\MITK v2024.06\bin;D:\windsurf\Windsurf\bin
+R_HOME=
+R_LIBS_USER=
+RETICULATE_PYTHON=
+PYTHONHOME=
+JAVA_HOME=
+
+Software paths and versions:
+Software   Exists Path                                                              Version        
+--------   ------ ----                                                              -------        
+R            True Invoke-History                                                                   
+Rscript     False                                                                                  
+rstudio     False                                                                                  
+python       True <USER_HOME>\AppData\Local\Python\pythoncore-3.14-64\python.exe 3.14.3         
+py           True <USER_HOME>\AppData\Local\Microsoft\WindowsApps\py.exe                        
+pwsh        False                                                                                  
+powershell   True C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe         10.0.22621.4453
+git         False                                                                                  
+pandoc      False                                                                                  
+magick      False                                                                                  
+matlab      False                                                                                  
+stata       False                                                                                  
+StataMP     False

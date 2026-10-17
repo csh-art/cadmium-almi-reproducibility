@@ -1,0 +1,12 @@
+check	status	detail
+Instrument table has four retained genes	PASS	rows=4
+Expected SNP mapping	PASS	ATF4=rs882565; CASP9=rs933704; CASP3=rs4647601; MAP1LC3B=rs7865
+All retained instruments F > 10	PASS	range=43.46-311.65
+ATF4 combined estimate	PASS	beta=-0.016503
+ATF4 nominal p	PASS	p=0.006642
+ATF4 Bonferroni p	PASS	p=0.026568
+Combined table has 4 genes	PASS	rows=4
+Sex table has 8 rows	PASS	rows=8
+Steiger supports expression-to-ALM for all four	PASS	supported=4/4
+Clumping sensitivity stable across r2	PASS	Yes,Yes,Yes,Yes
+ATF4 female-male heterogeneity p	PASS	p=0.291184

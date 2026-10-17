@@ -1,0 +1,1601 @@
+"cycle","suffix","component","file_name","variable","variable_label","variable_class","n_total","n_nonmissing","n_missing","missing_percent","n_unique_nonmissing"
+"2011-2012","G","DEMO","DEMO_G.XPT","SEQN","Respondent sequence number","numeric",9756,9756,0,0,9756
+"2011-2012","G","DEMO","DEMO_G.XPT","SDDSRVYR","Data release cycle","numeric",9756,9756,0,0,1
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDSTATR","Interview/Examination status","numeric",9756,9756,0,0,2
+"2011-2012","G","DEMO","DEMO_G.XPT","RIAGENDR","Gender","numeric",9756,9756,0,0,2
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDAGEYR","Age in years at screening","numeric",9756,9756,0,0,81
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDAGEMN","Age in months at screening - 0 to 24 mos","numeric",9756,626,9130,93.5834358343583,25
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDRETH1","Race/Hispanic origin","numeric",9756,9756,0,0,5
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDRETH3","Race/Hispanic origin w/ NH Asian","numeric",9756,9756,0,0,6
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDEXMON","Six month time period","numeric",9756,9338,418,4.28454284542845,2
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDEXAGY","Age in years at exam - 2 to 19 years","numeric",9756,3418,6338,64.9651496514965,19
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDEXAGM","Age in months at exam - 0 to 19 years","numeric",9756,4009,5747,58.9073390733907,240
+"2011-2012","G","DEMO","DEMO_G.XPT","DMQMILIZ","Served active duty in US Armed Forces","numeric",9756,6007,3749,38.4276342763428,2
+"2011-2012","G","DEMO","DEMO_G.XPT","DMQADFC","Served in a foreign country","numeric",9756,551,9205,94.3521935219352,3
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDBORN4","Country of birth","numeric",9756,9756,0,0,4
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDCITZN","Citizenship status","numeric",9756,9751,5,0.0512505125051251,3
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDYRSUS","Length of time in US","numeric",9756,2073,7683,78.7515375153751,11
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDEDUC3","Education level - Children/Youth 6-19","numeric",9756,2599,7157,73.359983599836,18
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDEDUC2","Education level - Adults 20+","numeric",9756,5560,4196,43.0094300943009,7
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDMARTL","Marital status","numeric",9756,5560,4196,43.0094300943009,8
+"2011-2012","G","DEMO","DEMO_G.XPT","RIDEXPRG","Pregnancy status at exam","numeric",9756,1208,8548,87.6178761787618,3
+"2011-2012","G","DEMO","DEMO_G.XPT","SIALANG","Language of SP Interview","numeric",9756,9756,0,0,2
+"2011-2012","G","DEMO","DEMO_G.XPT","SIAPROXY","Proxy used in SP Interview?","numeric",9756,9750,6,0.0615006150061501,2
+"2011-2012","G","DEMO","DEMO_G.XPT","SIAINTRP","Interpreter used in SP Interview?","numeric",9756,9756,0,0,2
+"2011-2012","G","DEMO","DEMO_G.XPT","FIALANG","Language of Family Interview","numeric",9756,9651,105,1.07626076260763,2
+"2011-2012","G","DEMO","DEMO_G.XPT","FIAPROXY","Proxy used in Family Interview?","numeric",9756,9651,105,1.07626076260763,2
+"2011-2012","G","DEMO","DEMO_G.XPT","FIAINTRP","Interpreter used in Family Interview?","numeric",9756,9651,105,1.07626076260763,2
+"2011-2012","G","DEMO","DEMO_G.XPT","MIALANG","Language of MEC Interview","numeric",9756,6713,3043,31.1910619106191,2
+"2011-2012","G","DEMO","DEMO_G.XPT","MIAPROXY","Proxy used in MEC Interview?","numeric",9756,6713,3043,31.1910619106191,2
+"2011-2012","G","DEMO","DEMO_G.XPT","MIAINTRP","Interpreter used in MEC Interview?","numeric",9756,6713,3043,31.1910619106191,2
+"2011-2012","G","DEMO","DEMO_G.XPT","AIALANGA","Language of ACASI Interview","numeric",9756,5754,4002,41.0209102091021,3
+"2011-2012","G","DEMO","DEMO_G.XPT","WTINT2YR","Full sample 2 year interview weight","numeric",9756,9756,0,0,5296
+"2011-2012","G","DEMO","DEMO_G.XPT","WTMEC2YR","Full sample 2 year MEC exam weight","numeric",9756,9756,0,0,7072
+"2011-2012","G","DEMO","DEMO_G.XPT","SDMVPSU","Masked variance pseudo-PSU","numeric",9756,9756,0,0,3
+"2011-2012","G","DEMO","DEMO_G.XPT","SDMVSTRA","Masked variance pseudo-stratum","numeric",9756,9756,0,0,14
+"2011-2012","G","DEMO","DEMO_G.XPT","INDHHIN2","Annual household income","numeric",9756,9675,81,0.830258302583026,16
+"2011-2012","G","DEMO","DEMO_G.XPT","INDFMIN2","Annual family income","numeric",9756,9705,51,0.522755227552276,16
+"2011-2012","G","DEMO","DEMO_G.XPT","INDFMPIR","Ratio of family income to poverty","numeric",9756,8916,840,8.61008610086101,428
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHHSIZ","Total number of people in the Household","numeric",9756,9756,0,0,7
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDFMSIZ","Total number of people in the Family","numeric",9756,9756,0,0,7
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHHSZA","# of children 5 years or younger in HH","numeric",9756,9756,0,0,4
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHHSZB","# of children 6-17 years old in HH","numeric",9756,9756,0,0,5
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHHSZE","# of adults 60 years or older in HH","numeric",9756,9756,0,0,4
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHRGND","HH ref person's gender","numeric",9756,9756,0,0,2
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHRAGE","HH ref person's age in years","numeric",9756,9756,0,0,63
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHRBR4","HH ref person's country of birth","numeric",9756,9391,365,3.74128741287413,4
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHREDU","HH ref person's education level","numeric",9756,9394,362,3.71053710537105,7
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHRMAR","HH ref person's marital status","numeric",9756,9620,136,1.3940139401394,8
+"2011-2012","G","DEMO","DEMO_G.XPT","DMDHSEDU","HH ref person's spouse's education level","numeric",9756,4875,4881,50.0307503075031,6
+"2011-2012","G","PBCD","PBCD_G.XPT","SEQN","Respondent sequence number","numeric",8956,8956,0,0,8956
+"2011-2012","G","PBCD","PBCD_G.XPT","LBXBPB","Blood lead (ug/dL)","numeric",8956,7920,1036,11.5676641357749,561
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDBPBSI","Blood lead (umol/L)","numeric",8956,7920,1036,11.5676641357749,343
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDBPBLC","Blood lead comment code","numeric",8956,7920,1036,11.5676641357749,2
+"2011-2012","G","PBCD","PBCD_G.XPT","LBXBCD","Blood cadmium (ug/L)","numeric",8956,7920,1036,11.5676641357749,269
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDBCDSI","Blood cadmium (nmol/L)","numeric",8956,7920,1036,11.5676641357749,269
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDBCDLC","Blood cadmium comment code","numeric",8956,7920,1036,11.5676641357749,2
+"2011-2012","G","PBCD","PBCD_G.XPT","LBXTHG","Blood mercury, total (ug/L)","numeric",8956,7920,1036,11.5676641357749,747
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDTHGSI","Blood mercury, total (umol/L)","numeric",8956,7920,1036,11.5676641357749,476
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDTHGLC","Blood mercury, total comment code","numeric",8956,7920,1036,11.5676641357749,2
+"2011-2012","G","PBCD","PBCD_G.XPT","LBXBSE","Blood selenium (ug/L)","numeric",8956,7920,1036,11.5676641357749,5236
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDBSESI","Blood selenium (umol/L)","numeric",8956,7920,1036,11.5676641357749,236
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDBSELC","Blood selenium comment code","numeric",8956,7920,1036,11.5676641357749,1
+"2011-2012","G","PBCD","PBCD_G.XPT","LBXBMN","Blood manganese (ug/L)","numeric",8956,7920,1036,11.5676641357749,1577
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDBMNSI","Blood manganese (umol/L)","numeric",8956,7920,1036,11.5676641357749,1577
+"2011-2012","G","PBCD","PBCD_G.XPT","LBDBMNLC","Blood manganese comment code","numeric",8956,7920,1036,11.5676641357749,1
+"2011-2012","G","DXX","DXX_G.XPT","SEQN","Respondent sequence number","numeric",5692,5692,0,0,5692
+"2011-2012","G","DXX","DXX_G.XPT","DXAEXSTS","Exam Status","numeric",5692,5692,0,0,6
+"2011-2012","G","DXX","DXX_G.XPT","DXAHEBV","Head Bone Invalidity Code","numeric",5692,4749,943,16.5671117357695,4
+"2011-2012","G","DXX","DXX_G.XPT","DXXHEA","Head Area (cm^2)","numeric",5692,4725,967,16.988756148981,794
+"2011-2012","G","DXX","DXX_G.XPT","DXXHEBMC","Head Bone Mineral Content (g)","numeric",5692,4725,967,16.988756148981,4446
+"2011-2012","G","DXX","DXX_G.XPT","DXXHEBMD","Head Bone Mineral Density (g/cm^2)","numeric",5692,4725,967,16.988756148981,1707
+"2011-2012","G","DXX","DXX_G.XPT","DXAHETV","Head Tissue Invalidity Code","numeric",5692,4749,943,16.5671117357695,4
+"2011-2012","G","DXX","DXX_G.XPT","DXXHEFAT","Head Fat (g)","numeric",5692,4725,967,16.988756148981,3368
+"2011-2012","G","DXX","DXX_G.XPT","DXDHELE","Head Lean excl BMC (g)","numeric",5692,4725,967,16.988756148981,4095
+"2011-2012","G","DXX","DXX_G.XPT","DXXHELI","Head Lean incl BMC (g)","numeric",5692,4725,967,16.988756148981,4189
+"2011-2012","G","DXX","DXX_G.XPT","DXDHETOT","Head Total (g)","numeric",5692,4725,967,16.988756148981,4314
+"2011-2012","G","DXX","DXX_G.XPT","DXDHEPF","Head Percent Fat","numeric",5692,4725,967,16.988756148981,64
+"2011-2012","G","DXX","DXX_G.XPT","DXALABV","Left Arm Bone Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXLAA","Left Arm Area (cm^2)","numeric",5692,4682,1010,17.7442023893183,1648
+"2011-2012","G","DXX","DXX_G.XPT","DXXLABMC","Left Arm BMC (g)","numeric",5692,4682,1010,17.7442023893183,4225
+"2011-2012","G","DXX","DXX_G.XPT","DXXLABMD","Left Arm BMD (g/cm^2)","numeric",5692,4682,1010,17.7442023893183,614
+"2011-2012","G","DXX","DXX_G.XPT","DXALATV","Left Arm Tissue Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXLAFAT","Left Arm Fat (g)","numeric",5692,4671,1021,17.937456078707,4230
+"2011-2012","G","DXX","DXX_G.XPT","DXDLALE","Left Arm Lean excl BMC (g)","numeric",5692,4671,1021,17.937456078707,4356
+"2011-2012","G","DXX","DXX_G.XPT","DXXLALI","Left Arm Lean incl BMC (g)","numeric",5692,4682,1010,17.7442023893183,4412
+"2011-2012","G","DXX","DXX_G.XPT","DXDLATOT","Left Arm Total (g)","numeric",5692,4669,1023,17.9725931131413,4485
+"2011-2012","G","DXX","DXX_G.XPT","DXDLAPF","Left Arm Percent Fat","numeric",5692,4671,1021,17.937456078707,497
+"2011-2012","G","DXX","DXX_G.XPT","DXALLBV","Left Leg Bone Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXLLA","Left Leg Area (cm^2)","numeric",5692,4658,1034,18.1658468025299,1944
+"2011-2012","G","DXX","DXX_G.XPT","DXXLLBMC","Left Leg BMC (g)","numeric",5692,4658,1034,18.1658468025299,4421
+"2011-2012","G","DXX","DXX_G.XPT","DXXLLBMD","Left Leg BMD (g/cm^2)","numeric",5692,4658,1034,18.1658468025299,860
+"2011-2012","G","DXX","DXX_G.XPT","DXALLTV","Left Leg Tissue Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXLLFAT","Left Leg Fat (g)","numeric",5692,4651,1041,18.2888264230499,4497
+"2011-2012","G","DXX","DXX_G.XPT","DXDLLLE","Left Leg Lean excl BMC (g)","numeric",5692,4651,1041,18.2888264230499,4528
+"2011-2012","G","DXX","DXX_G.XPT","DXXLLLI","Left Leg Lean incl BMC (g)","numeric",5692,4658,1034,18.1658468025299,4545
+"2011-2012","G","DXX","DXX_G.XPT","DXDLLTOT","Left Leg Total (g)","numeric",5692,4649,1043,18.3239634574842,4582
+"2011-2012","G","DXX","DXX_G.XPT","DXDLLPF","Left Leg Percent Fat","numeric",5692,4651,1041,18.2888264230499,439
+"2011-2012","G","DXX","DXX_G.XPT","DXARABV","Right Arm Bone Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXRAA","Right Arm Area (cm^2)","numeric",5692,4684,1008,17.709065354884,1659
+"2011-2012","G","DXX","DXX_G.XPT","DXXRABMC","Right Arm BMC (g)","numeric",5692,4684,1008,17.709065354884,4233
+"2011-2012","G","DXX","DXX_G.XPT","DXXRABMD","Right Arm BMD (g/cm^2)","numeric",5692,4684,1008,17.709065354884,615
+"2011-2012","G","DXX","DXX_G.XPT","DXARATV","Right Arm Tissue Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXRAFAT","Right Arm Fat (g)","numeric",5692,4669,1023,17.9725931131413,4269
+"2011-2012","G","DXX","DXX_G.XPT","DXDRALE","Right Arm Lean excl BMC (g)","numeric",5692,4669,1023,17.9725931131413,4404
+"2011-2012","G","DXX","DXX_G.XPT","DXXRALI","Right Arm Lean incl BMC (g)","numeric",5692,4684,1008,17.709065354884,4408
+"2011-2012","G","DXX","DXX_G.XPT","DXDRATOT","Right Arm Total (g)","numeric",5692,4668,1024,17.9901616303584,4487
+"2011-2012","G","DXX","DXX_G.XPT","DXDRAPF","Right Arm Percent Fat","numeric",5692,4669,1023,17.9725931131413,483
+"2011-2012","G","DXX","DXX_G.XPT","DXARLBV","Right Leg Bone Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXRLA","Right Leg Area (cm^2)","numeric",5692,4660,1032,18.1307097680956,1923
+"2011-2012","G","DXX","DXX_G.XPT","DXXRLBMC","Right Leg BMC (g)","numeric",5692,4660,1032,18.1307097680956,4418
+"2011-2012","G","DXX","DXX_G.XPT","DXXRLBMD","Right Leg BMD(g/cm^2)","numeric",5692,4660,1032,18.1307097680956,857
+"2011-2012","G","DXX","DXX_G.XPT","DXARLTV","Right Leg Tissue Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXRLFAT","Right Leg Fat (g)","numeric",5692,4646,1046,18.3766690091356,4476
+"2011-2012","G","DXX","DXX_G.XPT","DXDRLLE","Right Leg Lean excl BMC (g)","numeric",5692,4646,1046,18.3766690091356,4529
+"2011-2012","G","DXX","DXX_G.XPT","DXXRLLI","Right Leg Lean incl BMC (g)","numeric",5692,4660,1032,18.1307097680956,4549
+"2011-2012","G","DXX","DXX_G.XPT","DXDRLTOT","Right Leg Total (g)","numeric",5692,4646,1046,18.3766690091356,4579
+"2011-2012","G","DXX","DXX_G.XPT","DXDRLPF","Right Leg Percent Fat","numeric",5692,4646,1046,18.3766690091356,440
+"2011-2012","G","DXX","DXX_G.XPT","DXXLRA","Left Ribs Area (cm^2)","numeric",5692,4620,1072,18.8334504567814,980
+"2011-2012","G","DXX","DXX_G.XPT","DXXLRBMC","Left Ribs BMC (g)","numeric",5692,4620,1072,18.8334504567814,3572
+"2011-2012","G","DXX","DXX_G.XPT","DXXLRBMD","Left Ribs BMD (g/cm^2)","numeric",5692,4620,1072,18.8334504567814,490
+"2011-2012","G","DXX","DXX_G.XPT","DXXRRA","Right Ribs Area (cm^2)","numeric",5692,4620,1072,18.8334504567814,1116
+"2011-2012","G","DXX","DXX_G.XPT","DXXRRBMC","Right Ribs BMC (g)","numeric",5692,4620,1072,18.8334504567814,3595
+"2011-2012","G","DXX","DXX_G.XPT","DXXRRBMD","Right Ribs BMD (g/cm^2)","numeric",5692,4620,1072,18.8334504567814,490
+"2011-2012","G","DXX","DXX_G.XPT","DXXTSA","Thoracic Spine Area (cm^2)","numeric",5692,4620,1072,18.8334504567814,1182
+"2011-2012","G","DXX","DXX_G.XPT","DXXTSBMC","Thoracic Spine BMC (g)","numeric",5692,4620,1072,18.8334504567814,3905
+"2011-2012","G","DXX","DXX_G.XPT","DXXTSBMD","Thoracic Spine BMD (g/cm^2)","numeric",5692,4620,1072,18.8334504567814,674
+"2011-2012","G","DXX","DXX_G.XPT","DXXLSA","Lumbar Spine Area (cm^2)","numeric",5692,4620,1072,18.8334504567814,594
+"2011-2012","G","DXX","DXX_G.XPT","DXXLSBMC","Lumbar Spine BMC (g)","numeric",5692,4620,1072,18.8334504567814,3302
+"2011-2012","G","DXX","DXX_G.XPT","DXXLSBMD","Lumbar Spine BMD (g/cm^2)","numeric",5692,4620,1072,18.8334504567814,849
+"2011-2012","G","DXX","DXX_G.XPT","DXXPEA","Pelvis Area (cm^2)","numeric",5692,4620,1072,18.8334504567814,1600
+"2011-2012","G","DXX","DXX_G.XPT","DXXPEBMC","Pelvis BMC (g)","numeric",5692,4620,1072,18.8334504567814,4287
+"2011-2012","G","DXX","DXX_G.XPT","DXXPEBMD","Pelvis BMD (g/cm^2)","numeric",5692,4620,1072,18.8334504567814,1002
+"2011-2012","G","DXX","DXX_G.XPT","DXATRBV","Trunk Bone Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXDTRA","Trunk Bone area (cm^2)","numeric",5692,4620,1072,18.8334504567814,2634
+"2011-2012","G","DXX","DXX_G.XPT","DXDTRBMC","Trunk BMC (g)","numeric",5692,4620,1072,18.8334504567814,4431
+"2011-2012","G","DXX","DXX_G.XPT","DXDTRBMD","Trunk Bone BMD (g/cm^2)","numeric",5692,4620,1072,18.8334504567814,699
+"2011-2012","G","DXX","DXX_G.XPT","DXATRTV","Trunk Tissue Invalidity Code","numeric",5692,4749,943,16.5671117357695,6
+"2011-2012","G","DXX","DXX_G.XPT","DXXTRFAT","Trunk Fat (g)","numeric",5692,4621,1071,18.8158819395643,4568
+"2011-2012","G","DXX","DXX_G.XPT","DXDTRLE","Trunk Lean excl BMC (g)","numeric",5692,4621,1071,18.8158819395643,4577
+"2011-2012","G","DXX","DXX_G.XPT","DXXTRLI","Trunk Lean incl BMC (g)","numeric",5692,4620,1072,18.8334504567814,4594
+"2011-2012","G","DXX","DXX_G.XPT","DXDTRTOT","Trunk Total (g)","numeric",5692,4618,1074,18.8685874912157,4598
+"2011-2012","G","DXX","DXX_G.XPT","DXDTRPF","Trunk Percent Fat","numeric",5692,4621,1071,18.8158819395643,405
+"2011-2012","G","DXX","DXX_G.XPT","DXDSTA","Subtotal Area (cm^2)","numeric",5692,4445,1247,21.9079409697821,3565
+"2011-2012","G","DXX","DXX_G.XPT","DXDSTBMC","Subtotal BMC (g)","numeric",5692,4445,1247,21.9079409697821,4389
+"2011-2012","G","DXX","DXX_G.XPT","DXDSTBMD","Subtotal BMD (g/cm^2)","numeric",5692,4445,1247,21.9079409697821,714
+"2011-2012","G","DXX","DXX_G.XPT","DXDSTFAT","Subtotal Fat (g)","numeric",5692,4544,1148,20.1686577652846,4508
+"2011-2012","G","DXX","DXX_G.XPT","DXDSTLE","Subtotal Lean excl BMC (g)","numeric",5692,4544,1148,20.1686577652846,4526
+"2011-2012","G","DXX","DXX_G.XPT","DXDSTLI","Subtotal Lean incl BMC (g)","numeric",5692,4441,1251,21.9782150386507,4419
+"2011-2012","G","DXX","DXX_G.XPT","DXDSTTOT","Subtotal (Total excl Head) (g)","numeric",5692,4544,1148,20.1686577652846,4531
+"2011-2012","G","DXX","DXX_G.XPT","DXDSTPF","Subtotal Percent Fat","numeric",5692,4544,1148,20.1686577652846,417
+"2011-2012","G","DXX","DXX_G.XPT","DXDTOA","Total Area (cm^2)","numeric",5692,4524,1168,20.5200281096275,3614
+"2011-2012","G","DXX","DXX_G.XPT","DXDTOBMC","Total Bone Mineral Content (g)","numeric",5692,4524,1168,20.5200281096275,4480
+"2011-2012","G","DXX","DXX_G.XPT","DXDTOBMD","Total Bone Mineral Density (g/cm^2)","numeric",5692,4524,1168,20.5200281096275,726
+"2011-2012","G","DXX","DXX_G.XPT","DXDTOFAT","Total Fat (g)","numeric",5692,4521,1171,20.572733661279,4484
+"2011-2012","G","DXX","DXX_G.XPT","DXDTOLE","Total Lean excl BMC (g)","numeric",5692,4544,1148,20.1686577652846,4529
+"2011-2012","G","DXX","DXX_G.XPT","DXDTOLI","Total Lean incl BMC (g)","numeric",5692,4521,1171,20.572733661279,4501
+"2011-2012","G","DXX","DXX_G.XPT","DXDTOTOT","Total Lean+Fat (g)","numeric",5692,4521,1171,20.572733661279,4512
+"2011-2012","G","DXX","DXX_G.XPT","DXDTOPF","Total Percent Fat","numeric",5692,4521,1171,20.572733661279,399
+"2011-2012","G","BMX","BMX_G.XPT","SEQN","Respondent sequence number","numeric",9338,9338,0,0,9338
+"2011-2012","G","BMX","BMX_G.XPT","BMDSTATS","Body Measures Component Status Code","numeric",9338,9338,0,0,4
+"2011-2012","G","BMX","BMX_G.XPT","BMXWT","Weight (kg)","numeric",9338,9243,95,1.01734846862283,1334
+"2011-2012","G","BMX","BMX_G.XPT","BMIWT","Weight Comment","numeric",9338,379,8959,95.9413150567573,3
+"2011-2012","G","BMX","BMX_G.XPT","BMXRECUM","Recumbent Length (cm)","numeric",9338,1079,8259,88.4450631826944,478
+"2011-2012","G","BMX","BMX_G.XPT","BMIRECUM","Recumbent Length Comment","numeric",9338,31,9307,99.6680231312915,1
+"2011-2012","G","BMX","BMX_G.XPT","BMXHEAD","Head Circumference (cm)","numeric",9338,236,9102,97.4726922253159,93
+"2011-2012","G","BMX","BMX_G.XPT","BMIHEAD","Head Circumference Comment","numeric",9338,0,9338,100,0
+"2011-2012","G","BMX","BMX_G.XPT","BMXHT","Standing Height (cm)","numeric",9338,8615,723,7.74255729278218,1070
+"2011-2012","G","BMX","BMX_G.XPT","BMIHT","Standing Height Comment","numeric",9338,268,9070,97.1300064253587,2
+"2011-2012","G","BMX","BMX_G.XPT","BMXBMI","Body Mass Index (kg/m**2)","numeric",9338,8602,736,7.88177339901478,417
+"2011-2012","G","BMX","BMX_G.XPT","BMDBMIC","BMI Category - Children/Adolescents","numeric",9338,3355,5983,64.0715356607411,4
+"2011-2012","G","BMX","BMX_G.XPT","BMXLEG","Upper Leg Length (cm)","numeric",9338,6955,2383,25.5193831655601,235
+"2011-2012","G","BMX","BMX_G.XPT","BMILEG","Upper Leg Length Comment","numeric",9338,354,8984,96.2090383379739,1
+"2011-2012","G","BMX","BMX_G.XPT","BMXARML","Upper Arm Length (cm)","numeric",9338,8826,512,5.48297279931463,352
+"2011-2012","G","BMX","BMX_G.XPT","BMIARML","Upper Arm Length Comment","numeric",9338,369,8969,96.048404369244,1
+"2011-2012","G","BMX","BMX_G.XPT","BMXARMC","Arm Circumference (cm)","numeric",9338,8826,512,5.48297279931463,394
+"2011-2012","G","BMX","BMX_G.XPT","BMIARMC","Arm Circumference Comment","numeric",9338,373,8965,96.0055686442493,1
+"2011-2012","G","BMX","BMX_G.XPT","BMXWAIST","Waist Circumference (cm)","numeric",9338,8204,1134,12.143928035982,1008
+"2011-2012","G","BMX","BMX_G.XPT","BMIWAIST","Waist Circumference Comment","numeric",9338,456,8882,95.1167273506104,1
+"2011-2012","G","BMX","BMX_G.XPT","BMXSAD1","Sagittal Abdominal Diameter 1st (cm)","numeric",9338,6795,2543,27.2328121653459,267
+"2011-2012","G","BMX","BMX_G.XPT","BMXSAD2","Sagittal Abdominal Diameter 2nd (cm)","numeric",9338,6795,2543,27.2328121653459,273
+"2011-2012","G","BMX","BMX_G.XPT","BMXSAD3","Sagittal Abdominal Diameter 3rd (cm)","numeric",9338,398,8940,95.7378453630328,161
+"2011-2012","G","BMX","BMX_G.XPT","BMXSAD4","Sagittal Abdominal Diameter 4th (cm)","numeric",9338,398,8940,95.7378453630328,171
+"2011-2012","G","BMX","BMX_G.XPT","BMDAVSAD","Average Sagittal Abdominal Diameter (cm)","numeric",9338,6795,2543,27.2328121653459,271
+"2011-2012","G","BMX","BMX_G.XPT","BMDSADCM","Sagittal Abdominal Diameter Comment","numeric",9338,485,8853,94.8061683443992,5
+"2011-2012","G","SMQ","SMQ_G.XPT","SEQN","Respondent sequence number","numeric",6790,6790,0,0,6790
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ020","Smoked at least 100 cigarettes in life","numeric",6790,5559,1231,18.1296023564065,4
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD030","Age started smoking cigarettes regularly","numeric",6790,2369,4421,65.1104565537555,46
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ040","Do you now smoke cigarettes","numeric",6790,2369,4421,65.1104565537555,4
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ050Q","How long since quit smoking cigarettes","numeric",6790,1266,5524,81.3549337260677,66
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ050U","Unit of measure (day/week/month/year)","numeric",6790,1259,5531,81.4580265095729,4
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD055","Age last smoked cigarettes regularly","numeric",6790,1157,5633,82.960235640648,67
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD057","# cigarettes smoked per day when quit","numeric",6790,1154,5636,83.0044182621502,34
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ077","How soon after waking do you smoke","numeric",6790,1007,5783,85.1693667157585,6
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD641","# days smoked cigs during past 30 days","numeric",6790,1313,5477,80.6627393225331,30
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD650","Avg # cigarettes/day during past 30 days","numeric",6790,1223,5567,81.9882179675994,31
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD093","May I please see the pack of cigarettes","numeric",6790,1108,5682,83.6818851251841,5
+"2011-2012","G","SMQ","SMQ_G.XPT","SMDUPCA","Cig 12-digit Universal Product Code-UPC","character",6790,6790,0,0,199
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD100BR","Cigarette Brand/sub-brand","character",6790,6790,0,0,127
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD100FL","Filter type","numeric",6790,1022,5768,84.9484536082474,2
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD100MN","Menthol indicator","numeric",6790,1023,5767,84.9337260677467,2
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD100LN","Length","numeric",6790,1024,5766,84.9189985272459,4
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD100TR","FTC Tar Content","numeric",6790,825,5965,87.8497790868925,17
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD100NI","FTC Nicotine Content","numeric",6790,825,5965,87.8497790868925,15
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD100CO","FTC Carbon Monoxide Content","numeric",6790,825,5965,87.8497790868925,16
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ621","Cigarettes smoked in entire life","numeric",6790,1175,5615,82.6951399116348,9
+"2011-2012","G","SMQ","SMQ_G.XPT","SMD630","Age first smoked whole cigarette","numeric",6790,198,6592,97.0839469808542,12
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ660","Brands of cigarettes smoked/past mo","numeric",6790,122,6668,98.2032400589102,6
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ664M","Menthol or non-menthol Marlboro","numeric",6790,42,6748,99.3814432989691,2
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ664C","Menthol or non-menthol Camels","numeric",6790,23,6767,99.6612665684831,2
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ664W","Menthol or non-menthol Winston","numeric",6790,1,6789,99.9852724594993,1
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ664B","Menthol or non-menthol BensonHedges","numeric",6790,0,6790,100,0
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ664O","Menthol or non-menthol other brand","numeric",6790,13,6777,99.8085419734904,2
+"2011-2012","G","SMQ","SMQ_G.XPT","SMQ670","Tried to quit smoking","numeric",6790,122,6668,98.2032400589102,3
+"2011-2012","G","SMQ","SMQ_G.XPT","SMAQUEX2","Questionnaire Mode Flag","numeric",6790,6790,0,0,2
+"2011-2012","G","ALQ","ALQ_G.XPT","SEQN","Respondent sequence number","numeric",5615,5615,0,0,5615
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ101","Had at least 12 alcohol drinks/1 yr?","numeric",5615,4977,638,11.3624220837044,3
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ110","Had at least 12 alcohol drinks/lifetime?","numeric",5615,1400,4215,75.06678539626,3
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ120Q","How often drink alcohol over past 12 mos","numeric",5615,4188,1427,25.4140694568121,47
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ120U","# days drink alcohol per wk, mo, yr","numeric",5615,3327,2288,40.7479964381122,3
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ130","Avg # alcoholic drinks/day - past 12 mos","numeric",5615,3334,2281,40.6233303650935,27
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ141Q","# days have 4/5 drinks - past 12 mos","numeric",5615,3334,2281,40.6233303650935,34
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ141U","# days per week, month, year?","numeric",5615,1383,4232,75.3695458593054,3
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ151","Ever have 4/5 or more drinks every day?","numeric",5615,4186,1429,25.4496883348175,4
+"2011-2012","G","ALQ","ALQ_G.XPT","ALQ155","How many years did you drink every day?","numeric",5615,655,4960,88.3348174532502,42
+"2011-2012","G","PAQ","PAQ_G.XPT","SEQN","Respondent sequence number","numeric",9107,9107,0,0,9107
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ706","Days physically active at least 60 min","numeric",9107,2300,6807,74.7447018776765,9
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ605","Vigorous work activity","numeric",9107,6779,2328,25.5627539255518,4
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ610","Days vigorous work","numeric",9107,947,8160,89.6014055122433,7
+"2011-2012","G","PAQ","PAQ_G.XPT","PAD615","Minutes vigorous-intensity work","numeric",9107,943,8164,89.6453277698474,24
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ620","Moderate work activity","numeric",9107,6779,2328,25.5627539255518,4
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ625","Number of days moderate work","numeric",9107,2065,7042,77.3251345119139,8
+"2011-2012","G","PAQ","PAQ_G.XPT","PAD630","Minutes moderate-intensity work","numeric",9107,2059,7048,77.39101789832,31
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ635","Walk or bicycle","numeric",9107,6779,2328,25.5627539255518,3
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ640","Number of days walk or bicycle","numeric",9107,2344,6763,74.2615570440321,8
+"2011-2012","G","PAQ","PAQ_G.XPT","PAD645","Minutes walk/bicycle for transportation","numeric",9107,2340,6767,74.3054793016361,36
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ650","Vigorous recreational activities","numeric",9107,6779,2328,25.5627539255518,4
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ655","Days vigorous recreational activities","numeric",9107,1909,7198,79.0381025584715,7
+"2011-2012","G","PAQ","PAQ_G.XPT","PAD660","Minutes vigorous recreational activities","numeric",9107,1906,7201,79.0710442516745,33
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ665","Moderate recreational activities","numeric",9107,6779,2328,25.5627539255518,3
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ670","Days moderate recreational activities","numeric",9107,2892,6215,68.2442077522785,8
+"2011-2012","G","PAQ","PAQ_G.XPT","PAD675","Minutes moderate recreational activities","numeric",9107,2887,6220,68.2991105742835,33
+"2011-2012","G","PAQ","PAQ_G.XPT","PAD680","Minutes sedentary activity","numeric",9107,6773,2334,25.6286373119578,44
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ710","Hours watch TV or videos past 30 days","numeric",9107,9078,29,0.318436367629296,9
+"2011-2012","G","PAQ","PAQ_G.XPT","PAQ715","Hours use computer past 30 days","numeric",9107,9078,29,0.318436367629296,9
+"2011-2012","G","PAQ","PAQ_G.XPT","PAAQUEX","Questionnaire source flag for weighting","numeric",9107,9107,0,0,2
+"2011-2012","G","BPQ","BPQ_G.XPT","SEQN","Respondent sequence number","numeric",6175,6175,0,0,6175
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ020","Ever told you had high blood pressure","numeric",6175,6174,1,0.0161943319838057,3
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ030","Told had high blood pressure - 2+ times","numeric",6175,2031,4144,67.1093117408907,4
+"2011-2012","G","BPQ","BPQ_G.XPT","BPD035","Age told had hypertension","numeric",6175,2027,4148,67.1740890688259,77
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ040A","Taking prescription for hypertension","numeric",6175,2031,4144,67.1093117408907,3
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ050A","Now taking prescribed medicine for HBP","numeric",6175,1745,4430,71.7408906882591,3
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ057","Borderline Hypertension","numeric",6175,6174,1,0.0161943319838057,4
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ056","Take blood pressure at home last 12 mos?","numeric",6175,6174,1,0.0161943319838057,4
+"2011-2012","G","BPQ","BPQ_G.XPT","BPD058","How often checked BP at home last 12 mos","numeric",6175,1481,4694,76.0161943319838,46
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ059","Doctor tell you to take BP at home?","numeric",6175,6174,1,0.0161943319838057,4
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ080","Doctor told you - high cholesterol level","numeric",6175,5559,616,9.97570850202429,4
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ060","Ever had blood cholesterol checked","numeric",6175,3733,2442,39.5465587044534,4
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ070","When blood cholesterol last checked","numeric",6175,4087,2088,33.8137651821862,5
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ090D","Told to take prescriptn for cholesterol","numeric",6175,4087,2088,33.8137651821862,3
+"2011-2012","G","BPQ","BPQ_G.XPT","BPQ100D","Now taking prescribed medicine","numeric",6175,1351,4824,78.1214574898785,3
+"2011-2012","G","DIQ","DIQ_G.XPT","SEQN","Respondent sequence number","numeric",9364,9364,0,0,9364
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ010","Doctor told you have diabetes","numeric",9364,9363,1,0.0106791969243913,5
+"2011-2012","G","DIQ","DIQ_G.XPT","DID040","Age when first told you had diabetes","numeric",9364,708,8656,92.439128577531,77
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ160","Ever told you have prediabetes","numeric",9364,6000,3364,35.9248184536523,4
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ170","Ever told have health risk for diabetes","numeric",9364,6124,3240,34.6005980350278,4
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ172","Feel could be at risk for diabetes","numeric",9364,6124,3240,34.6005980350278,4
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175A","Family history","numeric",9364,1167,8197,87.5373771892354,2
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175B","Overweight","numeric",9364,458,8906,95.1089278086288,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175C","Age","numeric",9364,103,9261,98.9000427167877,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175D","Poor diet","numeric",9364,296,9068,96.8389577103802,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175E","Race","numeric",9364,114,9250,98.7825715506194,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175F","Had a baby weighed over 9 lbs. at birth","numeric",9364,23,9341,99.754378470739,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175G","Lack of physical activity","numeric",9364,174,9190,98.1418197351559,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175H","High blood pressure","numeric",9364,156,9208,98.334045279795,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175I","High blood sugar","numeric",9364,52,9312,99.4446817599317,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175J","High cholesterol","numeric",9364,95,9269,98.9854762921828,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175K","Hypoglycemic","numeric",9364,20,9344,99.7864160615122,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175L","Extreme hunger","numeric",9364,52,9312,99.4446817599317,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175M","Tingling/numbness in hands or feet","numeric",9364,88,9276,99.0602306706536,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175N","Blurred vision","numeric",9364,58,9306,99.3806065783853,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175O","Increased fatigue","numeric",9364,81,9283,99.1349850491243,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175P","Anyone could be at risk","numeric",9364,79,9285,99.1563434429731,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175Q","Doctor warning","numeric",9364,95,9269,98.9854762921828,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175R","Other, specify","numeric",9364,28,9336,99.700982486117,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175S","Gestational diabetes","numeric",9364,21,9343,99.7757368645878,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175T","Frequent urination","numeric",9364,38,9326,99.5941905168731,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175U","Thirst","numeric",9364,35,9329,99.6262281076463,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175V","Craving for sweet/eating a lot of sugar","numeric",9364,15,9349,99.8398120461341,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ175W","Medication","numeric",9364,7,9357,99.9252456215293,1
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ180","Had blood tested past three years","numeric",9364,6124,3240,34.6005980350278,4
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ050","Taking insulin now","numeric",9364,9363,1,0.0106791969243913,3
+"2011-2012","G","DIQ","DIQ_G.XPT","DID060","How long taking insulin","numeric",9364,213,9151,97.7253310551047,33
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ060U","Unit of measure (month/year)","numeric",9364,207,9157,97.789406236651,2
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ070","Take diabetic pills to lower blood sugar","numeric",9364,1078,8286,88.4878257155062,3
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ230","How long ago saw a diabetes specialist","numeric",9364,708,8656,92.439128577531,6
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ240","Is there one Dr you see for diabetes","numeric",9364,708,8656,92.439128577531,2
+"2011-2012","G","DIQ","DIQ_G.XPT","DID250","Past year how many times seen doctor","numeric",9364,535,8829,94.2866296454507,23
+"2011-2012","G","DIQ","DIQ_G.XPT","DID260","How often check blood for glucose/sugar","numeric",9364,707,8657,92.4498077744554,13
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ260U","Unit of measure (day/week/month/year)","numeric",9364,571,8793,93.9021785561726,4
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ275","Past year Dr checked for A1C","numeric",9364,708,8656,92.439128577531,3
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ280","What was your last A1C level","numeric",9364,434,8930,95.3652285348142,53
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ291","What does Dr say A1C should be","numeric",9364,434,8930,95.3652285348142,7
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ300S","What was your recent SBP","numeric",9364,708,8656,92.439128577531,79
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ300D","What was your recent DBP","numeric",9364,708,8656,92.439128577531,66
+"2011-2012","G","DIQ","DIQ_G.XPT","DID310S","What does Dr say SBP should be","numeric",9364,708,8656,92.439128577531,30
+"2011-2012","G","DIQ","DIQ_G.XPT","DID310D","What does Dr say DBP should be","numeric",9364,708,8656,92.439128577531,28
+"2011-2012","G","DIQ","DIQ_G.XPT","DID320","What was most recent LDL number","numeric",9364,708,8656,92.439128577531,70
+"2011-2012","G","DIQ","DIQ_G.XPT","DID330","What does Dr say LDL should be","numeric",9364,552,8812,94.105083297736,28
+"2011-2012","G","DIQ","DIQ_G.XPT","DID341","Past year times Dr check feet for sores","numeric",9364,705,8659,92.4711661683041,26
+"2011-2012","G","DIQ","DIQ_G.XPT","DID350","How often do you check your feet","numeric",9364,705,8659,92.4711661683041,11
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ350U","Unit of measure (day/week/month/year)","numeric",9364,570,8794,93.912857753097,4
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ360","Last time had pupils dilated for exam","numeric",9364,708,8656,92.439128577531,6
+"2011-2012","G","DIQ","DIQ_G.XPT","DIQ080","Diabetes affected eyes/had retinopathy","numeric",9364,708,8656,92.439128577531,3
+"2011-2012","G","TCHOL","TCHOL_G.XPT","SEQN","Respondent sequence number","numeric",7821,7821,0,0,7821
+"2011-2012","G","TCHOL","TCHOL_G.XPT","LBXTC","Total Cholesterol( mg/dL)","numeric",7821,6988,833,10.6508119166347,257
+"2011-2012","G","TCHOL","TCHOL_G.XPT","LBDTCSI","Total Cholesterol( mmol/L)","numeric",7821,6988,833,10.6508119166347,257
+"2011-2012","G","HDL","HDL_G.XPT","SEQN","Respondent sequence number","numeric",7821,7821,0,0,7821
+"2011-2012","G","HDL","HDL_G.XPT","LBDHDD","Direct HDL-Cholesterol (mg/dL)","numeric",7821,6989,832,10.6380258278992,105
+"2011-2012","G","HDL","HDL_G.XPT","LBDHDDSI","Direct HDL-Cholesterol (mmol/L)","numeric",7821,6989,832,10.6380258278992,105
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","SEQN","Respondent sequence number","numeric",6549,6549,0,0,6549
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSAL","Albumin (g/dL)","numeric",6549,5976,573,8.74942739349519,30
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSALSI","Albumin (g/L)","numeric",6549,5976,573,8.74942739349519,30
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSATSI","Alanine aminotransferase ALT (U/L)","numeric",6549,5972,577,8.81050542067491,135
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSASSI","Aspartate aminotransferase AST (U/L)","numeric",6549,5969,580,8.8563139410597,120
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSAPSI","Alkaline phosphotase (U/L)","numeric",6549,5974,575,8.77996640708505,315
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSBU","Blood urea nitrogen (mg/dL)","numeric",6549,5975,574,8.76469690029012,53
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSBUSI","Blood urea nitrogen (mmol/L)","numeric",6549,5975,574,8.76469690029012,53
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSCA","Total calcium (mg/dL)","numeric",6549,5974,575,8.77996640708505,35
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSCASI","Total calcium (mmol/L)","numeric",6549,5974,575,8.77996640708505,35
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSCK","Creatine Phosphokinase(CPK) (IU/L)","numeric",6549,5968,581,8.87158344785463,616
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSCH","Cholesterol (mg/dL)","numeric",6549,5974,575,8.77996640708505,254
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSCHSI","Cholesterol (mmol/L)","numeric",6549,5974,575,8.77996640708505,254
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSC3SI","Bicarbonate (mmol/L)","numeric",6549,5974,575,8.77996640708505,21
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSCR","Creatinine (mg/dL)","numeric",6549,5976,573,8.74942739349519,203
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSCRSI","Creatinine (umol/L)","numeric",6549,5976,573,8.74942739349519,203
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSGTSI","Gamma glutamyl transferase (U/L)","numeric",6549,5974,575,8.77996640708505,184
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSGL","Glucose, serum (mg/dL)","numeric",6549,5976,573,8.74942739349519,257
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSGLSI","Glucose, serum (mmol/L)","numeric",6549,5976,573,8.74942739349519,257
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSIR","Iron, refigerated (ug/dL)","numeric",6549,5969,580,8.8563139410597,223
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSIRSI","Iron, refigerated (umol/L)","numeric",6549,5969,580,8.8563139410597,223
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSLDSI","Lactate dehydrogenase (U/L)","numeric",6549,5969,580,8.8563139410597,202
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSPH","Phosphorus (mg/dL)","numeric",6549,5976,573,8.74942739349519,51
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSPHSI","Phosphorus (mmol/L)","numeric",6549,5976,573,8.74942739349519,51
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSTB","Total bilirubin (mg/dL)","numeric",6549,5969,580,8.8563139410597,30
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSTBSI","Total bilirubin (umol/L)","numeric",6549,5969,580,8.8563139410597,30
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSTP","Total protein (g/dL)","numeric",6549,5967,582,8.88685295464956,42
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSTPSI","Total protein (g/L)","numeric",6549,5967,582,8.88685295464956,42
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSUA","Uric acid (mg/dL)","numeric",6549,5974,575,8.77996640708505,95
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSUASI","Uric acid (umol/L)","numeric",6549,5974,575,8.77996640708505,95
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSNASI","Sodium (mmol/L)","numeric",6549,5974,575,8.77996640708505,26
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSKSI","Potassium (mmol/L)","numeric",6549,5973,576,8.79523591387998,33
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSCLSI","Chloride (mmol/L)","numeric",6549,5974,575,8.77996640708505,27
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSOSSI","Osmolality (mmol/Kg)","numeric",6549,5974,575,8.77996640708505,51
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSGB","Globulin (g/dL)","numeric",6549,5967,582,8.88685295464956,45
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSGBSI","Globulin (g/L)","numeric",6549,5967,582,8.88685295464956,45
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBXSTR","Triglycerides (mg/dL)","numeric",6549,5969,580,8.8563139410597,520
+"2011-2012","G","BIOPRO","BIOPRO_G_SUPP.XPT","LBDSTRSI","Triglycerides (mmol/L)","numeric",6549,5969,580,8.8563139410597,520
+"2011-2012","G","COT","COTNAL_G_SUPP.XPT","SEQN","Respondent sequence number","numeric",8435,8435,0,0,8435
+"2011-2012","G","COT","COTNAL_G_SUPP.XPT","LBXCOT","Cotinine (ng/mL)","numeric",8435,7378,1057,12.5311203319502,1506
+"2011-2012","G","COT","COTNAL_G_SUPP.XPT","LBDCOTLC","Cotinine comment code","numeric",8435,7378,1057,12.5311203319502,2
+"2011-2012","G","COT","COTNAL_G_SUPP.XPT","URXNAL","Urinary Total NNAL (ng/mL)","numeric",8435,7357,1078,12.7800829875519,1115
+"2011-2012","G","COT","COTNAL_G_SUPP.XPT","URDNALLC","Urinary Total NNAL comment code","numeric",8435,7357,1078,12.7800829875519,2
+"2011-2012","G","COT","COTNAL_G_SUPP.XPT","URXUCR","Urinary Creatinine (mg/dL)","numeric",8435,7637,798,9.46058091286307,435
+"2013-2014","H","DEMO","DEMO_H.XPT","SEQN","Respondent sequence number","numeric",10175,10175,0,0,10175
+"2013-2014","H","DEMO","DEMO_H.XPT","SDDSRVYR","Data release cycle","numeric",10175,10175,0,0,1
+"2013-2014","H","DEMO","DEMO_H.XPT","RIDSTATR","Interview/Examination status","numeric",10175,10175,0,0,2
+"2013-2014","H","DEMO","DEMO_H.XPT","RIAGENDR","Gender","numeric",10175,10175,0,0,2
+"2013-2014","H","DEMO","DEMO_H.XPT","RIDAGEYR","Age in years at screening","numeric",10175,10175,0,0,81
+"2013-2014","H","DEMO","DEMO_H.XPT","RIDAGEMN","Age in months at screening - 0 to 24 mos","numeric",10175,673,9502,93.3857493857494,25
+"2013-2014","H","DEMO","DEMO_H.XPT","RIDRETH1","Race/Hispanic origin","numeric",10175,10175,0,0,5
+"2013-2014","H","DEMO","DEMO_H.XPT","RIDRETH3","Race/Hispanic origin w/ NH Asian","numeric",10175,10175,0,0,6
+"2013-2014","H","DEMO","DEMO_H.XPT","RIDEXMON","Six month time period","numeric",10175,9813,362,3.55773955773956,2
+"2013-2014","H","DEMO","DEMO_H.XPT","RIDEXAGM","Age in months at exam - 0 to 19 years","numeric",10175,4213,5962,58.5945945945946,240
+"2013-2014","H","DEMO","DEMO_H.XPT","DMQMILIZ","Served active duty in US Armed Forces","numeric",10175,6261,3914,38.4668304668305,3
+"2013-2014","H","DEMO","DEMO_H.XPT","DMQADFC","Served in a foreign country","numeric",10175,543,9632,94.6633906633907,3
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDBORN4","Country of birth","numeric",10175,10175,0,0,4
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDCITZN","Citizenship status","numeric",10175,10171,4,0.0393120393120393,4
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDYRSUS","Length of time in US","numeric",10175,1908,8267,81.2481572481572,11
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDEDUC3","Education level - Children/Youth 6-19","numeric",10175,2803,7372,72.4520884520884,19
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDEDUC2","Education level - Adults 20+","numeric",10175,5769,4406,43.3022113022113,7
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDMARTL","Marital status","numeric",10175,5769,4406,43.3022113022113,8
+"2013-2014","H","DEMO","DEMO_H.XPT","RIDEXPRG","Pregnancy status at exam","numeric",10175,1309,8866,87.1351351351351,3
+"2013-2014","H","DEMO","DEMO_H.XPT","SIALANG","Language of SP Interview","numeric",10175,10175,0,0,2
+"2013-2014","H","DEMO","DEMO_H.XPT","SIAPROXY","Proxy used in SP Interview?","numeric",10175,10174,1,0.00982800982800983,2
+"2013-2014","H","DEMO","DEMO_H.XPT","SIAINTRP","Interpreter used in SP Interview?","numeric",10175,10175,0,0,2
+"2013-2014","H","DEMO","DEMO_H.XPT","FIALANG","Language of Family Interview","numeric",10175,10054,121,1.18918918918919,2
+"2013-2014","H","DEMO","DEMO_H.XPT","FIAPROXY","Proxy used in Family Interview?","numeric",10175,10054,121,1.18918918918919,2
+"2013-2014","H","DEMO","DEMO_H.XPT","FIAINTRP","Interpreter used in Family Interview?","numeric",10175,10054,121,1.18918918918919,2
+"2013-2014","H","DEMO","DEMO_H.XPT","MIALANG","Language of MEC Interview","numeric",10175,7311,2864,28.1474201474201,2
+"2013-2014","H","DEMO","DEMO_H.XPT","MIAPROXY","Proxy used in MEC Interview?","numeric",10175,7312,2863,28.1375921375921,2
+"2013-2014","H","DEMO","DEMO_H.XPT","MIAINTRP","Interpreter used in MEC Interview?","numeric",10175,7313,2862,28.1277641277641,2
+"2013-2014","H","DEMO","DEMO_H.XPT","AIALANGA","Language of ACASI Interview","numeric",10175,6317,3858,37.9164619164619,3
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHHSIZ","Total number of people in the Household","numeric",10175,10175,0,0,7
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDFMSIZ","Total number of people in the Family","numeric",10175,10175,0,0,7
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHHSZA","# of children 5 years or younger in HH","numeric",10175,10175,0,0,4
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHHSZB","# of children 6-17 years old in HH","numeric",10175,10175,0,0,5
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHHSZE","# of adults 60 years or older in HH","numeric",10175,10175,0,0,4
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHRGND","HH ref person's gender","numeric",10175,10175,0,0,2
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHRAGE","HH ref person's age in years","numeric",10175,10175,0,0,63
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHRBR4","HH ref person's country of birth","numeric",10175,9878,297,2.91891891891892,3
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHREDU","HH ref person's education level","numeric",10175,9881,294,2.88943488943489,7
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHRMAR","HH ref person's marital status","numeric",10175,10052,123,1.20884520884521,8
+"2013-2014","H","DEMO","DEMO_H.XPT","DMDHSEDU","HH ref person's spouse's education level","numeric",10175,5342,4833,47.4987714987715,7
+"2013-2014","H","DEMO","DEMO_H.XPT","WTINT2YR","Full sample 2 year interview weight","numeric",10175,10175,0,0,7076
+"2013-2014","H","DEMO","DEMO_H.XPT","WTMEC2YR","Full sample 2 year MEC exam weight","numeric",10175,10175,0,0,8170
+"2013-2014","H","DEMO","DEMO_H.XPT","SDMVPSU","Masked variance pseudo-PSU","numeric",10175,10175,0,0,2
+"2013-2014","H","DEMO","DEMO_H.XPT","SDMVSTRA","Masked variance pseudo-stratum","numeric",10175,10175,0,0,15
+"2013-2014","H","DEMO","DEMO_H.XPT","INDHHIN2","Annual household income","numeric",10175,10042,133,1.30712530712531,16
+"2013-2014","H","DEMO","DEMO_H.XPT","INDFMIN2","Annual family income","numeric",10175,10052,123,1.20884520884521,16
+"2013-2014","H","DEMO","DEMO_H.XPT","INDFMPIR","Ratio of family income to poverty","numeric",10175,9390,785,7.71498771498772,440
+"2013-2014","H","PBCD","PBCD_H.XPT","SEQN","Respondent sequence number","numeric",5932,5932,0,0,5932
+"2013-2014","H","PBCD","PBCD_H.XPT","WTSH2YR","Blood metal weights","numeric",5932,5932,0,0,4959
+"2013-2014","H","PBCD","PBCD_H.XPT","LBXBPB","Blood lead (ug/dL)","numeric",5932,5215,717,12.0869858395145,452
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDBPBSI","Blood lead (umol/L)","numeric",5932,5215,717,12.0869858395145,276
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDBPBLC","Blood lead comment code","numeric",5932,5215,717,12.0869858395145,1
+"2013-2014","H","PBCD","PBCD_H.XPT","LBXBCD","Blood cadmium (ug/L)","numeric",5932,5215,717,12.0869858395145,229
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDBCDSI","Blood cadmium (umol/L)","numeric",5932,5215,717,12.0869858395145,229
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDBCDLC","Blood cadmium comment code","numeric",5932,5215,717,12.0869858395145,2
+"2013-2014","H","PBCD","PBCD_H.XPT","LBXTHG","Blood mercury, total (ug/L)","numeric",5932,5215,717,12.0869858395145,555
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDTHGSI","Blood mercury, total (umol/L)","numeric",5932,5215,717,12.0869858395145,372
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDTHGLC","Blood mercury, total comment code","numeric",5932,5215,717,12.0869858395145,2
+"2013-2014","H","PBCD","PBCD_H.XPT","LBXBSE","Blood selenium (ug/L)","numeric",5932,5215,717,12.0869858395145,3918
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDBSESI","Blood selenium (umol/L)","numeric",5932,5215,717,12.0869858395145,216
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDBSELC","Blood selenium comment code","numeric",5932,5215,717,12.0869858395145,1
+"2013-2014","H","PBCD","PBCD_H.XPT","LBXBMN","Blood manganese (ug/L)","numeric",5932,5215,717,12.0869858395145,1420
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDBMNSI","Blood manganese (umol/L)","numeric",5932,5215,717,12.0869858395145,1420
+"2013-2014","H","PBCD","PBCD_H.XPT","LBDBMNLC","Blood manganese comment code","numeric",5932,5215,717,12.0869858395145,1
+"2013-2014","H","DXX","DXX_H.XPT","SEQN","Respondent sequence number","numeric",6033,6033,0,0,6033
+"2013-2014","H","DXX","DXX_H.XPT","DXAEXSTS","Exam Status","numeric",6033,6033,0,0,6
+"2013-2014","H","DXX","DXX_H.XPT","DXAHEBV","Head Bone Invalidity Code","numeric",6033,5446,587,9.72981932703464,4
+"2013-2014","H","DXX","DXX_H.XPT","DXXHEA","Head Area (cm^2)","numeric",6033,5379,654,10.8403779214321,1037
+"2013-2014","H","DXX","DXX_H.XPT","DXXHEBMC","Head Bone Mineral Content (g)","numeric",6033,5379,654,10.8403779214321,5046
+"2013-2014","H","DXX","DXX_H.XPT","DXXHEBMD","Head Bone Mineral Density (g/cm^2)","numeric",6033,5379,654,10.8403779214321,1739
+"2013-2014","H","DXX","DXX_H.XPT","DXAHETV","Head Tissue Invalidity Code","numeric",6033,5447,586,9.71324382562572,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXHEFAT","Head Fat (g)","numeric",6033,5379,654,10.8403779214321,3635
+"2013-2014","H","DXX","DXX_H.XPT","DXDHELE","Head Lean excl BMC (g)","numeric",6033,5379,654,10.8403779214321,4566
+"2013-2014","H","DXX","DXX_H.XPT","DXXHELI","Head Lean incl BMC (g)","numeric",6033,5379,654,10.8403779214321,4660
+"2013-2014","H","DXX","DXX_H.XPT","DXDHETOT","Head Total (g)","numeric",6033,5379,654,10.8403779214321,4862
+"2013-2014","H","DXX","DXX_H.XPT","DXDHEPF","Head Percent Fat","numeric",6033,5379,654,10.8403779214321,57
+"2013-2014","H","DXX","DXX_H.XPT","DXALABV","Left Arm Bone Invalidity Code","numeric",6033,5446,587,9.72981932703464,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXLAA","Left Arm Area (cm^2)","numeric",6033,5347,686,11.3707939665175,2140
+"2013-2014","H","DXX","DXX_H.XPT","DXXLABMC","Left Arm BMC (g)","numeric",6033,5347,686,11.3707939665175,4755
+"2013-2014","H","DXX","DXX_H.XPT","DXXLABMD","Left Arm BMD (g/cm^2)","numeric",6033,5347,686,11.3707939665175,642
+"2013-2014","H","DXX","DXX_H.XPT","DXALATV","Left Arm Tissue Invalidity Code","numeric",6033,5446,587,9.72981932703464,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXLAFAT","Left Arm Fat (g)","numeric",6033,5348,685,11.3542184651086,4810
+"2013-2014","H","DXX","DXX_H.XPT","DXDLALE","Left Arm Lean excl BMC (g)","numeric",6033,5348,685,11.3542184651086,5012
+"2013-2014","H","DXX","DXX_H.XPT","DXXLALI","Left Arm Lean incl BMC (g)","numeric",6033,5347,686,11.3707939665175,5000
+"2013-2014","H","DXX","DXX_H.XPT","DXDLATOT","Left Arm Total (g)","numeric",6033,5347,686,11.3707939665175,5086
+"2013-2014","H","DXX","DXX_H.XPT","DXDLAPF","Left Arm Percent Fat","numeric",6033,5348,685,11.3542184651086,508
+"2013-2014","H","DXX","DXX_H.XPT","DXALLBV","Left Leg Bone Invalidity Code","numeric",6033,5446,587,9.72981932703464,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXLLA","Left Leg Area (cm^2)","numeric",6033,5299,734,12.1664180341455,2382
+"2013-2014","H","DXX","DXX_H.XPT","DXXLLBMC","Left Leg BMC (g)","numeric",6033,5299,734,12.1664180341455,5000
+"2013-2014","H","DXX","DXX_H.XPT","DXXLLBMD","Left Leg BMD (g/cm^2)","numeric",6033,5299,734,12.1664180341455,875
+"2013-2014","H","DXX","DXX_H.XPT","DXALLTV","Left Leg Tissue Invalidity Code","numeric",6033,5446,587,9.72981932703464,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXLLFAT","Left Leg Fat (g)","numeric",6033,5290,743,12.3155975468258,5061
+"2013-2014","H","DXX","DXX_H.XPT","DXDLLLE","Left Leg Lean excl BMC (g)","numeric",6033,5290,743,12.3155975468258,5137
+"2013-2014","H","DXX","DXX_H.XPT","DXXLLLI","Left Leg Lean incl BMC (g)","numeric",6033,5299,734,12.1664180341455,5156
+"2013-2014","H","DXX","DXX_H.XPT","DXDLLTOT","Left Leg Total (g)","numeric",6033,5289,744,12.3321730482347,5187
+"2013-2014","H","DXX","DXX_H.XPT","DXDLLPF","Left Leg Percent Fat","numeric",6033,5290,743,12.3155975468258,436
+"2013-2014","H","DXX","DXX_H.XPT","DXARABV","Right Arm Bone Invalidity Code","numeric",6033,5446,587,9.72981932703464,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXRAA","Right Arm Area (cm^2)","numeric",6033,5347,686,11.3707939665175,2140
+"2013-2014","H","DXX","DXX_H.XPT","DXXRABMC","Right Arm BMC (g)","numeric",6033,5347,686,11.3707939665175,4743
+"2013-2014","H","DXX","DXX_H.XPT","DXXRABMD","Right Arm BMD (g/cm^2)","numeric",6033,5347,686,11.3707939665175,666
+"2013-2014","H","DXX","DXX_H.XPT","DXARATV","Right Arm Tissue Invalidity Code","numeric",6033,5446,587,9.72981932703464,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXRAFAT","Right Arm Fat (g)","numeric",6033,5348,685,11.3542184651086,4829
+"2013-2014","H","DXX","DXX_H.XPT","DXDRALE","Right Arm Lean excl BMC (g)","numeric",6033,5348,685,11.3542184651086,4991
+"2013-2014","H","DXX","DXX_H.XPT","DXXRALI","Right Arm Lean incl BMC (g)","numeric",6033,5347,686,11.3707939665175,4991
+"2013-2014","H","DXX","DXX_H.XPT","DXDRATOT","Right Arm Total (g)","numeric",6033,5347,686,11.3707939665175,5134
+"2013-2014","H","DXX","DXX_H.XPT","DXDRAPF","Right Arm Percent Fat","numeric",6033,5348,685,11.3542184651086,497
+"2013-2014","H","DXX","DXX_H.XPT","DXARLBV","Right Leg Bone Invalidity Code","numeric",6033,5446,587,9.72981932703464,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXRLA","Right Leg Area (cm^2)","numeric",6033,5295,738,12.2327200397812,2364
+"2013-2014","H","DXX","DXX_H.XPT","DXXRLBMC","Right Leg BMC (g)","numeric",6033,5295,738,12.2327200397812,4962
+"2013-2014","H","DXX","DXX_H.XPT","DXXRLBMD","Right Leg BMD(g/cm^2)","numeric",6033,5295,738,12.2327200397812,884
+"2013-2014","H","DXX","DXX_H.XPT","DXARLTV","Right Leg Tissue Invalidity Code","numeric",6033,5446,587,9.72981932703464,5
+"2013-2014","H","DXX","DXX_H.XPT","DXXRLFAT","Right Leg Fat (g)","numeric",6033,5296,737,12.2161445383723,5094
+"2013-2014","H","DXX","DXX_H.XPT","DXDRLLE","Right Leg Lean excl BMC (g)","numeric",6033,5296,737,12.2161445383723,5150
+"2013-2014","H","DXX","DXX_H.XPT","DXXRLLI","Right Leg Lean incl BMC (g)","numeric",6033,5295,738,12.2327200397812,5147
+"2013-2014","H","DXX","DXX_H.XPT","DXDRLTOT","Right Leg Total (g)","numeric",6033,5295,738,12.2327200397812,5194
+"2013-2014","H","DXX","DXX_H.XPT","DXDRLPF","Right Leg Percent Fat","numeric",6033,5296,737,12.2161445383723,438
+"2013-2014","H","DXX","DXX_H.XPT","DXXLRA","Left Ribs Area (cm^2)","numeric",6033,5294,739,12.2492955411901,1331
+"2013-2014","H","DXX","DXX_H.XPT","DXXLRBMC","Left Ribs BMC (g)","numeric",6033,5294,739,12.2492955411901,3911
+"2013-2014","H","DXX","DXX_H.XPT","DXXLRBMD","Left Ribs BMD (g/cm^2)","numeric",6033,5294,739,12.2492955411901,518
+"2013-2014","H","DXX","DXX_H.XPT","DXXRRA","Right Ribs Area (cm^2)","numeric",6033,5294,739,12.2492955411901,1523
+"2013-2014","H","DXX","DXX_H.XPT","DXXRRBMC","Right Ribs BMC (g)","numeric",6033,5294,739,12.2492955411901,3971
+"2013-2014","H","DXX","DXX_H.XPT","DXXRRBMD","Right Ribs BMD (g/cm^2)","numeric",6033,5294,739,12.2492955411901,504
+"2013-2014","H","DXX","DXX_H.XPT","DXXTSA","Thoracic Spine Area (cm^2)","numeric",6033,5294,739,12.2492955411901,1502
+"2013-2014","H","DXX","DXX_H.XPT","DXXTSBMC","Thoracic Spine BMC (g)","numeric",6033,5294,739,12.2492955411901,4299
+"2013-2014","H","DXX","DXX_H.XPT","DXXTSBMD","Thoracic Spine BMD (g/cm^2)","numeric",6033,5294,739,12.2492955411901,696
+"2013-2014","H","DXX","DXX_H.XPT","DXXLSA","Lumbar Spine Area (cm^2)","numeric",6033,5294,739,12.2492955411901,772
+"2013-2014","H","DXX","DXX_H.XPT","DXXLSBMC","Lumbar Spine BMC (g)","numeric",6033,5294,739,12.2492955411901,3572
+"2013-2014","H","DXX","DXX_H.XPT","DXXLSBMD","Lumbar Spine BMD (g/cm^2)","numeric",6033,5294,739,12.2492955411901,883
+"2013-2014","H","DXX","DXX_H.XPT","DXXPEA","Pelvis Area (cm^2)","numeric",6033,5294,739,12.2492955411901,2048
+"2013-2014","H","DXX","DXX_H.XPT","DXXPEBMC","Pelvis BMC (g)","numeric",6033,5294,739,12.2492955411901,4820
+"2013-2014","H","DXX","DXX_H.XPT","DXXPEBMD","Pelvis BMD (g/cm^2)","numeric",6033,5294,739,12.2492955411901,1023
+"2013-2014","H","DXX","DXX_H.XPT","DXATRBV","Trunk Bone Invalidity Code","numeric",6033,5446,587,9.72981932703464,3
+"2013-2014","H","DXX","DXX_H.XPT","DXDTRA","Trunk Bone area (cm^2)","numeric",6033,5297,736,12.1995690369634,3141
+"2013-2014","H","DXX","DXX_H.XPT","DXDTRBMC","Trunk BMC (g)","numeric",6033,5294,739,12.2492955411901,5078
+"2013-2014","H","DXX","DXX_H.XPT","DXDTRBMD","Trunk Bone BMD (g/cm^2)","numeric",6033,5297,736,12.1995690369634,723
+"2013-2014","H","DXX","DXX_H.XPT","DXATRTV","Trunk Tissue Invalidity Code","numeric",6033,5446,587,9.72981932703464,3
+"2013-2014","H","DXX","DXX_H.XPT","DXXTRFAT","Trunk Fat (g)","numeric",6033,5288,745,12.3487485496436,5232
+"2013-2014","H","DXX","DXX_H.XPT","DXDTRLE","Trunk Lean excl BMC (g)","numeric",6033,5288,745,12.3487485496436,5233
+"2013-2014","H","DXX","DXX_H.XPT","DXXTRLI","Trunk Lean incl BMC (g)","numeric",6033,5294,739,12.2492955411901,5248
+"2013-2014","H","DXX","DXX_H.XPT","DXDTRTOT","Trunk Total (g)","numeric",6033,5288,745,12.3487485496436,5257
+"2013-2014","H","DXX","DXX_H.XPT","DXDTRPF","Trunk Percent Fat","numeric",6033,5288,745,12.3487485496436,412
+"2013-2014","H","DXX","DXX_H.XPT","DXDSTA","Subtotal Area (cm^2)","numeric",6033,4992,1041,17.2550969666832,4067
+"2013-2014","H","DXX","DXX_H.XPT","DXDSTBMC","Subtotal BMC (g)","numeric",6033,4992,1041,17.2550969666832,4920
+"2013-2014","H","DXX","DXX_H.XPT","DXDSTBMD","Subtotal BMD (g/cm^2)","numeric",6033,4992,1041,17.2550969666832,720
+"2013-2014","H","DXX","DXX_H.XPT","DXDSTFAT","Subtotal Fat (g)","numeric",6033,5110,923,15.299187800431,5078
+"2013-2014","H","DXX","DXX_H.XPT","DXDSTLE","Subtotal Lean excl BMC (g)","numeric",6033,5110,923,15.299187800431,5084
+"2013-2014","H","DXX","DXX_H.XPT","DXDSTLI","Subtotal Lean incl BMC (g)","numeric",6033,4983,1050,17.4042764793635,4960
+"2013-2014","H","DXX","DXX_H.XPT","DXDSTTOT","Subtotal (Total excl Head) (g)","numeric",6033,5110,923,15.299187800431,5095
+"2013-2014","H","DXX","DXX_H.XPT","DXDSTPF","Subtotal Percent Fat","numeric",6033,5110,923,15.299187800431,413
+"2013-2014","H","DXX","DXX_H.XPT","DXDTOA","Total Area (cm^2)","numeric",6033,5068,965,15.9953588596055,4143
+"2013-2014","H","DXX","DXX_H.XPT","DXDTOBMC","Total Bone Mineral Content (g)","numeric",6033,5068,965,15.9953588596055,4992
+"2013-2014","H","DXX","DXX_H.XPT","DXDTOBMD","Total Bone Mineral Density (g/cm^2)","numeric",6033,5068,965,15.9953588596055,733
+"2013-2014","H","DXX","DXX_H.XPT","DXDTOFAT","Total Fat (g)","numeric",6033,5056,977,16.1942648765125,5017
+"2013-2014","H","DXX","DXX_H.XPT","DXDTOLE","Total Lean excl BMC (g)","numeric",6033,5110,923,15.299187800431,5079
+"2013-2014","H","DXX","DXX_H.XPT","DXDTOLI","Total Lean incl BMC (g)","numeric",6033,5056,977,16.1942648765125,5031
+"2013-2014","H","DXX","DXX_H.XPT","DXDTOTOT","Total Lean+Fat (g)","numeric",6033,5056,977,16.1942648765125,5043
+"2013-2014","H","DXX","DXX_H.XPT","DXDTOPF","Total Percent Fat","numeric",6033,5056,977,16.1942648765125,394
+"2013-2014","H","BMX","BMX_H.XPT","SEQN","Respondent sequence number","numeric",9813,9813,0,0,9813
+"2013-2014","H","BMX","BMX_H.XPT","BMDSTATS","Body Measures Component Status Code","numeric",9813,9813,0,0,4
+"2013-2014","H","BMX","BMX_H.XPT","BMXWT","Weight (kg)","numeric",9813,9723,90,0.917150718434729,1385
+"2013-2014","H","BMX","BMX_H.XPT","BMIWT","Weight Comment","numeric",9813,384,9429,96.0868236013452,3
+"2013-2014","H","BMX","BMX_H.XPT","BMXRECUM","Recumbent Length (cm)","numeric",9813,1065,8748,89.1470498318557,465
+"2013-2014","H","BMX","BMX_H.XPT","BMIRECUM","Recumbent Length Comment","numeric",9813,31,9782,99.6840925303169,1
+"2013-2014","H","BMX","BMX_H.XPT","BMXHEAD","Head Circumference (cm)","numeric",9813,229,9584,97.6663609497605,86
+"2013-2014","H","BMX","BMX_H.XPT","BMIHEAD","Head Circumference Comment","numeric",9813,0,9813,100,0
+"2013-2014","H","BMX","BMX_H.XPT","BMXHT","Standing Height (cm)","numeric",9813,9067,746,7.60216039947009,1089
+"2013-2014","H","BMX","BMX_H.XPT","BMIHT","Standing Height Comment","numeric",9813,221,9592,97.7478854580658,2
+"2013-2014","H","BMX","BMX_H.XPT","BMXBMI","Body Mass Index (kg/m**2)","numeric",9813,9055,758,7.72444716192805,440
+"2013-2014","H","BMX","BMX_H.XPT","BMDBMIC","BMI Category - Children/Youth","numeric",9813,3523,6290,64.0986446550494,4
+"2013-2014","H","BMX","BMX_H.XPT","BMXLEG","Upper Leg Length (cm)","numeric",9813,7402,2411,24.5694486905126,244
+"2013-2014","H","BMX","BMX_H.XPT","BMILEG","Upper Leg Length Comment","numeric",9813,350,9463,96.4333027616427,1
+"2013-2014","H","BMX","BMX_H.XPT","BMXARML","Upper Arm Length (cm)","numeric",9813,9301,512,5.21756853153979,356
+"2013-2014","H","BMX","BMX_H.XPT","BMIARML","Upper Arm Length Comment","numeric",9813,368,9445,96.2498726179558,1
+"2013-2014","H","BMX","BMX_H.XPT","BMXARMC","Arm Circumference (cm)","numeric",9813,9301,512,5.21756853153979,408
+"2013-2014","H","BMX","BMX_H.XPT","BMIARMC","Arm Circumference Comment","numeric",9813,372,9441,96.2091103638031,1
+"2013-2014","H","BMX","BMX_H.XPT","BMXWAIST","Waist Circumference (cm)","numeric",9813,8661,1152,11.7395291959645,1038
+"2013-2014","H","BMX","BMX_H.XPT","BMIWAIST","Waist Circumference Comment","numeric",9813,439,9374,95.5263426067462,1
+"2013-2014","H","BMX","BMX_H.XPT","BMXSAD1","Sagittal Abdominal Diameter 1st (cm)","numeric",9813,7218,2595,26.4445123815347,269
+"2013-2014","H","BMX","BMX_H.XPT","BMXSAD2","Sagittal Abdominal Diameter 2nd (cm)","numeric",9813,7218,2595,26.4445123815347,271
+"2013-2014","H","BMX","BMX_H.XPT","BMXSAD3","Sagittal Abdominal Diameter 3rd (cm)","numeric",9813,358,9455,96.3517782533374,162
+"2013-2014","H","BMX","BMX_H.XPT","BMXSAD4","Sagittal Abdominal Diameter 4th (cm)","numeric",9813,358,9455,96.3517782533374,171
+"2013-2014","H","BMX","BMX_H.XPT","BMDAVSAD","Average Sagittal Abdominal Diameter (cm)","numeric",9813,7218,2595,26.4445123815347,271
+"2013-2014","H","BMX","BMX_H.XPT","BMDSADCM","Sagittal Abdominal Diameter Comment","numeric",9813,484,9329,95.0677672475288,5
+"2013-2014","H","SMQ","SMQ_H.XPT","SEQN","Respondent sequence number","numeric",7168,7168,0,0,7168
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ020","Smoked at least 100 cigarettes in life","numeric",7168,6113,1055,14.7181919642857,3
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD030","Age started smoking cigarettes regularly","numeric",7168,2579,4589,64.0206473214286,45
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ040","Do you now smoke cigarettes","numeric",7168,2579,4589,64.0206473214286,3
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ050Q","How long since quit smoking cigarettes","numeric",7168,1347,5821,81.2081473214286,52
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ050U","Unit of measure (day/week/month/year)","numeric",7168,1290,5878,82.0033482142857,4
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD055","Age last smoked cigarettes regularly","numeric",7168,1215,5953,83.0496651785714,68
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD057","# cigarettes smoked per day when quit","numeric",7168,1347,5821,81.2081473214286,41
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ078","How soon after waking do you smoke","numeric",7168,999,6169,86.0630580357143,7
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD641","# days smoked cigs during past 30 days","numeric",7168,1316,5852,81.640625,28
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD650","Avg # cigarettes/day during past 30 days","numeric",7168,1248,5920,82.5892857142857,29
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD093","May I please see the pack of cigarettes","numeric",7168,1232,5936,82.8125,4
+"2013-2014","H","SMQ","SMQ_H.XPT","SMDUPCA","Cig 12-digit Universal Product Code-UPC","character",7168,7168,0,0,209
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD100BR","Cigarette Brand/sub-brand","character",7168,7168,0,0,131
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD100FL","Cigarette Filter type","numeric",7168,1091,6077,84.7795758928571,2
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD100MN","Cigarette Menthol indicator","numeric",7168,1092,6076,84.765625,2
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD100LN","Cigarette Length","numeric",7168,1092,6076,84.765625,4
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD100TR","FTC Tar Content","numeric",7168,828,6340,88.4486607142857,16
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD100NI","FTC Nicotine Content","numeric",7168,828,6340,88.4486607142857,15
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD100CO","FTC Carbon Monoxide Content","numeric",7168,828,6340,88.4486607142857,17
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ621","Cigarettes smoked in entire life","numeric",7168,1007,6161,85.9514508928571,10
+"2013-2014","H","SMQ","SMQ_H.XPT","SMD630","Age first smoked whole cigarette","numeric",7168,83,7085,98.8420758928571,11
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ661","Brand of cigarettes smoked past 30 days","numeric",7168,29,7139,99.5954241071429,6
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ665A","Marlboro variety","numeric",7168,13,7155,99.8186383928571,5
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ665B","Camel variety","numeric",7168,3,7165,99.9581473214286,3
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ665C","Newport variety","numeric",7168,9,7159,99.8744419642857,1
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ665D","Other brand","numeric",7168,2,7166,99.9720982142857,2
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ670","Tried to quit smoking","numeric",7168,1261,5907,82.4079241071429,2
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ848","# times stopped smoking cigarettes","numeric",7168,583,6585,91.8666294642857,13
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ852Q","How long were you able to stop smoking","numeric",7168,580,6588,91.9084821428571,25
+"2013-2014","H","SMQ","SMQ_H.XPT","SMQ852U","Unit of measure (day/week/month/year)","numeric",7168,577,6591,91.9503348214286,3
+"2013-2014","H","SMQ","SMQ_H.XPT","SMAQUEX2","Questionnaire Mode Flag","numeric",7168,7168,0,0,2
+"2013-2014","H","ALQ","ALQ_H.XPT","SEQN","Respondent sequence number","numeric",5924,5924,0,0,5924
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ101","Had at least 12 alcohol drinks/1 yr?","numeric",5924,5421,503,8.49088453747468,3
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ110","Had at least 12 alcohol drinks/lifetime?","numeric",5924,1631,4293,72.4679270762998,3
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ120Q","How often drink alcohol over past 12 mos","numeric",5924,4479,1445,24.392302498312,44
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ120U","# days drink alcohol per wk, mo, yr","numeric",5924,3593,2331,39.3484132343011,3
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ130","Avg # alcoholic drinks/day - past 12 mos","numeric",5924,3596,2328,39.2977717758271,21
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ141Q","# days have 4/5 drinks - past 12 mos","numeric",5924,3595,2329,39.3146522619851,40
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ141U","# days per week, month, year?","numeric",5924,1464,4460,75.286968264686,3
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ151","Ever have 4/5 or more drinks every day?","numeric",5924,4477,1447,24.426063470628,3
+"2013-2014","H","ALQ","ALQ_H.XPT","ALQ160","# days have 4/5 or more drinks in 2 hrs","numeric",5924,1866,4058,68.5010128291695,19
+"2013-2014","H","PAQ","PAQ_H.XPT","SEQN","Respondent sequence number","numeric",9484,9484,0,0,9484
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ605","Vigorous work activity","numeric",9484,7148,2336,24.6309574019401,3
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ610","Number of days vigorous work","numeric",9484,1172,8312,87.6423450021088,8
+"2013-2014","H","PAQ","PAQ_H.XPT","PAD615","Minutes vigorous-intensity work","numeric",9484,1168,8316,87.6845212990299,29
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ620","Moderate work activity","numeric",9484,7148,2336,24.6309574019401,4
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ625","Number of days moderate work","numeric",9484,2307,7177,75.6748207507381,9
+"2013-2014","H","PAQ","PAQ_H.XPT","PAD630","Minutes moderate-intensity work","numeric",9484,2299,7185,75.7591733445803,35
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ635","Walk or bicycle","numeric",9484,7147,2337,24.6415014761704,3
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ640","Number of days walk or bicycle","numeric",9484,2047,7437,78.4162800506116,7
+"2013-2014","H","PAQ","PAQ_H.XPT","PAD645","Minutes walk/bicycle for transportation","numeric",9484,2043,7441,78.4584563475327,35
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ650","Vigorous recreational activities","numeric",9484,7147,2337,24.6415014761704,3
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ655","Days vigorous recreational activities","numeric",9484,2058,7426,78.3002952340784,8
+"2013-2014","H","PAQ","PAQ_H.XPT","PAD660","Minutes vigorous recreational activities","numeric",9484,2055,7429,78.3319274567693,39
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ665","Moderate recreational activities","numeric",9484,7145,2339,24.662589624631,3
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ670","Days moderate recreational activities","numeric",9484,3059,6425,67.7456769295656,8
+"2013-2014","H","PAQ","PAQ_H.XPT","PAD675","Minutes moderate recreational activities","numeric",9484,3056,6428,67.7773091522564,38
+"2013-2014","H","PAQ","PAQ_H.XPT","PAD680","Minutes sedentary activity","numeric",9484,7139,2345,24.7258540700127,36
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ706","Days physically active at least 60 min.","numeric",9484,2989,6495,68.4837621256854,9
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ710","Hours watch TV or videos past 30 days","numeric",9484,9448,36,0.379586672290173,9
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ715","Hours use computer past 30 days","numeric",9484,9448,36,0.379586672290173,7
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ722","Any physical activities past 7 days","numeric",9484,2707,6777,71.4571910586251,3
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724A","Physical activity aerobics","numeric",9484,126,9358,98.6714466469844,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724B","Physical activity baseball","numeric",9484,220,9264,97.6803036693378,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724C","Physical activity basketball","numeric",9484,443,9041,95.3289751159848,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724D","Physical activity bike riding","numeric",9484,615,8869,93.5153943483762,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724E","Physical activity cheerleading","numeric",9484,42,9442,99.5571488823281,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724F","Physical activity dance","numeric",9484,353,9131,96.2779417967103,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724G","Physical activity field hockey","numeric",9484,10,9474,99.8945592576972,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724H","Physical activity football","numeric",9484,252,9232,97.3428932939688,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724I","Physical activity golf","numeric",9484,15,9469,99.8418388865458,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724J","Physical activity gymnastics","numeric",9484,154,9330,98.3762125685365,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724K","Physical activity hiking","numeric",9484,49,9435,99.4833403627161,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724L","Physical activity ice hockey","numeric",9484,3,9481,99.9683677773092,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724M","Physical activity ice skating","numeric",9484,11,9473,99.8840151834669,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724N","Physical activity jumping rope","numeric",9484,141,9343,98.5132855335302,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724O","Physical activity lacrosse","numeric",9484,7,9477,99.926191480388,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724P","Physical activity martial arts","numeric",9484,77,9407,99.1881062842682,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724Q","Physical activity playing games","numeric",9484,391,9093,95.8772669759595,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724R","Physical activity roller blading","numeric",9484,55,9429,99.4200759173345,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724S","Physical activity running","numeric",9484,926,8558,90.2361872627583,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724T","Physical activity scooter riding","numeric",9484,174,9310,98.1653310839308,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724U","Physical activity skateboarding","numeric",9484,79,9405,99.1670181358077,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724V","Physical activity soccer","numeric",9484,389,9095,95.8983551244201,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724W","Physical activity swimming","numeric",9484,272,9212,97.1320118093631,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724X","Physical activity tennis","numeric",9484,36,9448,99.6204133277098,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724Y","Physical activity track & field","numeric",9484,25,9459,99.7363981442429,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724Z","Physical activity volleyball","numeric",9484,46,9438,99.514972585407,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724AA","Physical activity walking","numeric",9484,472,9012,95.0231969633066,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724AB","Physical activity wrestling","numeric",9484,107,9377,98.8717840573598,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724AC","Physical activity frisbee","numeric",9484,46,9438,99.514972585407,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724AD","Physical activity backyard games","numeric",9484,881,8603,90.710670603121,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724AE","Physical activity trampoline","numeric",9484,165,9319,98.2602277520034,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724AF","Physical activity horseback riding","numeric",9484,14,9470,99.852382960776,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ724CM","Physical activity other","numeric",9484,23,9461,99.7574862927035,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ731","Days played active video games","numeric",9484,2257,7227,76.2020244622522,9
+"2013-2014","H","PAQ","PAQ_H.XPT","PAD733","Minutes play active video games","numeric",9484,798,8686,91.5858287642345,21
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ677","Past wk # days cardiovascular exercise","numeric",9484,679,8805,92.8405735976381,9
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ678","Past wk # days strengthened muscles","numeric",9484,679,8805,92.8405735976381,8
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ740","Use school facilities at lunch","numeric",9484,679,8805,92.8405735976381,3
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ742","Use school facilities for physical activ","numeric",9484,320,9164,96.6258962463096,2
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ744","Have PE during school days?","numeric",9484,679,8805,92.8405735976381,2
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ746","How often do you have PE or gym?","numeric",9484,556,8928,94.1374947279629,5
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ748","How long is the PE or gym class?","numeric",9484,556,8928,94.1374947279629,4
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ755","Participate in school sports?","numeric",9484,2257,7227,76.2020244622522,2
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759A","Participate in baseball","numeric",9484,120,9364,98.7347110923661,2
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759B","Participate in basketball","numeric",9484,253,9231,97.3323492197385,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759C","Participate in bocce ball","numeric",9484,4,9480,99.9578237030789,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759D","Participate in cheerleading","numeric",9484,52,9432,99.4517081400253,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759E","Participate in football","numeric",9484,134,9350,98.5870940531421,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759F","Participate in golf","numeric",9484,5,9479,99.9472796288486,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759G","Participate in gymnastics","numeric",9484,40,9444,99.5782370307887,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759H","Participate in hockey","numeric",9484,11,9473,99.8840151834669,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759I","Participate in lacrosse","numeric",9484,9,9475,99.9051033319275,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759J","Participate in soccer","numeric",9484,219,9265,97.6908477435681,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759K","Participate in swimming/diving","numeric",9484,42,9442,99.5571488823281,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759L","Participate in tennis","numeric",9484,25,9459,99.7363981442429,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759M","Participate in track and field","numeric",9484,77,9407,99.1881062842682,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759N","Participate in volleyball","numeric",9484,49,9435,99.4833403627161,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759O","Participate in wrestling","numeric",9484,28,9456,99.7047659215521,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759P","Participate in other specify","numeric",9484,56,9428,99.4095318431042,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759Q","Participate in dance","numeric",9484,87,9397,99.0826655419654,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759R","Participate in frisbee","numeric",9484,4,9480,99.9578237030789,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759S","Participate in running","numeric",9484,115,9369,98.7874314635175,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759T","Participate in trampoline","numeric",9484,1,9483,99.9894559257697,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759U","Participate in martial arts","numeric",9484,15,9469,99.8418388865458,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ759V","Participate in walking","numeric",9484,3,9481,99.9683677773092,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ762","Do you have recess during school?","numeric",9484,1578,7906,83.3614508646141,3
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ764","How often do you have recess?","numeric",9484,1467,8017,84.5318431041755,6
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ766","How long is the recess period?","numeric",9484,1452,8032,84.6900042176297,5
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ679","How much exercise for good health","numeric",9484,672,8812,92.9143821172501,7
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ750","Enjoy participating in PE or recess","numeric",9484,2250,7234,76.2758329818642,7
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ770","Receive physical fitness award past yr","numeric",9484,2257,7227,76.2020244622522,3
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ772A","Fitness award Fitnessgram","numeric",9484,49,9435,99.4833403627161,2
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ772B","Fitness award President's Challenge","numeric",9484,45,9439,99.5255166596373,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAQ772C","Fitness award other specify","numeric",9484,75,9409,99.2091944327288,1
+"2013-2014","H","PAQ","PAQ_H.XPT","PAAQUEX","Questionnaire source flag for weighting","numeric",9484,9484,0,0,2
+"2013-2014","H","BPQ","BPQ_H.XPT","SEQN","Respondent sequence number","numeric",6464,6464,0,0,6464
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ020","Ever told you had high blood pressure","numeric",6464,6464,0,0,3
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ030","Told had high blood pressure - 2+ times","numeric",6464,2174,4290,66.3675742574257,3
+"2013-2014","H","BPQ","BPQ_H.XPT","BPD035","Age told had hypertension","numeric",6464,2164,4300,66.5222772277228,73
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ040A","Taking prescription for hypertension","numeric",6464,2174,4290,66.3675742574257,3
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ050A","Now taking prescribed medicine for HBP","numeric",6464,1815,4649,71.9214108910891,3
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ056","Take blood pressure at home last 12 mos?","numeric",6464,6464,0,0,3
+"2013-2014","H","BPQ","BPQ_H.XPT","BPD058","How often checked BP at home last 12 mos","numeric",6464,1579,4885,75.572400990099,54
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ059","Doctor tell you to take BP at home?","numeric",6464,6464,0,0,3
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ080","Doctor told you - high cholesterol level","numeric",6464,6464,0,0,3
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ060","Ever had blood cholesterol checked","numeric",6464,4427,2037,31.512995049505,4
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ070","When blood cholesterol last checked","numeric",6464,4620,1844,28.5272277227723,5
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ090D","Told to take prescriptn for cholesterol","numeric",6464,4620,1844,28.5272277227723,3
+"2013-2014","H","BPQ","BPQ_H.XPT","BPQ100D","Now taking prescribed medicine","numeric",6464,1450,5014,77.5680693069307,3
+"2013-2014","H","DIQ","DIQ_H.XPT","SEQN","Respondent sequence number","numeric",9770,9770,0,0,9770
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ010","Doctor told you have diabetes","numeric",9770,9769,1,0.0102354145342886,5
+"2013-2014","H","DIQ","DIQ_H.XPT","DID040","Age when first told you had diabetes","numeric",9770,737,9033,92.4564994882293,78
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ160","Ever told you have prediabetes","numeric",9770,6287,3483,35.6499488229273,3
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ170","Ever told have health risk for diabetes","numeric",9770,6469,3301,33.7871033776868,3
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ172","Feel could be at risk for diabetes","numeric",9770,6469,3301,33.7871033776868,3
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175A","Family history","numeric",9770,1338,8432,86.3050153531218,2
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175B","Overweight","numeric",9770,546,9224,94.4114636642784,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175C","Age","numeric",9770,112,9658,98.8536335721597,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175D","Poor diet","numeric",9770,370,9400,96.2128966223132,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175E","Race","numeric",9770,92,9678,99.0583418628454,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175F","Had a baby weighed over 9 lbs. at birth","numeric",9770,21,9749,99.7850562947799,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175G","Lack of physical activity","numeric",9770,151,9619,98.4544524053224,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175H","High blood pressure","numeric",9770,151,9619,98.4544524053224,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175I","High blood sugar","numeric",9770,70,9700,99.2835209825998,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175J","High cholesterol","numeric",9770,107,9663,98.9048106448311,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175K","Hypoglycemic","numeric",9770,39,9731,99.6008188331627,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175L","Extreme hunger","numeric",9770,40,9730,99.5905834186285,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175M","Tingling/numbness in hands or feet","numeric",9770,91,9679,99.0685772773797,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175N","Blurred vision","numeric",9770,51,9719,99.4779938587513,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175O","Increased fatigue","numeric",9770,85,9685,99.1299897645855,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175P","Anyone could be at risk","numeric",9770,69,9701,99.2937563971341,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175Q","Doctor warning","numeric",9770,102,9668,98.9559877175026,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175R","Other, specify","numeric",9770,20,9750,99.7952917093142,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175S","Gestational diabetes","numeric",9770,30,9740,99.6929375639713,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175T","Frequent urination","numeric",9770,56,9714,99.4268167860798,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175U","Thirst","numeric",9770,73,9697,99.2528147389969,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175V","Craving for sweet/eating a lot of sugar","numeric",9770,12,9758,99.8771750255885,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175W","Medication","numeric",9770,3,9767,99.9692937563971,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ175X","Polycystic ovarian syndrome","numeric",9770,6,9764,99.9385875127943,1
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ180","Had blood tested past three years","numeric",9770,6469,3301,33.7871033776868,3
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ050","Taking insulin now","numeric",9770,9768,2,0.0204708290685773,4
+"2013-2014","H","DIQ","DIQ_H.XPT","DID060","How long taking insulin","numeric",9770,220,9550,97.7482088024565,35
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ060U","Unit of measure (month/year)","numeric",9770,217,9553,97.7789150460594,2
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ070","Take diabetic pills to lower blood sugar","numeric",9770,1200,8570,87.7175025588536,3
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ230","How long ago saw a diabetes specialist","numeric",9770,737,9033,92.4564994882293,6
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ240","Is there one Dr you see for diabetes","numeric",9770,737,9033,92.4564994882293,2
+"2013-2014","H","DIQ","DIQ_H.XPT","DID250","Past year how many times seen doctor","numeric",9770,565,9205,94.2169907881269,19
+"2013-2014","H","DIQ","DIQ_H.XPT","DID260","How often check blood for glucose/sugar","numeric",9770,735,9035,92.4769703172979,13
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ260U","Unit of measure (day/week/month/year)","numeric",9770,591,9179,93.9508700102354,4
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ275","Past year Dr checked for A1C","numeric",9770,737,9033,92.4564994882293,4
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ280","What was your last A1C level","numeric",9770,520,9250,94.6775844421699,57
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ291","What does Dr say A1C should be","numeric",9770,520,9250,94.6775844421699,7
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ300S","What was your recent SBP","numeric",9770,732,9038,92.5076765609007,75
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ300D","What was your recent DBP","numeric",9770,732,9038,92.5076765609007,57
+"2013-2014","H","DIQ","DIQ_H.XPT","DID310S","What does Dr say SBP should be","numeric",9770,732,9038,92.5076765609007,28
+"2013-2014","H","DIQ","DIQ_H.XPT","DID310D","What does Dr say DBP should be","numeric",9770,732,9038,92.5076765609007,23
+"2013-2014","H","DIQ","DIQ_H.XPT","DID320","What was most recent LDL number","numeric",9770,732,9038,92.5076765609007,75
+"2013-2014","H","DIQ","DIQ_H.XPT","DID330","What does Dr say LDL should be","numeric",9770,626,9144,93.5926305015353,29
+"2013-2014","H","DIQ","DIQ_H.XPT","DID341","Past year times Dr check feet for sores","numeric",9770,730,9040,92.5281473899693,21
+"2013-2014","H","DIQ","DIQ_H.XPT","DID350","How often do you check your feet","numeric",9770,730,9040,92.5281473899693,13
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ350U","Unit of measure (day/week/month/year)","numeric",9770,597,9173,93.8894575230297,4
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ360","Last time had pupils dilated for exam","numeric",9770,732,9038,92.5076765609007,6
+"2013-2014","H","DIQ","DIQ_H.XPT","DIQ080","Diabetes affected eyes/had retinopathy","numeric",9770,732,9038,92.5076765609007,3
+"2013-2014","H","TCHOL","TCHOL_H.XPT","SEQN","Respondent sequence number","numeric",8291,8291,0,0,8291
+"2013-2014","H","TCHOL","TCHOL_H.XPT","LBXTC","Total Cholesterol( mg/dL)","numeric",8291,7624,667,8.04486792907973,253
+"2013-2014","H","TCHOL","TCHOL_H.XPT","LBDTCSI","Total Cholesterol( mmol/L)","numeric",8291,7624,667,8.04486792907973,253
+"2013-2014","H","HDL","HDL_H.XPT","SEQN","Respondent sequence number","numeric",8291,8291,0,0,8291
+"2013-2014","H","HDL","HDL_H.XPT","LBDHDD","Direct HDL-Cholesterol (mg/dL)","numeric",8291,7624,667,8.04486792907973,116
+"2013-2014","H","HDL","HDL_H.XPT","LBDHDDSI","Direct HDL-Cholesterol (mmol/L)","numeric",8291,7624,667,8.04486792907973,116
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","SEQN","Respondent sequence number","numeric",6979,6979,0,0,6979
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSAL","Albumin (g/dL)","numeric",6979,6553,426,6.10402636480871,31
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSALSI","Albumin (g/L)","numeric",6979,6553,426,6.10402636480871,31
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSAPSI","Alkaline phosphatase (IU/L)","numeric",6979,6552,427,6.11835506519559,316
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSASSI","Aspartate aminotransferase AST (U/L)","numeric",6979,6551,428,6.13268376558246,116
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSATSI","Alanine aminotransferase ALT (U/L)","numeric",6979,6551,428,6.13268376558246,130
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSBU","Blood urea nitrogen (mg/dL)","numeric",6979,6553,426,6.10402636480871,63
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSBUSI","Blood urea nitrogen (mmol/L)","numeric",6979,6553,426,6.10402636480871,63
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSC3SI","Bicarbonate (mmol/L)","numeric",6979,6553,426,6.10402636480871,22
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSCA","Total calcium (mg/dL)","numeric",6979,6511,468,6.70583178105746,39
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSCASI","Total calcium (mmol/L)","numeric",6979,6511,468,6.70583178105746,39
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSCH","Cholesterol (mg/dL)","numeric",6979,6551,428,6.13268376558246,252
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSCHSI","Cholesterol (mmol/L)","numeric",6979,6551,428,6.13268376558246,252
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSCK","Creatine Phosphokinase(CPK) (IU/L)","numeric",6979,6542,437,6.26164206906434,605
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSCLSI","Chloride (mmol/L)","numeric",6979,6553,426,6.10402636480871,32
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSCR","Creatinine (mg/dL)","numeric",6979,6553,426,6.10402636480871,210
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSCRSI","Creatinine (umol/L)","numeric",6979,6553,426,6.10402636480871,210
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSGB","Globulin (g/dL)","numeric",6979,6544,435,6.23298466829059,39
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSGBSI","Globulin (g/L)","numeric",6979,6544,435,6.23298466829059,39
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSGL","Glucose, refrigerated serum (mg/dL)","numeric",6979,6553,426,6.10402636480871,266
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSGLSI","Glucose, refrigerated serum (mmol/L)","numeric",6979,6553,426,6.10402636480871,266
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSGTSI","Gamma glutamyl transferase (U/L)","numeric",6979,6552,427,6.11835506519559,202
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSIR","Iron, refrigerated serum (ug/dL)","numeric",6979,6527,452,6.47657257486746,229
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSIRSI","Iron, refrigerated serum  (umol/L)","numeric",6979,6527,452,6.47657257486746,229
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSKSI","Potassium (mmol/L)","numeric",6979,6552,427,6.11835506519559,31
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSLDSI","Lactate dehydrogenase (U/L)","numeric",6979,6551,428,6.13268376558246,205
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSNASI","Sodium (mmol/L)","numeric",6979,6553,426,6.10402636480871,27
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSOSSI","Osmolality (mmol/Kg)","numeric",6979,6553,426,6.10402636480871,55
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSPH","Phosphorus (mg/dL)","numeric",6979,6552,427,6.11835506519559,53
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSPHSI","Phosphorus (mmol/L)","numeric",6979,6552,427,6.11835506519559,53
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSTB","Total bilirubin (mg/dL)","numeric",6979,6549,430,6.16134116635621,38
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSTBSI","Total bilirubin (umol/L)","numeric",6979,6549,430,6.16134116635621,38
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSTP","Total protein (g/dL)","numeric",6979,6544,435,6.23298466829059,42
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSTPSI","Total protein (g/L)","numeric",6979,6544,435,6.23298466829059,42
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSTR","Triglycerides, refrigerated (mg/dL)","numeric",6979,6549,430,6.16134116635621,517
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSTRSI","Triglycerides, refrigerated  (mmol/L)","numeric",6979,6549,430,6.16134116635621,517
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBXSUA","Uric acid (mg/dL)","numeric",6979,6551,428,6.13268376558246,99
+"2013-2014","H","BIOPRO","BIOPRO_H_SUPP.XPT","LBDSUASI","Uric acid (umol/L)","numeric",6979,6551,428,6.13268376558246,99
+"2013-2014","H","COT","COT_H_SUPP.XPT","SEQN","Respondent sequence number","numeric",8913,8913,0,0,8913
+"2013-2014","H","COT","COT_H_SUPP.XPT","LBXCOT","Cotinine, Serum (ng/mL)","numeric",8913,8029,884,9.91809716144957,1614
+"2013-2014","H","COT","COT_H_SUPP.XPT","LBDCOTLC","Cotinine, Serum Comment Code","numeric",8913,8029,884,9.91809716144957,2
+"2013-2014","H","COT","COT_H_SUPP.XPT","LBXHCT","Hydroxycotinine, Serum (ng/mL)","numeric",8913,8029,884,9.91809716144957,1476
+"2013-2014","H","COT","COT_H_SUPP.XPT","LBDHCTLC","Hydroxycotinine, Serum Comment Code","numeric",8913,8029,884,9.91809716144957,2
+"2015-2016","I","DEMO","DEMO_I.XPT","SEQN","Respondent sequence number","numeric",9971,9971,0,0,9971
+"2015-2016","I","DEMO","DEMO_I.XPT","SDDSRVYR","Data release cycle","numeric",9971,9971,0,0,1
+"2015-2016","I","DEMO","DEMO_I.XPT","RIDSTATR","Interview/Examination status","numeric",9971,9971,0,0,2
+"2015-2016","I","DEMO","DEMO_I.XPT","RIAGENDR","Gender","numeric",9971,9971,0,0,2
+"2015-2016","I","DEMO","DEMO_I.XPT","RIDAGEYR","Age in years at screening","numeric",9971,9971,0,0,81
+"2015-2016","I","DEMO","DEMO_I.XPT","RIDAGEMN","Age in months at screening - 0 to 24 mos","numeric",9971,695,9276,93.0297863805035,25
+"2015-2016","I","DEMO","DEMO_I.XPT","RIDRETH1","Race/Hispanic origin","numeric",9971,9971,0,0,5
+"2015-2016","I","DEMO","DEMO_I.XPT","RIDRETH3","Race/Hispanic origin w/ NH Asian","numeric",9971,9971,0,0,6
+"2015-2016","I","DEMO","DEMO_I.XPT","RIDEXMON","Six month time period","numeric",9971,9544,427,4.28241901514392,2
+"2015-2016","I","DEMO","DEMO_I.XPT","RIDEXAGM","Age in months at exam - 0 to 19 years","numeric",9971,4060,5911,59.2819175609267,240
+"2015-2016","I","DEMO","DEMO_I.XPT","DMQMILIZ","Served active duty in US Armed Forces","numeric",9971,6149,3822,38.3311603650587,2
+"2015-2016","I","DEMO","DEMO_I.XPT","DMQADFC","Served in a foreign country","numeric",9971,527,9444,94.7146725503961,3
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDBORN4","Country of birth","numeric",9971,9971,0,0,3
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDCITZN","Citizenship status","numeric",9971,9969,2,0.0200581686891987,4
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDYRSUS","Length of time in US","numeric",9971,2236,7735,77.5749674054759,11
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDEDUC3","Education level - Children/Youth 6-19","numeric",9971,2647,7324,73.4530137398455,19
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDEDUC2","Education level - Adults 20+","numeric",9971,5719,4252,42.6436666332364,6
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDMARTL","Marital status","numeric",9971,5719,4252,42.6436666332364,8
+"2015-2016","I","DEMO","DEMO_I.XPT","RIDEXPRG","Pregnancy status at exam","numeric",9971,1288,8683,87.082539364156,3
+"2015-2016","I","DEMO","DEMO_I.XPT","SIALANG","Language of SP Interview","numeric",9971,9971,0,0,2
+"2015-2016","I","DEMO","DEMO_I.XPT","SIAPROXY","Proxy used in SP Interview?","numeric",9971,9970,1,0.0100290843445993,2
+"2015-2016","I","DEMO","DEMO_I.XPT","SIAINTRP","Interpreter used in SP Interview?","numeric",9971,9971,0,0,2
+"2015-2016","I","DEMO","DEMO_I.XPT","FIALANG","Language of Family Interview","numeric",9971,9642,329,3.29956874937318,2
+"2015-2016","I","DEMO","DEMO_I.XPT","FIAPROXY","Proxy used in Family Interview?","numeric",9971,9642,329,3.29956874937318,2
+"2015-2016","I","DEMO","DEMO_I.XPT","FIAINTRP","Interpreter used in Family Interview?","numeric",9971,9642,329,3.29956874937318,2
+"2015-2016","I","DEMO","DEMO_I.XPT","MIALANG","Language of MEC Interview","numeric",9971,6977,2994,30.0270785277304,2
+"2015-2016","I","DEMO","DEMO_I.XPT","MIAPROXY","Proxy used in MEC Interview?","numeric",9971,6978,2993,30.0170494433858,2
+"2015-2016","I","DEMO","DEMO_I.XPT","MIAINTRP","Interpreter used in MEC Interview?","numeric",9971,6978,2993,30.0170494433858,2
+"2015-2016","I","DEMO","DEMO_I.XPT","AIALANGA","Language of ACASI Interview","numeric",9971,5962,4009,40.2065991374987,3
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHHSIZ","Total number of people in the Household","numeric",9971,9971,0,0,7
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDFMSIZ","Total number of people in the Family","numeric",9971,9971,0,0,7
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHHSZA","# of children 5 years or younger in HH","numeric",9971,9971,0,0,4
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHHSZB","# of children 6-17 years old in HH","numeric",9971,9971,0,0,5
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHHSZE","# of adults 60 years or older in HH","numeric",9971,9971,0,0,4
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHRGND","HH ref person's gender","numeric",9971,9971,0,0,2
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHRAGE","HH ref person's age in years","numeric",9971,9971,0,0,63
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHRBR4","HH ref person's country of birth","numeric",9971,9575,396,3.97151740046134,4
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHREDU","HH ref person's education level","numeric",9971,9575,396,3.97151740046134,6
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHRMAR","HH ref person's marital status","numeric",9971,9909,62,0.621803229365159,8
+"2015-2016","I","DEMO","DEMO_I.XPT","DMDHSEDU","HH ref person's spouse's education level","numeric",9971,5226,4745,47.5880052151239,7
+"2015-2016","I","DEMO","DEMO_I.XPT","WTINT2YR","Full sample 2 year interview weight","numeric",9971,9971,0,0,7213
+"2015-2016","I","DEMO","DEMO_I.XPT","WTMEC2YR","Full sample 2 year MEC exam weight","numeric",9971,9971,0,0,7809
+"2015-2016","I","DEMO","DEMO_I.XPT","SDMVPSU","Masked variance pseudo-PSU","numeric",9971,9971,0,0,2
+"2015-2016","I","DEMO","DEMO_I.XPT","SDMVSTRA","Masked variance pseudo-stratum","numeric",9971,9971,0,0,15
+"2015-2016","I","DEMO","DEMO_I.XPT","INDHHIN2","Annual household income","numeric",9971,9626,345,3.46003409888677,16
+"2015-2016","I","DEMO","DEMO_I.XPT","INDFMIN2","Annual family income","numeric",9971,9642,329,3.29956874937318,16
+"2015-2016","I","DEMO","DEMO_I.XPT","INDFMPIR","Ratio of family income to poverty","numeric",9971,8919,1052,10.5505967305185,459
+"2015-2016","I","PBCD","PBCD_I.XPT","SEQN","Respondent sequence number","numeric",5815,5815,0,0,5815
+"2015-2016","I","PBCD","PBCD_I.XPT","WTSH2YR","Blood metal weights","numeric",5815,5815,0,0,4778
+"2015-2016","I","PBCD","PBCD_I.XPT","LBXBPB","Blood lead (ug/dL)","numeric",5815,4988,827,14.2218400687876,435
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDBPBSI","Blood lead (umol/L)","numeric",5815,4988,827,14.2218400687876,260
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDBPBLC","Blood lead comment code","numeric",5815,4988,827,14.2218400687876,2
+"2015-2016","I","PBCD","PBCD_I.XPT","LBXBCD","Blood cadmium (ug/L)","numeric",5815,4988,827,14.2218400687876,221
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDBCDSI","Blood cadmium (umol/L)","numeric",5815,4988,827,14.2218400687876,221
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDBCDLC","Blood cadmium comment code","numeric",5815,4988,827,14.2218400687876,2
+"2015-2016","I","PBCD","PBCD_I.XPT","LBXTHG","Blood mercury, total (ug/L)","numeric",5815,4988,827,14.2218400687876,525
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDTHGSI","Blood mercury, total (umol/L)","numeric",5815,4988,827,14.2218400687876,358
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDTHGLC","Blood mercury, total comment code","numeric",5815,4988,827,14.2218400687876,2
+"2015-2016","I","PBCD","PBCD_I.XPT","LBXBSE","Blood selenium (ug/L)","numeric",5815,4987,828,14.2390369733448,3738
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDBSESI","Blood selenium (umol/L)","numeric",5815,4987,828,14.2390369733448,211
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDBSELC","Blood selenium comment code","numeric",5815,4987,828,14.2390369733448,1
+"2015-2016","I","PBCD","PBCD_I.XPT","LBXBMN","Blood manganese (ug/L)","numeric",5815,4987,828,14.2390369733448,1411
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDBMNSI","Blood manganese (umol/L)","numeric",5815,4987,828,14.2390369733448,1411
+"2015-2016","I","PBCD","PBCD_I.XPT","LBDBMNLC","Blood manganese comment code","numeric",5815,4987,828,14.2390369733448,1
+"2015-2016","I","DXX","DXX_I.XPT","SEQN","Respondent sequence number","numeric",5780,5780,0,0,5780
+"2015-2016","I","DXX","DXX_I.XPT","DXAEXSTS","Exam Status","numeric",5780,5780,0,0,5
+"2015-2016","I","DXX","DXX_I.XPT","DXAHEBV","Head Bone Invalidity Code","numeric",5780,5112,668,11.5570934256055,4
+"2015-2016","I","DXX","DXX_I.XPT","DXXHEA","Head Area (cm^2)","numeric",5780,4979,801,13.8581314878893,1087
+"2015-2016","I","DXX","DXX_I.XPT","DXXHEBMC","Head Bone Mineral Content (g)","numeric",5780,4979,801,13.8581314878893,4689
+"2015-2016","I","DXX","DXX_I.XPT","DXXHEBMD","Head Bone Mineral Density (g/cm^2)","numeric",5780,4979,801,13.8581314878893,1727
+"2015-2016","I","DXX","DXX_I.XPT","DXAHETV","Head Tissue Invalidity Code","numeric",5780,5112,668,11.5570934256055,4
+"2015-2016","I","DXX","DXX_I.XPT","DXXHEFAT","Head Fat (g)","numeric",5780,4979,801,13.8581314878893,3469
+"2015-2016","I","DXX","DXX_I.XPT","DXDHELE","Head Lean excl BMC (g)","numeric",5780,4979,801,13.8581314878893,4268
+"2015-2016","I","DXX","DXX_I.XPT","DXXHELI","Head Lean incl BMC (g)","numeric",5780,4979,801,13.8581314878893,4384
+"2015-2016","I","DXX","DXX_I.XPT","DXDHETOT","Head Total (g)","numeric",5780,4979,801,13.8581314878893,4508
+"2015-2016","I","DXX","DXX_I.XPT","DXDHEPF","Head Percent Fat","numeric",5780,4979,801,13.8581314878893,56
+"2015-2016","I","DXX","DXX_I.XPT","DXALABV","Left Arm Bone Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXLAA","Left Arm Area (cm^2)","numeric",5780,4977,803,13.8927335640138,2116
+"2015-2016","I","DXX","DXX_I.XPT","DXXLABMC","Left Arm BMC (g)","numeric",5780,4977,803,13.8927335640138,4423
+"2015-2016","I","DXX","DXX_I.XPT","DXXLABMD","Left Arm BMD (g/cm^2)","numeric",5780,4977,803,13.8927335640138,639
+"2015-2016","I","DXX","DXX_I.XPT","DXALATV","Left Arm Tissue Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXLAFAT","Left Arm Fat (g)","numeric",5780,4985,795,13.7543252595156,4543
+"2015-2016","I","DXX","DXX_I.XPT","DXDLALE","Left Arm Lean excl BMC (g)","numeric",5780,4985,795,13.7543252595156,4656
+"2015-2016","I","DXX","DXX_I.XPT","DXXLALI","Left Arm Lean incl BMC (g)","numeric",5780,4977,803,13.8927335640138,4703
+"2015-2016","I","DXX","DXX_I.XPT","DXDLATOT","Left Arm Total (g)","numeric",5780,4955,825,14.2733564013841,4758
+"2015-2016","I","DXX","DXX_I.XPT","DXDLAPF","Left Arm Percent Fat","numeric",5780,4985,795,13.7543252595156,495
+"2015-2016","I","DXX","DXX_I.XPT","DXALLBV","Left Leg Bone Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXLLA","Left Leg Area (cm^2)","numeric",5780,4862,918,15.8823529411765,2281
+"2015-2016","I","DXX","DXX_I.XPT","DXXLLBMC","Left Leg BMC (g)","numeric",5780,4862,918,15.8823529411765,4601
+"2015-2016","I","DXX","DXX_I.XPT","DXXLLBMD","Left Leg BMD (g/cm^2)","numeric",5780,4862,918,15.8823529411765,870
+"2015-2016","I","DXX","DXX_I.XPT","DXALLTV","Left Leg Tissue Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXLLFAT","Left Leg Fat (g)","numeric",5780,4865,915,15.8304498269896,4676
+"2015-2016","I","DXX","DXX_I.XPT","DXDLLLE","Left Leg Lean excl BMC (g)","numeric",5780,4865,915,15.8304498269896,4751
+"2015-2016","I","DXX","DXX_I.XPT","DXXLLLI","Left Leg Lean incl BMC (g)","numeric",5780,4862,918,15.8823529411765,4751
+"2015-2016","I","DXX","DXX_I.XPT","DXDLLTOT","Left Leg Total (g)","numeric",5780,4836,944,16.3321799307958,4730
+"2015-2016","I","DXX","DXX_I.XPT","DXDLLPF","Left Leg Percent Fat","numeric",5780,4865,915,15.8304498269896,451
+"2015-2016","I","DXX","DXX_I.XPT","DXARABV","Right Arm Bone Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXRAA","Right Arm Area (cm^2)","numeric",5780,4973,807,13.961937716263,2092
+"2015-2016","I","DXX","DXX_I.XPT","DXXRABMC","Right Arm BMC (g)","numeric",5780,4973,807,13.961937716263,4414
+"2015-2016","I","DXX","DXX_I.XPT","DXXRABMD","Right Arm BMD (g/cm^2)","numeric",5780,4973,807,13.961937716263,665
+"2015-2016","I","DXX","DXX_I.XPT","DXARATV","Right Arm Tissue Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXRAFAT","Right Arm Fat (g)","numeric",5780,4961,819,14.1695501730104,4530
+"2015-2016","I","DXX","DXX_I.XPT","DXDRALE","Right Arm Lean excl BMC (g)","numeric",5780,4961,819,14.1695501730104,4648
+"2015-2016","I","DXX","DXX_I.XPT","DXXRALI","Right Arm Lean incl BMC (g)","numeric",5780,4973,807,13.961937716263,4702
+"2015-2016","I","DXX","DXX_I.XPT","DXDRATOT","Right Arm Total (g)","numeric",5780,4926,854,14.7750865051903,4728
+"2015-2016","I","DXX","DXX_I.XPT","DXDRAPF","Right Arm Percent Fat","numeric",5780,4961,819,14.1695501730104,486
+"2015-2016","I","DXX","DXX_I.XPT","DXARLBV","Right Leg Bone Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXRLA","Right Leg Area (cm^2)","numeric",5780,4861,919,15.8996539792388,2286
+"2015-2016","I","DXX","DXX_I.XPT","DXXRLBMC","Right Leg BMC (g)","numeric",5780,4861,919,15.8996539792388,4610
+"2015-2016","I","DXX","DXX_I.XPT","DXXRLBMD","Right Leg BMD(g/cm^2)","numeric",5780,4861,919,15.8996539792388,880
+"2015-2016","I","DXX","DXX_I.XPT","DXARLTV","Right Leg Tissue Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXRLFAT","Right Leg Fat (g)","numeric",5780,4853,927,16.038062283737,4679
+"2015-2016","I","DXX","DXX_I.XPT","DXDRLLE","Right Leg Lean excl BMC (g)","numeric",5780,4853,927,16.038062283737,4740
+"2015-2016","I","DXX","DXX_I.XPT","DXXRLLI","Right Leg Lean incl BMC (g)","numeric",5780,4861,919,15.8996539792388,4759
+"2015-2016","I","DXX","DXX_I.XPT","DXDRLTOT","Right Leg Total (g)","numeric",5780,4819,961,16.6262975778547,4743
+"2015-2016","I","DXX","DXX_I.XPT","DXDRLPF","Right Leg Percent Fat","numeric",5780,4853,927,16.038062283737,444
+"2015-2016","I","DXX","DXX_I.XPT","DXXLRA","Left Ribs Area (cm^2)","numeric",5780,4946,834,14.4290657439446,1372
+"2015-2016","I","DXX","DXX_I.XPT","DXXLRBMC","Left Ribs BMC (g)","numeric",5780,4946,834,14.4290657439446,3739
+"2015-2016","I","DXX","DXX_I.XPT","DXXLRBMD","Left Ribs BMD (g/cm^2)","numeric",5780,4946,834,14.4290657439446,496
+"2015-2016","I","DXX","DXX_I.XPT","DXXRRA","Right Ribs Area (cm^2)","numeric",5780,4946,834,14.4290657439446,1578
+"2015-2016","I","DXX","DXX_I.XPT","DXXRRBMC","Right Ribs BMC (g)","numeric",5780,4946,834,14.4290657439446,3821
+"2015-2016","I","DXX","DXX_I.XPT","DXXRRBMD","Right Ribs BMD (g/cm^2)","numeric",5780,4946,834,14.4290657439446,514
+"2015-2016","I","DXX","DXX_I.XPT","DXXTSA","Thoracic Spine Area (cm^2)","numeric",5780,4946,834,14.4290657439446,1542
+"2015-2016","I","DXX","DXX_I.XPT","DXXTSBMC","Thoracic Spine BMC (g)","numeric",5780,4946,834,14.4290657439446,4094
+"2015-2016","I","DXX","DXX_I.XPT","DXXTSBMD","Thoracic Spine BMD (g/cm^2)","numeric",5780,4946,834,14.4290657439446,734
+"2015-2016","I","DXX","DXX_I.XPT","DXXLSA","Lumbar Spine Area (cm^2)","numeric",5780,4946,834,14.4290657439446,758
+"2015-2016","I","DXX","DXX_I.XPT","DXXLSBMC","Lumbar Spine BMC (g)","numeric",5780,4946,834,14.4290657439446,3386
+"2015-2016","I","DXX","DXX_I.XPT","DXXLSBMD","Lumbar Spine BMD (g/cm^2)","numeric",5780,4946,834,14.4290657439446,891
+"2015-2016","I","DXX","DXX_I.XPT","DXXPEA","Pelvis Area (cm^2)","numeric",5780,4946,834,14.4290657439446,2017
+"2015-2016","I","DXX","DXX_I.XPT","DXXPEBMC","Pelvis BMC (g)","numeric",5780,4946,834,14.4290657439446,4579
+"2015-2016","I","DXX","DXX_I.XPT","DXXPEBMD","Pelvis BMD (g/cm^2)","numeric",5780,4946,834,14.4290657439446,997
+"2015-2016","I","DXX","DXX_I.XPT","DXATRBV","Trunk Bone Invalidity Code","numeric",5780,5112,668,11.5570934256055,5
+"2015-2016","I","DXX","DXX_I.XPT","DXDTRA","Trunk Bone area (cm^2)","numeric",5780,4946,834,14.4290657439446,3023
+"2015-2016","I","DXX","DXX_I.XPT","DXDTRBMC","Trunk BMC (g)","numeric",5780,4946,834,14.4290657439446,4779
+"2015-2016","I","DXX","DXX_I.XPT","DXDTRBMD","Trunk Bone BMD (g/cm^2)","numeric",5780,4946,834,14.4290657439446,722
+"2015-2016","I","DXX","DXX_I.XPT","DXATRTV","Trunk Tissue Invalidity Code","numeric",5780,5112,668,11.5570934256055,6
+"2015-2016","I","DXX","DXX_I.XPT","DXXTRFAT","Trunk Fat (g)","numeric",5780,4939,841,14.5501730103806,4882
+"2015-2016","I","DXX","DXX_I.XPT","DXDTRLE","Trunk Lean excl BMC (g)","numeric",5780,4939,841,14.5501730103806,4902
+"2015-2016","I","DXX","DXX_I.XPT","DXXTRLI","Trunk Lean incl BMC (g)","numeric",5780,4946,834,14.4290657439446,4902
+"2015-2016","I","DXX","DXX_I.XPT","DXDTRTOT","Trunk Total (g)","numeric",5780,4938,842,14.5674740484429,4910
+"2015-2016","I","DXX","DXX_I.XPT","DXDTRPF","Trunk Percent Fat","numeric",5780,4939,841,14.5501730103806,410
+"2015-2016","I","DXX","DXX_I.XPT","DXDSTA","Subtotal Area (cm^2)","numeric",5780,4602,1178,20.3806228373702,3779
+"2015-2016","I","DXX","DXX_I.XPT","DXDSTBMC","Subtotal BMC (g)","numeric",5780,4602,1178,20.3806228373702,4536
+"2015-2016","I","DXX","DXX_I.XPT","DXDSTBMD","Subtotal BMD (g/cm^2)","numeric",5780,4602,1178,20.3806228373702,720
+"2015-2016","I","DXX","DXX_I.XPT","DXDSTFAT","Subtotal Fat (g)","numeric",5780,4708,1072,18.5467128027682,4684
+"2015-2016","I","DXX","DXX_I.XPT","DXDSTLE","Subtotal Lean excl BMC (g)","numeric",5780,4708,1072,18.5467128027682,4684
+"2015-2016","I","DXX","DXX_I.XPT","DXDSTLI","Subtotal Lean incl BMC (g)","numeric",5780,4586,1194,20.6574394463668,4563
+"2015-2016","I","DXX","DXX_I.XPT","DXDSTTOT","Subtotal (Total excl Head) (g)","numeric",5780,4708,1072,18.5467128027682,4689
+"2015-2016","I","DXX","DXX_I.XPT","DXDSTPF","Subtotal Percent Fat","numeric",5780,4708,1072,18.5467128027682,418
+"2015-2016","I","DXX","DXX_I.XPT","DXDTOA","Total Area (cm^2)","numeric",5780,4613,1167,20.1903114186851,3760
+"2015-2016","I","DXX","DXX_I.XPT","DXDTOBMC","Total Bone Mineral Content (g)","numeric",5780,4613,1167,20.1903114186851,4562
+"2015-2016","I","DXX","DXX_I.XPT","DXDTOBMD","Total Bone Mineral Density (g/cm^2)","numeric",5780,4613,1167,20.1903114186851,747
+"2015-2016","I","DXX","DXX_I.XPT","DXDTOFAT","Total Fat (g)","numeric",5780,4598,1182,20.4498269896194,4570
+"2015-2016","I","DXX","DXX_I.XPT","DXDTOLE","Total Lean excl BMC (g)","numeric",5780,4708,1072,18.5467128027682,4677
+"2015-2016","I","DXX","DXX_I.XPT","DXDTOLI","Total Lean incl BMC (g)","numeric",5780,4598,1182,20.4498269896194,4578
+"2015-2016","I","DXX","DXX_I.XPT","DXDTOTOT","Total Lean+Fat (g)","numeric",5780,4598,1182,20.4498269896194,4585
+"2015-2016","I","DXX","DXX_I.XPT","DXDTOPF","Total Percent Fat","numeric",5780,4598,1182,20.4498269896194,391
+"2015-2016","I","BMX","BMX_I.XPT","SEQN","Respondent sequence number","numeric",9544,9544,0,0,9544
+"2015-2016","I","BMX","BMX_I.XPT","BMDSTATS","Body Measures Component Status Code","numeric",9544,9544,0,0,4
+"2015-2016","I","BMX","BMX_I.XPT","BMXWT","Weight (kg)","numeric",9544,9445,99,1.03730092204526,1382
+"2015-2016","I","BMX","BMX_I.XPT","BMIWT","Weight Comment","numeric",9544,443,9101,95.3583403185247,3
+"2015-2016","I","BMX","BMX_I.XPT","BMXRECUM","Recumbent Length (cm)","numeric",9544,1073,8471,88.757334450964,467
+"2015-2016","I","BMX","BMX_I.XPT","BMIRECUM","Recumbent Length Comment","numeric",9544,33,9511,99.6542330259849,1
+"2015-2016","I","BMX","BMX_I.XPT","BMXHEAD","Head Circumference (cm)","numeric",9544,215,9329,97.7472757753562,86
+"2015-2016","I","BMX","BMX_I.XPT","BMIHEAD","Head Circumference Comment","numeric",9544,0,9544,100,0
+"2015-2016","I","BMX","BMX_I.XPT","BMXHT","Standing Height (cm)","numeric",9544,8769,775,8.12028499580889,1052
+"2015-2016","I","BMX","BMX_I.XPT","BMIHT","Standing Height Comment","numeric",9544,105,9439,98.8998323554065,2
+"2015-2016","I","BMX","BMX_I.XPT","BMXBMI","Body Mass Index (kg/m**2)","numeric",9544,8756,788,8.25649622799665,429
+"2015-2016","I","BMX","BMX_I.XPT","BMDBMIC","BMI Category - Children/Youth","numeric",9544,3340,6204,65.0041911148365,4
+"2015-2016","I","BMX","BMX_I.XPT","BMXLEG","Upper Leg Length (cm)","numeric",9544,7110,2434,25.5029337803856,240
+"2015-2016","I","BMX","BMX_I.XPT","BMILEG","Upper Leg Length Comment","numeric",9544,402,9142,95.7879295892707,1
+"2015-2016","I","BMX","BMX_I.XPT","BMXARML","Upper Arm Length (cm)","numeric",9544,8976,568,5.95138306789606,345
+"2015-2016","I","BMX","BMX_I.XPT","BMIARML","Upper Arm Length Comment","numeric",9544,420,9124,95.5993294216262,1
+"2015-2016","I","BMX","BMX_I.XPT","BMXARMC","Arm Circumference (cm)","numeric",9544,8976,568,5.95138306789606,387
+"2015-2016","I","BMX","BMX_I.XPT","BMIARMC","Arm Circumference Comment","numeric",9544,421,9123,95.5888516345348,1
+"2015-2016","I","BMX","BMX_I.XPT","BMXWAIST","Waist Circumference (cm)","numeric",9544,8313,1231,12.8981559094719,1029
+"2015-2016","I","BMX","BMX_I.XPT","BMIWAIST","Waist Circumference Comment","numeric",9544,489,9055,94.8763621123219,1
+"2015-2016","I","BMX","BMX_I.XPT","BMXSAD1","Sagittal Abdominal Diameter 1st (cm)","numeric",9544,6983,2561,26.8336127409891,275
+"2015-2016","I","BMX","BMX_I.XPT","BMXSAD2","Sagittal Abdominal Diameter 2nd (cm)","numeric",9544,6983,2561,26.8336127409891,272
+"2015-2016","I","BMX","BMX_I.XPT","BMXSAD3","Sagittal Abdominal Diameter 3rd (cm)","numeric",9544,353,9191,96.3013411567477,163
+"2015-2016","I","BMX","BMX_I.XPT","BMXSAD4","Sagittal Abdominal Diameter 4th (cm)","numeric",9544,353,9191,96.3013411567477,159
+"2015-2016","I","BMX","BMX_I.XPT","BMDAVSAD","Average Sagittal Abdominal Diameter (cm)","numeric",9544,6983,2561,26.8336127409891,276
+"2015-2016","I","BMX","BMX_I.XPT","BMDSADCM","Sagittal Abdominal Diameter Comment","numeric",9544,446,9098,95.3269069572506,5
+"2015-2016","I","SMQ","SMQ_I.XPT","SEQN","Respondent sequence number","numeric",7001,7001,0,0,7001
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ020","Smoked at least 100 cigarettes in life","numeric",7001,5992,1009,14.4122268247393,4
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD030","Age started smoking cigarettes regularly","numeric",7001,2422,4579,65.4049421511213,47
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ040","Do you now smoke cigarettes?","numeric",7001,2422,4579,65.4049421511213,3
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ050Q","How long since quit smoking cigarettes","numeric",7001,1322,5679,81.1169832881017,51
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ050U","Unit of measure (day/week/month/year)","numeric",7001,1262,5739,81.9740037137552,4
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD055","Age last smoked cigarettes regularly","numeric",7001,1201,5800,82.8453078131695,67
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD057","# cigarettes smoked per day when quit","numeric",7001,1322,5679,81.1169832881017,36
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ078","How soon after waking do you smoke","numeric",7001,828,6173,88.173118125982,8
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD641","# days smoked cigs during past 30 days","numeric",7001,1162,5839,83.4023710898443,29
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD650","Avg # cigarettes/day during past 30 days","numeric",7001,1109,5892,84.1594057991716,29
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD093","May I please see the pack of cigarettes","numeric",7001,1100,5901,84.2879588630196,5
+"2015-2016","I","SMQ","SMQ_I.XPT","SMDUPCA","Cig 12-digit Universal Product Code-UPC","character",7001,7001,0,0,193
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD100BR","Cigarette Brand/sub-brand","character",7001,7001,0,0,115
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD100FL","Cigarette Filter type","numeric",7001,1004,5997,85.6591915440651,2
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD100MN","Cigarette Menthol indicator","numeric",7001,1004,5997,85.6591915440651,2
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD100LN","Cigarette Length","numeric",7001,1004,5997,85.6591915440651,4
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD100TR","FTC Tar Content","numeric",7001,752,6249,89.2586773318097,13
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD100NI","FTC Nicotine Content","numeric",7001,752,6249,89.2586773318097,13
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD100CO","FTC Carbon Monoxide Content","numeric",7001,752,6249,89.2586773318097,13
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ621","Cigarettes smoked in entire life","numeric",7001,950,6051,86.4305099271533,9
+"2015-2016","I","SMQ","SMQ_I.XPT","SMD630","Age first smoked whole cigarette","numeric",7001,62,6939,99.1144122268247,9
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ661","Brand of cigarettes smoked past 30 days","numeric",7001,24,6977,99.6571918297386,7
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ665A","Marlboro variety","numeric",7001,8,6993,99.8857306099129,4
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ665B","Camel variety","numeric",7001,3,6998,99.9571489787173,3
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ665C","Newport variety","numeric",7001,4,6997,99.9428653049564,1
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ665D","Other brand","numeric",7001,3,6998,99.9571489787173,1
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ670","Tried to quit smoking","numeric",7001,1124,5877,83.9451506927582,3
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ848","# times stopped smoking cigarettes","numeric",7001,600,6401,91.4297957434652,15
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ852Q","How long were you able to stop smoking","numeric",7001,596,6405,91.4869304385088,26
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ852U","Unit of measure (day/week/month/year)","numeric",7001,594,6407,91.5154977860306,3
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ925","Ever smoked a cigarette even 1 time?","numeric",7001,3570,3431,49.0072846736181,4
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ930","Age smoked first cigarette","numeric",7001,1543,5458,77.9602913869447,47
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ935","Do you now smoke cigarettes?","numeric",7001,1543,5458,77.9602913869447,3
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ080","# days smoked cigs during past 30 days","numeric",7001,62,6939,99.1144122268247,11
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ890","Ever smoked a cigar even 1 time?","numeric",7001,5992,1009,14.4122268247393,4
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ895","How many days smoked a cigar?","numeric",7001,2066,4935,70.4899300099986,22
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ900","Ever used an e-cigarette?","numeric",7001,5992,1009,14.4122268247393,4
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ905","How many days used an e-cigarette?","numeric",7001,1064,5937,84.8021711184116,20
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ910","Ever used smokeless tobacco?","numeric",7001,5992,1009,14.4122268247393,4
+"2015-2016","I","SMQ","SMQ_I.XPT","SMQ915","How many days used smokeless tobacco?","numeric",7001,827,6174,88.1874017997429,18
+"2015-2016","I","SMQ","SMQ_I.XPT","SMAQUEX2","Questionnaire Mode Flag","numeric",7001,7001,0,0,2
+"2015-2016","I","ALQ","ALQ_I.XPT","SEQN","Respondent sequence number","numeric",5735,5735,0,0,5735
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ101","Had at least 12 alcohol drinks/1 yr?","numeric",5735,5208,527,9.18918918918919,3
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ110","Had at least 12 alcohol drinks/lifetime?","numeric",5735,1731,4004,69.8169136878814,4
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ120Q","How often drink alcohol over past 12 mos","numeric",5735,4224,1511,26.3469921534438,32
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ120U","# days drink alcohol per wk, mo, yr","numeric",5735,3376,2359,41.1333914559721,3
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ130","Avg # alcoholic drinks/day - past 12 mos","numeric",5735,3379,2356,41.0810810810811,15
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ141Q","# days have 4/5 drinks - past 12 mos","numeric",5735,3377,2358,41.1159546643418,32
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ141U","# days per week, month, year?","numeric",5735,1340,4395,76.6346992153444,3
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ151","Ever have 4/5 or more drinks every day?","numeric",5735,4222,1513,26.3818657367044,4
+"2015-2016","I","ALQ","ALQ_I.XPT","ALQ160","# days have 4/5 or more drinks in 2 hrs","numeric",5735,1352,4383,76.4254577157803,16
+"2015-2016","I","PAQ","PAQ_I.XPT","SEQN","Respondent sequence number","numeric",9255,9255,0,0,9255
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ605","Vigorous work activity","numeric",9255,6966,2289,24.7325769854133,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ610","Number of days vigorous work","numeric",9255,1366,7889,85.2404105888709,8
+"2015-2016","I","PAQ","PAQ_I.XPT","PAD615","Minutes vigorous-intensity work","numeric",9255,1350,7905,85.4132901134522,30
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ620","Moderate work activity","numeric",9255,6965,2290,24.7433819556996,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ625","Number of days moderate work","numeric",9255,2598,6657,71.9286871961102,8
+"2015-2016","I","PAQ","PAQ_I.XPT","PAD630","Minutes moderate-intensity work","numeric",9255,2583,6672,72.0907617504052,34
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ635","Walk or bicycle","numeric",9255,6965,2290,24.7433819556996,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ640","Number of days walk or bicycle","numeric",9255,1785,7470,80.7131280388979,8
+"2015-2016","I","PAQ","PAQ_I.XPT","PAD645","Minutes walk/bicycle for transportation","numeric",9255,1776,7479,80.8103727714749,41
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ650","Vigorous recreational activities","numeric",9255,6963,2292,24.7649918962723,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ655","Days vigorous recreational activities","numeric",9255,2193,7062,76.3047001620746,7
+"2015-2016","I","PAQ","PAQ_I.XPT","PAD660","Minutes vigorous recreational activities","numeric",9255,2189,7066,76.3479200432199,39
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ665","Moderate recreational activities","numeric",9255,6963,2292,24.7649918962723,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ670","Days moderate recreational activities","numeric",9255,2956,6299,68.0605078336035,8
+"2015-2016","I","PAQ","PAQ_I.XPT","PAD675","Minutes moderate recreational activities","numeric",9255,2946,6309,68.1685575364668,37
+"2015-2016","I","PAQ","PAQ_I.XPT","PAD680","Minutes sedentary activity","numeric",9255,6951,2304,24.8946515397083,45
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ706","Days physically active at least 60 min.","numeric",9255,2885,6370,68.827660723933,10
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ710","Hours watch TV or videos past 30 days","numeric",9255,9209,46,0.497028633171259,9
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ715","Hours use computer past 30 days","numeric",9255,9209,46,0.497028633171259,8
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ722","Any physical activities past 7 days","numeric",9255,2591,6664,72.0043219881145,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724A","Physical activity aerobics","numeric",9255,114,9141,98.7682333873582,2
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724B","Physical activity baseball","numeric",9255,233,9022,97.4824419232847,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724C","Physical activity basketball","numeric",9255,437,8818,95.278227984873,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724D","Physical activity bike riding","numeric",9255,590,8665,93.6250675310643,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724E","Physical activity cheerleading","numeric",9255,35,9220,99.6218260399784,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724F","Physical activity dance","numeric",9255,257,8998,97.2231226364128,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724G","Physical activity field hockey","numeric",9255,5,9250,99.9459751485683,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724H","Physical activity football","numeric",9255,282,8973,96.9529983792545,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724I","Physical activity golf","numeric",9255,16,9239,99.8271204754187,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724J","Physical activity gymnastics","numeric",9255,138,9117,98.5089141004862,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724K","Physical activity hiking","numeric",9255,66,9189,99.2868719611021,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724L","Physical activity ice hockey","numeric",9255,4,9251,99.9567801188547,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724M","Physical activity ice skating","numeric",9255,3,9252,99.967585089141,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724N","Physical activity jumping rope","numeric",9255,100,9155,98.9195029713668,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724O","Physical activity lacrosse","numeric",9255,8,9247,99.9135602377093,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724P","Physical activity martial arts","numeric",9255,51,9204,99.4489465153971,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724Q","Physical activity playing games","numeric",9255,315,8940,96.5964343598055,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724R","Physical activity roller blading","numeric",9255,57,9198,99.3841166936791,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724S","Physical activity running","numeric",9255,1015,8240,89.0329551593733,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724T","Physical activity scooter riding","numeric",9255,166,9089,98.2063749324689,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724U","Physical activity skateboarding","numeric",9255,62,9193,99.3300918422474,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724V","Physical activity soccer","numeric",9255,368,8887,96.0237709346299,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724W","Physical activity swimming","numeric",9255,265,8990,97.1366828741221,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724X","Physical activity tennis","numeric",9255,33,9222,99.643435980551,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724Y","Physical activity track & field","numeric",9255,22,9233,99.7622906537007,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724Z","Physical activity volleyball","numeric",9255,55,9200,99.4057266342517,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724AA","Physical activity walking","numeric",9255,468,8787,94.9432739059968,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724AB","Physical activity wrestling","numeric",9255,83,9172,99.1031874662345,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724AC","Physical activity frisbee","numeric",9255,17,9238,99.8163155051324,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724AD","Physical activity backyard games","numeric",9255,731,8524,92.1015667206915,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724AE","Physical activity trampoline","numeric",9255,207,9048,97.7633711507293,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724AF","Physical activity horseback riding","numeric",9255,13,9242,99.8595353862777,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ724CM","Physical activity other","numeric",9255,49,9206,99.4705564559697,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ731","Days played active video games","numeric",9255,2172,7083,76.5316045380875,9
+"2015-2016","I","PAQ","PAQ_I.XPT","PAD733","Minutes play active video games","numeric",9255,633,8622,93.160453808752,22
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ677","Past wk # days cardiovascular exercise","numeric",9255,635,8620,93.1388438681794,9
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ678","Past wk # days strengthened muscles","numeric",9255,635,8620,93.1388438681794,8
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ740","Use school facilities at lunch","numeric",9255,635,8620,93.1388438681794,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ742","Use school facilities for physical activ","numeric",9255,310,8945,96.6504592112372,2
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ744","Have PE during school days?","numeric",9255,635,8620,93.1388438681794,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ746","How often do you have PE or gym?","numeric",9255,487,8768,94.7379794705565,6
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ748","How long is the PE or gym class?","numeric",9255,485,8770,94.7595894111291,4
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ755","Participate in school sports?","numeric",9255,2170,7085,76.5532144786602,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759A","Participate in baseball","numeric",9255,135,9120,98.5413290113452,2
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759B","Participate in basketball","numeric",9255,267,8988,97.1150729335494,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759C","Participate in bocce ball","numeric",9255,5,9250,99.9459751485683,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759D","Participate in cheerleading","numeric",9255,57,9198,99.3841166936791,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759E","Participate in football","numeric",9255,160,9095,98.2712047541869,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759F","Participate in golf","numeric",9255,11,9244,99.8811453268503,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759G","Participate in gymnastics","numeric",9255,47,9208,99.4921663965424,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759H","Participate in hockey","numeric",9255,14,9241,99.8487304159914,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759I","Participate in lacrosse","numeric",9255,13,9242,99.8595353862777,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759J","Participate in soccer","numeric",9255,213,9042,97.6985413290113,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759K","Participate in swimming/diving","numeric",9255,55,9200,99.4057266342517,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759L","Participate in tennis","numeric",9255,27,9228,99.708265802269,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759M","Participate in track and field","numeric",9255,88,9167,99.0491626148028,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759N","Participate in volleyball","numeric",9255,78,9177,99.1572123176661,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759O","Participate in wrestling","numeric",9255,12,9243,99.870340356564,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759P","Participate in other specify","numeric",9255,76,9179,99.1788222582388,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759Q","Participate in dance","numeric",9255,89,9166,99.0383576445165,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759R","Participate in frisbee","numeric",9255,8,9247,99.9135602377093,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759S","Participate in running","numeric",9255,163,9092,98.2387898433279,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759T","Participate in trampoline","numeric",9255,11,9244,99.8811453268503,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ759U","Participate in martial arts","numeric",9255,12,9243,99.870340356564,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ762","Do you have recess during school?","numeric",9255,1536,7719,83.4035656401945,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ764","How often do you have recess?","numeric",9255,1438,7817,84.462452728255,6
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ766","How long is the recess period?","numeric",9255,1421,7834,84.6461372231226,5
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ679","How much exercise for good health","numeric",9255,629,8626,93.2036736898974,7
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ750","Enjoy participating in PE or recess","numeric",9255,2165,7090,76.6072393300918,7
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ770","Receive physical fitness award past yr","numeric",9255,2169,7086,76.5640194489465,3
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ772A","Fitness award Fitnessgram","numeric",9255,71,9184,99.2328471096704,2
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ772B","Fitness award President's Challenge","numeric",9255,39,9216,99.5786061588331,1
+"2015-2016","I","PAQ","PAQ_I.XPT","PAQ772C","Fitness award other specify","numeric",9255,82,9173,99.1139924365208,1
+"2015-2016","I","BPQ","BPQ_I.XPT","SEQN","Respondent sequence number","numeric",6327,6327,0,0,6327
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ020","Ever told you had high blood pressure","numeric",6327,6327,0,0,3
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ030","Told had high blood pressure - 2+ times","numeric",6327,2090,4237,66.966966966967,4
+"2015-2016","I","BPQ","BPQ_I.XPT","BPD035","Age told had hypertension","numeric",6327,2089,4238,66.9827722459301,73
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ040A","Taking prescription for hypertension","numeric",6327,2090,4237,66.966966966967,3
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ050A","Now taking prescribed medicine for HBP","numeric",6327,1851,4476,70.7444286391655,2
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ080","Doctor told you - high cholesterol level","numeric",6327,6327,0,0,3
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ060","Ever had blood cholesterol checked","numeric",6327,4367,1960,30.9783467678205,4
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ070","When blood cholesterol last checked","numeric",6327,4638,1689,26.6951161688004,5
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ090D","Told to take prescriptn for cholesterol","numeric",6327,4638,1689,26.6951161688004,3
+"2015-2016","I","BPQ","BPQ_I.XPT","BPQ100D","Now taking prescribed medicine","numeric",6327,1524,4803,75.9127548601233,3
+"2015-2016","I","DIQ","DIQ_I.XPT","SEQN","Respondent sequence number","numeric",9575,9575,0,0,9575
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ010","Doctor told you have diabetes","numeric",9575,9575,0,0,4
+"2015-2016","I","DIQ","DIQ_I.XPT","DID040","Age when first told you had diabetes","numeric",9575,853,8722,91.0913838120104,77
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ160","Ever told you have prediabetes","numeric",9575,6045,3530,36.8668407310705,3
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ170","Ever told have health risk for diabetes","numeric",9575,6186,3389,35.3942558746736,3
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ172","Feel could be at risk for diabetes","numeric",9575,6186,3389,35.3942558746736,4
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175A","Family history","numeric",9575,1186,8389,87.6135770234987,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175B","Overweight","numeric",9575,601,8974,93.7232375979112,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175C","Age","numeric",9575,160,9415,98.3289817232376,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175D","Poor diet","numeric",9575,459,9116,95.2062663185379,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175E","Race","numeric",9575,155,9420,98.3812010443864,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175F","Had a baby weighed over 9 lbs. at birth","numeric",9575,53,9522,99.4464751958225,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175G","Lack of physical activity","numeric",9575,280,9295,97.0757180156658,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175H","High blood pressure","numeric",9575,258,9317,97.3054830287206,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175I","High blood sugar","numeric",9575,77,9498,99.1958224543081,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175J","High cholesterol","numeric",9575,150,9425,98.4334203655352,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175K","Hypoglycemic","numeric",9575,31,9544,99.6762402088773,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175L","Extreme hunger","numeric",9575,59,9516,99.3838120104439,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175M","Tingling/numbness in hands or feet","numeric",9575,138,9437,98.5587467362924,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175N","Blurred vision","numeric",9575,109,9466,98.8616187989556,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175O","Increased fatigue","numeric",9575,134,9441,98.6005221932115,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175P","Anyone could be at risk","numeric",9575,117,9458,98.7780678851175,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175Q","Doctor warning","numeric",9575,136,9439,98.579634464752,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175R","Other, specify","numeric",9575,23,9552,99.7597911227154,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175S","Gestational diabetes","numeric",9575,31,9544,99.6762402088773,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175T","Frequent urination","numeric",9575,105,9470,98.9033942558747,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175U","Thirst","numeric",9575,79,9496,99.1749347258486,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175V","Craving for sweet/eating a lot of sugar","numeric",9575,11,9564,99.8851174934726,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175W","Medication","numeric",9575,4,9571,99.9582245430809,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ175X","Polycystic ovarian syndrome","numeric",9575,1,9574,99.9895561357702,1
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ180","Had blood tested past three years","numeric",9575,6186,3389,35.3942558746736,4
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ050","Taking insulin now","numeric",9575,9575,0,0,4
+"2015-2016","I","DIQ","DIQ_I.XPT","DID060","How long taking insulin","numeric",9575,256,9319,97.3263707571802,36
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ060U","Unit of measure (month/year)","numeric",9575,249,9326,97.3994778067885,2
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ070","Take diabetic pills to lower blood sugar","numeric",9575,1515,8060,84.177545691906,4
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ230","How long ago saw a diabetes specialist","numeric",9575,853,8722,91.0913838120104,6
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ240","Is there one Dr you see for diabetes","numeric",9575,853,8722,91.0913838120104,2
+"2015-2016","I","DIQ","DIQ_I.XPT","DID250","Past year how many times seen doctor","numeric",9575,643,8932,93.2845953002611,23
+"2015-2016","I","DIQ","DIQ_I.XPT","DID260","How often check blood for glucose/sugar","numeric",9575,849,8726,91.1331592689295,11
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ260U","Unit of measure (day/week/month/year)","numeric",9575,661,8914,93.0966057441253,4
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ275","Past year Dr checked for A1C","numeric",9575,853,8722,91.0913838120104,3
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ280","What was your last A1C level","numeric",9575,641,8934,93.3054830287206,71
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ291","What does Dr say A1C should be","numeric",9575,641,8934,93.3054830287206,8
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ300S","What was your recent SBP","numeric",9575,845,8730,91.1749347258486,85
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ300D","What was your recent DBP","numeric",9575,845,8730,91.1749347258486,68
+"2015-2016","I","DIQ","DIQ_I.XPT","DID310S","What does Dr say SBP should be","numeric",9575,846,8729,91.1644908616188,41
+"2015-2016","I","DIQ","DIQ_I.XPT","DID310D","What does Dr say DBP should be","numeric",9575,846,8729,91.1644908616188,36
+"2015-2016","I","DIQ","DIQ_I.XPT","DID320","What was most recent LDL number","numeric",9575,846,8729,91.1644908616188,87
+"2015-2016","I","DIQ","DIQ_I.XPT","DID330","What does Dr say LDL should be","numeric",9575,753,8822,92.1357702349869,31
+"2015-2016","I","DIQ","DIQ_I.XPT","DID341","Past year times Dr check feet for sores","numeric",9575,843,8732,91.1958224543081,22
+"2015-2016","I","DIQ","DIQ_I.XPT","DID350","How often do you check your feet","numeric",9575,843,8732,91.1958224543081,12
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ350U","Unit of measure (day/week/month/year)","numeric",9575,699,8876,92.6997389033943,4
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ360","Last time had pupils dilated for exam","numeric",9575,846,8729,91.1644908616188,6
+"2015-2016","I","DIQ","DIQ_I.XPT","DIQ080","Diabetes affected eyes/had retinopathy","numeric",9575,846,8729,91.1644908616188,3
+"2015-2016","I","TCHOL","TCHOL_I.XPT","SEQN","Respondent sequence number","numeric",8021,8021,0,0,8021
+"2015-2016","I","TCHOL","TCHOL_I.XPT","LBXTC","Total Cholesterol (mg/dL)","numeric",8021,7256,765,9.53746415658895,257
+"2015-2016","I","TCHOL","TCHOL_I.XPT","LBDTCSI","Total Cholesterol (mmol/L)","numeric",8021,7256,765,9.53746415658895,257
+"2015-2016","I","HDL","HDL_I.XPT","SEQN","Respondent sequence number","numeric",8021,8021,0,0,8021
+"2015-2016","I","HDL","HDL_I.XPT","LBDHDD","Direct HDL-Cholesterol (mg/dL)","numeric",8021,7256,765,9.53746415658895,121
+"2015-2016","I","HDL","HDL_I.XPT","LBDHDDSI","Direct HDL-Cholesterol (mmol/L)","numeric",8021,7256,765,9.53746415658895,121
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","SEQN","Respondent sequence number","numeric",6744,6744,0,0,6744
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSAL","Albumin, refrigerated serum (g/dL)","numeric",6744,6256,488,7.23606168446026,33
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSALSI","Albumin, refrigerated serum (g/L)","numeric",6744,6256,488,7.23606168446026,33
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSAPSI","Alkaline Phosphatase (ALP) (IU/L)","numeric",6744,6255,489,7.2508896797153,319
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSASSI","Aspartate Aminotransferase (AST) (U/L)","numeric",6744,6256,488,7.23606168446026,103
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSATSI","Alanine Aminotransferase (ALT) (U/L)","numeric",6744,6256,488,7.23606168446026,131
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSBU","Blood Urea Nitrogen (mg/dL)","numeric",6744,6255,489,7.2508896797153,57
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSBUSI","Blood Urea Nitrogen (mmol/L)","numeric",6744,6255,489,7.2508896797153,57
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSC3SI","Bicarbonate (mmol/L)","numeric",6744,6257,487,7.22123368920522,19
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSCA","Total Calcium (mg/dL)","numeric",6744,6257,487,7.22123368920522,37
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSCASI","Total Calcium (mmol/L)","numeric",6744,6257,487,7.22123368920522,37
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSCH","Cholesterol, refrigerated serum (mg/dL)","numeric",6744,6254,490,7.26571767497034,261
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSCHSI","Cholesterol, refrigerated serum (mmol/L)","numeric",6744,6254,490,7.26571767497034,261
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSCK","Creatine Phosphokinase (CPK) (IU/L)","numeric",6744,6248,496,7.35468564650059,636
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSCLSI","Chloride (mmol/L)","numeric",6744,6257,487,7.22123368920522,28
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSCR","Creatinine, refrigerated serum (mg/dL)","numeric",6744,6255,489,7.2508896797153,196
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSCRSI","Creatinine, refrigerated serum (umol/L)","numeric",6744,6255,489,7.2508896797153,196
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSGB","Globulin (g/dL)","numeric",6744,6252,492,7.29537366548043,40
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSGBSI","Globulin (g/L)","numeric",6744,6252,492,7.29537366548043,40
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSGL","Glucose, refrigerated serum (mg/dL)","numeric",6744,6257,487,7.22123368920522,277
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSGLSI","Glucose, refrigerated serum (mmol/L)","numeric",6744,6257,487,7.22123368920522,277
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSGTSI","Gamma Glutamyl Transferase (GGT) (U/L)","numeric",6744,6256,488,7.23606168446026,192
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSIR","Iron, refrigerated serum (ug/dL)","numeric",6744,6253,491,7.28054567022539,211
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSIRSI","Iron, refrigerated serum (umol/L)","numeric",6744,6253,491,7.28054567022539,211
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSKSI","Potassium (mmol/L)","numeric",6744,6257,487,7.22123368920522,234
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSLDSI","Lactate Dehydrogenase (LDH) (U/L)","numeric",6744,6256,488,7.23606168446026,200
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSNASI","Sodium (mmol/L)","numeric",6744,6257,487,7.22123368920522,24
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSOSSI","Osmolality (mmol/Kg)","numeric",6744,6254,490,7.26571767497034,47
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSPH","Phosphorus (mg/dL)","numeric",6744,6256,488,7.23606168446026,53
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSPHSI","Phosphorus (mmol/L)","numeric",6744,6256,488,7.23606168446026,53
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSTB","Total Bilirubin (mg/dL)","numeric",6744,6254,490,7.26571767497034,40
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSTBSI","Total Bilirubin (umol/L)","numeric",6744,6254,490,7.26571767497034,40
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSTP","Total Protein (g/dL)","numeric",6744,6253,491,7.28054567022539,42
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSTPSI","Total Protein (g/L)","numeric",6744,6253,491,7.28054567022539,42
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSTR","Triglycerides, refrig serum (mg/dL)","numeric",6744,6254,490,7.26571767497034,531
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSTRSI","Triglycerides, refrig serum (mmol/L)","numeric",6744,6254,490,7.26571767497034,531
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBXSUA","Uric acid (mg/dL)","numeric",6744,6254,490,7.26571767497034,98
+"2015-2016","I","BIOPRO","BIOPRO_I_SUPP.XPT","LBDSUASI","Uric acid (umol/L)","numeric",6744,6254,490,7.26571767497034,98
+"2015-2016","I","COT","COT_I_SUPP.XPT","SEQN","Respondent Sequence Number","numeric",8608,8608,0,0,8608
+"2015-2016","I","COT","COT_I_SUPP.XPT","LBXCOT","Cotinine, Serum (ng/mL)","numeric",8608,7666,942,10.9433085501859,1482
+"2015-2016","I","COT","COT_I_SUPP.XPT","LBDCOTLC","Cotinine, Serum Comment Code","numeric",8608,7666,942,10.9433085501859,2
+"2015-2016","I","COT","COT_I_SUPP.XPT","LBXHCT","Hydroxycotinine, Serum (ng/mL)","numeric",8608,7666,942,10.9433085501859,1388
+"2015-2016","I","COT","COT_I_SUPP.XPT","LBDHCTLC","Hydroxycotinine, Serum Comment Code","numeric",8608,7666,942,10.9433085501859,2
+"2017-2018","J","DEMO","DEMO_J.XPT","SEQN","Respondent sequence number","numeric",9254,9254,0,0,9254
+"2017-2018","J","DEMO","DEMO_J.XPT","SDDSRVYR","Data release cycle","numeric",9254,9254,0,0,1
+"2017-2018","J","DEMO","DEMO_J.XPT","RIDSTATR","Interview/Examination status","numeric",9254,9254,0,0,2
+"2017-2018","J","DEMO","DEMO_J.XPT","RIAGENDR","Gender","numeric",9254,9254,0,0,2
+"2017-2018","J","DEMO","DEMO_J.XPT","RIDAGEYR","Age in years at screening","numeric",9254,9254,0,0,81
+"2017-2018","J","DEMO","DEMO_J.XPT","RIDAGEMN","Age in months at screening - 0 to 24 mos","numeric",9254,597,8657,93.5487356818673,25
+"2017-2018","J","DEMO","DEMO_J.XPT","RIDRETH1","Race/Hispanic origin","numeric",9254,9254,0,0,5
+"2017-2018","J","DEMO","DEMO_J.XPT","RIDRETH3","Race/Hispanic origin w/ NH Asian","numeric",9254,9254,0,0,6
+"2017-2018","J","DEMO","DEMO_J.XPT","RIDEXMON","Six month time period","numeric",9254,8704,550,5.94337583747569,2
+"2017-2018","J","DEMO","DEMO_J.XPT","RIDEXAGM","Age in months at exam - 0 to 19 years","numeric",9254,3433,5821,62.9025286362654,240
+"2017-2018","J","DEMO","DEMO_J.XPT","DMQMILIZ","Served active duty in US Armed Forces","numeric",9254,6004,3250,35.1199481305381,4
+"2017-2018","J","DEMO","DEMO_J.XPT","DMQADFC","Served in a foreign country","numeric",9254,561,8693,93.9377566457748,3
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDBORN4","Country of birth","numeric",9254,9254,0,0,4
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDCITZN","Citizenship status","numeric",9254,9251,3,0.0324184136589583,4
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDYRSUS","Length of time in US","numeric",9254,1948,7306,78.9496433974497,11
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDEDUC3","Education level - Children/Youth 6-19","numeric",9254,2306,6948,75.0810460341474,17
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDEDUC2","Education level - Adults 20+","numeric",9254,5569,3685,39.8206181110871,7
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDMARTL","Marital status","numeric",9254,5569,3685,39.8206181110871,7
+"2017-2018","J","DEMO","DEMO_J.XPT","RIDEXPRG","Pregnancy status at exam","numeric",9254,1110,8144,88.0051869461854,3
+"2017-2018","J","DEMO","DEMO_J.XPT","SIALANG","Language of SP Interview","numeric",9254,9254,0,0,2
+"2017-2018","J","DEMO","DEMO_J.XPT","SIAPROXY","Proxy used in SP Interview?","numeric",9254,9254,0,0,2
+"2017-2018","J","DEMO","DEMO_J.XPT","SIAINTRP","Interpreter used in SP Interview?","numeric",9254,9254,0,0,2
+"2017-2018","J","DEMO","DEMO_J.XPT","FIALANG","Language of Family Interview","numeric",9254,8780,474,5.12210935811541,2
+"2017-2018","J","DEMO","DEMO_J.XPT","FIAPROXY","Proxy used in Family Interview?","numeric",9254,8780,474,5.12210935811541,2
+"2017-2018","J","DEMO","DEMO_J.XPT","FIAINTRP","Interpreter used in Family Interview?","numeric",9254,8780,474,5.12210935811541,2
+"2017-2018","J","DEMO","DEMO_J.XPT","MIALANG","Language of MEC Interview","numeric",9254,6684,2570,27.7717743678409,2
+"2017-2018","J","DEMO","DEMO_J.XPT","MIAPROXY","Proxy used in MEC Interview?","numeric",9254,6684,2570,27.7717743678409,2
+"2017-2018","J","DEMO","DEMO_J.XPT","MIAINTRP","Interpreter used in MEC Interview?","numeric",9254,6684,2570,27.7717743678409,2
+"2017-2018","J","DEMO","DEMO_J.XPT","AIALANGA","Language of ACASI Interview","numeric",9254,4977,4277,46.2178517397882,3
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHHSIZ","Total number of people in the Household","numeric",9254,9254,0,0,7
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDFMSIZ","Total number of people in the Family","numeric",9254,9254,0,0,7
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHHSZA","# of children 5 years or younger in HH","numeric",9254,9254,0,0,4
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHHSZB","# of children 6-17 years old in HH","numeric",9254,9254,0,0,4
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHHSZE","# of adults 60 years or older in HH","numeric",9254,9254,0,0,4
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHRGND","HH ref person's gender","numeric",9254,9254,0,0,2
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHRAGZ","HH ref person's age in years","numeric",9254,9254,0,0,4
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHREDZ","HH ref person's education level","numeric",9254,8764,490,5.29500756429652,3
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHRMAZ","HH ref person's marital status","numeric",9254,9063,191,2.06397233628701,3
+"2017-2018","J","DEMO","DEMO_J.XPT","DMDHSEDZ","HH ref person's spouse's education level","numeric",9254,4751,4503,48.6600389020964,3
+"2017-2018","J","DEMO","DEMO_J.XPT","WTINT2YR","Full sample 2 year interview weight","numeric",9254,9254,0,0,8068
+"2017-2018","J","DEMO","DEMO_J.XPT","WTMEC2YR","Full sample 2 year MEC exam weight","numeric",9254,9254,0,0,7719
+"2017-2018","J","DEMO","DEMO_J.XPT","SDMVPSU","Masked variance pseudo-PSU","numeric",9254,9254,0,0,2
+"2017-2018","J","DEMO","DEMO_J.XPT","SDMVSTRA","Masked variance pseudo-stratum","numeric",9254,9254,0,0,15
+"2017-2018","J","DEMO","DEMO_J.XPT","INDHHIN2","Annual household income","numeric",9254,8763,491,5.30581370218284,16
+"2017-2018","J","DEMO","DEMO_J.XPT","INDFMIN2","Annual family income","numeric",9254,8780,474,5.12210935811541,16
+"2017-2018","J","DEMO","DEMO_J.XPT","INDFMPIR","Ratio of family income to poverty","numeric",9254,8023,1231,13.3023557380592,445
+"2017-2018","J","PBCD","PBCD_J.XPT","SEQN","Respondent sequence number","numeric",8366,8366,0,0,8366
+"2017-2018","J","PBCD","PBCD_J.XPT","LBXBPB","Blood lead (ug/dL)","numeric",8366,6884,1482,17.7145589289983,498
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDBPBSI","Blood lead (umol/L)","numeric",8366,6884,1482,17.7145589289983,61
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDBPBLC","Blood lead comment code","numeric",8366,6884,1482,17.7145589289983,2
+"2017-2018","J","PBCD","PBCD_J.XPT","LBXBCD","Blood cadmium (ug/L)","numeric",8366,7513,853,10.1960315562993,287
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDBCDSI","Blood cadmium (nmol/L)","numeric",8366,7513,853,10.1960315562993,287
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDBCDLC","Blood cadmium comment code","numeric",8366,7513,853,10.1960315562993,2
+"2017-2018","J","PBCD","PBCD_J.XPT","LBXTHG","Blood mercury, total (ug/L)","numeric",8366,7513,853,10.1960315562993,649
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDTHGSI","Blood mercury, total (nmol/L)","numeric",8366,7513,853,10.1960315562993,649
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDTHGLC","Blood mercury, total comment code","numeric",8366,7513,853,10.1960315562993,2
+"2017-2018","J","PBCD","PBCD_J.XPT","LBXBSE","Blood selenium (ug/L)","numeric",8366,7513,853,10.1960315562993,5106
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDBSESI","Blood selenium (umol/L)","numeric",8366,7513,853,10.1960315562993,247
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDBSELC","Blood selenium comment code","numeric",8366,7513,853,10.1960315562993,1
+"2017-2018","J","PBCD","PBCD_J.XPT","LBXBMN","Blood manganese (ug/L)","numeric",8366,7513,853,10.1960315562993,1570
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDBMNSI","Blood manganese (nmol/L)","numeric",8366,7513,853,10.1960315562993,1570
+"2017-2018","J","PBCD","PBCD_J.XPT","LBDBMNLC","Blood manganese comment code","numeric",8366,7513,853,10.1960315562993,1
+"2017-2018","J","DXX","DXX_J.XPT","SEQN","Respondent sequence number","numeric",5114,5114,0,0,5114
+"2017-2018","J","DXX","DXX_J.XPT","DXAEXSTS","Exam Status","numeric",5114,5114,0,0,6
+"2017-2018","J","DXX","DXX_J.XPT","DXAHEBV","Head Bone Invalidity Code","numeric",5114,4336,778,15.213140398905,5
+"2017-2018","J","DXX","DXX_J.XPT","DXXHEA","Head Area (cm^2)","numeric",5114,4072,1042,20.3754399687133,755
+"2017-2018","J","DXX","DXX_J.XPT","DXXHEBMC","Head Bone Mineral Content (g)","numeric",5114,4072,1042,20.3754399687133,3855
+"2017-2018","J","DXX","DXX_J.XPT","DXXHEBMD","Head Bone Mineral Density (g/cm^2)","numeric",5114,4072,1042,20.3754399687133,1595
+"2017-2018","J","DXX","DXX_J.XPT","DXAHETV","Head Tissue Invalidity Code","numeric",5114,4336,778,15.213140398905,5
+"2017-2018","J","DXX","DXX_J.XPT","DXXHEFAT","Head Fat (g)","numeric",5114,4072,1042,20.3754399687133,3033
+"2017-2018","J","DXX","DXX_J.XPT","DXDHELE","Head Lean excl BMC (g)","numeric",5114,4072,1042,20.3754399687133,3586
+"2017-2018","J","DXX","DXX_J.XPT","DXXHELI","Head Lean incl BMC (g)","numeric",5114,4072,1042,20.3754399687133,3666
+"2017-2018","J","DXX","DXX_J.XPT","DXDHETOT","Head Total (g)","numeric",5114,4072,1042,20.3754399687133,3758
+"2017-2018","J","DXX","DXX_J.XPT","DXDHEPF","Head Percent Fat","numeric",5114,4072,1042,20.3754399687133,52
+"2017-2018","J","DXX","DXX_J.XPT","DXALABV","Left Arm Bone Invalidity Code","numeric",5114,4336,778,15.213140398905,6
+"2017-2018","J","DXX","DXX_J.XPT","DXXLAA","Left Arm Area (cm^2)","numeric",5114,4095,1019,19.9256941728588,1523
+"2017-2018","J","DXX","DXX_J.XPT","DXXLABMC","Left Arm BMC (g)","numeric",5114,4095,1019,19.9256941728588,3712
+"2017-2018","J","DXX","DXX_J.XPT","DXXLABMD","Left Arm BMD (g/cm^2)","numeric",5114,4095,1019,19.9256941728588,628
+"2017-2018","J","DXX","DXX_J.XPT","DXALATV","Left Arm Tissue Invalidity Code","numeric",5114,4336,778,15.213140398905,6
+"2017-2018","J","DXX","DXX_J.XPT","DXXLAFAT","Left Arm Fat (g)","numeric",5114,4081,1033,20.199452483379,3774
+"2017-2018","J","DXX","DXX_J.XPT","DXDLALE","Left Arm Lean excl BMC (g)","numeric",5114,4081,1033,20.199452483379,3856
+"2017-2018","J","DXX","DXX_J.XPT","DXXLALI","Left Arm Lean incl BMC (g)","numeric",5114,4095,1019,19.9256941728588,3876
+"2017-2018","J","DXX","DXX_J.XPT","DXDLATOT","Left Arm Total (g)","numeric",5114,4055,1059,20.7078607743449,3923
+"2017-2018","J","DXX","DXX_J.XPT","DXDLAPF","Left Arm Percent Fat","numeric",5114,4081,1033,20.199452483379,498
+"2017-2018","J","DXX","DXX_J.XPT","DXALLBV","Left Leg Bone Invalidity Code","numeric",5114,4336,778,15.213140398905,6
+"2017-2018","J","DXX","DXX_J.XPT","DXXLLA","Left Leg Area (cm^2)","numeric",5114,4019,1095,21.4118107156824,1687
+"2017-2018","J","DXX","DXX_J.XPT","DXXLLBMC","Left Leg BMC (g)","numeric",5114,4019,1095,21.4118107156824,3835
+"2017-2018","J","DXX","DXX_J.XPT","DXXLLBMD","Left Leg BMD (g/cm^2)","numeric",5114,4019,1095,21.4118107156824,835
+"2017-2018","J","DXX","DXX_J.XPT","DXALLTV","Left Leg Tissue Invalidity Code","numeric",5114,4336,778,15.213140398905,6
+"2017-2018","J","DXX","DXX_J.XPT","DXXLLFAT","Left Leg Fat (g)","numeric",5114,4004,1110,21.7051231912397,3907
+"2017-2018","J","DXX","DXX_J.XPT","DXDLLLE","Left Leg Lean excl BMC (g)","numeric",5114,4004,1110,21.7051231912397,3920
+"2017-2018","J","DXX","DXX_J.XPT","DXXLLLI","Left Leg Lean incl BMC (g)","numeric",5114,4019,1095,21.4118107156824,3929
+"2017-2018","J","DXX","DXX_J.XPT","DXDLLTOT","Left Leg Total (g)","numeric",5114,3981,1133,22.1548689870943,3929
+"2017-2018","J","DXX","DXX_J.XPT","DXDLLPF","Left Leg Percent Fat","numeric",5114,4004,1110,21.7051231912397,444
+"2017-2018","J","DXX","DXX_J.XPT","DXARABV","Right Arm Bone Invalidity Code","numeric",5114,4336,778,15.213140398905,6
+"2017-2018","J","DXX","DXX_J.XPT","DXXRAA","Right Arm Area (cm^2)","numeric",5114,4031,1083,21.1771607352366,1494
+"2017-2018","J","DXX","DXX_J.XPT","DXXRABMC","Right Arm BMC (g)","numeric",5114,4031,1083,21.1771607352366,3661
+"2017-2018","J","DXX","DXX_J.XPT","DXXRABMD","Right Arm BMD (g/cm^2)","numeric",5114,4031,1083,21.1771607352366,628
+"2017-2018","J","DXX","DXX_J.XPT","DXARATV","Right Arm Tissue Invalidity Code","numeric",5114,4336,778,15.213140398905,6
+"2017-2018","J","DXX","DXX_J.XPT","DXXRAFAT","Right Arm Fat (g)","numeric",5114,4008,1106,21.6269065310911,3701
+"2017-2018","J","DXX","DXX_J.XPT","DXDRALE","Right Arm Lean excl BMC (g)","numeric",5114,4008,1106,21.6269065310911,3803
+"2017-2018","J","DXX","DXX_J.XPT","DXXRALI","Right Arm Lean incl BMC (g)","numeric",5114,4031,1083,21.1771607352366,3815
+"2017-2018","J","DXX","DXX_J.XPT","DXDRATOT","Right Arm Total (g)","numeric",5114,3981,1133,22.1548689870943,3836
+"2017-2018","J","DXX","DXX_J.XPT","DXDRAPF","Right Arm Percent Fat","numeric",5114,4008,1106,21.6269065310911,482
+"2017-2018","J","DXX","DXX_J.XPT","DXARLBV","Right Leg Bone Invalidity Code","numeric",5114,4336,778,15.213140398905,6
+"2017-2018","J","DXX","DXX_J.XPT","DXXRLA","Right Leg Area (cm^2)","numeric",5114,3988,1126,22.0179898318342,1620
+"2017-2018","J","DXX","DXX_J.XPT","DXXRLBMC","Right Leg BMC (g)","numeric",5114,3988,1126,22.0179898318342,3819
+"2017-2018","J","DXX","DXX_J.XPT","DXXRLBMD","Right Leg BMD(g/cm^2)","numeric",5114,3988,1126,22.0179898318342,831
+"2017-2018","J","DXX","DXX_J.XPT","DXARLTV","Right Leg Tissue Invalidity Code","numeric",5114,4336,778,15.213140398905,6
+"2017-2018","J","DXX","DXX_J.XPT","DXXRLFAT","Right Leg Fat (g)","numeric",5114,3966,1148,22.4481814626515,3852
+"2017-2018","J","DXX","DXX_J.XPT","DXDRLLE","Right Leg Lean excl BMC (g)","numeric",5114,3966,1148,22.4481814626515,3894
+"2017-2018","J","DXX","DXX_J.XPT","DXXRLLI","Right Leg Lean incl BMC (g)","numeric",5114,3988,1126,22.0179898318342,3907
+"2017-2018","J","DXX","DXX_J.XPT","DXDRLTOT","Right Leg Total (g)","numeric",5114,3942,1172,22.9174814235432,3886
+"2017-2018","J","DXX","DXX_J.XPT","DXDRLPF","Right Leg Percent Fat","numeric",5114,3966,1148,22.4481814626515,430
+"2017-2018","J","DXX","DXX_J.XPT","DXXLRA","Left Ribs Area (cm^2)","numeric",5114,3912,1202,23.5041063746578,948
+"2017-2018","J","DXX","DXX_J.XPT","DXXLRBMC","Left Ribs BMC (g)","numeric",5114,3912,1202,23.5041063746578,3156
+"2017-2018","J","DXX","DXX_J.XPT","DXXLRBMD","Left Ribs BMD (g/cm^2)","numeric",5114,3912,1202,23.5041063746578,474
+"2017-2018","J","DXX","DXX_J.XPT","DXXRRA","Right Ribs Area (cm^2)","numeric",5114,3912,1202,23.5041063746578,1078
+"2017-2018","J","DXX","DXX_J.XPT","DXXRRBMC","Right Ribs BMC (g)","numeric",5114,3912,1202,23.5041063746578,3234
+"2017-2018","J","DXX","DXX_J.XPT","DXXRRBMD","Right Ribs BMD (g/cm^2)","numeric",5114,3912,1202,23.5041063746578,467
+"2017-2018","J","DXX","DXX_J.XPT","DXXTSA","Thoracic Spine Area (cm^2)","numeric",5114,3912,1202,23.5041063746578,1050
+"2017-2018","J","DXX","DXX_J.XPT","DXXTSBMC","Thoracic Spine BMC (g)","numeric",5114,3912,1202,23.5041063746578,3379
+"2017-2018","J","DXX","DXX_J.XPT","DXXTSBMD","Thoracic Spine BMD (g/cm^2)","numeric",5114,3912,1202,23.5041063746578,688
+"2017-2018","J","DXX","DXX_J.XPT","DXXLSA","Lumbar Spine Area (cm^2)","numeric",5114,3912,1202,23.5041063746578,484
+"2017-2018","J","DXX","DXX_J.XPT","DXXLSBMC","Lumbar Spine BMC (g)","numeric",5114,3912,1202,23.5041063746578,2865
+"2017-2018","J","DXX","DXX_J.XPT","DXXLSBMD","Lumbar Spine BMD (g/cm^2)","numeric",5114,3912,1202,23.5041063746578,839
+"2017-2018","J","DXX","DXX_J.XPT","DXXPEA","Pelvis Area (cm^2)","numeric",5114,3912,1202,23.5041063746578,1389
+"2017-2018","J","DXX","DXX_J.XPT","DXXPEBMC","Pelvis BMC (g)","numeric",5114,3912,1202,23.5041063746578,3641
+"2017-2018","J","DXX","DXX_J.XPT","DXXPEBMD","Pelvis BMD (g/cm^2)","numeric",5114,3912,1202,23.5041063746578,952
+"2017-2018","J","DXX","DXX_J.XPT","DXATRBV","Trunk Bone Invalidity Code","numeric",5114,4336,778,15.213140398905,7
+"2017-2018","J","DXX","DXX_J.XPT","DXDTRA","Trunk Bone area (cm^2)","numeric",5114,3918,1196,23.3867813844349,2264
+"2017-2018","J","DXX","DXX_J.XPT","DXDTRBMC","Trunk BMC (g)","numeric",5114,3912,1202,23.5041063746578,3809
+"2017-2018","J","DXX","DXX_J.XPT","DXDTRBMD","Trunk Bone BMD (g/cm^2)","numeric",5114,3918,1196,23.3867813844349,676
+"2017-2018","J","DXX","DXX_J.XPT","DXATRTV","Trunk Tissue Invalidity Code","numeric",5114,4336,778,15.213140398905,7
+"2017-2018","J","DXX","DXX_J.XPT","DXXTRFAT","Trunk Fat (g)","numeric",5114,3912,1202,23.5041063746578,3876
+"2017-2018","J","DXX","DXX_J.XPT","DXDTRLE","Trunk Lean excl BMC (g)","numeric",5114,3912,1202,23.5041063746578,3887
+"2017-2018","J","DXX","DXX_J.XPT","DXXTRLI","Trunk Lean incl BMC (g)","numeric",5114,3912,1202,23.5041063746578,3886
+"2017-2018","J","DXX","DXX_J.XPT","DXDTRTOT","Trunk Total (g)","numeric",5114,3903,1211,23.6800938599922,3883
+"2017-2018","J","DXX","DXX_J.XPT","DXDTRPF","Trunk Percent Fat","numeric",5114,3912,1202,23.5041063746578,409
+"2017-2018","J","DXX","DXX_J.XPT","DXDSTA","Subtotal Area (cm^2)","numeric",5114,3569,1545,30.2111849824013,2845
+"2017-2018","J","DXX","DXX_J.XPT","DXDSTBMC","Subtotal BMC (g)","numeric",5114,3569,1545,30.2111849824013,3531
+"2017-2018","J","DXX","DXX_J.XPT","DXDSTBMD","Subtotal BMD (g/cm^2)","numeric",5114,3569,1545,30.2111849824013,677
+"2017-2018","J","DXX","DXX_J.XPT","DXDSTFAT","Subtotal Fat (g)","numeric",5114,3820,1294,25.3030895580759,3804
+"2017-2018","J","DXX","DXX_J.XPT","DXDSTLE","Subtotal Lean excl BMC (g)","numeric",5114,3820,1294,25.3030895580759,3808
+"2017-2018","J","DXX","DXX_J.XPT","DXDSTLI","Subtotal Lean incl BMC (g)","numeric",5114,3563,1551,30.3285099726242,3556
+"2017-2018","J","DXX","DXX_J.XPT","DXDSTTOT","Subtotal (Total excl Head) (g)","numeric",5114,3820,1294,25.3030895580759,3816
+"2017-2018","J","DXX","DXX_J.XPT","DXDSTPF","Subtotal Percent Fat","numeric",5114,3820,1294,25.3030895580759,414
+"2017-2018","J","DXX","DXX_J.XPT","DXDTOA","Total Area (cm^2)","numeric",5114,3669,1445,28.255768478686,2897
+"2017-2018","J","DXX","DXX_J.XPT","DXDTOBMC","Total Bone Mineral Content (g)","numeric",5114,3669,1445,28.255768478686,3632
+"2017-2018","J","DXX","DXX_J.XPT","DXDTOBMD","Total Bone Mineral Density (g/cm^2)","numeric",5114,3669,1445,28.255768478686,689
+"2017-2018","J","DXX","DXX_J.XPT","DXDTOFAT","Total Fat (g)","numeric",5114,3658,1456,28.4708642940946,3641
+"2017-2018","J","DXX","DXX_J.XPT","DXDTOLE","Total Lean excl BMC (g)","numeric",5114,3820,1294,25.3030895580759,3805
+"2017-2018","J","DXX","DXX_J.XPT","DXDTOLI","Total Lean incl BMC (g)","numeric",5114,3658,1456,28.4708642940946,3650
+"2017-2018","J","DXX","DXX_J.XPT","DXDTOTOT","Total Lean+Fat (g)","numeric",5114,3658,1456,28.4708642940946,3654
+"2017-2018","J","DXX","DXX_J.XPT","DXDTOPF","Total Percent Fat","numeric",5114,3658,1456,28.4708642940946,392
+"2017-2018","J","BMX","BMX_J.XPT","SEQN","Respondent sequence number","numeric",8704,8704,0,0,8704
+"2017-2018","J","BMX","BMX_J.XPT","BMDSTATS","Body Measures Component Status Code","numeric",8704,8704,0,0,4
+"2017-2018","J","BMX","BMX_J.XPT","BMXWT","Weight (kg)","numeric",8704,8580,124,1.42463235294118,1405
+"2017-2018","J","BMX","BMX_J.XPT","BMIWT","Weight Comment","numeric",8704,416,8288,95.2205882352941,3
+"2017-2018","J","BMX","BMX_J.XPT","BMXRECUM","Recumbent Length (cm)","numeric",8704,894,7810,89.7288602941177,444
+"2017-2018","J","BMX","BMX_J.XPT","BMIRECUM","Recumbent Length Comment","numeric",8704,24,8680,99.7242647058823,1
+"2017-2018","J","BMX","BMX_J.XPT","BMXHEAD","Head Circumference (cm)","numeric",8704,194,8510,97.7711397058823,88
+"2017-2018","J","BMX","BMX_J.XPT","BMIHEAD","Head Circumference Comment","numeric",8704,0,8704,100,0
+"2017-2018","J","BMX","BMX_J.XPT","BMXHT","Standing Height (cm)","numeric",8704,8016,688,7.90441176470588,1033
+"2017-2018","J","BMX","BMX_J.XPT","BMIHT","Standing Height Comment","numeric",8704,99,8605,98.8625919117647,2
+"2017-2018","J","BMX","BMX_J.XPT","BMXBMI","Body Mass Index (kg/m**2)","numeric",8704,8005,699,8.03079044117647,440
+"2017-2018","J","BMX","BMX_J.XPT","BMXLEG","Upper Leg Length (cm)","numeric",8704,6703,2001,22.9894301470588,246
+"2017-2018","J","BMX","BMX_J.XPT","BMILEG","Upper Leg Length Comment","numeric",8704,334,8370,96.1626838235294,1
+"2017-2018","J","BMX","BMX_J.XPT","BMXARML","Upper Arm Length (cm)","numeric",8704,8177,527,6.0546875,347
+"2017-2018","J","BMX","BMX_J.XPT","BMIARML","Upper Arm Length Comment","numeric",8704,347,8357,96.0133272058823,1
+"2017-2018","J","BMX","BMX_J.XPT","BMXARMC","Arm Circumference (cm)","numeric",8704,8173,531,6.10064338235294,393
+"2017-2018","J","BMX","BMX_J.XPT","BMIARMC","Arm Circumference Comment","numeric",8704,350,8354,95.9788602941177,1
+"2017-2018","J","BMX","BMX_J.XPT","BMXWAIST","Waist Circumference (cm)","numeric",8704,7601,1103,12.6723345588235,1035
+"2017-2018","J","BMX","BMX_J.XPT","BMIWAIST","Waist Circumference Comment","numeric",8704,437,8267,94.9793198529412,1
+"2017-2018","J","BMX","BMX_J.XPT","BMXHIP","Hip Circumference (cm)","numeric",8704,6039,2665,30.6181066176471,751
+"2017-2018","J","BMX","BMX_J.XPT","BMIHIP","Hip Circumference Comment","numeric",8704,270,8434,96.8979779411765,1
+"2017-2018","J","SMQ","SMQ_J.XPT","SEQN","Respondent sequence number","numeric",6724,6724,0,0,6724
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ020","Smoked at least 100 cigarettes in life","numeric",6724,5856,868,12.9089827483641,2
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD030","Age started smoking cigarettes regularly","numeric",6724,2359,4365,64.9167162403331,48
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ040","Do you now smoke cigarettes?","numeric",6724,2359,4365,64.9167162403331,3
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ050Q","How long since quit smoking cigarettes","numeric",6724,1338,5386,80.1011302795955,53
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ050U","Unit of measure (day/week/month/year)","numeric",6724,1255,5469,81.3355145746579,4
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD057","# cigarettes smoked per day when quit","numeric",6724,1338,5386,80.1011302795955,35
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ078","How soon after waking do you smoke","numeric",6724,793,5931,88.2064247471743,8
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD641","# days smoked cigs during past 30 days","numeric",6724,1063,5661,84.1909577632362,28
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD650","Avg # cigarettes/day during past 30 days","numeric",6724,1022,5702,84.8007138607971,28
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD093","May I please see the pack of cigarettes","numeric",6724,1021,5703,84.8155859607376,4
+"2017-2018","J","SMQ","SMQ_J.XPT","SMDUPCA","Cig 12-digit Universal Product Code-UPC","character",6724,6724,0,0,175
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD100BR","Cigarette Brand/sub-brand","character",6724,6724,0,0,119
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD100FL","Cigarette Filter type","numeric",6724,929,5795,86.1838191552647,2
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD100MN","Cigarette Menthol indicator","numeric",6724,929,5795,86.1838191552647,2
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD100LN","Cigarette Length","numeric",6724,929,5795,86.1838191552647,4
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD100TR","FTC Tar Content","numeric",6724,695,6029,89.6638905413444,12
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD100NI","FTC Nicotine Content","numeric",6724,695,6029,89.6638905413444,12
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD100CO","FTC Carbon Monoxide Content","numeric",6724,695,6029,89.6638905413444,13
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ621","Cigarettes smoked in entire life","numeric",6724,821,5903,87.79000594884,9
+"2017-2018","J","SMQ","SMQ_J.XPT","SMD630","Age first smoked whole cigarette","numeric",6724,42,6682,99.3753718024985,9
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ661","Brand of cigarettes smoked past 30 days","numeric",6724,14,6710,99.7917906008328,6
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ665A","Marlboro variety","numeric",6724,3,6721,99.9553837001785,2
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ665B","Camel variety","numeric",6724,1,6723,99.9851279000595,1
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ665C","Newport variety","numeric",6724,4,6720,99.940511600238,3
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ665D","Other brand","numeric",6724,2,6722,99.970255800119,1
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ670","Tried to quit smoking","numeric",6724,1035,5689,84.6073765615705,2
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ848","# times stopped smoking cigarettes","numeric",6724,528,6196,92.1475312314099,14
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ852Q","How long were you able to stop smoking","numeric",6724,522,6202,92.2367638310529,30
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ852U","Unit of measure (day/week/month/year)","numeric",6724,519,6205,92.2813801308745,3
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ890","Ever smoked a cigar even 1 time?","numeric",6724,5856,868,12.9089827483641,3
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ895","How many days smoked a cigar?","numeric",6724,2095,4629,68.8429506246282,20
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ900","Ever used an e-cigarette?","numeric",6724,5856,868,12.9089827483641,3
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ905","How many days used an e-cigarette?","numeric",6724,1150,5574,82.8970850684117,19
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ910","Ever used smokeless tobacco?","numeric",6724,5856,868,12.9089827483641,3
+"2017-2018","J","SMQ","SMQ_J.XPT","SMQ915","How many days used smokeless tobacco?","numeric",6724,861,5863,87.1951219512195,15
+"2017-2018","J","SMQ","SMQ_J.XPT","SMAQUEX2","Questionnaire Mode Flag","numeric",6724,6724,0,0,2
+"2017-2018","J","ALQ","ALQ_J.XPT","SEQN","Respondent sequence number","numeric",5533,5533,0,0,5533
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ111","Ever had a drink of any kind of alcohol","numeric",5533,5130,403,7.28357129947587,2
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ121","Past 12 mo how often have alcohol drink","numeric",5533,4545,988,17.8564973793602,13
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ130","Avg # alcohol drinks/day - past 12 mos","numeric",5533,3495,2038,36.833544189409,16
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ142","# days have 4 or 5 drinks/past 12 mos","numeric",5533,3495,2038,36.833544189409,13
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ270","# times 4-5 drinks in 2 hrs/past 12 mos","numeric",5533,1439,4094,73.992409181276,13
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ280","# times 8+ drinks in 1 day/past 12 mos","numeric",5533,1439,4094,73.992409181276,13
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ290","# times 12+ drinks in 1 day/past 12 mos","numeric",5533,522,5011,90.5656967287186,13
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ151","Ever have 4/5 or more drinks every day?","numeric",5533,4544,989,17.8745707572745,4
+"2017-2018","J","ALQ","ALQ_J.XPT","ALQ170","Past 30 days # times 4-5 drinks on an oc","numeric",5533,3487,2046,36.9781312127237,21
+"2017-2018","J","PAQ","PAQ_J.XPT","SEQN","Respondent sequence number","numeric",5856,5856,0,0,5856
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ605","Vigorous work activity","numeric",5856,5856,0,0,3
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ610","Number of days vigorous work","numeric",5856,1389,4467,76.280737704918,8
+"2017-2018","J","PAQ","PAQ_J.XPT","PAD615","Minutes vigorous-intensity work","numeric",5856,1381,4475,76.417349726776,28
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ620","Moderate work activity","numeric",5856,5856,0,0,3
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ625","Number of days moderate work","numeric",5856,2439,3417,58.3504098360656,8
+"2017-2018","J","PAQ","PAQ_J.XPT","PAD630","Minutes moderate-intensity work","numeric",5856,2426,3430,58.5724043715847,30
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ635","Walk or bicycle","numeric",5856,5856,0,0,2
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ640","Number of days walk or bicycle","numeric",5856,1439,4417,75.426912568306,8
+"2017-2018","J","PAQ","PAQ_J.XPT","PAD645","Minutes walk/bicycle for transportation","numeric",5856,1430,4426,75.5806010928962,34
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ650","Vigorous recreational activities","numeric",5856,5856,0,0,2
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ655","Days vigorous recreational activities","numeric",5856,1434,4422,75.5122950819672,8
+"2017-2018","J","PAQ","PAQ_J.XPT","PAD660","Minutes vigorous recreational activities","numeric",5856,1431,4425,75.5635245901639,28
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ665","Moderate recreational activities","numeric",5856,5856,0,0,2
+"2017-2018","J","PAQ","PAQ_J.XPT","PAQ670","Days moderate recreational activities","numeric",5856,2308,3548,60.5874316939891,8
+"2017-2018","J","PAQ","PAQ_J.XPT","PAD675","Minutes moderate recreational activities","numeric",5856,2301,3555,60.7069672131148,30
+"2017-2018","J","PAQ","PAQ_J.XPT","PAD680","Minutes sedentary activity","numeric",5856,5846,10,0.170765027322404,56
+"2017-2018","J","BPQ","BPQ_J.XPT","SEQN","Respondent sequence number","numeric",6161,6161,0,0,6161
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ020","Ever told you had high blood pressure","numeric",6161,6161,0,0,3
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ030","Told had high blood pressure - 2+ times","numeric",6161,2137,4024,65.3140723908456,3
+"2017-2018","J","BPQ","BPQ_J.XPT","BPD035","Age told had hypertension","numeric",6161,2137,4024,65.3140723908456,70
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ040A","Taking prescription for hypertension","numeric",6161,2137,4024,65.3140723908456,4
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ050A","Now taking prescribed medicine for HBP","numeric",6161,1942,4219,68.4791429962668,2
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ080","Doctor told you - high cholesterol level","numeric",6161,6161,0,0,4
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ060","Ever had blood cholesterol checked","numeric",6161,4193,1968,31.9428664177893,4
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ070","When blood cholesterol last checked","numeric",6161,4543,1618,26.261970459341,5
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ090D","Told to take prescriptn for cholesterol","numeric",6161,4543,1618,26.261970459341,4
+"2017-2018","J","BPQ","BPQ_J.XPT","BPQ100D","Now taking prescribed medicine","numeric",6161,1653,4508,73.1699399448142,3
+"2017-2018","J","DIQ","DIQ_J.XPT","SEQN","Respondent sequence number","numeric",8897,8897,0,0,8897
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ010","Doctor told you have diabetes","numeric",8897,8897,0,0,4
+"2017-2018","J","DIQ","DIQ_J.XPT","DID040","Age when first told you had diabetes","numeric",8897,892,8005,89.9741485894122,80
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ160","Ever told you have prediabetes","numeric",8897,5694,3203,36.0008991794987,3
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ170","Ever told have health risk for diabetes","numeric",8897,5876,3021,33.9552658199393,3
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ172","Feel could be at risk for diabetes","numeric",8897,5876,3021,33.9552658199393,4
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175A","Family history","numeric",8897,1145,7752,87.1304934247499,2
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175B","Overweight","numeric",8897,657,8240,92.6154883668652,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175C","Age","numeric",8897,217,8680,97.5609756097561,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175D","Poor diet","numeric",8897,488,8409,94.5150050578847,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175E","Race","numeric",8897,177,8720,98.0105653591098,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175F","Had a baby weighed over 9 lbs. at birth","numeric",8897,38,8859,99.572889738114,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175G","Lack of physical activity","numeric",8897,318,8579,96.425761492638,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175H","High blood pressure","numeric",8897,291,8606,96.7292345734517,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175I","High blood sugar","numeric",8897,76,8821,99.1457794762279,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175J","High cholesterol","numeric",8897,163,8734,98.1679217713836,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175K","Hypoglycemic","numeric",8897,29,8868,99.6740474317186,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175L","Extreme hunger","numeric",8897,71,8826,99.2019781948972,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175M","Tingling/numbness in hands or feet","numeric",8897,155,8742,98.2578397212544,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175N","Blurred vision","numeric",8897,113,8784,98.7299089580758,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175O","Increased fatigue","numeric",8897,167,8730,98.1229627964482,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175P","Anyone could be at risk","numeric",8897,143,8754,98.3927166460605,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175Q","Doctor warning","numeric",8897,172,8725,98.066764077779,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175R","Other, specify","numeric",8897,19,8878,99.786444869057,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175S","Gestational diabetes","numeric",8897,37,8860,99.5841294818478,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175T","Frequent urination","numeric",8897,116,8781,98.6961897268742,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175U","Thirst","numeric",8897,113,8784,98.7299089580758,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175V","Craving for sweet/eating a lot of sugar","numeric",8897,14,8883,99.8426435877262,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175W","Medication","numeric",8897,5,8892,99.9438012813308,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ175X","Polycystic ovarian syndrome","numeric",8897,2,8895,99.9775205125323,1
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ180","Had blood tested past three years","numeric",8897,5876,3021,33.9552658199393,4
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ050","Taking insulin now","numeric",8897,8897,0,0,3
+"2017-2018","J","DIQ","DIQ_J.XPT","DID060","How long taking insulin","numeric",8897,254,8643,97.1451050916039,37
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ060U","Unit of measure (month/year)","numeric",8897,245,8652,97.2462627852085,2
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ070","Take diabetic pills to lower blood sugar","numeric",8897,1674,7223,81.184668989547,3
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ230","How long ago saw a diabetes specialist","numeric",8897,892,8005,89.9741485894122,6
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ240","Is there one Dr you see for diabetes","numeric",8897,892,8005,89.9741485894122,3
+"2017-2018","J","DIQ","DIQ_J.XPT","DID250","Past year how many times seen doctor","numeric",8897,694,8203,92.199617848713,19
+"2017-2018","J","DIQ","DIQ_J.XPT","DID260","How often check blood for glucose/sugar","numeric",8897,893,8004,89.9629088456783,14
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ260U","Unit of measure (day/week/month/year)","numeric",8897,713,8184,91.98606271777,4
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ275","Past year Dr checked for A1C","numeric",8897,892,8005,89.9741485894122,3
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ280","What was your last A1C level","numeric",8897,747,8150,91.6039114308194,63
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ291","What does Dr say A1C should be","numeric",8897,749,8148,91.5814319433517,8
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ300S","What was your recent SBP","numeric",8897,884,8013,90.0640665392829,87
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ300D","What was your recent DBP","numeric",8897,884,8013,90.0640665392829,62
+"2017-2018","J","DIQ","DIQ_J.XPT","DID310S","What does Dr say SBP should be","numeric",8897,886,8011,90.0415870518152,41
+"2017-2018","J","DIQ","DIQ_J.XPT","DID310D","What does Dr say DBP should be","numeric",8897,886,8011,90.0415870518152,37
+"2017-2018","J","DIQ","DIQ_J.XPT","DID320","What was most recent LDL number","numeric",8897,885,8012,90.0528267955491,97
+"2017-2018","J","DIQ","DIQ_J.XPT","DID330","What does Dr say LDL should be","numeric",8897,831,8066,90.6597729571766,33
+"2017-2018","J","DIQ","DIQ_J.XPT","DID341","Past year times Dr check feet for sores","numeric",8897,882,8015,90.0865460267506,23
+"2017-2018","J","DIQ","DIQ_J.XPT","DID350","How often do you check your feet","numeric",8897,882,8015,90.0865460267506,14
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ350U","Unit of measure (day/week/month/year)","numeric",8897,712,8185,91.9973024615039,4
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ360","Last time had pupils dilated for exam","numeric",8897,885,8012,90.0528267955491,6
+"2017-2018","J","DIQ","DIQ_J.XPT","DIQ080","Diabetes affected eyes/had retinopathy","numeric",8897,885,8012,90.0528267955491,3
+"2017-2018","J","TCHOL","TCHOL_J.XPT","SEQN","Respondent Sequence Number","numeric",7435,7435,0,0,7435
+"2017-2018","J","TCHOL","TCHOL_J.XPT","LBXTC","Total Cholesterol (mg/dL)","numeric",7435,6738,697,9.37457969065232,253
+"2017-2018","J","TCHOL","TCHOL_J.XPT","LBDTCSI","Total Cholesterol (mmol/L)","numeric",7435,6738,697,9.37457969065232,253
+"2017-2018","J","HDL","HDL_J.XPT","SEQN","Respondent Sequence Number","numeric",7435,7435,0,0,7435
+"2017-2018","J","HDL","HDL_J.XPT","LBDHDD","Direct HDL-Cholesterol (mg/dL)","numeric",7435,6738,697,9.37457969065232,108
+"2017-2018","J","HDL","HDL_J.XPT","LBDHDDSI","Direct HDL-Cholesterol (mmol/L)","numeric",7435,6738,697,9.37457969065232,108
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","SEQN","Respondent Sequence Number","numeric",6401,6401,0,0,6401
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSATSI","Alanine Aminotransferase (ALT) (U/L)","numeric",6401,5902,499,7.79565692860491,131
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSATLC","ALT Comment Code","numeric",6401,5902,499,7.79565692860491,2
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSAL","Albumin, refrigerated serum (g/dL)","numeric",6401,5905,496,7.74878925167943,31
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSALSI","Albumin, refrigerated serum (g/L)","numeric",6401,5905,496,7.74878925167943,31
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSAPSI","Alkaline Phosphatase (ALP) (IU/L)","numeric",6401,5903,498,7.78003436962975,323
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSASSI","Aspartate Aminotransferase (AST) (U/L)","numeric",6401,5882,519,8.10810810810811,112
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSC3SI","Bicarbonate (mmol/L)","numeric",6401,5901,500,7.81127948758007,21
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSBU","Blood Urea Nitrogen (mg/dL)","numeric",6401,5901,500,7.81127948758007,60
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSBUSI","Blood Urea Nitrogen (mmol/L)","numeric",6401,5901,500,7.81127948758007,60
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSCLSI","Chloride (mmol/L)","numeric",6401,5904,497,7.76441181065459,28
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSCK","Creatine Phosphokinase (CPK) (IU/L)","numeric",6401,5899,502,7.84252460553039,618
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSCR","Creatinine, refrigerated serum (mg/dL)","numeric",6401,5903,498,7.78003436962975,211
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSCRSI","Creatinine, refrigerated serum (umol/L)","numeric",6401,5903,498,7.78003436962975,211
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSGB","Globulin (g/dL)","numeric",6401,5901,500,7.81127948758007,39
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSGBSI","Globulin (g/L)","numeric",6401,5901,500,7.81127948758007,39
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSGL","Glucose, refrigerated serum (mg/dL)","numeric",6401,5901,500,7.81127948758007,246
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSGLSI","Glucose, refrigerated serum (mmol/L)","numeric",6401,5901,500,7.81127948758007,246
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSGTSI","Gamma Glutamyl Transferase (GGT) (IU/L)","numeric",6401,5902,499,7.79565692860491,219
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSGTLC","GGT Comment Code","numeric",6401,5902,499,7.79565692860491,2
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSIR","Iron, refrigerated serum (ug/dL)","numeric",6401,5902,499,7.79565692860491,222
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSIRSI","Iron, refrigerated serum (umol/L)","numeric",6401,5902,499,7.79565692860491,222
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSLDSI","Lactate Dehydrogenase (LDH) (IU/L)","numeric",6401,5773,628,9.81096703640056,236
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSOSSI","Osmolality (mmol/Kg)","numeric",6401,5901,500,7.81127948758007,54
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSPH","Phosphorus (mg/dL)","numeric",6401,5901,500,7.81127948758007,48
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSPHSI","Phosphorus (mmol/L)","numeric",6401,5901,500,7.81127948758007,48
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSKSI","Potassium (mmol/L)","numeric",6401,5899,502,7.84252460553039,32
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSNASI","Sodium (mmol/L)","numeric",6401,5904,497,7.76441181065459,28
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSTB","Total Bilirubin (mg/dL)","numeric",6401,5903,498,7.78003436962975,29
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSTBSI","Total Bilirubin (umol/L)","numeric",6401,5902,499,7.79565692860491,29
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSTBLC","Total Bilirubin Comment Code","numeric",6401,5903,498,7.78003436962975,2
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSCA","Total Calcium (mg/dL)","numeric",6401,5901,500,7.81127948758007,38
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSCASI","Total Calcium (mmol/L)","numeric",6401,5901,500,7.81127948758007,38
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSCH","Cholesterol, refrigerated serum (mg/dL)","numeric",6401,5903,498,7.78003436962975,250
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSCHSI","Cholesterol, refrigerated serum (mmol/L)","numeric",6401,5903,498,7.78003436962975,250
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSTP","Total Protein (g/dL)","numeric",6401,5901,500,7.81127948758007,38
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSTPSI","Total Protein (g/L)","numeric",6401,5901,500,7.81127948758007,38
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSTR","Triglycerides, refrig serum (mg/dL)","numeric",6401,5901,500,7.81127948758007,467
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSTRSI","Triglycerides, refrig serum (mmol/L)","numeric",6401,5901,500,7.81127948758007,467
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBXSUA","Uric acid (mg/dL)","numeric",6401,5901,500,7.81127948758007,102
+"2017-2018","J","BIOPRO","BIOPRO_J_SUPP.XPT","LBDSUASI","Uric acid (umol/L)","numeric",6401,5901,500,7.81127948758007,102
+"2017-2018","J","COT","COT_J_SUPP.XPT","SEQN","Respondent Sequence Number","numeric",7936,7936,0,0,7936
+"2017-2018","J","COT","COT_J_SUPP.XPT","LBXCOT","Cotinine, Serum (ng/mL)","numeric",7936,7101,835,10.5216733870968,1454
+"2017-2018","J","COT","COT_J_SUPP.XPT","LBDCOTLC","Cotinine, Serum Comment Code","numeric",7936,7101,835,10.5216733870968,2
+"2017-2018","J","COT","COT_J_SUPP.XPT","LBXHCT","Hydroxycotinine, Serum (ng/mL)","numeric",7936,7101,835,10.5216733870968,1323
+"2017-2018","J","COT","COT_J_SUPP.XPT","LBDHCTLC","Hydroxycotinine, Serum Comment Code","numeric",7936,7101,835,10.5216733870968,2

@@ -1,0 +1,109 @@
+# GSE111016 candidate-gene expression heatmap
+# Final version: no title and legends at the bottom
+
+rm(list = ls())
+graphics.off()
+
+heatmap_bottom_legend_pipeline <- function () 
+{
+    required_packages <- c("ComplexHeatmap", "circlize", "grid")
+    missing_packages <- required_packages[!vapply(required_packages, requireNamespace, quietly = TRUE, FUN.VALUE = logical(1))]
+    if (length(missing_packages) > 0) {
+        stop("The following R packages are not installed:\n", paste(missing_packages, collapse = ", "))
+    }
+    project_dir <- paste0("E:/1Data/Cd_Sarcopenia_NHANES/", "new_workspace/03_results/", "M03_CandidateGenes_GO_PPI_GSE111016")
+    analysis_dir <- file.path(project_dir, "02_analysis_files", "GSE111016_heatmap")
+    output_dir <- file.path(project_dir, "03_outputs_figures_tables", "figure")
+    dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+    z_matrix_file <- file.path(analysis_dir, "GSE111016_candidate23_rowZ_matrix.rds")
+    annotation_file <- file.path(analysis_dir, "GSE111016_sample_annotation.csv")
+    if (!file.exists(z_matrix_file)) {
+        stop("Row Z-score matrix not found:\n", z_matrix_file)
+    }
+    if (!file.exists(annotation_file)) {
+        stop("Sample annotation file not found:\n", annotation_file)
+    }
+    candidate_z_matrix <- readRDS(z_matrix_file)
+    sample_annotation <- read.csv(annotation_file, stringsAsFactors = FALSE, check.names = FALSE)
+    if (!identical(dim(candidate_z_matrix), c(23L, 40L))) {
+        stop("The Z-score matrix is not 23 × 40.\n", "Observed dimensions: ", paste(dim(candidate_z_matrix), collapse = " × "))
+    }
+    if (anyNA(candidate_z_matrix)) {
+        stop("The Z-score matrix contains NA values.")
+    }
+    if (!all(is.finite(candidate_z_matrix))) {
+        stop("The Z-score matrix contains non-finite values.")
+    }
+    if (is.null(rownames(candidate_z_matrix))) {
+        stop("The Z-score matrix has no gene names.")
+    }
+    if (is.null(colnames(candidate_z_matrix))) {
+        stop("The Z-score matrix has no sample names.")
+    }
+    if (anyDuplicated(rownames(candidate_z_matrix))) {
+        stop("Duplicated candidate-gene symbols were detected.")
+    }
+    if (anyDuplicated(colnames(candidate_z_matrix))) {
+        stop("Duplicated sample names were detected.")
+    }
+    required_annotation_columns <- c("Sample", "Sarcopenia")
+    missing_annotation_columns <- setdiff(required_annotation_columns, names(sample_annotation))
+    if (length(missing_annotation_columns) > 0) {
+        stop("Sample annotation is missing columns:\n", paste(missing_annotation_columns, collapse = ", "))
+    }
+    if (!identical(colnames(candidate_z_matrix), sample_annotation$Sample)) {
+        stop("Z-score matrix columns and sample annotation are not aligned.")
+    }
+    sample_annotation$Sarcopenia <- factor(tolower(trimws(as.character(sample_annotation$Sarcopenia))), levels = c("no", "yes"))
+    if (anyNA(sample_annotation$Sarcopenia)) {
+        stop("The Sarcopenia column contains values other than no/yes.")
+    }
+    group_counts <- table(sample_annotation$Sarcopenia)
+    if (as.integer(group_counts["no"]) != 20L || as.integer(group_counts["yes"]) != 20L) {
+        stop("Unexpected sarcopenia group sizes:\n", paste(names(group_counts), as.integer(group_counts), collapse = "; "))
+    }
+    no_samples <- sample_annotation$Sample[sample_annotation$Sarcopenia == "no"]
+    yes_samples <- sample_annotation$Sample[sample_annotation$Sarcopenia == "yes"]
+    no_distance <- stats::dist(t(candidate_z_matrix[, no_samples, drop = FALSE]), method = "euclidean")
+    yes_distance <- stats::dist(t(candidate_z_matrix[, yes_samples, drop = FALSE]), method = "euclidean")
+    no_hclust <- stats::hclust(no_distance, method = "complete")
+    yes_hclust <- stats::hclust(yes_distance, method = "complete")
+    ordered_no_samples <- no_samples[no_hclust$order]
+    ordered_yes_samples <- yes_samples[yes_hclust$order]
+    ordered_samples <- c(ordered_no_samples, ordered_yes_samples)
+    heatmap_matrix <- candidate_z_matrix[, ordered_samples, drop = FALSE]
+    ordered_groups <- factor(c(rep("No", length(ordered_no_samples)), rep("Yes", length(ordered_yes_samples))), levels = c("No", "Yes"))
+    names(ordered_groups) <- ordered_samples
+    row_distance <- stats::dist(heatmap_matrix, method = "euclidean")
+    row_hclust <- stats::hclust(row_distance, method = "complete")
+    z_color_limit <- 2.5
+    heatmap_color_function <- circlize::colorRamp2(c(-z_color_limit, 0, z_color_limit), c("#3B6FB6", "#F7F7F7", "#D95F59"))
+    group_colors <- c(No = "#4C78A8", Yes = "#DD765B")
+    top_annotation <- ComplexHeatmap::HeatmapAnnotation(Sarcopenia = ordered_groups, col = list(Sarcopenia = group_colors), annotation_name_side = "left", annotation_name_gp = grid::gpar(fontsize = 10.5, fontface = "bold", col = "black"), simple_anno_size = grid::unit(4.5, "mm"), border = TRUE, annotation_legend_param = list(Sarcopenia = list(title = "Sarcopenia", at = c("No", "Yes"), labels = c("No", "Yes"), direction = "horizontal", nrow = 1, grid_width = grid::unit(4.5, "mm"), grid_height = grid::unit(4.5, 
+        "mm"), title_gp = grid::gpar(fontsize = 10, fontface = "bold"), labels_gp = grid::gpar(fontsize = 9.5))))
+    candidate_heatmap <- ComplexHeatmap::Heatmap(heatmap_matrix, name = "Row Z-score", col = heatmap_color_function, cluster_rows = row_hclust, cluster_columns = FALSE, column_split = ordered_groups, cluster_column_slices = FALSE, top_annotation = top_annotation, show_row_dend = TRUE, row_dend_side = "left", row_dend_width = grid::unit(13, "mm"), show_column_dend = FALSE, show_row_names = TRUE, row_names_side = "right", row_names_gp = grid::gpar(fontsize = 10.5, fontface = "italic", col = "black"), 
+        row_names_max_width = grid::unit(25, "mm"), show_column_names = FALSE, column_gap = grid::unit(3, "mm"), column_title = NULL, rect_gp = grid::gpar(col = "white", lwd = 0.3), border = TRUE, use_raster = FALSE, na_col = "#E5E5E5", heatmap_legend_param = list(title = "Row Z-score", at = c(-2.5, -1, 0, 1, 2.5), labels = c("-2.5", "-1", "0", "1", "2.5"), direction = "horizontal", color_bar = "continuous", legend_width = grid::unit(48, "mm"), grid_height = grid::unit(4.5, "mm"), title_gp = grid::gpar(fontsize = 10, 
+            fontface = "bold"), labels_gp = grid::gpar(fontsize = 9.5)))
+    png_file <- file.path(output_dir, "GSE111016_candidate23_heatmap_bottom_legends_600dpi.png")
+    pdf_file <- file.path(output_dir, "GSE111016_candidate23_heatmap_bottom_legends.pdf")
+    code_file <- file.path(output_dir, "GSE111016_candidate23_heatmap_bottom_legends_code.txt")
+    draw_heatmap <- function() {
+        grid::grid.newpage()
+        ComplexHeatmap::draw(candidate_heatmap, heatmap_legend_side = "bottom", annotation_legend_side = "bottom", merge_legend = TRUE, padding = grid::unit(c(4, 5, 4, 5), "mm"))
+    }
+    grDevices::png(filename = png_file, width = 8.2, height = 7.5, units = "in", res = 600, bg = "white")
+    draw_heatmap()
+    grDevices::dev.off()
+    if (capabilities("cairo")) {
+        grDevices::cairo_pdf(filename = pdf_file, width = 8.2, height = 7.5, bg = "white")
+    }
+    else {
+        grDevices::pdf(file = pdf_file, width = 8.2, height = 7.5, bg = "white", useDingbats = FALSE)
+    }
+    draw_heatmap()
+    grDevices::dev.off()
+    draw_heatmap()
+    list(png_file = png_file, pdf_file = pdf_file, code_file = code_file, matrix_dimensions = dim(heatmap_matrix), group_counts = group_counts, z_score_range = range(heatmap_matrix, na.rm = TRUE), row_order = rownames(heatmap_matrix)[row_hclust$order], ordered_samples = ordered_samples)
+}
+
+heatmap_result <- heatmap_bottom_legend_pipeline()

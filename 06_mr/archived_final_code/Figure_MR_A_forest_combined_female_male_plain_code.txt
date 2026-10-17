@@ -1,0 +1,125 @@
+options(stringsAsFactors = FALSE, warn = 1, scipen = 999)
+
+required_packages <- c('dplyr','ggplot2')
+missing_packages <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)]
+if (length(missing_packages) > 0) install.packages(missing_packages, repos='https://cloud.r-project.org', dependencies=TRUE)
+suppressPackageStartupMessages({library(dplyr); library(ggplot2); library(grid)})
+
+root_dir <- paste0('E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/','03_results/M11_MR')
+output_root <- file.path(root_dir,'03_outputs_figures_tables')
+figureNEW_dir <- file.path(output_root,'figureNEW')
+dir.create(figureNEW_dir, recursive=TRUE, showWarnings=FALSE)
+
+get_result_data <- function(object_name, candidate_file_names) {
+  if (exists(object_name, envir=.GlobalEnv, inherits=FALSE)) return(get(object_name, envir=.GlobalEnv, inherits=FALSE))
+  all_files <- list.files(output_root, recursive=TRUE, full.names=TRUE)
+  matched_files <- all_files[basename(all_files) %in% candidate_file_names]
+  if (length(matched_files)==0) stop(paste0('找不到结果文件：', paste(candidate_file_names, collapse=', ')))
+  read.delim(matched_files[1], header=TRUE, stringsAsFactors=FALSE, check.names=FALSE)
+}
+
+make_MR_panel_A <- function () 
+{
+    combined_res <- get_result_data(object_name = "combined_mr_final", candidate_file_names = c("Table_MR_Wald_ratio_combined_ALM_final.tsv"))
+    sex_res <- get_result_data(object_name = "sex_mr_results", candidate_file_names = c("Table_MR_Wald_ratio_sex_stratified_ALM.tsv"))
+    combined_required <- c("gene_name", "rsid", "beta_MR", "se_MR")
+    sex_required <- c("gene_name", "rsid", "sex_group", "beta_MR", "se_MR")
+    combined_missing <- setdiff(combined_required, names(combined_res))
+    sex_missing <- setdiff(sex_required, names(sex_res))
+    if (length(combined_missing) > 0) {
+        stop(paste0("总体MR结果缺少字段：", paste(combined_missing, collapse = ", ")), call. = FALSE)
+    }
+    if (length(sex_missing) > 0) {
+        stop(paste0("性别分层MR结果缺少字段：", paste(sex_missing, collapse = ", ")), call. = FALSE)
+    }
+    if (!all(c("ci_lower", "ci_upper") %in% names(combined_res))) {
+        combined_res <- combined_res %>% mutate(ci_lower = beta_MR - 1.96 * se_MR, ci_upper = beta_MR + 1.96 * se_MR)
+    }
+    if (!all(c("ci_lower", "ci_upper") %in% names(sex_res))) {
+        sex_res <- sex_res %>% mutate(ci_lower = beta_MR - 1.96 * se_MR, ci_upper = beta_MR + 1.96 * se_MR)
+    }
+    combined_plot_data <- combined_res %>% transmute(gene_name, rsid, group = "Combined", beta_MR, se_MR, ci_lower, ci_upper)
+    sex_plot_data <- sex_res %>% filter(sex_group %in% c("Female", "Male")) %>% transmute(gene_name, rsid, group = sex_group, beta_MR, se_MR, ci_lower, ci_upper)
+    gene_order <- c("MAP1LC3B", "CASP3", "CASP9", "ATF4")
+    plot_data <- bind_rows(combined_plot_data, sex_plot_data) %>% filter(gene_name %in% gene_order) %>% mutate(gene_name = factor(gene_name, levels = gene_order), group = factor(group, levels = c("Combined", "Female", "Male")), group_label = case_when(group == "Combined" ~ "Combined (N = 450,243)", group == "Female" ~ "Female (N = 244,730)", group == "Male" ~ "Male (N = 205,513)")) %>% arrange(group, gene_name)
+    if (nrow(plot_data) != 12) {
+        warning(paste0("Figure A绘图数据为 ", nrow(plot_data), " 行；正常应为12行。"))
+    }
+    maximum_absolute_ci <- max(abs(c(plot_data$ci_lower, plot_data$ci_upper)), na.rm = TRUE)
+    axis_limit <- ceiling(maximum_absolute_ci * 100)/100
+    if (!is.finite(axis_limit) || axis_limit < 0.06) {
+        axis_limit <- 0.06
+    }
+    break_step <- ifelse(axis_limit <= 0.08, 0.02, 0.05)
+    axis_breaks <- seq(from = -axis_limit, to = axis_limit, by = break_step)
+    make_axis_labels <- function(x, hide_left = FALSE, hide_right = FALSE) {
+        labels <- sprintf("%.2f", x)
+        if (hide_left) {
+            labels[abs(x + axis_limit) < 0.0000000001] <- ""
+        }
+        if (hide_right) {
+            labels[abs(x - axis_limit) < 0.0000000001] <- ""
+        }
+        labels
+    }
+    create_panel <- function(selected_group, show_y_labels = FALSE, hide_left_tick = FALSE, hide_right_tick = FALSE) {
+        panel_data <- plot_data %>% filter(group == selected_group)
+        ggplot(panel_data, aes(x = beta_MR, y = gene_name)) + geom_vline(xintercept = 0, color = "black", linetype = "dashed", linewidth = 0.75) + geom_errorbarh(aes(xmin = ci_lower, xmax = ci_upper), height = 0.14, linewidth = 0.85, color = "black") + geom_point(size = 3.2, color = "black") + facet_wrap(~group_label, nrow = 1) + scale_x_continuous(limits = c(-axis_limit, axis_limit), breaks = axis_breaks, labels = function(x) {
+            make_axis_labels(x, hide_left = hide_left_tick, hide_right = hide_right_tick)
+        }, expand = expansion(mult = c(0.015, 0.015))) + labs(x = NULL, y = NULL) + theme_bw(base_size = 13) + theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_line(color = "grey88", linewidth = 0.5), strip.background = element_rect(fill = "grey90", color = "black", linewidth = 0.8), strip.text = element_text(face = "bold", size = 13.5, margin = margin(t = 6, b = 6)), panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8), 
+            axis.text.x = element_text(size = 10.5, color = "grey25", margin = margin(t = 5)), axis.text.y = if (show_y_labels) {
+                element_text(size = 12, face = "italic", color = "black", margin = margin(r = 8))
+            }
+            else {
+                element_blank()
+            }, axis.ticks.y = if (show_y_labels) {
+                element_line(color = "black")
+            }
+            else {
+                element_blank()
+            }, plot.margin = if (show_y_labels) {
+                margin(t = 4, r = 6, b = 3, l = 8)
+            }
+            else {
+                margin(t = 4, r = 6, b = 3, l = 3)
+            })
+    }
+    combined_panel <- create_panel(selected_group = "Combined", show_y_labels = TRUE, hide_left_tick = FALSE, hide_right_tick = TRUE)
+    female_panel <- create_panel(selected_group = "Female", show_y_labels = FALSE, hide_left_tick = TRUE, hide_right_tick = TRUE)
+    male_panel <- create_panel(selected_group = "Male", show_y_labels = FALSE, hide_left_tick = TRUE, hide_right_tick = FALSE)
+    draw_A_plain <- function() {
+        grid.newpage()
+        main_layout <- grid.layout(nrow = 2, ncol = 3, heights = unit(c(0.88, 0.12), "npc"), widths = unit(c(1.15, 1, 1), "null"))
+        pushViewport(viewport(layout = main_layout))
+        print(combined_panel, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
+        print(female_panel, vp = viewport(layout.pos.row = 1, layout.pos.col = 2))
+        print(male_panel, vp = viewport(layout.pos.row = 1, layout.pos.col = 3))
+        pushViewport(viewport(layout.pos.row = 2, layout.pos.col = 1:3))
+        grid.text(label = paste0("Wald ratio estimate for ", "appendicular lean mass"), x = unit(0.53, "npc"), y = unit(0.58, "npc"), just = c("center", "center"), gp = gpar(fontsize = 13.5, col = "black"))
+        popViewport()
+        popViewport()
+    }
+    png_file <- file.path(figureNEW_dir, "Figure_MR_A_forest_combined_female_male_plain.png")
+    pdf_file <- file.path(figureNEW_dir, "Figure_MR_A_forest_combined_female_male_plain.pdf")
+    txt_file <- file.path(figureNEW_dir, "Figure_MR_A_forest_combined_female_male_plain_code.txt")
+    grDevices::cairo_pdf(filename = pdf_file, width = 13.5, height = 5.25, bg = "white")
+    draw_A_plain()
+    grDevices::dev.off()
+    if (requireNamespace("ragg", quietly = TRUE)) {
+        ragg::agg_png(filename = png_file, width = 13.5, height = 5.25, units = "in", res = 600, background = "white")
+    }
+    else {
+        grDevices::png(filename = png_file, width = 13.5, height = 5.25, units = "in", res = 600, bg = "white")
+    }
+    draw_A_plain()
+    grDevices::dev.off()
+    function_code <- deparse(make_MR_panel_A, width.cutoff = 500L)
+    function_code[1] <- paste0("make_MR_panel_A <- ", function_code[1])
+    standalone_code <- c("options(stringsAsFactors = FALSE, warn = 1, scipen = 999)", "", "required_packages <- c('dplyr','ggplot2')", "missing_packages <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)]", "if (length(missing_packages) > 0) install.packages(missing_packages, repos='https://cloud.r-project.org', dependencies=TRUE)", "suppressPackageStartupMessages({library(dplyr); library(ggplot2); library(grid)})", "", "root_dir <- paste0('E:/1Data/Cd_Sarcopenia_NHANES/new_workspace/','03_results/M11_MR')", 
+        "output_root <- file.path(root_dir,'03_outputs_figures_tables')", "figureNEW_dir <- file.path(output_root,'figureNEW')", "dir.create(figureNEW_dir, recursive=TRUE, showWarnings=FALSE)", "", "get_result_data <- function(object_name, candidate_file_names) {", "  if (exists(object_name, envir=.GlobalEnv, inherits=FALSE)) return(get(object_name, envir=.GlobalEnv, inherits=FALSE))", "  all_files <- list.files(output_root, recursive=TRUE, full.names=TRUE)", "  matched_files <- all_files[basename(all_files) %in% candidate_file_names]", 
+        "  if (length(matched_files)==0) stop(paste0('找不到结果文件：', paste(candidate_file_names, collapse=', ')))", "  read.delim(matched_files[1], header=TRUE, stringsAsFactors=FALSE, check.names=FALSE)", "}", "", function_code, "", "figure_A_result <- make_MR_panel_A()")
+    writeLines(standalone_code, con = txt_file, useBytes = TRUE)
+    list(png = png_file, pdf = pdf_file, txt = txt_file)
+}
+
+figure_A_result <- make_MR_panel_A()

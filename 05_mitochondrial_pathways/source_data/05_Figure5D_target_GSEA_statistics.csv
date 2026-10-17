@@ -1,0 +1,5 @@
+"Pathway","Short","GO_ID","NES","FDR","Stored_ES","Stored_setSize"
+"Oxidative phosphorylation","Oxidative phosphorylation","GO:0006119",-3.84258790586197,0.000000012,-0.820053060578598,132
+"Respiratory electron transport chain","Respiratory ETC","GO:0022904",-3.85864593447285,0.000000012,-0.83352981138816,110
+"Mitochondrial ATP synthesis","Mitochondrial ATP synthesis","GO:0042775",-3.8098935819396,0.000000012,-0.846639015749422,92
+"Mitochondrial translation","Mitochondrial translation","GO:0032543",-3.65311043427134,0.000000012,-0.772457445474896,129

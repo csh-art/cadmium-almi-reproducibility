@@ -1,0 +1,18 @@
+check	status	detail
+Final packet manifest is 14/14 found and copied	PASS	14 requested files
+Strict candidate instrument rows	PASS	observed=342
+Exact outcome matches + missing = strict candidates	PASS	327 + 15 = 342
+Position-recovered variants	PASS	observed=6
+Harmonized candidate rows	PASS	exact=327, recovered=6, harmonized=333
+Harmonization alignment composition	PASS	exact=327, recovered=6, flipped=5
+EUR-reference clump mapping rows	PASS	harmonized=333, EUR-present=309, absent=24
+Four final independent instruments	PASS	ATF4:rs882565; CASP3:rs4647601; CASP9:rs933704; MAP1LC3B:rs7865
+Combined Wald beta/se recomputation	PASS	max |Δbeta|=5.88e-17; max |ΔSE|=6.16e-17
+Combined Wald p-value recomputation	PASS	max |Δp|=2.22e-16
+Instrument F-statistic recomputation	PASS	max |ΔF|=5.54e-13
+LD clumping sensitivity retains same four instruments	PASS	r2 thresholds 0.001 and 0.01
+Female and male raw outcome extracts contain the four final SNPs	PASS	4 female + 4 male rows
+Female-male heterogeneity recomputation	PASS	max |Δp|=3.11e-15; ATF4 p=0.291184
+Steiger directionality	PASS	4/4 expression -> ALM supported
+rs7865 allele audit	PASS	MAP1LC3B rs7865 C/G, same alignment, frequency-resolvable
+Archived GWAS Catalog contextual screen	PASS	4 retained instruments; contextual screen only, not a formal multi-instrument pleiotropy test

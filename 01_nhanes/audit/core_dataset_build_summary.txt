@@ -1,0 +1,55 @@
+NHANES 2011-2018 CORE DATASET BUILD SUMMARY
+============================================================
+
+Generated at: 2026-07-21 21:07:06
+FINAL_STATUS = PASS
+ERROR count = 0
+WARNING count = 0
+
+Combined DEMO master N = 39156
+Survey base age 20-59 N = 10453
+Strict core analytic N = 7628
+Region-valid sensitivity N = 7628
+
+Overall sequential flow:
+   group stage_number                      stage remaining_n excluded_from_previous_n
+ Overall            1        Initial DEMO sample       39156                        0
+ Overall            2            Age 20-59 years       14934                    24222
+ Overall            3   PBCD component available       10622                     4312
+ Overall            4        Valid blood cadmium       10096                      526
+ Overall            5    DXX component available       10096                        0
+ Overall            6      Strict valid limb DXA        7651                     2445
+ Overall            7      Valid height and ALMI        7628                       23
+ Overall            8 Valid survey weight/design        7628                        0
+
+Final cycle counts:
+     cycle survey_base_n strict_core_n region_sensitivity_core_n strict_minus_region_n
+ 2011-2012          3632          2604                      2604                     0
+ 2013-2014          1847          1523                      1523                     0
+ 2015-2016          1727          1337                      1337                     0
+ 2017-2018          3247          2164                      2164                     0
+
+DXA validity audit:
+     group age_20_59_n DXX_component_n DXA_status_1_n DXA_status_2_n four_limb_tissue_valid_n four_limb_lean_complete_n strict_ALM_valid_n region_sensitivity_valid_n strict_minus_region_n
+ 2011-2012        3769            3632           2901              2                     2704                      2704               2704                       2704                     0
+ 2013-2014        3928            3803           3426              1                     3121                      3121               3121                       3121                     0
+ 2015-2016        3818            3665           3185              3                     2785                      2785               2785                       2785                     0
+ 2017-2018        3419            3247           2764             16                     2294                      2251               2251                       2251                     0
+   Overall       14934           14347          12276             22                    10904                     10861              10861                      10861                     0
+
+Weight construction audit:
+     group age_20_59_n valid_cadmium_n weight_nonmissing_n weight_positive_n valid_cadmium_with_zero_or_missing_weight_n min_positive_weight_2yr max_weight_2yr sum_weight_2yr sum_weight_8yr
+ 2011-2012        3769            3440                3769              3632                                           0                7851.284       222579.8      166124215       41531054
+ 2013-2014        3928            1846                1917              1847                                           0               18652.192       322113.6      167675143       41918786
+ 2015-2016        3818            1726                1826              1727                                           0               14596.123       499733.2      168962539       42240635
+ 2017-2018        3419            3084                3419              3247                                           0                4644.991       419762.8      169141791       42285448
+   Overall       14934           10096               10931             10453                                           0                4644.991       499733.2      671903688      167975922
+
+Issues:
+No issues detected.
+
+Safety confirmation:
+No source XPT file was modified.
+No file was written into backup.
+No file was written into figure.
+No file was written into table.

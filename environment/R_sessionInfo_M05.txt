@@ -1,0 +1,798 @@
+M05 Figure 5 R environment backup
+Created at: 2026-07-25 00:30:46.41551
+
+R version:
+               _                                
+platform       x86_64-w64-mingw32               
+arch           x86_64                           
+os             mingw32                          
+crt            ucrt                             
+system         x86_64, mingw32                  
+status                                          
+major          4                                
+minor          6.0                              
+year           2026                             
+month          04                               
+day            24                               
+svn rev        89956                            
+language       R                                
+version.string R version 4.6.0 (2026-04-24 ucrt)
+nickname       Because it was There             
+
+Session information:
+R version 4.6.0 (2026-04-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 22631)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Chinese (Simplified)_China.utf8 
+[2] LC_CTYPE=Chinese (Simplified)_China.utf8   
+[3] LC_MONETARY=Chinese (Simplified)_China.utf8
+[4] LC_NUMERIC=C                               
+[5] LC_TIME=Chinese (Simplified)_China.utf8    
+
+time zone: Asia/Shanghai
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+  [1] fs_2.1.0                    matrixStats_1.5.0          
+  [3] GSVA_2.6.2                  spatstat.sparse_3.2-0      
+  [5] enrichplot_1.32.0           httr_1.4.8                 
+  [7] RColorBrewer_1.1-3          tools_4.6.0                
+  [9] sctransform_0.4.3           R6_2.6.1                   
+ [11] HDF5Array_1.40.0            lazyeval_0.2.3             
+ [13] uwot_0.2.4                  rhdf5filters_1.24.0        
+ [15] withr_3.0.2                 sp_2.2-1                   
+ [17] gridExtra_2.3               progressr_0.19.0           
+ [19] textshaping_1.0.5           cli_3.6.6                  
+ [21] Biobase_2.70.0              spatstat.explore_3.8-1     
+ [23] fastDummies_1.7.6           scatterpie_0.2.6           
+ [25] labeling_0.4.3              Seurat_5.5.0               
+ [27] S7_0.2.2                    spatstat.data_3.1-9        
+ [29] ggridges_0.5.7              pbapply_1.7-4              
+ [31] systemfonts_1.3.2           yulab.utils_0.2.4          
+ [33] gson_0.1.0                  DOSE_4.5.0                 
+ [35] R.utils_2.13.0              parallelly_1.47.0          
+ [37] limma_3.66.0                rstudioapi_0.19.0          
+ [39] RSQLite_3.53.1              generics_0.1.4             
+ [41] gridGraphics_0.5-1          ica_1.0-3                  
+ [43] spatstat.random_3.5-0       dplyr_1.2.1                
+ [45] GO.db_3.23.1                Matrix_1.7-5               
+ [47] ggbeeswarm_0.7.3            S4Vectors_0.48.1           
+ [49] abind_1.4-8                 R.methodsS3_1.8.2          
+ [51] lifecycle_1.0.5             yaml_2.3.12                
+ [53] edgeR_4.10.1                SummarizedExperiment_1.42.0
+ [55] rhdf5_2.56.0                qvalue_2.44.0              
+ [57] SparseArray_1.10.10         Rtsne_0.17                 
+ [59] grid_4.6.0                  blob_1.3.0                 
+ [61] promises_1.5.0              crayon_1.5.3               
+ [63] miniUI_0.1.2                ggtangle_0.1.2             
+ [65] lattice_0.22-9              beachmat_2.28.0            
+ [67] cowplot_1.2.0               annotate_1.90.0            
+ [69] KEGGREST_1.51.1             magick_2.9.1               
+ [71] pillar_1.11.1               fgsea_1.38.0               
+ [73] GenomicRanges_1.62.1        rjson_0.2.23               
+ [75] future.apply_1.20.2         codetools_0.2-20           
+ [77] fastmatch_1.1-8             glue_1.8.1                 
+ [79] ggiraph_0.9.6               ggfun_0.2.0                
+ [81] spatstat.univar_3.2-0       fontLiberation_0.1.0       
+ [83] memuse_4.2-3                data.table_1.18.4          
+ [85] vctrs_0.7.3                 png_0.1-9                  
+ [87] treeio_1.36.1               spam_2.11-4                
+ [89] gtable_0.3.6                cachem_1.1.0               
+ [91] S4Arrays_1.10.1             mime_0.13                  
+ [93] Seqinfo_1.0.0               survival_3.8-6             
+ [95] aisdk_1.4.12                SingleCellExperiment_1.34.0
+ [97] statmod_1.5.2               fitdistrplus_1.2-6         
+ [99] ROCR_1.0-12                 nlme_3.1-169               
+[101] ggtree_4.2.0                bit64_4.8.2                
+[103] fontquiver_0.2.1            RcppAnnoy_0.0.23           
+[105] irlba_2.3.7                 vipor_0.4.7                
+[107] KernSmooth_2.23-26          otel_0.2.0                 
+[109] BiocGenerics_0.56.0         DBI_1.3.0                  
+[111] DESeq2_1.52.0               tidyselect_1.2.1           
+[113] processx_3.9.0              bit_4.6.0                  
+[115] compiler_4.6.0              graph_1.90.0               
+[117] httr2_1.2.2                 h5mread_1.4.0              
+[119] fontBitstreamVera_0.1.1     DelayedArray_0.36.1        
+[121] plotly_4.12.0               scales_1.4.0               
+[123] lmtest_0.9-40               callr_3.8.0                
+[125] rappdirs_0.3.4              SpatialExperiment_1.22.0   
+[127] stringr_1.6.0               digest_0.6.39              
+[129] goftest_1.2-3               spatstat.utils_3.2-3       
+[131] XVector_0.50.0              htmltools_0.5.9            
+[133] pkgconfig_2.0.3             sparseMatrixStats_1.24.0   
+[135] MatrixGenerics_1.22.0       fastmap_1.2.0              
+[137] rlang_1.2.0                 htmlwidgets_1.6.4          
+[139] shiny_1.13.0                DelayedMatrixStats_1.34.0  
+[141] farver_2.1.2                zoo_1.8-15                 
+[143] jsonlite_2.0.0              BiocParallel_1.46.0        
+[145] GOSemSim_2.38.0             R.oo_1.27.1                
+[147] BiocSingular_1.28.0         magrittr_2.0.5             
+[149] ggplotify_0.1.3             dotCall64_1.2              
+[151] patchwork_1.3.2             Rhdf5lib_2.0.0             
+[153] Rcpp_1.1.1-1.1              ape_5.8-1                  
+[155] ggnewscale_0.5.2            gdtools_0.5.1              
+[157] reticulate_1.46.0           stringi_1.8.7              
+[159] MASS_7.3-65                 plyr_1.8.9                 
+[161] org.Hs.eg.db_3.23.1         parallel_4.6.0             
+[163] listenv_0.10.1              ggrepel_0.9.8              
+[165] deldir_2.0-4                Biostrings_2.78.0          
+[167] splines_4.6.0               tensor_1.5.1               
+[169] locfit_1.5-9.12             igraph_2.3.2               
+[171] spatstat.geom_3.8-1         enrichit_0.1.4             
+[173] RcppHNSW_0.7.0              reshape2_1.4.5             
+[175] stats4_4.6.0                ScaledMatrix_1.20.0        
+[177] XML_3.99-0.23               SeuratObject_5.4.0         
+[179] tweenr_2.0.3                httpuv_1.6.17              
+[181] RANN_2.6.2                  tidyr_1.3.2                
+[183] purrr_1.2.2                 polyclip_1.10-7            
+[185] future_1.70.0               scattermore_1.2            
+[187] ggplot2_4.0.3               ggforce_0.5.0              
+[189] rsvd_1.0.5                  xtable_1.8-8               
+[191] RSpectra_0.16-2             tidytree_0.4.7             
+[193] tidydr_0.0.6                later_1.4.8                
+[195] ragg_1.5.2                  viridisLite_0.4.3          
+[197] tibble_3.3.1                clusterProfiler_4.20.0     
+[199] aplot_0.2.9                 beeswarm_0.4.0             
+[201] memoise_2.0.1               AnnotationDbi_1.74.0       
+[203] IRanges_2.44.0              cluster_2.1.8.2            
+[205] globals_0.19.1              GSEABase_1.74.0            
+
+Library paths:
+[1] "D:/RStudio/Rpackages"              
+[2] "C:/Program Files/R/R-4.6.0/library"
+
+Repositories:
+                                        CRAN 
+"https://mirrors.tuna.tsinghua.edu.cn/CRAN/" 
+attr(,"RStudio")
+[1] TRUE
+
+Loaded package versions:
+              Package   Version                            Library
+                abind     1.4-8               D:/RStudio/Rpackages
+                aisdk    1.4.12               D:/RStudio/Rpackages
+             annotate    1.90.0               D:/RStudio/Rpackages
+        AnnotationDbi    1.74.0               D:/RStudio/Rpackages
+                  ape     5.8-1               D:/RStudio/Rpackages
+                aplot     0.2.9               D:/RStudio/Rpackages
+                 base     4.6.0 C:/Program Files/R/R-4.6.0/library
+             beachmat    2.28.0               D:/RStudio/Rpackages
+             beeswarm     0.4.0               D:/RStudio/Rpackages
+              Biobase    2.70.0               D:/RStudio/Rpackages
+         BiocGenerics    0.56.0               D:/RStudio/Rpackages
+         BiocParallel    1.46.0               D:/RStudio/Rpackages
+         BiocSingular    1.28.0               D:/RStudio/Rpackages
+           Biostrings    2.78.0               D:/RStudio/Rpackages
+                  bit     4.6.0               D:/RStudio/Rpackages
+                bit64     4.8.2               D:/RStudio/Rpackages
+                 blob     1.3.0               D:/RStudio/Rpackages
+               cachem     1.1.0               D:/RStudio/Rpackages
+                callr     3.8.0               D:/RStudio/Rpackages
+                  cli     3.6.6               D:/RStudio/Rpackages
+              cluster   2.1.8.2 C:/Program Files/R/R-4.6.0/library
+      clusterProfiler    4.20.0               D:/RStudio/Rpackages
+            codetools    0.2-20 C:/Program Files/R/R-4.6.0/library
+             compiler     4.6.0 C:/Program Files/R/R-4.6.0/library
+              cowplot     1.2.0               D:/RStudio/Rpackages
+               crayon     1.5.3               D:/RStudio/Rpackages
+           data.table    1.18.4               D:/RStudio/Rpackages
+             datasets     4.6.0 C:/Program Files/R/R-4.6.0/library
+                  DBI     1.3.0               D:/RStudio/Rpackages
+         DelayedArray    0.36.1               D:/RStudio/Rpackages
+   DelayedMatrixStats    1.34.0               D:/RStudio/Rpackages
+               deldir     2.0-4               D:/RStudio/Rpackages
+               DESeq2    1.52.0               D:/RStudio/Rpackages
+               digest    0.6.39               D:/RStudio/Rpackages
+                 DOSE     4.5.0               D:/RStudio/Rpackages
+            dotCall64       1.2               D:/RStudio/Rpackages
+                dplyr     1.2.1               D:/RStudio/Rpackages
+                edgeR    4.10.1               D:/RStudio/Rpackages
+             enrichit     0.1.4               D:/RStudio/Rpackages
+           enrichplot    1.32.0               D:/RStudio/Rpackages
+               farver     2.1.2               D:/RStudio/Rpackages
+          fastDummies     1.7.6               D:/RStudio/Rpackages
+              fastmap     1.2.0               D:/RStudio/Rpackages
+            fastmatch     1.1-8               D:/RStudio/Rpackages
+                fgsea    1.38.0               D:/RStudio/Rpackages
+         fitdistrplus     1.2-6               D:/RStudio/Rpackages
+    fontBitstreamVera     0.1.1               D:/RStudio/Rpackages
+       fontLiberation     0.1.0               D:/RStudio/Rpackages
+           fontquiver     0.2.1               D:/RStudio/Rpackages
+                   fs     2.1.0               D:/RStudio/Rpackages
+               future    1.70.0               D:/RStudio/Rpackages
+         future.apply    1.20.2               D:/RStudio/Rpackages
+              gdtools     0.5.1               D:/RStudio/Rpackages
+             generics     0.1.4               D:/RStudio/Rpackages
+        GenomicRanges    1.62.1               D:/RStudio/Rpackages
+           ggbeeswarm     0.7.3               D:/RStudio/Rpackages
+              ggforce     0.5.0               D:/RStudio/Rpackages
+                ggfun     0.2.0               D:/RStudio/Rpackages
+              ggiraph     0.9.6               D:/RStudio/Rpackages
+           ggnewscale     0.5.2               D:/RStudio/Rpackages
+              ggplot2     4.0.3               D:/RStudio/Rpackages
+            ggplotify     0.1.3               D:/RStudio/Rpackages
+              ggrepel     0.9.8               D:/RStudio/Rpackages
+             ggridges     0.5.7               D:/RStudio/Rpackages
+             ggtangle     0.1.2               D:/RStudio/Rpackages
+               ggtree     4.2.0               D:/RStudio/Rpackages
+              globals    0.19.1               D:/RStudio/Rpackages
+                 glue     1.8.1               D:/RStudio/Rpackages
+                GO.db    3.23.1               D:/RStudio/Rpackages
+              goftest     1.2-3               D:/RStudio/Rpackages
+             GOSemSim    2.38.0               D:/RStudio/Rpackages
+                graph    1.90.0               D:/RStudio/Rpackages
+             graphics     4.6.0 C:/Program Files/R/R-4.6.0/library
+            grDevices     4.6.0 C:/Program Files/R/R-4.6.0/library
+                 grid     4.6.0 C:/Program Files/R/R-4.6.0/library
+            gridExtra       2.3               D:/RStudio/Rpackages
+         gridGraphics     0.5-1               D:/RStudio/Rpackages
+             GSEABase    1.74.0               D:/RStudio/Rpackages
+                 gson     0.1.0               D:/RStudio/Rpackages
+                 GSVA     2.6.2               D:/RStudio/Rpackages
+               gtable     0.3.6               D:/RStudio/Rpackages
+              h5mread     1.4.0               D:/RStudio/Rpackages
+            HDF5Array    1.40.0               D:/RStudio/Rpackages
+            htmltools     0.5.9               D:/RStudio/Rpackages
+          htmlwidgets     1.6.4               D:/RStudio/Rpackages
+               httpuv    1.6.17               D:/RStudio/Rpackages
+                 httr     1.4.8               D:/RStudio/Rpackages
+                httr2     1.2.2               D:/RStudio/Rpackages
+                  ica     1.0-3               D:/RStudio/Rpackages
+               igraph     2.3.2               D:/RStudio/Rpackages
+              IRanges    2.44.0               D:/RStudio/Rpackages
+                irlba     2.3.7               D:/RStudio/Rpackages
+             jsonlite     2.0.0               D:/RStudio/Rpackages
+             KEGGREST    1.51.1               D:/RStudio/Rpackages
+           KernSmooth   2.23-26 C:/Program Files/R/R-4.6.0/library
+             labeling     0.4.3               D:/RStudio/Rpackages
+                later     1.4.8               D:/RStudio/Rpackages
+              lattice    0.22-9 C:/Program Files/R/R-4.6.0/library
+             lazyeval     0.2.3               D:/RStudio/Rpackages
+            lifecycle     1.0.5               D:/RStudio/Rpackages
+                limma    3.66.0               D:/RStudio/Rpackages
+              listenv    0.10.1               D:/RStudio/Rpackages
+               lmtest    0.9-40               D:/RStudio/Rpackages
+               locfit  1.5-9.12               D:/RStudio/Rpackages
+               magick     2.9.1               D:/RStudio/Rpackages
+             magrittr     2.0.5               D:/RStudio/Rpackages
+                 MASS    7.3-65 C:/Program Files/R/R-4.6.0/library
+               Matrix     1.7-5 C:/Program Files/R/R-4.6.0/library
+       MatrixGenerics    1.22.0               D:/RStudio/Rpackages
+          matrixStats     1.5.0               D:/RStudio/Rpackages
+              memoise     2.0.1               D:/RStudio/Rpackages
+               memuse     4.2-3               D:/RStudio/Rpackages
+              methods     4.6.0 C:/Program Files/R/R-4.6.0/library
+                 mime      0.13               D:/RStudio/Rpackages
+               miniUI     0.1.2               D:/RStudio/Rpackages
+                 nlme   3.1-169 C:/Program Files/R/R-4.6.0/library
+         org.Hs.eg.db    3.23.1               D:/RStudio/Rpackages
+                 otel     0.2.0               D:/RStudio/Rpackages
+             parallel     4.6.0 C:/Program Files/R/R-4.6.0/library
+           parallelly    1.47.0               D:/RStudio/Rpackages
+            patchwork     1.3.2               D:/RStudio/Rpackages
+              pbapply     1.7-4               D:/RStudio/Rpackages
+               pillar    1.11.1               D:/RStudio/Rpackages
+            pkgconfig     2.0.3               D:/RStudio/Rpackages
+               plotly    4.12.0               D:/RStudio/Rpackages
+                 plyr     1.8.9               D:/RStudio/Rpackages
+                  png     0.1-9               D:/RStudio/Rpackages
+             polyclip    1.10-7               D:/RStudio/Rpackages
+             processx     3.9.0               D:/RStudio/Rpackages
+            progressr    0.19.0               D:/RStudio/Rpackages
+             promises     1.5.0               D:/RStudio/Rpackages
+                purrr     1.2.2               D:/RStudio/Rpackages
+               qvalue    2.44.0               D:/RStudio/Rpackages
+          R.methodsS3     1.8.2               D:/RStudio/Rpackages
+                 R.oo    1.27.1               D:/RStudio/Rpackages
+              R.utils    2.13.0               D:/RStudio/Rpackages
+                   R6     2.6.1               D:/RStudio/Rpackages
+                 ragg     1.5.2               D:/RStudio/Rpackages
+                 RANN     2.6.2               D:/RStudio/Rpackages
+             rappdirs     0.3.4               D:/RStudio/Rpackages
+         RColorBrewer     1.1-3               D:/RStudio/Rpackages
+                 Rcpp 1.1.1-1.1               D:/RStudio/Rpackages
+            RcppAnnoy    0.0.23               D:/RStudio/Rpackages
+             RcppHNSW     0.7.0               D:/RStudio/Rpackages
+             reshape2     1.4.5               D:/RStudio/Rpackages
+           reticulate    1.46.0               D:/RStudio/Rpackages
+                rhdf5    2.56.0               D:/RStudio/Rpackages
+         rhdf5filters    1.24.0               D:/RStudio/Rpackages
+             Rhdf5lib     2.0.0               D:/RStudio/Rpackages
+                rjson    0.2.23               D:/RStudio/Rpackages
+                rlang     1.2.0               D:/RStudio/Rpackages
+                 ROCR    1.0-12               D:/RStudio/Rpackages
+             RSpectra    0.16-2               D:/RStudio/Rpackages
+              RSQLite    3.53.1               D:/RStudio/Rpackages
+           rstudioapi    0.19.0               D:/RStudio/Rpackages
+                 rsvd     1.0.5               D:/RStudio/Rpackages
+                Rtsne      0.17               D:/RStudio/Rpackages
+             S4Arrays    1.10.1               D:/RStudio/Rpackages
+            S4Vectors    0.48.1               D:/RStudio/Rpackages
+                   S7     0.2.2               D:/RStudio/Rpackages
+         ScaledMatrix    1.20.0               D:/RStudio/Rpackages
+               scales     1.4.0               D:/RStudio/Rpackages
+          scattermore       1.2               D:/RStudio/Rpackages
+           scatterpie     0.2.6               D:/RStudio/Rpackages
+          sctransform     0.4.3               D:/RStudio/Rpackages
+              Seqinfo     1.0.0               D:/RStudio/Rpackages
+               Seurat     5.5.0               D:/RStudio/Rpackages
+         SeuratObject     5.4.0               D:/RStudio/Rpackages
+                shiny    1.13.0               D:/RStudio/Rpackages
+ SingleCellExperiment    1.34.0               D:/RStudio/Rpackages
+                   sp     2.2-1               D:/RStudio/Rpackages
+                 spam    2.11-4               D:/RStudio/Rpackages
+          SparseArray   1.10.10               D:/RStudio/Rpackages
+    sparseMatrixStats    1.24.0               D:/RStudio/Rpackages
+    SpatialExperiment    1.22.0               D:/RStudio/Rpackages
+        spatstat.data     3.1-9               D:/RStudio/Rpackages
+     spatstat.explore     3.8-1               D:/RStudio/Rpackages
+        spatstat.geom     3.8-1               D:/RStudio/Rpackages
+      spatstat.random     3.5-0               D:/RStudio/Rpackages
+      spatstat.sparse     3.2-0               D:/RStudio/Rpackages
+      spatstat.univar     3.2-0               D:/RStudio/Rpackages
+       spatstat.utils     3.2-3               D:/RStudio/Rpackages
+              splines     4.6.0 C:/Program Files/R/R-4.6.0/library
+              statmod     1.5.2               D:/RStudio/Rpackages
+                stats     4.6.0 C:/Program Files/R/R-4.6.0/library
+               stats4     4.6.0 C:/Program Files/R/R-4.6.0/library
+              stringi     1.8.7               D:/RStudio/Rpackages
+              stringr     1.6.0               D:/RStudio/Rpackages
+ SummarizedExperiment    1.42.0               D:/RStudio/Rpackages
+             survival     3.8-6 C:/Program Files/R/R-4.6.0/library
+          systemfonts     1.3.2               D:/RStudio/Rpackages
+               tensor     1.5.1               D:/RStudio/Rpackages
+          textshaping     1.0.5               D:/RStudio/Rpackages
+               tibble     3.3.1               D:/RStudio/Rpackages
+               tidydr     0.0.6               D:/RStudio/Rpackages
+                tidyr     1.3.2               D:/RStudio/Rpackages
+           tidyselect     1.2.1               D:/RStudio/Rpackages
+             tidytree     0.4.7               D:/RStudio/Rpackages
+                tools     4.6.0 C:/Program Files/R/R-4.6.0/library
+               treeio    1.36.1               D:/RStudio/Rpackages
+    Priority Bioconductor
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        base        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+ recommended        FALSE
+        <NA>         TRUE
+ recommended        FALSE
+        base        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        base        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>         TRUE
+        base        FALSE
+        base        FALSE
+        base        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+ recommended        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+ recommended        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+ recommended        FALSE
+ recommended        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        base        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+ recommended        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        base        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>         TRUE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        base        FALSE
+        <NA>        FALSE
+        base        FALSE
+        base        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>         TRUE
+ recommended        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        <NA>        FALSE
+        base        FALSE
+        <NA>         TRUE
+ [ reached 'max' / getOption("max.print") -- omitted 13 rows ]
+
+Selected workspace objects:
+                                 Object
+                           .Random.seed
+                           analysis_dir
+                       assign_mechanism
+                             backup_dir
+                          bc_input_path
+                     canonical_core_dir
+                    canonical_input_dir
+                   combine_figure5_abcd
+           combine_figure5_abcd_compact
+ combine_figure5_abcd_compact_biglabels
+          create_m05_environment_backup
+                          current_go_id
+                        current_pathway
+                             entrez_ids
+                    existing_gsea_paths
+                                   expr
+                             figure_dir
+                   figure5_analysis_dir
+                     figure5_bcd_result
+             figure5_combination_result
+                       figure5a_display
+                        figure5A_result
+                    get_stored_gene_set
+                               group_df
+                         gsea_gene_sets
+                            gsea_object
+                              gsea_path
+                   gsea_path_candidates
+                            gsea_result
+                              hub_genes
+                      is_figure5_script
+                    keep_mechanism_rows
+                               m05_root
+                         mapped_symbols
+                       mechanism_colors
+                       mechanism_groups
+                         mechanism_name
+                        mechanism_order
+                         mechanism_rows
+                    missing_bc_elements
+                   missing_gsea_columns
+                     missing_gsea_slots
+                       missing_packages
+                                    p_A
+                         pathway_entrez
+                          pathway_index
+                pathway_mapping_records
+                  pathway_mapping_table
+                           pathway_name
+                          pathway_order
+                    pathway_short_order
+                     pathway_size_table
+                    pathway_symbols_raw
+                               pathways
+                           project_root
+                               rank_vec
+                        rank_was_sorted
+                    rebuild_figure5_bcd
+                   required_bc_elements
+                  required_gsea_columns
+                    required_gsea_slots
+                      required_packages
+                       robust_hub_genes
+                 run_figure5_abcd_final
+                   run_figure5A_revised
+                             run_ssgsea
+                           source_lines
+                            source_text
+                       strict_hub_genes
+                          symbol_values
+                        target_pathways
+                          valid_symbols
+                                                   Class Size_MB Saved
+                                                 integer   0.002  TRUE
+                                               character   0.000  TRUE
+                                                function   0.128  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                                function   0.729  TRUE
+                                                function   0.774  TRUE
+                                                function   0.755  TRUE
+                                                function   2.384  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.008  TRUE
+                                               character   0.000  TRUE
+                                          matrix | array   5.296  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                                    list 164.865  TRUE
+                                                    list   0.001  TRUE
+                                              data.frame   0.020  TRUE
+                                                    list  32.763  TRUE
+                                                function   0.082  TRUE
+                                              data.frame   0.008  TRUE
+                                                    list  73.082  TRUE
+                                              gseaResult  77.629  TRUE
+                                               character   0.000  TRUE
+                                               character   0.001  TRUE
+                                              data.frame   2.787  TRUE
+                                               character   0.001  TRUE
+                                                 logical   0.000  TRUE
+                                                 logical   0.003  TRUE
+                                               character   0.000  TRUE
+                                               character   0.016  TRUE
+                                               character   0.001  TRUE
+                                               character   0.001  TRUE
+                                               character   0.000  TRUE
+                                                 integer   0.000  TRUE
+                                                 integer   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+ ggplot2::ggplot | ggplot | ggplot2::gg | S7_object | gg  16.309  TRUE
+                                                    list   0.030  TRUE
+                                                 integer   0.000  TRUE
+                                                    list   0.069  TRUE
+                                              data.frame   0.044  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                              data.frame   0.002  TRUE
+                                                    list   0.030  TRUE
+                                                    list   0.028  TRUE
+                                               character   0.000  TRUE
+                                                 numeric   1.801  TRUE
+                                                 logical   0.000  TRUE
+                                                function   3.104  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.001  TRUE
+                                               character   0.001  TRUE
+                                                function   6.487  TRUE
+                                                function   1.555  TRUE
+                                                function   0.019  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.000  TRUE
+                                               character   0.008  TRUE
+                                              data.frame   0.002  TRUE
+                                                 logical   0.001  TRUE
+   Reason
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+ Selected
+
+Excluded workspace objects:
+              Object            Class Size_MB Saved
+ annotation_database            OrgDb   0.001 FALSE
+            bc_input             list   5.322 FALSE
+      figure5_result             list 207.799 FALSE
+        mechanism_df       data.frame   0.368 FALSE
+      source_context document_context   0.004 FALSE
+  valid_rank_entries          logical   1.703 FALSE
+                                                      Reason
+ Not a function, configuration, path, or key Figure 5 object
+ Not a function, configuration, path, or key Figure 5 object
+                             Key object exceeds 200 MB limit
+ Not a function, configuration, path, or key Figure 5 object
+ Not a function, configuration, path, or key Figure 5 object
+ Not a function, configuration, path, or key Figure 5 object
